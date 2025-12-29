@@ -181,26 +181,46 @@
         }
 
         /* Certification Specifics */
-        .cert-item {
+        .cert-list {
             display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .cert-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .cert-item {
+            border-left: 3px solid var(--accent);
+            padding-left: 15px;
+            margin-bottom: 10px;
         }
 
-        .cert-icon {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-right: 15px;
-            width: 30px;
-            text-align: center;
+        .cert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .cert-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .cert-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: block;
+        }
+
+        .cred-id {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #64748b;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 4px;
         }
 
         /* Buttons */
@@ -240,6 +260,10 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 5px;
+            }
+
+            .cert-header {
+                flex-direction: column;
             }
 
             .btn-outline {
@@ -410,26 +434,59 @@
         </section>
 
         <section id="certifications">
-            <h2><i class="fas fa-certificate"></i> Certifications & Learning</h2>
-            <div class="card">
-                <div class="cert-item">
-                    <div class="cert-icon"><i class="fab fa-microsoft"></i></div>
-                    <div>
-                        <h3>Microsoft Learn Certifications</h3>
-                        <p style="color: var(--text-secondary);">
-                            [Add your top Microsoft Cert here, e.g., Azure AI Engineer Associate]
-                        </p>
+            <h2><i class="fas fa-certificate"></i> Certifications</h2>
+            <div class="grid-layout">
+
+                <div class="card">
+                    <h3>Architecture & Leadership</h3>
+                    <div class="cert-list">
+                        <div class="cert-item">
+                            <div class="cert-title">The Complete Guide to Becoming a Software Architect</div>
+                            <span class="cert-meta">Udemy | Apr 2023</span>
+                            <span class="cred-id">ID: UC-0c793e16-02cc-4ab3-abaa-ca50c2c7634e</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-title">Event Driven Architecture</div>
+                            <span class="cert-meta">Udemy | Apr 2023</span>
+                            <span class="cred-id">ID: UC-e83175ff-f2f2-46f4-9660-9238a23ac5da</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-title">Microservices Architecture</div>
+                            <span class="cert-meta">Udemy | Mar 2022</span>
+                            <span class="cred-id">ID: UC-ac7f1070-2ea1-41ed-b6d0-ac6e7a8426b4</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-title">Management Basics</div>
+                            <span class="cert-meta">NUMA | Oct 2022</span>
+                        </div>
                     </div>
                 </div>
-                <div class="cert-item">
-                    <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div>
-                        <h3>Specialized Training (Udemy/Other)</h3>
-                        <p style="color: var(--text-secondary);">
-                            [Add a specialized course here, e.g., "Advanced LLM Application Development"]
-                        </p>
+
+                <div class="card">
+                    <h3>Security & Engineering</h3>
+                    <div class="cert-list">
+                        <div class="cert-item">
+                            <div class="cert-title">Graduado en ciberseguridad avanzada</div>
+                            <span class="cert-meta">Riot | Feb 2026</span>
+                            <span class="cred-id">ID: 06c7c088-7af2-4c63-89d2-ce3e30afdd72</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-title">Testing Javascript</div>
+                            <span class="cert-meta">Kent C. Dodds Tech LLC | Jul 2021</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-title">Redux-saga with React</div>
+                            <span class="cert-meta">Udemy | Jul 2021</span>
+                            <span class="cred-id">ID: UC-29ea2efb-a6f8-49ab-b3d8-462b5fbb804b</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-title">Advanced JavaScript</div>
+                            <span class="cert-meta">ui.dev | Oct 2018</span>
+                            <span class="cred-id">ID: cert_pt01p6v1</span>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
