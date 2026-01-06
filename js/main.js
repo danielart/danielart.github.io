@@ -88,18 +88,23 @@ function initNavbar() {
 
     if (!navbar) return;
 
-    let lastScroll = 0;
+    let ticking = false;
 
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                // Optimization: Use requestAnimationFrame to throttle scroll events
+                // and avoid layout thrashing
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                ticking = false;
+            });
 
-        if (currentScroll > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+            ticking = true;
         }
-
-        lastScroll = currentScroll;
     });
 }
 
