@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initSmoothScroll();
     initTypingEffect();
+    initBackToTop();
 });
 
 /* --------------------------------------------------------------------------
@@ -125,6 +126,38 @@ function initMobileMenu() {
             navLinks.classList.remove('active');
             document.body.style.overflow = '';
         });
+    });
+}
+
+/* --------------------------------------------------------------------------
+   Back to Top
+   -------------------------------------------------------------------------- */
+function initBackToTop() {
+    const backToTopBtn = document.querySelector('.back-to-top');
+
+    if (!backToTopBtn) return;
+
+    // Show/hide button on scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top on click
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+
+        // Return focus to top/logo for accessibility
+        const logo = document.querySelector('.nav-logo');
+        if (logo) {
+            logo.focus({ preventScroll: true }); // preventScroll because we're already scrolling
+        }
     });
 }
 
