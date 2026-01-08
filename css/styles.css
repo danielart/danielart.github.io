@@ -98,6 +98,29 @@ body {
 }
 
 /* --------------------------------------------------------------------------
+   Skip Link
+   -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 0;
+  background: var(--accent-primary);
+  color: white;
+  padding: var(--space-md);
+  z-index: 2000;
+  border-radius: 0 0 var(--radius-md) 0;
+  font-weight: 500;
+  transition: top 0.3s;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid white;
+  outline-offset: -2px;
+}
+
+/* --------------------------------------------------------------------------
    Animated Background
    -------------------------------------------------------------------------- */
 .bg-orbs {
