@@ -1,0 +1,3 @@
+## 2024-05-23 - Accessibility: The "Skip to Main" Pattern
+**Learning:** Even in simple static sites, keyboard navigation is often overlooked. The "Skip to main content" link is a zero-dependency, high-impact accessibility win that should be standard in every project template.
+**Action:** Always check for `main` id and skip link in the initial audit of any new project. Ensure z-index is high enough to be seen over fixed headers.
