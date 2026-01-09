@@ -88,18 +88,23 @@ function initNavbar() {
 
     if (!navbar) return;
 
-    let lastScroll = 0;
+    let ticking = false;
 
+    // Optimization: Use requestAnimationFrame to throttle scroll events
+    // reducing main thread load during scrolling
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                ticking = false;
+            });
 
-        if (currentScroll > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+            ticking = true;
         }
-
-        lastScroll = currentScroll;
     });
 }
 
