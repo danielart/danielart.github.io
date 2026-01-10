@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initSmoothScroll();
     initTypingEffect();
+    // initCardTilt is optional and unused in the current DOM structure
 });
 
 /* --------------------------------------------------------------------------
@@ -88,18 +89,24 @@ function initNavbar() {
 
     if (!navbar) return;
 
-    let lastScroll = 0;
+    let ticking = false;
 
+    // Optimized scroll listener using requestAnimationFrame to reduce main thread blocking
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const currentScroll = window.scrollY;
 
-        if (currentScroll > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+                if (currentScroll > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                ticking = false;
+            });
+
+            ticking = true;
         }
-
-        lastScroll = currentScroll;
     });
 }
 
@@ -183,21 +190,35 @@ function initCardTilt() {
     const cards = document.querySelectorAll('.glass-card');
 
     cards.forEach(card => {
+        let ticking = false;
+        let animationFrameId;
+
         card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            if (!ticking) {
+                animationFrameId = window.requestAnimationFrame(() => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
 
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
 
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                    ticking = false;
+                });
+
+                ticking = true;
+            }
         });
 
         card.addEventListener('mouseleave', () => {
+            if (ticking) {
+                window.cancelAnimationFrame(animationFrameId);
+                ticking = false;
+            }
             card.style.transform = '';
         });
     });
