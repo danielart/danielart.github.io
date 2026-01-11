@@ -145,11 +145,19 @@ function initBackToTop() {
     if (!backToTopBtn) return;
 
     // Show/hide button on scroll
+    let ticking = false;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-            backToTopBtn.classList.add('visible');
-        } else {
-            backToTopBtn.classList.remove('visible');
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     });
 
