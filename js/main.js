@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initTypingEffect();
     initBackToTop();
+    initBlogFilters();
     // initCardTilt is optional and unused in the current DOM structure
 });
 
@@ -253,6 +254,53 @@ function initCardTilt() {
                 ticking = false;
             }
             card.style.transform = '';
+        });
+    });
+}
+
+/* --------------------------------------------------------------------------
+   Blog Filters
+   -------------------------------------------------------------------------- */
+function initBlogFilters() {
+    const filterBtns = document.querySelectorAll('.blog-filter-btn');
+    const posts = document.querySelectorAll('.blog-post-card');
+
+    if (!filterBtns.length || !posts.length) return;
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add to clicked
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            posts.forEach(post => {
+                const tags = (post.getAttribute('data-tags') || '').split(',');
+
+                let shouldShow = false;
+                if (filterValue === 'all') {
+                    shouldShow = true;
+                } else {
+                    shouldShow = tags.includes(filterValue);
+                }
+
+                if (shouldShow) {
+                    post.style.display = ''; // grid items are usually block/flex, glass-card is flex column
+                    // Use setTimeout to allow display to apply before opacity transition
+                    setTimeout(() => {
+                        post.style.opacity = '1';
+                        post.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    post.style.opacity = '0';
+                    post.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        post.style.display = 'none';
+                    }, 300);
+                }
+            });
         });
     });
 }

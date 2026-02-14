@@ -923,3 +923,29 @@ footer p {
   outline: 2px solid white;
   outline-offset: -2px;
 }
+
+/* --------------------------------------------------------------------------
+   Blog Filters
+   -------------------------------------------------------------------------- */
+.blog-filters {
+    margin-bottom: var(--space-xl);
+}
+
+.blog-filter-btn {
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-size: 0.95rem;
+    transition: all var(--transition-base);
+    min-width: 80px;
+}
+
+.blog-filter-btn.active {
+    background: var(--accent-gradient);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.blog-post-card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
