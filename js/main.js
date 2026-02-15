@@ -349,10 +349,7 @@ function updateLanguageUI(lang) {
             filterAll: 'All',
             filterAI: 'AI & Agents',
             filterWeb: 'Web Dev',
-            filterLeadership: 'Leadership',
-            contactHeading: "Let's Build Something Together",
-            contactDesc: "Interested in Brisa, AI agents, or modern web architecture?",
-            footerText: "© 2024 Daniel Artola Dominguez. Built with passion & modern web technologies."
+            filterLeadership: 'Leadership'
         },
         es: {
             blogTitle: 'Blog de Ingeniería',
@@ -360,10 +357,7 @@ function updateLanguageUI(lang) {
             filterAll: 'Todos',
             filterAI: 'IA y Agentes',
             filterWeb: 'Desarrollo Web',
-            filterLeadership: 'Liderazgo',
-            contactHeading: "Construyamos algo juntos",
-            contactDesc: "¿Interesado en Brisa, agentes de IA o arquitectura web moderna?",
-            footerText: "© 2024 Daniel Artola Dominguez. Construido con pasión y tecnologías web modernas."
+            filterLeadership: 'Liderazgo'
         }
     };
 
