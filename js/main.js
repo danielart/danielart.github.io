@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTypingEffect();
     initBackToTop();
     initBlogFilters();
+    initCarousels(); // Added initCarousels call
     initLanguageSwitcher();
     // initCardTilt is optional and unused in the current DOM structure
 });
@@ -391,4 +392,41 @@ function updateLanguageUI(lang) {
 
     const footerText = document.getElementById('footer-text');
     if (footerText) footerText.textContent = strings.footerText;
+}
+
+// Carousel Navigation
+function initCarousels() {
+    const carousels = document.querySelectorAll('.blog-carousel');
+    
+    carousels.forEach(carousel => {
+        const container = carousel.querySelector('.carousel-container');
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        
+        if (!container || !slides.length) return;
+        
+        const controls = document.createElement('div');
+        controls.className = 'carousel-controls';
+        
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => {
+                container.scrollTo({
+                    left: container.offsetWidth * index,
+                    behavior: 'smooth'
+                });
+            });
+            controls.appendChild(dot);
+        });
+        
+        carousel.appendChild(controls);
+        
+        container.addEventListener('scroll', () => {
+            const index = Math.round(container.scrollLeft / container.offsetWidth);
+            const dots = controls.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        });
+    });
 }
