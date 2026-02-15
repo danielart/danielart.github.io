@@ -264,9 +264,7 @@ function initCardTilt() {
    -------------------------------------------------------------------------- */
 function initBlogFilters() {
     const filterBtns = document.querySelectorAll('.blog-filter-btn');
-    const posts = document.querySelectorAll('.blog-post-card');
-
-    if (!filterBtns.length || !posts.length) return;
+    if (!filterBtns.length) return;
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -275,33 +273,9 @@ function initBlogFilters() {
             // Add to clicked
             btn.classList.add('active');
 
-            const filterValue = btn.getAttribute('data-filter');
-
-            posts.forEach(post => {
-                const tags = (post.getAttribute('data-tags') || '').split(',').map(t => t.trim());
-
-                let shouldShow = false;
-                if (filterValue === 'all') {
-                    shouldShow = true;
-                } else {
-                    shouldShow = tags.includes(filterValue);
-                }
-
-                if (shouldShow) {
-                    post.style.display = ''; // grid items are usually block/flex, glass-card is flex column
-                    // Use setTimeout to allow display to apply before opacity transition
-                    setTimeout(() => {
-                        post.style.opacity = '1';
-                        post.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    post.style.opacity = '0';
-                    post.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        post.style.display = 'none';
-                    }, 300);
-                }
-            });
+            // Trigger UI update to re-filter based on current language and new filter
+            const currentLang = localStorage.getItem('lang') || 'en';
+            updateLanguageUI(currentLang);
         });
     });
 }
@@ -335,24 +309,34 @@ function updateLanguageUI(lang) {
     });
 
     // 2. Filter blog posts
-    document.querySelectorAll('.blog-post-card[data-lang]').forEach(post => {
+    document.querySelectorAll('.blog-post-card').forEach(post => {
         const postLang = post.getAttribute('data-lang');
         const filterBtn = document.querySelector('.blog-filter-btn.active');
         const currentFilter = filterBtn ? filterBtn.getAttribute('data-filter') : 'all';
-        const postTags = (post.getAttribute('data-tags') || '').split(',');
+        const postTags = (post.getAttribute('data-tags') || '').split(',').map(t => t.trim());
 
-        const matchesLang = postLang === lang;
+        const matchesLang = postLang === lang || !postLang; // show posts with matching lang or no lang
         const matchesFilter = currentFilter === 'all' || postTags.includes(currentFilter);
 
         if (matchesLang && matchesFilter) {
-            post.style.display = '';
-            setTimeout(() => {
+            post.style.display = ''; // Restore to default (flex column from CSS)
+            // Use requestAnimationFrame for smoother state transition
+            requestAnimationFrame(() => {
                 post.style.opacity = '1';
                 post.style.transform = 'translateY(0)';
-            }, 50);
+            });
         } else {
-            post.style.display = 'none';
             post.style.opacity = '0';
+            post.style.transform = 'translateY(20px)';
+            // Hide after transition
+            setTimeout(() => {
+                // Check if it should still be hidden (user might have clicked fast)
+                const stillMatches = (post.getAttribute('data-lang') === localStorage.getItem('lang')) && 
+                                    (currentFilter === 'all' || postTags.includes(currentFilter));
+                if (!stillMatches) {
+                    post.style.display = 'none';
+                }
+            }, 300);
         }
     });
 
