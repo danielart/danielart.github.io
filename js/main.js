@@ -383,15 +383,6 @@ function updateLanguageUI(lang) {
         filters[2].textContent = strings.filterWeb;
         filters[3].textContent = strings.filterLeadership;
     }
-
-    const contactHeading = document.getElementById('contact-heading');
-    if (contactHeading) contactHeading.textContent = strings.contactHeading;
-
-    const contactDesc = document.getElementById('contact-desc');
-    if (contactDesc) contactDesc.textContent = strings.contactDesc;
-
-    const footerText = document.getElementById('footer-text');
-    if (footerText) footerText.textContent = strings.footerText;
 }
 
 // Carousel Navigation
