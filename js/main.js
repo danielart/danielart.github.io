@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTypingEffect();
     initBackToTop();
     initBlogFilters();
+    initLanguageSwitcher();
     // initCardTilt is optional and unused in the current DOM structure
 });
 
@@ -303,4 +304,107 @@ function initBlogFilters() {
             });
         });
     });
+}
+
+/* --------------------------------------------------------------------------
+   Language Switcher
+   -------------------------------------------------------------------------- */
+function initLanguageSwitcher() {
+    const switcher = document.querySelector('.language-switcher');
+    if (!switcher) return;
+
+    const langBtns = switcher.querySelectorAll('.lang-btn');
+    
+    // Initial language setup
+    const savedLang = localStorage.getItem('lang') || 'en';
+    updateLanguageUI(savedLang);
+
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            localStorage.setItem('lang', lang);
+            updateLanguageUI(lang);
+        });
+    });
+}
+
+function updateLanguageUI(lang) {
+    // 1. Update Switcher active state
+    document.querySelectorAll('.language-switcher .lang-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+
+    // 2. Filter blog posts
+    document.querySelectorAll('.blog-post-card[data-lang]').forEach(post => {
+        const postLang = post.getAttribute('data-lang');
+        const filterBtn = document.querySelector('.blog-filter-btn.active');
+        const currentFilter = filterBtn ? filterBtn.getAttribute('data-filter') : 'all';
+        const postTags = (post.getAttribute('data-tags') || '').split(',');
+
+        const matchesLang = postLang === lang;
+        const matchesFilter = currentFilter === 'all' || postTags.includes(currentFilter);
+
+        if (matchesLang && matchesFilter) {
+            post.style.display = '';
+            setTimeout(() => {
+                post.style.opacity = '1';
+                post.style.transform = 'translateY(0)';
+            }, 50);
+        } else {
+            post.style.display = 'none';
+            post.style.opacity = '0';
+        }
+    });
+
+    // 3. Update UI Strings
+    const texts = {
+        en: {
+            blogTitle: 'Engineering Blog',
+            blogDesc: 'Thoughts on AI, Web Development, and Engineering Leadership.',
+            filterAll: 'All',
+            filterAI: 'AI & Agents',
+            filterWeb: 'Web Dev',
+            filterLeadership: 'Leadership',
+            contactHeading: "Let's Build Something Together",
+            contactDesc: "Interested in Brisa, AI agents, or modern web architecture?",
+            footerText: "© 2024 Daniel Artola Dominguez. Built with passion & modern web technologies."
+        },
+        es: {
+            blogTitle: 'Blog de Ingeniería',
+            blogDesc: 'Reflexiones sobre IA, Desarrollo Web y Liderazgo de Ingeniería.',
+            filterAll: 'Todos',
+            filterAI: 'IA y Agentes',
+            filterWeb: 'Desarrollo Web',
+            filterLeadership: 'Liderazgo',
+            contactHeading: "Construyamos algo juntos",
+            contactDesc: "¿Interesado en Brisa, agentes de IA o arquitectura web moderna?",
+            footerText: "© 2024 Daniel Artola Dominguez. Construido con pasión y tecnologías web modernas."
+        }
+    };
+
+    const strings = texts[lang];
+    if (!strings) return;
+
+    const title = document.querySelector('.blog-header h1');
+    if (title) title.innerHTML = `<i class="fab fa-dev" style="color: var(--accent-primary);"></i> ${strings.blogTitle}`;
+    
+    const desc = document.querySelector('.blog-header p');
+    if (desc) desc.textContent = strings.blogDesc;
+
+    const filters = document.querySelectorAll('.blog-filter-btn');
+    if (filters.length >= 4) {
+        filters[0].textContent = strings.filterAll;
+        filters[1].textContent = strings.filterAI;
+        filters[2].textContent = strings.filterWeb;
+        filters[3].textContent = strings.filterLeadership;
+    }
+
+    const contactHeading = document.getElementById('contact-heading');
+    if (contactHeading) contactHeading.textContent = strings.contactHeading;
+
+    const contactDesc = document.getElementById('contact-desc');
+    if (contactDesc) contactDesc.textContent = strings.contactDesc;
+
+    const footerText = document.getElementById('footer-text');
+    if (footerText) footerText.textContent = strings.footerText;
 }
