@@ -11,7 +11,7 @@
        d. Convert the Markdown content to HTML (paragraphs, headings, lists, code blocks).
        e. Paste the HTML content into the {{CONTENT}} placeholder.
        f. Add the tags as <span class="tag">#tagname</span> inside the .tags div.
-       g. Add the new post to blog.html. Ensure the parent div.glass-card has a data-tags attribute matching the post tags (e.g., data-tags="tech ai tutorial").
+       g. Add the new post to blog.html. Ensure the parent div.glass-card has a data-tags attribute matching the post tags (e.g., data-tags="tech,ai,tutorial").
 -->
 
 ---

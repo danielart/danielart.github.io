@@ -277,7 +277,7 @@ function initBlogFilters() {
             const filterValue = btn.getAttribute('data-filter');
 
             posts.forEach(post => {
-                const tags = (post.getAttribute('data-tags') || '').split(',');
+                const tags = (post.getAttribute('data-tags') || '').split(',').map(t => t.trim());
 
                 let shouldShow = false;
                 if (filterValue === 'all') {
