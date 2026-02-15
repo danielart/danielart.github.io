@@ -52,7 +52,7 @@
                 <li><a href="#opensource">Open Source</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
@@ -155,16 +155,17 @@
                 <div class="glass-card featured reveal reveal-delay-3">
                     <h3>AI & Agents</h3>
                     <div class="tags">
-                        <span class="tag">Mastra (Framework)</span>
-                        <span class="tag">Google Antigravity</span>
-                        <span class="tag">Google Gemini</span>
-                        <span class="tag">Cursor</span>
+                        <span class="tag">Google Gemini, Gems, Jules, Stitch</span>
+                        <span class="tag">Claude</span>
+                        <span class="tag">Codex</span>
+                        <span class="tag">Google Antigravity, Cursor, VSCode</span>
                     </div>
                 </div>
 
                 <div class="glass-card reveal reveal-delay-4">
                     <h3>Automation</h3>
                     <div class="tags">
+                        <span class="tag">Mastra (Framework)</span>
                         <span class="tag">n8n</span>
                         <span class="tag">Multi-Agent Workflows</span>
                     </div>
@@ -281,6 +282,11 @@
                     <h3>Security & Engineering</h3>
                     <div class="cert-list">
                         <div class="cert-item">
+                            <div class="cert-title">Anthropic Claude Code in Action</div>
+                            <span class="cert-meta">Anthropic | Feb 2026</span>
+                            <a href="https://verify.skilljar.com/c/nnwo6ga3qttn" target="_blank" rel="noopener" class="cert-link">Verify Credential <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <div class="cert-item">
                             <div class="cert-title">Graduado en ciberseguridad avanzada</div>
                             <span class="cert-meta">Riot | Feb 2026</span>
                             <span class="cred-id">ID: 06c7c088-7af2-4c63-89d2-ce3e30afdd72</span>
@@ -306,34 +312,100 @@
 
         <!-- Blog Section -->
         <section id="blog" class="reveal">
-            <h2><i class="fab fa-dev"></i> Latest Writings</h2>
-            <div class="grid grid-2">
-                <a href="https://dev.to/manomano-tech-team/5-atlassian-mcp-hacks-to-supercharge-your-workflow-3hfj"
-                    target="_blank" rel="noopener" class="glass-card reveal reveal-delay-1">
-                    <h3>5 Atlassian MCP Hacks to supercharge your workflow</h3>
+            <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); margin-bottom: var(--space-xl);">
+                <h2 id="blog-heading" style="margin-bottom: 0;"><i class="fab fa-dev"></i> Latest Writings</h2>
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-btn" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+            <div class="grid grid-2" id="featured-posts">
+                <!-- ES Posts -->
+                <a href="blog/es/youtube-ai-agent.html" class="glass-card blog-post-card reveal reveal-delay-1" data-tags="ai,marketing" data-lang="es">
+                    <h3>De operario agobiado a director de orquesta: Cómo un agente de IA multiplicó mis vistas por 10</h3>
                     <div class="meta">
-                        <span><i class="far fa-calendar-alt"></i> Oct 16, 2024</span>
-                        <span><i class="far fa-clock"></i> 10 min read</span>
+                        <span><i class="far fa-calendar-alt"></i> Feb 15, 2026</span>
+                        <span><i class="far fa-clock"></i> 3 min read</span>
                     </div>
                     <p>
-                        Discover how to use Model Context Protocol (MCP) to integrate Atlassian tools with AI agents.
+                        Experiencia real automatizando contenido en redes para mi banda usando agentes de IA y Gemini.
                     </p>
                     <div class="tags">
-                        <span class="tag">#mcp</span>
-                        <span class="tag">#productivity</span>
                         <span class="tag">#ai</span>
+                        <span class="tag">#marketing</span>
                     </div>
+                </a>
+
+                <a href="blog/es/ai-workflow.html" class="glass-card blog-post-card reveal reveal-delay-2" data-tags="ai,productivity,jules,antigravity,stitch,mcp" data-lang="es">
+                    <h3>Orquestando el futuro: De meses a días con IA</h3>
+                    <div class="meta">
+                        <span><i class="far fa-calendar-alt"></i> Feb 15, 2026</span>
+                        <span><i class="far fa-clock"></i> 4 min read</span>
+                    </div>
+                    <p>
+                        Cómo orquestar un ecosistema de herramientas con IA para acelerar el desarrollo de aplicaciones de meses a días.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">#ai</span>
+                        <span class="tag">#productivity</span>
+                        <span class="tag">#jules</span>
+                        <span class="tag">#antigravity</span>
+                        <span class="tag">#stitch</span>
+                        <span class="tag">#mcp</span>
+                    </div>
+                </a>
+
+                <!-- EN Posts -->
+                <a href="blog/en/youtube-ai-agent.html" class="glass-card blog-post-card reveal reveal-delay-1" data-tags="ai,marketing" data-lang="en">
+                    <h3>From overwhelmed worker to orchestra conductor: How an AI agent multiplied my views by 10</h3>
+                    <div class="meta">
+                        <span><i class="far fa-calendar-alt"></i> Feb 15, 2026</span>
+                        <span><i class="far fa-clock"></i> 3 min read</span>
+                    </div>
+                    <p>
+                        Real experience automating social media content for my band using AI agents and Gemini.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">#ai</span>
+                        <span class="tag">#marketing</span>
+                    </div>
+                </a>
+
+                <a href="blog/en/ai-workflow.html" class="glass-card blog-post-card reveal reveal-delay-2" data-tags="ai,productivity,jules,antigravity,stitch,mcp" data-lang="en">
+                    <h3>Orchestrating the Future: How AI has reduced my development times from months to days</h3>
+                    <div class="meta">
+                        <span><i class="far fa-calendar-alt"></i> Feb 15, 2026</span>
+                        <span><i class="far fa-clock"></i> 4 min read</span>
+                    </div>
+                    <p>
+                        How to orchestrate an ecosystem of AI tools to accelerate application development from months to days.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">#ai</span>
+                        <span class="tag">#productivity</span>
+                        <span class="tag">#jules</span>
+                        <span class="tag">#antigravity</span>
+                        <span class="tag">#stitch</span>
+                        <span class="tag">#mcp</span>
+                    </div>
+                </a>
+            </div>
+
+            <div style="text-align: center; margin-top: var(--space-xl);">
+                <a href="blog.html" class="btn btn-outline" id="view-all-btn">
+                    View All Posts <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
         </section>
 
         <!-- Contact Section -->
         <section id="contact" class="contact-section reveal">
-            <h2>Let's Build Something Together</h2>
-            <p>
+            <h2 id="contact-heading">Let's Build Something Together</h2>
+            <p id="contact-desc">
                 Interested in Brisa, AI agents, or modern web architecture?
             </p>
-            <a href="mailto:danielartoladominguez@gmail.com" class="btn btn-primary">
+            <a href="mailto:danielartoladominguez@gmail.com" class="btn btn-primary" id="say-hello-btn">
                 Say Hello <i class="fas fa-paper-plane" aria-hidden="true"></i>
             </a>
         </section>
@@ -342,7 +414,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2024 Daniel Artola Dominguez. Built with passion & modern web technologies.</p>
+            <p id="footer-text">© 2024 Daniel Artola Dominguez. Built with passion & modern web technologies.</p>
         </div>
     </footer>
 

@@ -345,6 +345,48 @@ section {
   font-size: 1.2rem;
 }
 
+/* Language Switcher */
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.language-switcher .lang-btn,
+.language-switcher a,
+.language-switcher span {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.language-switcher .lang-btn:hover,
+.language-switcher a:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.language-switcher .active,
+.language-switcher span.active {
+  background: var(--accent-gradient);
+  color: white !important;
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+}
+
 
 
 /* Mobile Menu */
@@ -616,6 +658,22 @@ section {
   border-radius: var(--radius-sm);
   display: inline-block;
   margin-top: var(--space-xs);
+}
+
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.8rem;
+  margin-top: var(--space-sm);
+  color: var(--accent-primary);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.cert-link:hover {
+  gap: calc(var(--space-xs) + 2px);
+  color: var(--accent-secondary);
 }
 
 /* --------------------------------------------------------------------------
@@ -922,4 +980,30 @@ footer p {
   top: 0;
   outline: 2px solid white;
   outline-offset: -2px;
+}
+
+/* --------------------------------------------------------------------------
+   Blog Filters
+   -------------------------------------------------------------------------- */
+.blog-filters {
+    margin-bottom: var(--space-xl);
+}
+
+.blog-filter-btn {
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-size: 0.95rem;
+    transition: all var(--transition-base);
+    min-width: 80px;
+}
+
+.blog-filter-btn.active {
+    background: var(--accent-gradient);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.blog-post-card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
