@@ -1195,6 +1195,53 @@ footer p {
   border-top: 1px solid var(--border-color);
 }
 
+/* Collapsible code blocks */
+.collapsible-code {
+    margin: var(--space-lg) 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.collapsible-code summary {
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    transition: background var(--transition-fast);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.collapsible-code summary::-webkit-details-marker {
+    display: none;
+}
+
+.collapsible-code summary::after {
+    content: '▶';
+    font-size: 0.7rem;
+    margin-left: auto;
+    transition: transform var(--transition-fast);
+}
+
+.collapsible-code[open] summary::after {
+    transform: rotate(90deg);
+}
+
+.collapsible-code summary:hover {
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.collapsible-code pre {
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid var(--border-color);
+}
+
 @media (max-width: 768px) {
   .blog-image,
   .post-image {
