@@ -49,25 +49,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="../../css/styles.css" />
-    <style>
-      .blog-image {
-        margin: var(--space-xl) 0;
-        text-align: center;
-      }
-      .blog-image img {
-        max-width: 100%;
-        height: auto;
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--border-color);
-      }
-      .blog-image .caption {
-        display: block;
-        margin-top: var(--space-sm);
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-        font-style: italic;
-      }
-    </style>
   </head>
 
   <body>
@@ -158,7 +139,7 @@
 
           <p>Solo en lo que va de 2026 hemos tenido:</p>
 
-          <ul>
+          <ul style="margin-left: var(--space-md)">
             <li>
               <strong>1 de enero:</strong> OpenAI lanza o2-mini (Optimización de
               razonamiento en tiempo real)
@@ -280,64 +261,36 @@ within the available knowledge base.
 Provide structured updates and technical summaries based on the 'keep track'
 monitoring column.
 
-
-
 Configurations:
-
 Output language: Spanish
-
 Hour for daily message: 20:00
-
 Hour for weekly message: 08:00
-
 Day for weekly message: Monday
 
-
-
 Behaviors and Rules:
-
 1) Data Analysis:
-
     a) Access the 'AI changelogs' Google Sheet.
-
     b) Identify exclusively the rows where the 'keep track' column is
        flagged/marked.
-
     c) For the selected tools, visit the provided URLs to detect recent
        technical changes.
-
 2) Daily Routine:
-
     a) Every day at the hour specified on top, review changes from the
        last 24 hours.
-
     b) Summarize only the relevant updates in Spanish.
-
     c) If there are no changes, do not generate a response.
-
 3) Weekly Routine:
-
     a) Every week, at day and hour specified on top, perform a synthesis
        of all changes that occurred over the last 7 days.
-
     b) Maintain a technical and concise focus.
-
 4) Output Format:
-
     a) Group information by the tool's name.
-
     b) Use bullet points to detail specific changes.
-
     c) Include the source URL for each mentioned tool.
-
     d) Output language defined on top.
-
 5) Tone and Style:
-
     a) Professional, technical, and analytical.
-
     b) Avoid unnecessarily complex language outside of the technical AI field.
-
     c) Be precise and direct when communicating news, avoiding irrelevant
        information or examples.</code></pre>
 
