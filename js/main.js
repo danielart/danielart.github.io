@@ -349,7 +349,17 @@ function updateLanguageUI(lang) {
             filterAll: 'All',
             filterAI: 'AI & Agents',
             filterWeb: 'Web Dev',
-            filterLeadership: 'Leadership'
+            filterLeadership: 'Leadership',
+            contactHeading: 'How I can help you',
+            service1Title: 'AI Advisor & Consultant',
+            service1Desc: 'Strategy, architecture, and integrating AI into workflows.',
+            service2Title: 'Custom AI Agents & Automation',
+            service2Desc: 'Building specialized agents and orchestrating systems (Mastra, n8n).',
+            contactConnectHeading: 'Let\'s connect',
+            contactDesc: 'Interested in Brisa, AI agents, or modern web architecture?',
+            followMeText: 'Follow me on:',
+            statusText: 'System Status: Available for freelance projects',
+            sayHelloBtn: 'Say Hello <i class="fas fa-paper-plane" aria-hidden="true"></i>'
         },
         es: {
             blogTitle: 'Blog de Ingeniería',
@@ -357,7 +367,17 @@ function updateLanguageUI(lang) {
             filterAll: 'Todos',
             filterAI: 'IA y Agentes',
             filterWeb: 'Desarrollo Web',
-            filterLeadership: 'Liderazgo'
+            filterLeadership: 'Liderazgo',
+            contactHeading: 'Cómo puedo ayudarte',
+            service1Title: 'Asesor y Consultor de IA',
+            service1Desc: 'Estrategia, arquitectura e integración de IA en flujos de trabajo.',
+            service2Title: 'Agentes de IA a medida y Automatización',
+            service2Desc: 'Creación de agentes especializados y orquestación de sistemas (Mastra, n8n).',
+            contactConnectHeading: 'Conectemos',
+            contactDesc: '¿Interesado en Brisa, agentes de IA o arquitectura web moderna?',
+            followMeText: 'Sígueme en:',
+            statusText: 'Estado del sistema: Disponible para proyectos freelance',
+            sayHelloBtn: 'Di Hola <i class="fas fa-paper-plane" aria-hidden="true"></i>'
         }
     };
 
@@ -377,6 +397,19 @@ function updateLanguageUI(lang) {
         filters[2].textContent = strings.filterWeb;
         filters[3].textContent = strings.filterLeadership;
     }
+
+    // Update Contact Section Strings if they exist on the page
+    const el = (id) => document.getElementById(id);
+    if(el('contact-heading')) el('contact-heading').textContent = strings.contactHeading;
+    if(el('service-1-title')) el('service-1-title').textContent = strings.service1Title;
+    if(el('service-1-desc')) el('service-1-desc').textContent = strings.service1Desc;
+    if(el('service-2-title')) el('service-2-title').textContent = strings.service2Title;
+    if(el('service-2-desc')) el('service-2-desc').textContent = strings.service2Desc;
+    if(el('contact-connect-heading')) el('contact-connect-heading').textContent = strings.contactConnectHeading;
+    if(el('contact-desc')) el('contact-desc').textContent = strings.contactDesc;
+    if(el('follow-me-text')) el('follow-me-text').textContent = strings.followMeText;
+    if(el('status-text')) el('status-text').textContent = strings.statusText;
+    if(el('say-hello-btn')) el('say-hello-btn').innerHTML = strings.sayHelloBtn;
 }
 
 // Carousel Navigation
