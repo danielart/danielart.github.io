@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how to use Claude Code's session forking to manage context and experiment with code like Git branches.">
+    <meta name="keywords" content="ai, productivity, claude, workflow, engineering">
+    <meta name="author" content="Daniel Artola Dominguez">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Beyond Chat: Git for Your Brain with Session Forking in Claude Code">
+    <meta property="og:description" content="Learn how to use Claude Code's session forking to manage context and experiment with code like Git branches.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://danielart.github.io/blog/en/claude-code-forking-sessions.html">
+
+    <title>Beyond Chat: Git for Your Brain with Session Forking in Claude Code | Daniel Artola</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Animated Background -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">DA</a>
+
+            <ul class="nav-links">
+                <li><a href="../../index.html#about">About</a></li>
+                <li><a href="../../index.html#skills">Skills</a></li>
+                <li><a href="../../index.html#opensource">Open Source</a></li>
+                <li><a href="../../index.html#experience">Experience</a></li>
+                <li><a href="../../index.html#certifications">Certifications</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../index.html#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main" class="container" tabindex="-1" style="outline: none; padding-top: 120px;">
+        <article class="glass-card reveal">
+            <header style="margin-bottom: var(--space-xl); border-bottom: 1px solid var(--border-color); padding-bottom: var(--space-lg);">
+                <div class="meta">
+                    <span><i class="far fa-calendar-alt"></i> Feb 24, 2026</span>
+                    <span><i class="far fa-clock"></i> 3 min read</span>
+                </div>
+                <h1 style="margin-bottom: var(--space-md);">Beyond Chat: Git for Your Brain with Session Forking in Claude Code</h1>
+                <div class="tags">
+                    <span class="tag">#ai</span>
+                    <span class="tag">#productivity</span>
+                    <span class="tag">#claude</span>
+                    <span class="tag">#workflow</span>
+                </div>
+            </header>
+
+            <div class="blog-content">
+                <img src="../../assets/images/blog/claude-code-forking.png" alt="Claude Code Session Forking Concept" style="width: 100%; border-radius: var(--radius-lg); margin-bottom: var(--space-lg);">
+
+                <p>As engineers, we are used to our workflow being branchable. We use Git to experiment without breaking the main branch. However, when we interact with AIs, we are usually stuck in linear threads: if an idea doesn't work, we delete or start from scratch, losing all accumulated context.</p>
+
+                <p>Recently, analyzing the internal workings of Claude Code, I found the solution to this problem in its session management.</p>
+
+                <h2>The Agentic Loop: How Does Claude "Think"?</h2>
+                <p>Unlike a traditional chat, Claude Code works through an agentic loop. When you give it a task, the agent enters a three-phase cycle:</p>
+
+                <ul>
+                    <li><strong>Gather Context:</strong> Searches files, reads code, and understands dependencies.</li>
+                    <li><strong>Take Action:</strong> Makes edits, creates files, or runs terminal commands.</li>
+                    <li><strong>Verify Results:</strong> Runs tests and checks that changes work.</li>
+                </ul>
+
+                <p>This loop generates a very valuable state. The question is: how do we manage it when we want to try two different paths?</p>
+
+                <h2>Resume vs. Fork: Master the State</h2>
+                <p>Most users know the <code>claude --continue</code> (or <code>--resume</code>) command, which allows you to pick up a previous conversation using the same session ID, restoring the entire message history.</p>
+
+                <p>But the real superpower for a Lead is the <code>--fork-session</code> flag.</p>
+
+                <ul>
+                    <li><strong>What does it do?:</strong> Creates a new session (a new session ID) but preserves the entire conversation history up to that point.</li>
+                    <li><strong>What is it for?:</strong> To branch your reasoning. You can try a complex refactor in a "fork" and, if it doesn't go well, the original session remains intact. Plus, it allows you to work in parallel from different terminals without messages intertwining.</li>
+                </ul>
+
+                <h2>Real Scenario: The Refactoring Dilemma</h2>
+                <p>Imagine you are collaborating on a project like Brisa (where I lend a hand to my colleague Aral Roca). You have a performance bug.</p>
+
+                <ol>
+                    <li>You start an investigation session: <code>claude "Analyze the rendering bottleneck"</code>.</li>
+                    <li>After analysis, Claude has the entire dependency tree in memory.</li>
+                    <li>You make a fork: You want to try changing the state management.</li>
+                </ol>
+
+                <p>If that path becomes too dense, you close that terminal and return to the base session. You haven't lost a second re-explaining the context to the AI.</p>
+
+                <h2>Safety and Persistence: CLAUDE.md and Checkpoints</h2>
+                <p>To make this flow professional, Claude Code introduces two key mechanisms:</p>
+
+                <ul>
+                    <li><strong>CLAUDE.md:</strong> A file where we save persistent project rules. Thus, no matter how many forks you make, the AI will always know your testing or architecture standards.</li>
+                    <li><strong>Checkpoints:</strong> Before editing any file, Claude takes a snapshot. If something fails, you can use <code>Esc + Esc</code> (or ask for an "undo") to revert file changes instantly.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>AI is no longer just a window where we ask questions. In 2026, tools like Claude Code have become branchable reasoning infrastructure. Learning to manage sessions is not just a productivity trick; it is the difference between coding and orchestrating engineering.</p>
+            </div>
+        </article>
+
+        <!-- Newsletter / Contact for Blog -->
+        <section class="contact-section reveal">
+            <h2>Enjoyed the read?</h2>
+            <p>
+                Follow me on social media for more.
+            </p>
+            <div class="social-links" style="opacity: 1; animation: none;">
+                <a href="https://www.linkedin.com/in/danielartoladominguez" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/danielart" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="https://dev.to/danielart" target="_blank" rel="noopener"><i class="fab fa-dev"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Daniel Artola Dominguez. Built with passion & modern web technologies.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+</body>
+</html>

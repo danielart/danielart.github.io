@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aprende a usar el forking de sesiones en Claude Code para gestionar contexto y experimentar como en ramas de Git.">
+    <meta name="keywords" content="ai, productividad, claude, flujo de trabajo, ingenieria">
+    <meta name="author" content="Daniel Artola Dominguez">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Más allá del Chat: Git para tu cerebro con el 'Forking' de sesiones en Claude Code">
+    <meta property="og:description" content="Aprende a usar el forking de sesiones en Claude Code para gestionar contexto y experimentar como en ramas de Git.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://danielart.github.io/blog/es/claude-code-sesiones-forking.html">
+
+    <title>Más allá del Chat: Git para tu cerebro con el "Forking" de sesiones en Claude Code | Daniel Artola</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Animated Background -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">DA</a>
+
+            <ul class="nav-links">
+                <li><a href="../../index.html#about">About</a></li>
+                <li><a href="../../index.html#skills">Skills</a></li>
+                <li><a href="../../index.html#opensource">Open Source</a></li>
+                <li><a href="../../index.html#experience">Experience</a></li>
+                <li><a href="../../index.html#certifications">Certifications</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../index.html#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main" class="container" tabindex="-1" style="outline: none; padding-top: 120px;">
+        <article class="glass-card reveal">
+            <header style="margin-bottom: var(--space-xl); border-bottom: 1px solid var(--border-color); padding-bottom: var(--space-lg);">
+                <div class="meta">
+                    <span><i class="far fa-calendar-alt"></i> Feb 24, 2026</span>
+                    <span><i class="far fa-clock"></i> 3 min read</span>
+                </div>
+                <h1 style="margin-bottom: var(--space-md);">Más allá del Chat: Git para tu cerebro con el "Forking" de sesiones en Claude Code</h1>
+                <div class="tags">
+                    <span class="tag">#ai</span>
+                    <span class="tag">#productividad</span>
+                    <span class="tag">#claude</span>
+                    <span class="tag">#workflow</span>
+                </div>
+            </header>
+
+            <div class="blog-content">
+                <img src="../../assets/images/blog/claude-code-forking.png" alt="Concepto de Forking de Sesiones en Claude Code" style="width: 100%; border-radius: var(--radius-lg); margin-bottom: var(--space-lg);">
+
+                <p>Como ingenieros, estamos acostumbrados a que nuestro flujo de trabajo sea ramificable. Usamos Git para experimentar sin romper la rama principal. Sin embargo, cuando interactuamos con IAs, solemos estar atrapados en hilos lineales: si una idea no funciona, borramos o empezamos de cero, perdiendo todo el contexto acumulado.</p>
+
+                <p>Recientemente, analizando el funcionamiento interno de Claude Code, he encontrado la solución a este problema en su gestión de sesiones.</p>
+
+                <h2>El Bucle Agéntico: ¿Cómo "piensa" Claude?</h2>
+                <p>A diferencia de un chat tradicional, Claude Code funciona mediante un bucle agéntico. Cuando le das una tarea, el agente entra en un ciclo de tres fases:</p>
+
+                <ul>
+                    <li><strong>Recopilar contexto:</strong> Busca archivos, lee código y entiende las dependencias.</li>
+                    <li><strong>Tomar acción:</strong> Realiza ediciones, crea archivos o ejecuta comandos de terminal.</li>
+                    <li><strong>Verificar resultados:</strong> Corre tests y comprueba que los cambios funcionan.</li>
+                </ul>
+
+                <p>Este bucle genera un estado muy valioso. La pregunta es: ¿cómo lo gestionamos cuando queremos probar dos caminos distintos?</p>
+
+                <h2>Resume vs. Fork: Domina el Estado</h2>
+                <p>La mayoría de los usuarios conocen el comando <code>claude --continue</code> (or <code>--resume</code>), que te permite retomar una conversación previa usando el mismo ID de sesión, restaurando todo el historial de mensajes.</p>
+
+                <p>Pero el verdadero superpoder para un Lead es el flag <code>--fork-session</code>.</p>
+
+                <ul>
+                    <li><strong>¿Qué hace?:</strong> Crea una nueva sesión (un nuevo ID) pero preserva todo el historial de la conversación hasta ese punto.</li>
+                    <li><strong>¿Para qué sirve?:</strong> Para ramificar tu razonamiento. Puedes probar una refactorización compleja en un "fork" y, si no sale bien, la sesión original permanece intacta. Además, te permite trabajar en paralelo desde diferentes terminales sin que los mensajes se entrelacen.</li>
+                </ul>
+
+                <h2>Escenario Real: El Dilema de la Refactorización</h2>
+                <p>Imagina que estás colaborando en un proyecto como Brisa (donde echo una mano a mi colega Aral Roca). Tienes un bug de performance.</p>
+
+                <ol>
+                    <li>Inicias una sesión de investigación: <code>claude "Analiza el cuello de botella en el renderizado"</code>.</li>
+                    <li>Tras el análisis, Claude tiene todo el árbol de dependencias en memoria.</li>
+                    <li>Haces un fork: Quieres probar a cambiar la gestión de estado.</li>
+                </ol>
+
+                <p>Si esa vía se vuelve demasiado densa, cierras esa terminal y vuelves a la sesión base. No has perdido ni un segundo volviendo a explicarle el contexto a la IA.</p>
+
+                <h2>Seguridad y Persistencia: CLAUDE.md y Checkpoints</h2>
+                <p>Para que este flujo sea profesional, Claude Code introduce dos mecanismos clave:</p>
+
+                <ul>
+                    <li><strong>CLAUDE.md:</strong> Un archivo donde guardamos las reglas persistentes del proyecto. Así, no importa cuántos forks hagas, la IA siempre sabrá cuáles son tus estándares de testing o arquitectura.</li>
+                    <li><strong>Checkpoints:</strong> Antes de editar cualquier archivo, Claude hace un snapshot. Si algo falla, puedes usar <code>Esc + Esc</code> (or pedirle un "undo") para revertir los cambios de archivos instantáneamente.</li>
+                </ul>
+
+                <h2>Conclusión</h2>
+                <p>La IA ya no es solo una ventana donde hacemos preguntas. En 2026, herramientas como Claude Code se han convertido en una infraestructura de razonamiento ramificable. Aprender a gestionar sesiones no es solo un truco de productividad; es la diferencia entre picar código y orquestar ingeniería.</p>
+            </div>
+        </article>
+
+        <!-- Newsletter / Contact for Blog -->
+        <section class="contact-section reveal">
+            <h2>Enjoyed the read?</h2>
+            <p>
+                Follow me on social media for more.
+            </p>
+            <div class="social-links" style="opacity: 1; animation: none;">
+                <a href="https://www.linkedin.com/in/danielartoladominguez" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/danielart" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="https://dev.to/danielart" target="_blank" rel="noopener"><i class="fab fa-dev"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Daniel Artola Dominguez. Built with passion & modern web technologies.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+</body>
+</html>
