@@ -1,0 +1,46 @@
+# AI Agent Operative Manual (AGENTS.md)
+
+This document provides context and instructions for AI agents (Jules, Antigravity, etc.) working on the `danielart.github.io` project.
+
+## 🎯 Repository Overview
+This is a personal portfolio and engineering blog for Daniel Artola. It is built as a highly-performant, single-page-feel static site using **Vanilla Web Technologies**.
+
+- **Tech Stack:** HTML5, CSS3 (with Custom Properties/CSS Variables), Vanilla JavaScript.
+- **Style:** Minimalist Glassmorphism (Premium/Sleek vibe).
+- **Deployment:** GitHub Pages (Automatic from `main` branch).
+
+## 🛠 Project Structure
+- `/index.html`: Main landing page (Portfolio, Experience, Featured Work).
+- `/blog.html`: Engineering blog listing page.
+- `/blog/`: Individual blog posts (localized in `en/` and `es/`).
+- `/css/styles.css`: Central styling system.
+- `/js/main.js`: Main interactivity and dynamic localization logic.
+- `/STYLING_GUIDELINES.md`: **MANDATORY** reading before any UI changes.
+- `.agent/workflows/`: Executable/repeatable task definitions.
+
+## 🎨 Styling Guidelines
+All CSS changes **MUST** comply with `STYLING_GUIDELINES.md`.
+- **Key Palette variables:** `--accent-primary`, `--accent-secondary`, `--glass-bg`, `--glass-border`.
+- **Components:** Cards use `.glass-card`, sections use `.reveal` for scroll animations.
+- **Grids:** Prefer `.grid-2` for segmented content.
+
+## 🌍 Localization Engine
+The site supports English (`en`) and Spanish (`es`).
+1. **Detection:** Controlled via `lang` toggle in the UI (stored in `localStorage`).
+2. **Implementation:** Handled in `js/main.js` via the `updateLanguageUI(lang)` function.
+3. **Strings:** Static strings are stored in the `texts` object inside `js/main.js`.
+4. **Blog Selection:** Blog posts are filtered based on the `data-lang` attribute in `blog.html`.
+
+**When adding features:** Ensure both languages are updated in the `texts` object in `js/main.js`.
+
+## ✍️ Content Creation (Blog)
+Follow the `.agent/workflows/create-blog-post.md` workflow for adding new content.
+- Always create parallel posts in `blog/en/` and `blog/es/`.
+- Update the grid in `blog.html` to include the new post entries.
+
+## 📓 Agent Continuity
+- **Learnings:** Check `.Jules/palette.md` for historical decisions and technical learnings.
+- **Memory:** If you make a significant architectural or design decision, record it in `.Jules/palette.md` to avoid regressions in future sessions.
+
+---
+**Status:** Managed by Antigravity AI | Last Updated: 2026-02-21
