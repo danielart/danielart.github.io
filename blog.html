@@ -48,16 +48,15 @@
 
             <ul class="nav-links">
                 <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
-                <li><a href="index.html#opensource">Open Source</a></li>
-                <li><a href="index.html#experience">Experience</a></li>
-                <li><a href="index.html#certifications">Certifications</a></li>
-                <li><a href="blog.html" class="active" style="color: var(--text-primary);">Blog</a></li>
-                <li><a href="https://github.com/danielart/danielart.github.io" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#opensource">Work</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
             </ul>
 
             <div class="nav-controls">
+                <a href="https://github.com/danielart/danielart.github.io" target="_blank" rel="noopener" class="control-link" title="Source Code">
+                    <i class="fab fa-github"></i>
+                </a>
                 <button class="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -320,7 +319,7 @@
                 <h2>Explore the Code</h2>
                 <p style="max-width: 700px; margin: 0 auto var(--space-xl);">
                     This portfolio is entirely open source! I believe in transparency and sharing knowledge. 
-                    Feel free to explore the architecture, styling, and AI integrations that power this site.
+                    Feel free to explore the code, styling, and AI integrations that power this site.
                 </p>
                 <div class="btn-group" style="justify-content: center; opacity: 1; animation: none; display: flex; gap: var(--space-md); flex-wrap: wrap;">
                     <a href="https://github.com/danielart/danielart.github.io" target="_blank" rel="noopener" class="btn btn-primary" style="width: auto; min-width: 200px;">
@@ -334,25 +333,56 @@
         </section>
 
         <!-- Newsletter / Contact for Blog -->
-        <section class="contact-section reveal">
-            <h2 id="contact-heading">Let's Build Something Together</h2>
-            <p id="contact-desc">
-                Interested in Brisa, AI agents, or modern web architecture?
-            </p>
-            <div class="social-links" style="opacity: 1; animation: none;">
-                <a href="https://www.linkedin.com/in/danielartoladominguez" target="_blank" rel="noopener"
-                    title="LinkedIn" aria-label="LinkedIn Profile">
-                    <i class="fab fa-linkedin" aria-hidden="true"></i>
-                </a>
-                <a href="https://github.com/danielart" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub Profile">
-                    <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-                <a href="https://dev.to/danielart" target="_blank" rel="noopener" title="Dev.to Blog" aria-label="Dev.to Blog">
-                    <i class="fab fa-dev" aria-hidden="true"></i>
-                </a>
-                <a href="mailto:danielartoladominguez@gmail.com" title="Email" aria-label="Send Email">
-                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                </a>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section reveal">
+            <div class="contact-grid">
+                <div class="contact-services">
+                    <h2 id="contact-heading">How I can help you</h2>
+                    <ul class="service-list">
+                        <li>
+                            <div class="service-icon"><i class="fas fa-brain"></i></div>
+                            <div class="service-content">
+                                <h3 id="service-1-title">AI Advisor & Consultant</h3>
+                                <p id="service-1-desc">Strategy, architecture, and integrating AI into workflows.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon"><i class="fas fa-robot"></i></div>
+                            <div class="service-content">
+                                <h3 id="service-2-title">Custom AI Agents & Automation</h3>
+                                <p id="service-2-desc">Building specialized agents and orchestrating systems (Mastra, n8n).</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-connect">
+                    <h2 id="contact-connect-heading">Let's connect</h2>
+                    <p id="contact-desc">Interested in Brisa, AI agents, or modern web architecture?</p>
+                    
+                    <a href="mailto:danielartoladominguez@gmail.com" class="btn btn-primary btn-block" id="say-hello-btn">
+                        Say Hello <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                    </a>
+                    
+                    <div class="social-follow">
+                        <span id="follow-me-text">Follow me on:</span>
+                        <div class="social-links-grid">
+                            <a href="https://www.linkedin.com/in/danielartoladominguez" target="_blank" rel="noopener" class="social-btn linkedin">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://dev.to/danielart" target="_blank" rel="noopener" class="social-btn devto">
+                                <i class="fab fa-dev"></i>
+                            </a>
+                            <a href="https://medium.com/@danielofair" target="_blank" rel="noopener" class="social-btn medium">
+                                <i class="fab fa-medium"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="system-status">
+                        <div class="status-indicator"></div>
+                        <span id="status-text">System Status: Available for freelance projects</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
