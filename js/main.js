@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initTypingEffect();
     initBackToTop();
     initBlogFilters();
-    initCarousels(); // Added initCarousels call
+    initCarousels();
     initLanguageSwitcher();
-    // initCardTilt is optional and unused in the current DOM structure
+    initFooterYear();
+    initCodeCopy();
 });
 
 /* --------------------------------------------------------------------------
@@ -95,7 +96,6 @@ function initNavbar() {
 
     let ticking = false;
 
-    // Optimized scroll listener using requestAnimationFrame to reduce main thread blocking
     window.addEventListener('scroll', () => {
         if (!ticking) {
             window.requestAnimationFrame(() => {
@@ -111,7 +111,7 @@ function initNavbar() {
 
             ticking = true;
         }
-    });
+    }, { passive: true });
 }
 
 /* --------------------------------------------------------------------------
@@ -147,14 +147,22 @@ function initBackToTop() {
 
     if (!backToTopBtn) return;
 
-    // Show/hide button on scroll
+    let ticking = false;
+
+    // Show/hide button on scroll (throttled with rAF)
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-            backToTopBtn.classList.add('visible');
-        } else {
-            backToTopBtn.classList.remove('visible');
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
-    });
+    }, { passive: true });
 
     // Scroll to top on click
     backToTopBtn.addEventListener('click', () => {
@@ -166,7 +174,7 @@ function initBackToTop() {
         // Return focus to top/logo for accessibility
         const logo = document.querySelector('.nav-logo');
         if (logo) {
-            logo.focus({ preventScroll: true }); // preventScroll because we're already scrolling
+            logo.focus({ preventScroll: true });
         }
     });
 }
@@ -220,47 +228,6 @@ function initTypingEffect() {
 }
 
 /* --------------------------------------------------------------------------
-   Card Tilt Effect (Optional - Enhanced Interactivity)
-   -------------------------------------------------------------------------- */
-function initCardTilt() {
-    const cards = document.querySelectorAll('.glass-card');
-
-    cards.forEach(card => {
-        let ticking = false;
-        let animationFrameId;
-
-        card.addEventListener('mousemove', (e) => {
-            if (!ticking) {
-                animationFrameId = window.requestAnimationFrame(() => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-
-                    const rotateX = (y - centerY) / 20;
-                    const rotateY = (centerX - x) / 20;
-
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-                    ticking = false;
-                });
-
-                ticking = true;
-            }
-        });
-
-        card.addEventListener('mouseleave', () => {
-            if (ticking) {
-                window.cancelAnimationFrame(animationFrameId);
-                ticking = false;
-            }
-            card.style.transform = '';
-        });
-    });
-}
-
-/* --------------------------------------------------------------------------
    Blog Filters
    -------------------------------------------------------------------------- */
 function initBlogFilters() {
@@ -310,18 +277,18 @@ function updateLanguageUI(lang) {
     });
 
     // 2. Filter blog posts
+    const filterBtn = document.querySelector('.blog-filter-btn.active');
+    const currentFilter = filterBtn ? filterBtn.getAttribute('data-filter') : 'all';
+
     document.querySelectorAll('.blog-post-card').forEach(post => {
         const postLang = post.getAttribute('data-lang');
-        const filterBtn = document.querySelector('.blog-filter-btn.active');
-        const currentFilter = filterBtn ? filterBtn.getAttribute('data-filter') : 'all';
         const postTags = (post.getAttribute('data-tags') || '').split(',').map(t => t.trim());
 
-        const matchesLang = postLang === lang || !postLang; // show posts with matching lang or no lang
+        const matchesLang = postLang === lang || !postLang;
         const matchesFilter = currentFilter === 'all' || postTags.includes(currentFilter);
 
         if (matchesLang && matchesFilter) {
-            post.style.display = ''; // Restore to default (flex column from CSS)
-            // Use requestAnimationFrame for smoother state transition
+            post.style.display = '';
             requestAnimationFrame(() => {
                 post.style.opacity = '1';
                 post.style.transform = 'translateY(0)';
@@ -329,15 +296,20 @@ function updateLanguageUI(lang) {
         } else {
             post.style.opacity = '0';
             post.style.transform = 'translateY(20px)';
-            // Hide after transition
-            setTimeout(() => {
-                // Check if it should still be hidden (user might have clicked fast)
-                const stillMatches = (post.getAttribute('data-lang') === localStorage.getItem('lang')) && 
-                                    (currentFilter === 'all' || postTags.includes(currentFilter));
-                if (!stillMatches) {
+            // Use transitionend to hide after animation completes
+            const onTransitionEnd = () => {
+                // Re-check if it should still be hidden at the time the transition ends
+                const currentLang = localStorage.getItem('lang') || 'en';
+                const activeFilter = document.querySelector('.blog-filter-btn.active');
+                const activeFilterValue = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
+                const stillMatchesLang = postLang === currentLang || !postLang;
+                const stillMatchesFilter = activeFilterValue === 'all' || postTags.includes(activeFilterValue);
+                if (!(stillMatchesLang && stillMatchesFilter)) {
                     post.style.display = 'none';
                 }
-            }, 300);
+                post.removeEventListener('transitionend', onTransitionEnd);
+            };
+            post.addEventListener('transitionend', onTransitionEnd, { once: true });
         }
     });
 
@@ -385,7 +357,7 @@ function updateLanguageUI(lang) {
     if (!strings) return;
 
     const title = document.querySelector('.blog-header h1');
-    if (title) title.innerHTML = `<i class="fab fa-dev" style="color: var(--accent-primary);"></i> ${strings.blogTitle}`;
+    if (title) title.innerHTML = `<i class="fab fa-dev"></i> ${strings.blogTitle}`;
     
     const desc = document.querySelector('.blog-header p');
     if (desc) desc.textContent = strings.blogDesc;
@@ -412,7 +384,9 @@ function updateLanguageUI(lang) {
     if(el('say-hello-btn')) el('say-hello-btn').innerHTML = strings.sayHelloBtn;
 }
 
-// Carousel Navigation
+/* --------------------------------------------------------------------------
+   Carousel Navigation
+   -------------------------------------------------------------------------- */
 function initCarousels() {
     const carousels = document.querySelectorAll('.blog-carousel');
     
@@ -445,6 +419,54 @@ function initCarousels() {
             dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
+        }, { passive: true });
+    });
+}
+
+/* --------------------------------------------------------------------------
+   Dynamic Footer Year
+   -------------------------------------------------------------------------- */
+function initFooterYear() {
+    const yearSpans = document.querySelectorAll('.current-year');
+    const currentYear = new Date().getFullYear();
+    yearSpans.forEach(span => {
+        span.textContent = currentYear;
+    });
+}
+
+/**
+ * Copy to Clipboard functionality for code blocks
+ */
+function initCodeCopy() {
+    const copyBtns = document.querySelectorAll('.copy-code-btn');
+    
+    copyBtns.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Prevent toggling <details>
+
+            const details = btn.closest('.collapsible-code');
+            const code = details.querySelector('code');
+            
+            if (!code) return;
+
+            try {
+                await navigator.clipboard.writeText(code.textContent);
+                
+                // Visual feedback
+                const icon = btn.querySelector('i');
+                const originalClass = icon.className;
+                
+                btn.classList.add('copied');
+                icon.className = 'fas fa-check';
+                
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    icon.className = originalClass;
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+            }
         });
     });
 }

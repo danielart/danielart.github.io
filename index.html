@@ -9,6 +9,9 @@
     <meta name="keywords"
         content="Software Engineer, AI Engineer, Engineering Lead, Open Source, React, TypeScript, Brisa, Barcelona">
     <meta name="author" content="Daniel Artola Dominguez">
+    <meta name="theme-color" content="#0a0a0f">
+    <link rel="canonical" href="https://danielart.github.io/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🅳</text></svg>">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Daniel Artola Dominguez | AI Engineer & Open Source">
@@ -24,11 +27,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Icons (deferred – non-critical) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- Tailwind CSS (CDN — Preflight disabled to avoid conflicts with custom CSS) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+        darkMode: ['selector', '[data-theme="dark"]'],
+        theme: {
+          extend: {
+            colors: {
+              'accent-primary': 'var(--color-accent-primary)',
+              'accent-secondary': 'var(--color-accent-secondary)',
+              'bg-primary': 'var(--color-bg-primary)',
+              'bg-secondary': 'var(--color-bg-secondary)',
+              'text-primary': 'var(--color-text-primary)',
+              'text-secondary': 'var(--color-text-secondary)',
+              'text-muted': 'var(--color-text-muted)',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+              mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+            },
+          }
+        }
+      }
+    </script>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
@@ -110,12 +140,12 @@
         </div>
     </header>
 
-    <main id="main" class="container" tabindex="-1" style="outline: none;">
+    <main id="main" class="container" tabindex="-1">
         <!-- About Section -->
         <section id="about" class="reveal">
             <h2><i class="fas fa-user-circle" aria-hidden="true"></i> About Me</h2>
             <div class="glass-card">
-                <p style="margin-bottom: var(--space-lg);">
+                <p class="mb-lg">
                     I am an <strong>Engineering Lead at ManoMano</strong> based in Barcelona. I specialize in building
                     intelligent <strong>multi-agent systems</strong> and contributing to the next generation of web
                     frameworks.
@@ -245,7 +275,7 @@
                     <span>Freelance</span>
                 </div>
                 <ul>
-                    <li>Creating apps with vibe engineering and Google Antigravity to test new tools and technologies.
+                    <li>Creating apps with Agentic AI and Google Antigravity to test new tools and technologies.
                     </li>
                     <li>Developing secure RAG pipelines with Gemini and modern vector stores.</li>
                     <li>Automating developer workflows (n8n integrations) to reduce context switching and repetitive
@@ -317,8 +347,8 @@
 
         <!-- Blog Section -->
         <section id="blog" class="reveal">
-            <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); margin-bottom: var(--space-xl);">
-                <h2 id="blog-heading" style="margin-bottom: 0;"><i class="fab fa-dev"></i> Latest Writings</h2>
+            <div class="section-header-flex">
+                <h2 id="blog-heading"><i class="fab fa-dev"></i> Latest Writings</h2>
                 <!-- Language Switcher -->
                 <div class="language-switcher">
                     <button class="lang-btn" data-lang="es">ES</button>
@@ -327,7 +357,7 @@
             </div>
 
             <!-- Blog Filters Home -->
-            <div class="blog-filters reveal reveal-delay-1" style="margin-bottom: var(--space-xl); display: flex; justify-content: center; gap: var(--space-sm); flex-wrap: wrap;">
+            <div class="blog-filters blog-filters-home reveal reveal-delay-1">
                 <button class="btn btn-outline blog-filter-btn active" data-filter="all">All</button>
                 <button class="btn btn-outline blog-filter-btn" data-filter="ai">AI & Agents</button>
                 <button class="btn btn-outline blog-filter-btn" data-filter="web">Web Dev</button>
@@ -337,7 +367,7 @@
                 <!-- ES Posts -->
                 <a href="blog/es/ai-changelog-gem.html" class="glass-card blog-post-card reveal reveal-delay-1" data-tags="ai,productivity,gemini,automation" data-lang="es">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/ai-changelog-gem.png" alt="Sistema de changelogs de IA con Gema de Gemini">
+                        <img src="assets/images/blog/ai-changelog-gem.png" alt="Sistema de changelogs de IA con Gema de Gemini" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>Deja de leer newsletters de IA: crea tu propio sistema de changelogs</h3>
@@ -359,7 +389,7 @@
 
                 <a href="blog/es/youtube-ai-agent.html" class="glass-card blog-post-card reveal reveal-delay-1" data-tags="ai,marketing" data-lang="es">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/youtube stats 1.png" alt="YouTube Analytics Growth">
+                        <img src="assets/images/blog/youtube stats 1.png" alt="YouTube Analytics Growth" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>De operario agobiado a director de orquesta: Cómo un agente de IA multiplicó mis vistas por 10</h3>
@@ -379,7 +409,7 @@
 
                 <a href="blog/es/ai-workflow.html" class="glass-card blog-post-card reveal reveal-delay-2" data-tags="ai,productivity,jules,antigravity,stitch,mcp" data-lang="es">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/post AI-augmented development.png" alt="AI-Augmented Development Workflow">
+                        <img src="assets/images/blog/post AI-augmented development.png" alt="AI-Augmented Development Workflow" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>Orquestando el futuro: De meses a días con IA</h3>
@@ -404,7 +434,7 @@
                 <!-- EN Posts -->
                 <a href="blog/en/ai-changelog-gem.html" class="glass-card blog-post-card reveal reveal-delay-1" data-tags="ai,productivity,gemini,automation" data-lang="en">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/ai-changelog-gem.png" alt="AI changelog system with Gemini Gem">
+                        <img src="assets/images/blog/ai-changelog-gem.png" alt="AI changelog system with Gemini Gem" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>Stop Reading AI Newsletters: Build Your Own Changelog System</h3>
@@ -426,7 +456,7 @@
 
                 <a href="blog/en/youtube-ai-agent.html" class="glass-card blog-post-card reveal reveal-delay-1" data-tags="ai,marketing" data-lang="en">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/youtube stats 1.png" alt="YouTube Analytics Growth">
+                        <img src="assets/images/blog/youtube stats 1.png" alt="YouTube Analytics Growth" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>From overwhelmed worker to orchestra conductor: How an AI agent multiplied my views by 10</h3>
@@ -446,7 +476,7 @@
 
                 <a href="blog/en/ai-workflow.html" class="glass-card blog-post-card reveal reveal-delay-2" data-tags="ai,productivity,jules,antigravity,stitch,mcp" data-lang="en">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/post AI-augmented development.png" alt="AI-Augmented Development Workflow">
+                        <img src="assets/images/blog/post AI-augmented development.png" alt="AI-Augmented Development Workflow" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>Orchestrating the Future: How AI has reduced my development times from months to days</h3>
@@ -469,7 +499,7 @@
                 </a>
             </div>
 
-            <div style="text-align: center; margin-top: var(--space-xl);">
+            <div class="text-center mt-xl">
                 <a href="blog.html" class="btn btn-outline" id="view-all-btn">
                     View All Posts <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 </a>
@@ -477,22 +507,19 @@
         </section>
         
         <!-- GitHub Code Invitation Section -->
-        <section class="github-invitation reveal reveal-delay-3" style="margin-top: var(--space-3xl);">
-            <div class="glass-card featured" style="text-align: center; padding: var(--space-2xl);">
-                <div class="service-icon" style="font-size: 3rem; margin-bottom: var(--space-md); color: var(--accent-primary);">
-                    <i class="fab fa-github"></i>
-                </div>
+        <section class="github-invitation reveal reveal-delay-3 mt-3xl">
+            <div class="glass-card featured p-2xl">
                 <h2>Explore the Code</h2>
-                <p style="max-width: 700px; margin: 0 auto var(--space-xl);">
+                <p class="github-invitation-text">
                     This portfolio is entirely open source! I believe in transparency and sharing knowledge. 
                     Feel free to explore the architecture, styling, and AI integrations that power this site.
                 </p>
-                <div class="btn-group" style="justify-content: center; opacity: 1; animation: none;">
-                    <a href="https://github.com/danielart/danielart.github.io" target="_blank" rel="noopener" class="btn btn-primary" style="width: auto; min-width: 200px;">
-                        <i class="fas fa-code"></i> View Source Code
+                <div class="btn-group github-invitation-buttons">
+                    <a href="https://github.com/danielart/danielart.github.io" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="fab fa-github"></i> View Source Code
                     </a>
-                    <a href="https://github.com/danielart" target="_blank" rel="noopener" class="btn btn-outline" style="width: auto; min-width: 200px;">
-                        <i class="fab fa-github"></i> My GitHub
+                    <a href="https://github.com/danielart" target="_blank" rel="noopener" class="btn btn-outline">
+                        My GitHub
                     </a>
                 </div>
             </div>
@@ -545,7 +572,7 @@
                     
                     <div class="system-status">
                         <div class="status-indicator"></div>
-                        <span id="status-text">System Status: Available for freelance projects</span>
+                        <span id="status-text">System Status: Available for projects</span>
                     </div>
                 </div>
             </div>
@@ -555,7 +582,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p id="footer-text">© 2024 Daniel Artola Dominguez. Built with passion & modern web technologies.</p>
+            <p id="footer-text">© <span class="current-year">2025</span> Daniel Artola Dominguez. Built with passion & modern web technologies.</p>
         </div>
     </footer>
 

@@ -25,7 +25,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../../css/styles.css">
+    <!-- Tailwind CSS v4 (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+        darkMode: ['selector', '[data-theme="dark"]'],
+        theme: { extend: { colors: { 'accent-primary': 'var(--color-accent-primary)', 'accent-secondary': 'var(--color-accent-secondary)' }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] } } }
+      }
+    </script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../css/custom.css">
 </head>
 
 <body>
@@ -66,15 +77,15 @@
         </div>
     </nav>
 
-    <main id="main" class="container" tabindex="-1" style="outline: none; padding-top: 120px;">
+    <main id="main" class="container page-main-padded" tabindex="-1" >
         <article class="glass-card reveal">
-            <header style="margin-bottom: var(--space-xl); border-bottom: 1px solid var(--border-color); padding-bottom: var(--space-lg); display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--space-md);">
+            <header class="post-header">
                 <div class="header-main-info">
-                    <div class="meta" style="margin-bottom: var(--space-sm);">
+                    <div class="meta" >
                         <span><i class="far fa-calendar-alt"></i> Feb 15, 2026</span>
                         <span><i class="far fa-clock"></i> 3 min read</span>
                     </div>
-                    <h1 style="margin-bottom: var(--space-md);">From overwhelmed worker to orchestra conductor: How an AI agent multiplied my views by 10</h1>
+                    <h1 >From overwhelmed worker to orchestra conductor: How an AI agent multiplied my views by 10</h1>
                 </div>
                 <!-- Language Switcher Integrated -->
                 <div class="language-switcher">
@@ -122,7 +133,7 @@
                 </ul>
                 
                 <div class="blog-footer-cta">
-                    <p style="color: var(--text-secondary);">Enjoyed this read? Join the conversation on LinkedIn &rarr; <a href="https://www.linkedin.com/posts/activity-7420224000468930560-dZvF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAyGEyEBSxx7QKU1cYLp8wTYjaf-v0rmmww" target="_blank" rel="noopener" style="color: var(--primary-color); font-weight: 600; text-decoration: none;">View original post</a></p>
+                    <p >Enjoyed this read? Join the conversation on LinkedIn &rarr; <a href="https://www.linkedin.com/posts/activity-7420224000468930560-dZvF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAyGEyEBSxx7QKU1cYLp8wTYjaf-v0rmmww" target="_blank" rel="noopener" >View original post</a></p>
                 </div>
             </div>
         </article>
@@ -133,7 +144,7 @@
             <p>
                 Follow me on social media for more content on AI, development, and music.
             </p>
-            <div class="social-links" style="opacity: 1; animation: none;">
+            <div class="social-links visible" >
                 <a href="https://www.linkedin.com/in/danielartoladominguez" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/danielart" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 <a href="https://dev.to/danielart" target="_blank" rel="noopener"><i class="fab fa-dev"></i></a>

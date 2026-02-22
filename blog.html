@@ -9,6 +9,9 @@
     <meta name="keywords"
         content="Software Engineer, AI Engineer, Blog, Web Development, React, TypeScript, Brisa, Barcelona">
     <meta name="author" content="Daniel Artola Dominguez">
+    <meta name="theme-color" content="#0a0a0f">
+    <link rel="canonical" href="https://danielart.github.io/blog.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🅳</text></svg>">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Blog | Daniel Artola Dominguez">
@@ -24,11 +27,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Icons (deferred – non-critical) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- Tailwind CSS v4 (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+        darkMode: ['selector', '[data-theme="dark"]'],
+        theme: { extend: { colors: { 'accent-primary': 'var(--color-accent-primary)', 'accent-secondary': 'var(--color-accent-secondary)' }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] } } }
+      }
+    </script>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
@@ -69,20 +83,20 @@
         </div>
     </nav>
 
-    <main id="main" class="container" tabindex="-1" style="outline: none; padding-top: 120px;">
-        <section class="blog-header reveal" style="text-align: center; margin-bottom: var(--space-xl);">
-            <h1><i class="fab fa-dev" style="color: var(--accent-primary);"></i> Engineering Blog</h1>
+    <main id="main" class="container page-main-padded" tabindex="-1">
+        <section class="blog-header reveal">
+            <h1><i class="fab fa-dev"></i> Engineering Blog</h1>
             <p>Thoughts on AI, Web Development, and Engineering Leadership.</p>
         </section>
 
-        <section class="blog-filters reveal reveal-delay-1" style="margin-bottom: var(--space-2xl); display: flex; flex-direction: column; align-items: center; gap: var(--space-lg);">
+        <section class="blog-filters reveal reveal-delay-1">
             <!-- Language Switcher Integrated -->
             <div class="language-switcher">
                 <button class="lang-btn" data-lang="es">ES</button>
                 <button class="lang-btn" data-lang="en">EN</button>
             </div>
             
-            <div class="filter-group" style="display: flex; gap: var(--space-sm); flex-wrap: wrap; justify-content: center;">
+            <div class="filter-group">
                 <button class="btn btn-outline blog-filter-btn active" data-filter="all">All</button>
                 <button class="btn btn-outline blog-filter-btn" data-filter="ai">AI & Agents</button>
                 <button class="btn btn-outline blog-filter-btn" data-filter="web">Web Dev</button>
@@ -97,7 +111,7 @@
                 <!-- AI Changelog Gem Post (ES) -->
                 <a href="blog/es/ai-changelog-gem.html" class="glass-card blog-post-card" data-tags="ai,productivity,gemini,automation" data-lang="es">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/ai-changelog-gem.png" alt="Sistema de changelogs de IA con Gema de Gemini">
+                        <img src="assets/images/blog/ai-changelog-gem.png" alt="Sistema de changelogs de IA con Gema de Gemini" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>Deja de leer newsletters de IA: crea tu propio sistema de changelogs</h3>
@@ -120,7 +134,7 @@
                 <!-- YouTube AI Agent Post (ES) -->
                 <a href="blog/es/youtube-ai-agent.html" class="glass-card blog-post-card" data-tags="ai,marketing" data-lang="es">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/youtube stats 1.png" alt="YouTube Analytics Growth">
+                        <img src="assets/images/blog/youtube stats 1.png" alt="YouTube Analytics Growth" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>De operario agobiado a director de orquesta: Cómo un agente de IA multiplicó mis vistas por 10</h3>
@@ -141,7 +155,7 @@
                 <!-- AI Workflow Post (ES) -->
                 <a href="blog/es/ai-workflow.html" class="glass-card blog-post-card" data-tags="ai,productivity,jules,antigravity,stitch,mcp" data-lang="es">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/post AI-augmented development.png" alt="AI-Augmented Development Workflow">
+                        <img src="assets/images/blog/post AI-augmented development.png" alt="AI-Augmented Development Workflow" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>Orquestando el futuro: De meses a días con IA</h3>
@@ -166,7 +180,7 @@
                 <!-- Jules AI MCP Post (ES) -->
                 <a href="blog/es/jules-ai-mcp.html" class="glass-card blog-post-card" data-tags="ai,productivity,jules,mcp,stitch" data-lang="es">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/jules-mcp.png" alt="Jules AI Agent with MCP">
+                        <img src="assets/images/blog/jules-mcp.png" alt="Jules AI Agent with MCP" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>Jules: El agente de IA que trabaja por las noches ahora soporta MCP</h3>
@@ -192,7 +206,7 @@
                 <!-- AI Changelog Gem Post (EN) -->
                 <a href="blog/en/ai-changelog-gem.html" class="glass-card blog-post-card" data-tags="ai,productivity,gemini,automation" data-lang="en">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/ai-changelog-gem.png" alt="AI changelog system with Gemini Gem">
+                        <img src="assets/images/blog/ai-changelog-gem.png" alt="AI changelog system with Gemini Gem" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>Stop Reading AI Newsletters: Build Your Own Changelog System</h3>
@@ -215,7 +229,7 @@
                 <!-- YouTube AI Agent Post (EN) -->
                 <a href="blog/en/youtube-ai-agent.html" class="glass-card blog-post-card" data-tags="ai,marketing" data-lang="en">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/youtube stats 1.png" alt="YouTube Analytics Growth">
+                        <img src="assets/images/blog/youtube stats 1.png" alt="YouTube Analytics Growth" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>From overwhelmed worker to orchestra conductor: How an AI agent multiplied my views by 10</h3>
@@ -236,7 +250,7 @@
                 <!-- AI Workflow Post (EN) -->
                 <a href="blog/en/ai-workflow.html" class="glass-card blog-post-card" data-tags="ai,productivity,jules,antigravity,stitch,mcp" data-lang="en">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/post AI-augmented development.png" alt="AI-Augmented Development Workflow">
+                        <img src="assets/images/blog/post AI-augmented development.png" alt="AI-Augmented Development Workflow" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>Orchestrating the Future: How AI has reduced my development times from months to days</h3>
@@ -261,7 +275,7 @@
                 <!-- Jules AI MCP Post (EN) -->
                 <a href="blog/en/jules-ai-mcp.html" class="glass-card blog-post-card" data-tags="ai,productivity,jules,mcp,stitch" data-lang="en">
                     <div class="blog-thumbnail">
-                        <img src="assets/images/blog/jules-slide-1.png" alt="Jules AI Agent with MCP">
+                        <img src="assets/images/blog/jules-slide-1.png" alt="Jules AI Agent with MCP" loading="lazy" decoding="async" width="600" height="338">
                     </div>
                     <div class="blog-content-preview">
                         <h3>Jules: The AI agent that works at night now supports MCP</h3>
@@ -311,22 +325,19 @@
         </section>
         
         <!-- GitHub Code Invitation Section -->
-        <section class="github-invitation reveal reveal-delay-3" style="margin-top: var(--space-3xl);">
-            <div class="glass-card featured" style="text-align: center; padding: var(--space-2xl);">
-                <div class="service-icon" style="font-size: 3rem; margin-bottom: var(--space-md); color: var(--accent-primary);">
-                    <i class="fab fa-github"></i>
-                </div>
+        <section class="github-invitation reveal reveal-delay-3 mt-3xl">
+            <div class="glass-card featured p-2xl">
                 <h2>Explore the Code</h2>
-                <p style="max-width: 700px; margin: 0 auto var(--space-xl);">
+                <p class="github-invitation-text">
                     This portfolio is entirely open source! I believe in transparency and sharing knowledge. 
                     Feel free to explore the code, styling, and AI integrations that power this site.
                 </p>
-                <div class="btn-group" style="justify-content: center; opacity: 1; animation: none; display: flex; gap: var(--space-md); flex-wrap: wrap;">
-                    <a href="https://github.com/danielart/danielart.github.io" target="_blank" rel="noopener" class="btn btn-primary" style="width: auto; min-width: 200px;">
-                        <i class="fas fa-code"></i> View Source Code
+                <div class="btn-group github-invitation-buttons">
+                    <a href="https://github.com/danielart/danielart.github.io" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="fab fa-github"></i> View Source Code
                     </a>
-                    <a href="https://github.com/danielart" target="_blank" rel="noopener" class="btn btn-outline" style="width: auto; min-width: 200px;">
-                        <i class="fab fa-github"></i> My GitHub
+                    <a href="https://github.com/danielart" target="_blank" rel="noopener" class="btn btn-outline">
+                        My GitHub
                     </a>
                 </div>
             </div>
@@ -380,7 +391,7 @@
                     
                     <div class="system-status">
                         <div class="status-indicator"></div>
-                        <span id="status-text">System Status: Available for freelance projects</span>
+                        <span id="status-text">System Status: Available for projects</span>
                     </div>
                 </div>
             </div>
@@ -390,7 +401,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p id="footer-text">© 2024 Daniel Artola Dominguez. Built with passion & modern web technologies.</p>
+            <p id="footer-text">© <span class="current-year">2025</span> Daniel Artola Dominguez. Built with passion & modern web technologies.</p>
         </div>
     </footer>
 

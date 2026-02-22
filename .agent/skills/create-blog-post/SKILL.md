@@ -59,11 +59,11 @@ This skill automates the creation of a multilingual blog post for Daniel Artola'
 
 ### 6. Deployment
 
-- The site deploys by pushing to the `master` branch.
+- The site deploys by pushing to the `main` branch.
 - Standard flow:
   1. Create a feature branch `blog/{{SLUG}}`.
   2. Review changes locally.
-  3. Merge to `master` (or push directly if preferred by user).
+  3. Merge to `main` (or push directly if preferred by user).
   4. Push to origin.
 
 ## Best Practices for This Site

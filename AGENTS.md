@@ -12,17 +12,23 @@ This is a personal portfolio and engineering blog for Daniel Artola. It is built
 ## 🛠 Project Structure
 - `/index.html`: Main landing page (Portfolio, Experience, Featured Work).
 - `/blog.html`: Engineering blog listing page.
+- `/blog/post-template.html`: Template for creating new blog post pages.
 - `/blog/`: Individual blog posts (localized in `en/` and `es/`).
 - `/css/styles.css`: Central styling system.
-- `/js/main.js`: Main interactivity and dynamic localization logic.
-- `/STYLING_GUIDELINES.md`: **MANDATORY** reading before any UI changes.
+- `/js/main.js`: Main interactivity, scroll animations, and dynamic localization logic.
+- `/docs/STYLING_GUIDELINES.md`: **MANDATORY** reading before any UI changes.
+- `/docs/BLOG_POST_TEMPLATE.md`: Frontmatter and content template for new blog posts.
+- `/GITHUB_ISSUE.md`: Backlog of proposed improvements and feature requests.
 - `.agent/workflows/`: Executable/repeatable task definitions.
+- `.agent/skills/`: Detailed skill instructions for complex tasks.
 
 ## 🎨 Styling Guidelines
-All CSS changes **MUST** comply with `STYLING_GUIDELINES.md`.
+All CSS changes **MUST** comply with `docs/STYLING_GUIDELINES.md`.
 - **Key Palette variables:** `--accent-primary`, `--accent-secondary`, `--glass-bg`, `--glass-border`.
 - **Components:** Cards use `.glass-card`, sections use `.reveal` for scroll animations.
 - **Grids:** Prefer `.grid-2` for segmented content.
+- **No inline styles:** Use CSS classes defined in `css/styles.css`. Utility classes like `.section-header-flex`, `.github-invitation-*` etc. exist for layout patterns.
+- **No `!important`:** Use higher-specificity selectors instead (e.g., `.nav-links .nav-cta`).
 
 ## 🌍 Localization Engine
 The site supports English (`en`) and Spanish (`es`).
@@ -37,10 +43,11 @@ The site supports English (`en`) and Spanish (`es`).
 Follow the `.agent/workflows/create-blog-post.md` workflow for adding new content.
 - Always create parallel posts in `blog/en/` and `blog/es/`.
 - Update the grid in `blog.html` to include the new post entries.
+- Add `loading="lazy" decoding="async" width="600" height="338"` to all blog thumbnail images.
 
 ## 📓 Agent Continuity
 - **Learnings:** Check `.Jules/palette.md` for historical decisions and technical learnings.
 - **Memory:** If you make a significant architectural or design decision, record it in `.Jules/palette.md` to avoid regressions in future sessions.
 
 ---
-**Status:** Managed by Antigravity AI | Last Updated: 2026-02-21
+**Status:** Managed by Antigravity AI | Last Updated: 2026-02-22

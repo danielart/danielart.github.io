@@ -47,8 +47,18 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
 
+    <!-- Tailwind CSS (CDN — Preflight disabled) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+        darkMode: ['selector', '[data-theme="dark"]'],
+        theme: { extend: { colors: { 'accent-primary': 'var(--color-accent-primary)', 'accent-secondary': 'var(--color-accent-secondary)' }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] } } }
+      }
+    </script>
+
     <!-- Styles -->
-    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/custom.css" />
   </head>
 
   <body>
@@ -91,29 +101,18 @@
 
     <main
       id="main"
-      class="container"
+      class="container page-main-padded"
       tabindex="-1"
-      style="outline: none; padding-top: 120px"
+      
     >
       <article class="glass-card reveal">
-        <header
-          style="
-            margin-bottom: var(--space-xl);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: var(--space-lg);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: var(--space-md);
-          "
-        >
+        <header class="post-header">
           <div class="header-main-info">
-            <div class="meta" style="margin-bottom: var(--space-sm)">
+            <div class="meta" >
               <span><i class="far fa-calendar-alt"></i> Feb 19, 2026</span>
               <span><i class="far fa-clock"></i> 4 min read</span>
             </div>
-            <h1 style="margin-bottom: var(--space-md)">
+            <h1 >
               Deja de leer newsletters de IA: crea tu propio sistema de
               changelogs
             </h1>
@@ -139,7 +138,7 @@
 
           <p>Solo en lo que va de 2026 hemos tenido:</p>
 
-          <ul style="margin-left: var(--space-md)">
+          <ul class="ml-base"  >
             <li>
               <strong>1 de enero:</strong> OpenAI lanza o2-mini (Optimización de
               razonamiento en tiempo real)
@@ -252,7 +251,13 @@
           </p>
 
           <details class="collapsible-code">
-            <summary>📋 Ver instrucciones completas de la Gema</summary>
+            <summary>
+              <span>📋 Ver instrucciones completas de la Gema</span>
+              <span class="expand-hint" data-expand="CLIC PARA EXPANDIR" data-collapse="CLIC PARA CONTRAER"></span>
+              <button class="copy-code-btn" title="Copiar código" aria-label="Copiar código">
+                <i class="far fa-copy"></i>
+              </button>
+            </summary>
             <pre><code>Purpose and Goals:
 Act as a technical analyst specializing in AI software development.
 Monitor AI tool changelogs from a specific Google Sheet named 'AI changelogs'
@@ -353,26 +358,14 @@ Behaviors and Rules:
             >.
           </p>
 
-          <div
-            class="blog-footer-cta"
-            style="
-              margin-top: var(--space-2xl);
-              padding-top: var(--space-xl);
-              border-top: 1px solid var(--border-color);
-            "
-          >
-            <p style="color: var(--text-secondary)">
+          <div class="blog-footer-cta">
+            <p>
               ¿Te ha gustado el artículo? Únete a la conversación en LinkedIn
               &rarr;
               <a
                 href="https://www.linkedin.com/in/danielartoladominguez"
                 target="_blank"
                 rel="noopener"
-                style="
-                  color: var(--primary-color);
-                  font-weight: 600;
-                  text-decoration: none;
-                "
                 >Ver perfil</a
               >
             </p>
@@ -387,7 +380,7 @@ Behaviors and Rules:
           Sígueme en redes sociales para más contenido sobre IA, desarrollo y
           productividad.
         </p>
-        <div class="social-links" style="opacity: 1; animation: none">
+        <div class="social-links visible" >
           <a
             href="https://www.linkedin.com/in/danielartoladominguez"
             target="_blank"

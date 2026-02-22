@@ -7,6 +7,9 @@
     <meta name="description" content="{{DESCRIPTION}}">
     <meta name="keywords" content="{{KEYWORDS}}">
     <meta name="author" content="Daniel Artola Dominguez">
+    <meta name="theme-color" content="#0a0a0f">
+    <link rel="canonical" href="https://danielart.github.io/blog/{{SLUG}}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🅳</text></svg>">
 
     <!-- Open Graph -->
     <meta property="og:title" content="{{TITLE}}">
@@ -21,11 +24,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Icons (deferred – non-critical) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- Tailwind CSS v4 (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+        darkMode: ['selector', '[data-theme="dark"]'],
+        theme: { extend: { colors: { 'accent-primary': 'var(--color-accent-primary)', 'accent-secondary': 'var(--color-accent-secondary)' }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] } } }
+      }
+    </script>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/custom.css">
 </head>
 
 <body>
@@ -45,15 +59,15 @@
 
             <ul class="nav-links">
                 <li><a href="../index.html#about">About</a></li>
-                <li><a href="../index.html#skills">Skills</a></li>
-                <li><a href="../index.html#opensource">Open Source</a></li>
-                <li><a href="../index.html#experience">Experience</a></li>
-                <li><a href="../index.html#certifications">Certifications</a></li>
+                <li><a href="../index.html#opensource">Work</a></li>
                 <li><a href="../blog.html">Blog</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Contact</a></li>
             </ul>
 
             <div class="nav-controls">
+                <a href="https://github.com/danielart/danielart.github.io" target="_blank" rel="noopener" class="control-link" title="Source Code">
+                    <i class="fab fa-github"></i>
+                </a>
                 <button class="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -66,14 +80,14 @@
         </div>
     </nav>
 
-    <main id="main" class="container" tabindex="-1" style="outline: none; padding-top: 120px;">
+    <main id="main" class="container page-main-padded" tabindex="-1">
         <article class="glass-card reveal">
-            <header style="margin-bottom: var(--space-xl); border-bottom: 1px solid var(--border-color); padding-bottom: var(--space-lg);">
+            <header class="post-header">
                 <div class="meta">
                     <span><i class="far fa-calendar-alt"></i> {{DATE}}</span>
                     <span><i class="far fa-clock"></i> {{READ_TIME}}</span>
                 </div>
-                <h1 style="margin-bottom: var(--space-md);">{{TITLE}}</h1>
+                <h1>{{TITLE}}</h1>
                 <div class="tags">
                     <!-- TAGS_PLACEHOLDER -->
                     <!-- Example: <span class="tag">#tech</span> -->
@@ -91,7 +105,7 @@
             <p>
                 Follow me on social media for more.
             </p>
-            <div class="social-links" style="opacity: 1; animation: none;">
+            <div class="social-links visible">
                 <a href="https://www.linkedin.com/in/danielartoladominguez" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/danielart" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 <a href="https://dev.to/danielart" target="_blank" rel="noopener"><i class="fab fa-dev"></i></a>
@@ -102,7 +116,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2024 Daniel Artola Dominguez. Built with passion & modern web technologies.</p>
+            <p>© <span class="current-year">2025</span> Daniel Artola Dominguez. Built with passion & modern web technologies.</p>
         </div>
     </footer>
 
