@@ -35,3 +35,8 @@ Features, articles, and logical segments (e.g., the Contact Section, Open Source
 
 - Active or running background jobs (like the status indicator) simulate existence via subtle pulses. Keep animation durations around 2 seconds to simulate rhythm (`animation: pulse 2s infinite`).
 - Avoid flashes or abrupt transitions. Everything goes through a slow fade or minimal slide out/in (via `.reveal` class).
+
+## 6. CSS Framework Rules & Script Loading
+
+- **Tailwind CSS CDN:** The `<script src="https://cdn.tailwindcss.com"></script>` tag **must never** have a `defer` attribute. Deferring the Tailwind CDN script breaks the inline `tailwind.config` definition and incorrectly injects the Tailwind base preflight styles, which resets spacing and typography layout defaults (making titles smaller and losing correct item spacing).
+- Always use `<link rel="preload" href="https://cdn.tailwindcss.com" as="script">` in the `<head>` instead to improve LCP without breaking execution order.

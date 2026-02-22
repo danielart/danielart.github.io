@@ -13,7 +13,7 @@
   --color-text-primary: #0f172a;
   --color-text-secondary: #475569;
   --color-text-muted: #64748b;
-  --color-accent-primary: #6366f1;
+  --color-accent-primary: #4f46e5;
   --color-accent-secondary: #8b5cf6;
   --color-border: rgba(148, 163, 184, 0.3);
   --color-glass-bg: rgba(255, 255, 255, 0.6);
@@ -535,7 +535,7 @@ section {
 }
 
 .btn-outline {
-  background: transparent;
+  background: var(--color-bg-primary);
   border: 2px solid var(--color-accent-primary);
   color: var(--color-accent-primary);
 }
@@ -1166,6 +1166,10 @@ section {
 /* --------------------------------------------------------------------------
    Blog Content (Article Body)
    -------------------------------------------------------------------------- */
+.blog-content {
+  margin-top: 2.5rem;
+}
+
 .blog-content h2 {
   margin-top: 3rem;
   margin-bottom: 1rem;

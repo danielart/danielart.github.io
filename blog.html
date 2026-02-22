@@ -22,6 +22,10 @@
 
     <title>Blog | Daniel Artola Dominguez</title>
 
+    <!-- Preloads -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="css/custom.css" as="style">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -377,13 +381,13 @@
                     <div class="social-follow">
                         <span id="follow-me-text">Follow me on:</span>
                         <div class="social-links-grid">
-                            <a href="https://www.linkedin.com/in/danielartoladominguez" target="_blank" rel="noopener" class="social-btn linkedin">
+                            <a href="https://www.linkedin.com/in/danielartoladominguez" target="_blank" rel="noopener" class="social-btn linkedin" aria-label="LinkedIn Profile">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="https://dev.to/danielart" target="_blank" rel="noopener" class="social-btn devto">
+                            <a href="https://dev.to/danielart" target="_blank" rel="noopener" class="social-btn devto" aria-label="Dev.to Blog">
                                 <i class="fab fa-dev"></i>
                             </a>
-                            <a href="https://medium.com/@danielofair" target="_blank" rel="noopener" class="social-btn medium">
+                            <a href="https://medium.com/@danielofair" target="_blank" rel="noopener" class="social-btn medium" aria-label="Medium Blog">
                                 <i class="fab fa-medium"></i>
                             </a>
                         </div>
@@ -411,7 +415,7 @@
     </button>
 
     <!-- Scripts -->
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 
 </html>

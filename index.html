@@ -12,6 +12,9 @@
     <meta name="theme-color" content="#0a0a0f">
     <link rel="canonical" href="https://danielart.github.io/">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🅳</text></svg>">
+    
+    <link rel="preload" href="css/custom.css" as="style">
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Daniel Artola Dominguez | AI Engineer & Open Source">
@@ -103,7 +106,8 @@
     <header class="hero">
         <div class="container hero-content">
             <h1 class="hero-title">Daniel Artola Dominguez</h1>
-            <p class="hero-subtitle" aria-label="Engineering Lead at ManoMano | AI & Open Source">
+            <p class="hero-subtitle">
+                <span class="sr-only">Engineering Lead at ManoMano | AI & Open Source</span>
                 <span class="typing-text" aria-hidden="true" data-text="Engineering Lead at ManoMano | AI & Open Source">Engineering Lead
                     at ManoMano | AI & Open Source</span>
             </p>
@@ -558,13 +562,13 @@
                     <div class="social-follow">
                         <span id="follow-me-text">Follow me on:</span>
                         <div class="social-links-grid">
-                            <a href="https://www.linkedin.com/in/danielartoladominguez" target="_blank" rel="noopener" class="social-btn linkedin">
+                            <a href="https://www.linkedin.com/in/danielartoladominguez" target="_blank" rel="noopener" class="social-btn linkedin" aria-label="LinkedIn Profile">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="https://dev.to/danielart" target="_blank" rel="noopener" class="social-btn devto">
+                            <a href="https://dev.to/danielart" target="_blank" rel="noopener" class="social-btn devto" aria-label="Dev.to Blog">
                                 <i class="fab fa-dev"></i>
                             </a>
-                            <a href="https://medium.com/@danielofair" target="_blank" rel="noopener" class="social-btn medium">
+                            <a href="https://medium.com/@danielofair" target="_blank" rel="noopener" class="social-btn medium" aria-label="Medium Blog">
                                 <i class="fab fa-medium"></i>
                             </a>
                         </div>
@@ -592,7 +596,7 @@
     </button>
 
     <!-- Scripts -->
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 
 </html>
