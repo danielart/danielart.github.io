@@ -330,7 +330,7 @@ function updateLanguageUI(lang) {
             contactConnectHeading: 'Let\'s connect',
             contactDesc: 'Interested in Brisa, AI agents, or modern web architecture?',
             followMeText: 'Follow me on:',
-            statusText: 'System Status: Available for freelance projects',
+            statusText: 'System Status: Available for projects',
             sayHelloBtn: 'Say Hello <i class="fas fa-paper-plane" aria-hidden="true"></i>'
         },
         es: {
@@ -348,7 +348,7 @@ function updateLanguageUI(lang) {
             contactConnectHeading: 'Conectemos',
             contactDesc: '¿Interesado en Brisa, agentes de IA o arquitectura web moderna?',
             followMeText: 'Sígueme en:',
-            statusText: 'Estado del sistema: Disponible para proyectos freelance',
+            statusText: 'Estado del sistema: Disponible para proyectos',
             sayHelloBtn: 'Di Hola <i class="fas fa-paper-plane" aria-hidden="true"></i>'
         }
     };
