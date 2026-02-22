@@ -276,9 +276,8 @@ function updateLanguageUI(lang) {
         b.classList.toggle('active', b.getAttribute('data-lang') === lang);
     });
 
-    // 2. Filter blog posts
-    const filterBtn = document.querySelector('.blog-filter-btn.active');
-    const currentFilter = filterBtn ? filterBtn.getAttribute('data-filter') : 'all';
+    // 2. Filter blog posts (only by language now)
+    const currentFilter = 'all';
 
     document.querySelectorAll('.blog-post-card').forEach(post => {
         const postLang = post.getAttribute('data-lang');
@@ -300,8 +299,7 @@ function updateLanguageUI(lang) {
             const onTransitionEnd = () => {
                 // Re-check if it should still be hidden at the time the transition ends
                 const currentLang = localStorage.getItem('lang') || 'en';
-                const activeFilter = document.querySelector('.blog-filter-btn.active');
-                const activeFilterValue = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
+                const activeFilterValue = 'all';
                 const stillMatchesLang = postLang === currentLang || !postLang;
                 const stillMatchesFilter = activeFilterValue === 'all' || postTags.includes(activeFilterValue);
                 if (!(stillMatchesLang && stillMatchesFilter)) {
@@ -362,13 +360,7 @@ function updateLanguageUI(lang) {
     const desc = document.querySelector('.blog-header p');
     if (desc) desc.textContent = strings.blogDesc;
 
-    const filters = document.querySelectorAll('.blog-filter-btn');
-    if (filters.length >= 4) {
-        filters[0].textContent = strings.filterAll;
-        filters[1].textContent = strings.filterAI;
-        filters[2].textContent = strings.filterWeb;
-        filters[3].textContent = strings.filterLeadership;
-    }
+
 
     // Update Contact Section Strings if they exist on the page
     const el = (id) => document.getElementById(id);
