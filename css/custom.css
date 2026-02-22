@@ -1049,7 +1049,16 @@ section {
    -------------------------------------------------------------------------- */
 .blog-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.2rem;
+  padding-bottom: 0;
+}
+
+.blog-header h1 {
+  margin-bottom: 1rem;
+}
+
+.blog-header p {
+  margin-bottom: 0;
 }
 
 .blog-header h1 i {
@@ -1057,11 +1066,16 @@ section {
 }
 
 .blog-filters {
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+}
+
+.blog-posts {
+  padding-top: 5px;
 }
 
 .blog-filter-btn {
@@ -1444,8 +1458,8 @@ section {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .section-header-flex h2 { margin-bottom: 0; }
@@ -1464,7 +1478,7 @@ section {
 .github-invitation-buttons { justify-content: center; opacity: 1; animation: none; }
 .github-invitation-buttons .btn { width: auto; min-width: 200px; }
 
-.page-main-padded { padding-top: 120px; }
+.page-main-padded { padding-top: 80px; }
 .text-center { text-align: center; }
 .mt-xl { margin-top: 2rem; }
 .mt-3xl { margin-top: 4rem; }
