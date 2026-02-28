@@ -1,0 +1,317 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import Card from "@/components/Card.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+
+import { SOCIALS } from "@/constants";
+
+const posts = await getCollection("blog");
+
+const sortedPosts = getSortedPosts(posts);
+
+const enPosts = sortedPosts.filter(({ data }) => data.lang === "en").slice(0, 5);
+const esPosts = sortedPosts.filter(({ data }) => data.lang === "es").slice(0, 5);
+const recentPosts = [...enPosts, ...esPosts].sort(
+  (a, b) => new Date(b.data.pubDatetime).getTime() - new Date(a.data.pubDatetime).getTime()
+);
+---
+
+<Layout>
+  <Header />
+  <main id="main-content" data-layout="index" class="app-layout">
+    <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
+      <div class="my-4 flex flex-col gap-4 sm:my-8 sm:flex-row sm:items-center">
+        <h1 class="inline-block text-4xl font-bold sm:text-5xl">
+          Daniel Artola Dominguez
+        </h1>
+        
+      <style>
+        .libutton {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 7px;
+          text-align: center;
+          outline: none;
+          text-decoration: none !important;
+          color: #ffffff !important;
+          width: 200px;
+          height: 32px;
+          border-radius: 16px;
+          background-color: #0A66C2;
+          font-family: "SF Pro Text", Helvetica, sans-serif;
+        }
+      </style>
+<a class="libutton" href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=danielartoladominguez" target="_blank">Follow on LinkedIn</a>
+      </div>
+      <p class="mb-4 text-xl font-medium text-accent">
+        Engineering Lead at ManoMano | AI & Open Source
+      </p>
+
+      <p>
+        I am an <strong>Engineering Lead at ManoMano</strong> based in Barcelona.
+        I specialize in building intelligent <strong>multi-agent systems</strong
+        > and contributing to the next generation of web frameworks.
+      </p>
+      <p class="mt-2">
+        Beyond the code, I'm a React lover, a bass player in a rock band, and a
+        father. I am passionate about blending robust software engineering with
+        the chaotic potential of AI.
+      </p>
+      {
+        // only display if at least one social link is enabled
+        SOCIALS.length > 0 && (
+          <div class="mt-4 flex max-sm:flex-col sm:items-center">
+            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Connect:</div>
+            <Socials />
+          </div>
+        )
+      }
+    </section>
+
+    <section id="open-source" class="border-b border-border pt-12 pb-6">
+      <h2 class="text-2xl font-semibold tracking-wide">
+        Open Source & Innovation
+      </h2>
+      <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <a
+          href="https://github.com/brisa-build"
+          target="_blank"
+          rel="noopener"
+          class="block rounded-lg border border-border p-6 transition-colors hover:border-accent"
+        >
+          <h3 class="mb-2 text-xl font-bold text-accent">⚡ Brisa Framework</h3>
+          <p class="mb-4 text-sm opacity-80">Core Contributor | brisa.build</p>
+          <p>
+            The Web Platform Framework. I contribute to this next-gen full-stack
+            framework that delivers <strong>0KB client-side JavaScript</strong> by
+            default.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="rounded bg-border px-2 py-1 text-xs">TypeScript</span>
+            <span class="rounded bg-border px-2 py-1 text-xs"
+              >Web Components</span
+            >
+            <span class="rounded bg-border px-2 py-1 text-xs"
+              >Server Actions</span
+            >
+          </div>
+        </a>
+
+        <a
+          href="https://github.com/teafuljs/teaful"
+          target="_blank"
+          rel="noopener"
+          class="block rounded-lg border border-border p-6 transition-colors hover:border-accent"
+        >
+          <h3 class="mb-2 text-xl font-bold text-accent">🍵 Teaful</h3>
+          <p class="mb-4 text-sm opacity-80">
+            Co-Creator / Maintainer | 700+ Stars
+          </p>
+          <p>
+            Tiny (less than 1KB), easy, and powerful React state management
+            library. Designed to eliminate boilerplate and avoid unnecessary
+            re-renders.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="rounded bg-border px-2 py-1 text-xs">React</span>
+            <span class="rounded bg-border px-2 py-1 text-xs"
+              >State Management</span
+            >
+            <span class="rounded bg-border px-2 py-1 text-xs">&lt; 1KB</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="blog-header" class="border-b border-border pt-12 pb-6">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <h2 class="text-2xl font-semibold tracking-wide">Latest Writings</h2>
+        <div class="language-switcher flex gap-2">
+          <button
+            class="lang-btn active rounded border border-border px-3 py-1 hover:border-accent active:bg-accent"
+            data-lang="all">All</button
+          >
+          <button
+            class="lang-btn rounded border border-border px-3 py-1 hover:border-accent"
+            data-lang="en">EN</button
+          >
+          <button
+            class="lang-btn rounded border border-border px-3 py-1 hover:border-accent"
+            data-lang="es">ES</button
+          >
+        </div>
+      </div>
+    </section>
+
+
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+          <ul>
+            {recentPosts.map((data) => <Card variant="h3" {...data} />)}
+          </ul>
+        </section>
+      )
+    }
+
+    <script is:inline>
+      function setupLangSwitcher() {
+        const buttons = document.querySelectorAll(".lang-btn");
+        const posts = document.querySelectorAll("li[data-language]");
+
+        buttons.forEach(btn => {
+          btn.addEventListener("click", () => {
+            const lang = btn.getAttribute("data-lang");
+
+            // Update buttons state
+            buttons.forEach(b =>
+              b.classList.remove("border-accent", "text-accent")
+            );
+            btn.classList.add("border-accent", "text-accent");
+
+            // Filter posts
+            posts.forEach(post => {
+              if (
+                lang === "all" ||
+                post.getAttribute("data-language") === lang
+              ) {
+                post.style.display = "block";
+              } else {
+                post.style.display = "none";
+              }
+            });
+          });
+        });
+      }
+
+      document.addEventListener("astro:page-load", setupLangSwitcher);
+      setupLangSwitcher();
+    </script>
+
+    <div class="my-8 text-center">
+      <LinkButton href="/posts/">
+        All Posts
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
+    </div>
+
+    <section
+      id="github-invitation"
+      class="mt-12 border-t border-border pt-12 pb-6"
+    >
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="mb-4 text-2xl font-semibold tracking-wide">
+          Explore the Code
+        </h2>
+        <p class="mb-8">
+          This portfolio is entirely open source! I believe in transparency and
+          sharing knowledge. Feel free to explore the architecture, styling, and
+          AI integrations that power this site.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <LinkButton
+            href="https://github.com/danielart/Blog_astropaper"
+            target="_blank"
+          >
+            <i class="fab fa-code mr-1"></i> View Source Code
+          </LinkButton>
+          <LinkButton href="https://github.com/danielart" target="_blank">
+            <i class="fab fa-github mr-1"></i> My GitHub
+          </LinkButton>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="mt-12 border-t border-border pt-12 pb-12">
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+        <div>
+          <h2 class="mb-6 text-2xl font-semibold tracking-wide">
+            How I can help you
+          </h2>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="mt-1 text-2xl text-accent">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold">AI Advisor & Consultant</h3>
+                <p class="text-sm opacity-80">
+                  Strategy, architecture, and integrating AI into workflows.
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="mt-1 text-2xl text-accent">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold">Custom AI Agents & Automation</h3>
+                <p class="text-sm opacity-80">
+                  Building specialized agents and orchestrating systems (Mastra,
+                  n8n).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2 class="mb-6 text-2xl font-semibold tracking-wide">
+            Let's connect
+          </h2>
+          <p class="mb-6 opacity-80">
+            Interested in Brisa, AI agents, or modern web architecture?
+          </p>
+          <LinkButton
+            href="mailto:danielartoladominguez@gmail.com"
+            class="w-full py-4 text-center text-lg"
+          >
+            Say Hello <i class="fas fa-paper-plane ml-2"></i>
+          </LinkButton>
+          <div class="mt-8 flex items-center gap-4">
+            <div class="h-3 w-3 animate-pulse rounded-full bg-green-500"></div>
+            <span class="text-sm opacity-80"
+              >Available for freelance projects</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset?.layout;
+    if (indexLayout) {
+      sessionStorage.setItem("backUrl", "/");
+    }
+  });
+</script>
+
+<style>
+  .libutton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 7px;
+    text-align: center;
+    outline: none;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    width: 200px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: #0a66c2;
+    font-family: "SF Pro Text", Helvetica, sans-serif;
+  }
+</style>
