@@ -13,11 +13,11 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --background: #8c7aa9;
-  --foreground: #efabff;
-  --accent: #dc6bad;
-  --muted: #7192be;
-  --border: #eda2f2;
+  --background: #0b040e;
+  --foreground: #fce8fc;
+  --accent: #e86ab4;
+  --muted: #2a1133;
+  --border: #4d235e;
 }
 
 @theme inline {
@@ -41,7 +41,12 @@ html[data-theme="dark"] {
   body {
     @apply flex min-h-svh flex-col bg-background font-app text-foreground selection:bg-accent/75 selection:text-background;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply text-accent;
   }
   a,

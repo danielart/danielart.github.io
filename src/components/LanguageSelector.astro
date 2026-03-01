@@ -1,22 +1,14 @@
 ---
 export interface Props {
-  currentLang?: "all" | "en" | "es";
+  currentLang?: "en" | "es";
 }
 
-const { currentLang = "all" } = Astro.props;
+const { currentLang = "en" } = Astro.props;
 ---
 
 <div class="language-switcher flex gap-2 mb-6">
   <a
     href="/posts/"
-    class={`lang-btn rounded border border-border px-3 py-1 hover:border-accent ${
-      currentLang === "all" ? "border-accent text-accent" : ""
-    }`}
-  >
-    All
-  </a>
-  <a
-    href="/posts/en/"
     class={`lang-btn rounded border border-border px-3 py-1 hover:border-accent ${
       currentLang === "en" ? "border-accent text-accent" : ""
     }`}
