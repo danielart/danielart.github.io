@@ -9,6 +9,7 @@ import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
 import IconDevto from "@/assets/icons/IconDevto.svg";
 import IconMedium from "@/assets/icons/IconMedium.svg";
+import IconStack2 from "@/assets/icons/IconStack2.svg";
 import { SITE } from "@/config";
 
 interface Social {
@@ -48,6 +49,12 @@ export const SOCIALS: Social[] = [
     href: "https://medium.com/@danielart",
     linkTitle: `${SITE.title} on Medium`,
     icon: IconMedium,
+  },
+  {
+    name: "Substack",
+    href: "https://danielartola.substack.com/subscribe?params=%5Bobject%20Object%5D",
+    linkTitle: `${SITE.title} on Substack`,
+    icon: IconStack2,
   },
 ] as const;
 
