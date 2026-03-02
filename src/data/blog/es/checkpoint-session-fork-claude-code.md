@@ -21,7 +21,7 @@ Nuestros flujos de trabajo son intrínsecamente no lineales. Usamos ramas de Git
 
 Hasta hace poco solía exportar las conclusiones de una conversa en un Markdown para no perderlo. Pero ahora, aprovechando la gestión de sesiones de Claude Code, finalmente podemos tratar el contexto de la IA como un activo ramificable.
 
-![Session Forking Concept](../../../assets/images/blog/claude-code-forking.png)
+![Concepto de Session Forking](../../../assets/images/blog/claude-code-forking.png)
 
 ## El Bucle Agéntico: Por qué el contexto es costoso
 
