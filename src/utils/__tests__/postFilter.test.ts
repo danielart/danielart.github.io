@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import postFilter from "../postFilter";
 import { SITE } from "../../config";
+import type { CollectionEntry } from "astro:content";
 
 describe("postFilter", () => {
   beforeEach(() => {
@@ -17,7 +18,7 @@ describe("postFilter", () => {
         draft: true,
         pubDatetime: new Date().toISOString(),
       },
-    } as any;
+    } as unknown as CollectionEntry<"blog">;
     expect(postFilter(post)).toBe(false);
   });
 
@@ -30,7 +31,7 @@ describe("postFilter", () => {
         draft: false,
         pubDatetime: new Date("2023-01-01T11:59:00Z").toISOString(),
       },
-    } as any;
+    } as unknown as CollectionEntry<"blog">;
     expect(postFilter(post)).toBe(true);
   });
 
@@ -44,7 +45,7 @@ describe("postFilter", () => {
         draft: false,
         pubDatetime: new Date(now.getTime() + SITE.scheduledPostMargin + 1000).toISOString(),
       },
-    } as any;
+    } as unknown as CollectionEntry<"blog">;
 
     const isDev = import.meta.env.DEV;
     if (isDev) {
@@ -63,7 +64,7 @@ describe("postFilter", () => {
         draft: false,
         pubDatetime: new Date(now.getTime() + SITE.scheduledPostMargin - 1000).toISOString(),
       },
-    } as any;
+    } as unknown as CollectionEntry<"blog">;
     expect(postFilter(post)).toBe(true);
   });
 });
