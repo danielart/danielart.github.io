@@ -34,7 +34,8 @@ describe("postFilter", () => {
     expect(postFilter(post)).toBe(true);
   });
 
-  it("should return false if publication time is in the future (beyond margin)", () => {
+  it("should return false if publication time is in the future (beyond margin) and not in DEV", () => {
+    // We force DEV to false if we could, but here we just check against the actual code behavior
     const now = new Date("2023-01-01T12:00:00Z");
     vi.setSystemTime(now);
 
@@ -44,10 +45,13 @@ describe("postFilter", () => {
         pubDatetime: new Date(now.getTime() + SITE.scheduledPostMargin + 1000).toISOString(),
       },
     } as any;
-    // In Vitest environment, import.meta.env.DEV might be true, causing this to be true
-    // We expect it to be false if we were in production, but we should align with the code logic
-    const expected = !(import.meta.env.DEV || false);
-    expect(postFilter(post)).toBe(!expected);
+
+    const isDev = import.meta.env.DEV;
+    if (isDev) {
+      expect(postFilter(post)).toBe(true);
+    } else {
+      expect(postFilter(post)).toBe(false);
+    }
   });
 
   it("should return true if publication time is within the scheduled margin", () => {
