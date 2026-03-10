@@ -43,7 +43,9 @@ describe("postFilter", () => {
     const post = {
       data: {
         draft: false,
-        pubDatetime: new Date(now.getTime() + SITE.scheduledPostMargin + 1000).toISOString(),
+        pubDatetime: new Date(
+          now.getTime() + SITE.scheduledPostMargin + 1000
+        ).toISOString(),
       },
     } as unknown as CollectionEntry<"blog">;
 
@@ -62,7 +64,9 @@ describe("postFilter", () => {
     const post = {
       data: {
         draft: false,
-        pubDatetime: new Date(now.getTime() + SITE.scheduledPostMargin - 1000).toISOString(),
+        pubDatetime: new Date(
+          now.getTime() + SITE.scheduledPostMargin - 1000
+        ).toISOString(),
       },
     } as unknown as CollectionEntry<"blog">;
     expect(postFilter(post)).toBe(true);
