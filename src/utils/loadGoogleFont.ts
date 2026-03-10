@@ -34,7 +34,9 @@ async function loadGoogleFont(
       const fontResponse = await fetch(resource[1]);
 
       if (!fontResponse.ok) {
-        throw new Error("Failed to download dynamic font. Status: " + fontResponse.status);
+        throw new Error(
+          "Failed to download dynamic font. Status: " + fontResponse.status
+        );
       }
 
       return await fontResponse.arrayBuffer();
