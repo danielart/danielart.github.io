@@ -1,7 +1,7 @@
 ---
 title: "[EN] Reducing time on Lead tasks with key MCPs"
 author: Daniel Artola
-pubDatetime: 2026-03-24T21:55:00Z
+pubDatetime: 2026-03-24T21:00:00Z
 slug: key-mcps-lead-productivity
 featured: false
 draft: false

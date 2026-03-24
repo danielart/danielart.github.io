@@ -1,7 +1,7 @@
 ---
 title: "[ES] Reduciendo el tiempo en tareas de lead con MCPs clave"
 author: Daniel Artola
-pubDatetime: 2026-03-24T21:55:00Z
+pubDatetime: 2026-03-24T21:00:00Z
 slug: mcp-claves-lead-productividad
 featured: false
 draft: false
