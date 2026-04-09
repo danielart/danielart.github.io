@@ -21,7 +21,7 @@ description: Una guía técnica basada en la documentación oficial de Anthropic
 **Claude Code — Prompt, Skill, Subagent, Agent y Agent Teams**
 _Guía técnica basada en documentación oficial de Anthropic_
 
-Fuentes: [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) · [Subagents](https://code.claude.com/docs/en/sub-agents) · [Agent Teams](https://code.claude.com/docs/en/agent-teams) · [Skills in Claude Code](https://code.claude.com/docs/en/skills)
+Fuentes: [Claude Code Features](https://code.claude.com/docs/en/agent-sdk/claude-code-features) · [Agent Skills](https://code.claude.com/docs/en/agent-sdk/skills) · [Subagents](https://code.claude.com/docs/en/agent-sdk/subagents) · [Agent Teams](https://code.claude.com/docs/en/agent-teams)
 
 ### Cinco conceptos distintos en Claude Code
 
@@ -108,11 +108,13 @@ Los subagents son instancias de Claude con su propio system prompt, herramientas
 
 > *"Una sesión de Claude Code es un agente completo: razona, actúa, observa el resultado y repite hasta completar el objetivo."*
 
-Cuando lanzas Claude Code de forma interactiva o con `claude --agent nombre`, estás iniciando un agente con acceso completo a herramientas, bucle de razonamiento autónomo y capacidad de delegar a subagents. El Agent SDK permite construir agentes programáticamente con las mismas capacidades.
+Cuando lanzas Claude Code de forma interactiva o con `claude --agent nombre`, estás iniciando un agente con acceso completo a herramientas, bucle de razonamiento autónomo y capacidad de delegar a subtareas. Aquí nos referimos expresamente a los agentes de Claude configurados en `.claude/agents/` cuando actúan como sesión principal, sin confundir con agentes autónomos externos (tipo openclaw o similares).
 
-> **Según la documentación oficial:** Con `claude --agent nombre-subagent`, la sesión principal adopta el system prompt, herramientas y modelo de ese subagent. Con `CLAUDE.md` se inyecta contexto del proyecto. El bucle agentico incluye herramientas como Bash, Read, Write, Edit, WebSearch, y la herramienta `Agent` para delegar a subagents.
+> **Según la documentación oficial:** Con `claude --agent nombre-subagent`, la sesión principal adopta el system prompt, herramientas y modelo de ese archivo en `/agents`. Con `CLAUDE.md` se inyecta contexto del proyecto. El bucle agentico incluye herramientas nativas (Bash, Read, Write, Edit, WebSearch) y puede delegar a subagents.  
+> *Nota adicional:* Tanto la sesión terminal como el SDK soportan el uso de **[Hooks](https://code.claude.com/docs/en/agent-sdk/hooks)**, configurados en `.claude/settings.json`, para interceptar acciones clave (como auditar comandos Bash antes de su ejecución o controlar reglas de aprobación).
 
 **Cuándo es el enfoque adecuado:**
+
 - Objetivo complejo de múltiples pasos con decisiones encadenadas
 - Iteración: error -> análisis -> corrección -> verificación
 - Acceso completo al sistema de archivos y terminal
@@ -145,14 +147,18 @@ La diferencia clave con los subagents: los teammates son sesiones completamente 
 
 ## Tabla comparativa
 
-| Dimensión | Prompt | Skill | Subagent | Agent (sesión) | Agent Teams |
-| --------- | ------ | ----- | -------- | -------------- | ----------- |
-| **¿Qué es?** | Entrada al agente | Directorio `SKILL.md` con conocimiento | Instancia Claude delegada por el agente | Sesión Claude Code completa | Múltiples sesiones coordinadas |
-| **Dónde vive** | Llamada o sesión | `.claude/skills/` | `.claude/agents/` | Sesión activa | Sesiones en `~/.claude/teams/` |
-| **Activación** | Manual / headless | Automática o slash-command | El agente la invoca | Lanzamiento de Claude Code | Lead crea el equipo |
-| **Contexto propio** | No | Parcial (carga progresiva) | Sí, aislado | Sí, completo | Sí, uno por teammate |
-| **Comunicación cruzada** | No | No | Solo reporta al padre | Solo delega hacia abajo | Directa entre teammates |
-| **Subagents anidados**| No | Con `context: fork` | No | Sí | Solo el lead |
+| Dimensión | Prompt | Skill | Subagent | Agent | Multi-Agent Team |
+| --------- | ------ | ----- | -------- | ----- | ---------------- |
+| **Autonomía** | Ninguna | Ninguna | Parcial | Alta | Muy alta |
+| **Acceso a herramientas** | No | No | Sí | Sí | Sí (múltiple) |
+| **Memoria entre turnos** | No | No | No | Limitada | Limitada |
+| **Paralelismo** | No | No | Sí (como part.) | No | Sí (nativo) |
+| **Iteración / bucle** | No | No | Limitada | Sí | Sí |
+| **Complejidad de setup** | Mínima | Baja | Media | Media-alta | Alta |
+| **Coste por tarea** | Muy bajo | Bajo | Medio | Medio-alto | Alto |
+| **Reproducibilidad** | Variable | Alta | Variable | Variable | Variable |
+| **Requiere supervisión** | Baja | Baja | Media | Media-alta | Alta |
+| **Caso ideal** | Consulta puntual | Tarea repetible | Subtarea en pipeline | Objetivo multistep | Proyecto complejo |
 
 ## Árbol de decisión
 
@@ -170,7 +176,16 @@ La diferencia clave con los subagents: los teammates son sesiones completamente 
    - Sí -> **Agent Teams** (si el paralelismo y la colaboración aportan valor real)
 
 ### Reglas de oro
+
 - **Skills vs Subagents:** Usa Skills para workflows en el contexto principal, Subagents para aislamiento de contexto.
 - **Subagents vs Agent Teams:** Usa subagents para trabajadores enfocados que solo reportan. Usa Agent Teams para colaboración compleja.
 - **Empieza simple:** Para preguntas rápidas, usa `/btw` en lugar de un subagent.
 - **Agent Teams:** 3-5 teammates es el punto óptimo.
+
+## Cursos que he hecho y me han ayudado con esto 
+
+Para dominar estas herramientas de desarrollo agentico, la academia oficial de Anthropic ofrece los siguientes recursos gratuitos en **[anthropic.skilljar.com](https://anthropic.skilljar.com/)**:
+
+- **Claude Code 101:** Base teórica sobre el bucle agentico exploratorio (Explore -> Plan -> Code -> Commit), workflows automáticos y configuraciones de `CLAUDE.md`.
+- **Introduction to Agent Skills:** Cómo crear, configurar y compartir "Skills" efectivas. Te enseña a encapsular tus comandos Markdown para reducir repetición y mantener consistencia a través de proyectos.
+- **Introduction to Subagents:** Aprende a delegar tareas y abstraer la complejidad utilizando agentes aislados. Mantiene el contexto de tu conversación principal ágil y enfocado.

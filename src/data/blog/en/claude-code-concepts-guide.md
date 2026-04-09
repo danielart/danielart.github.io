@@ -21,13 +21,13 @@ description: A technical guide based on official Anthropic documentation about t
 **Claude Code — Prompt, Skill, Subagent, Agent, and Agent Teams**
 _Technical guide based on official Anthropic documentation_
 
-Sources: [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) · [Subagents](https://code.claude.com/docs/en/sub-agents) · [Agent Teams](https://code.claude.com/docs/en/agent-teams) · [Skills in Claude Code](https://code.claude.com/docs/en/skills)
+Sources: [Claude Code Features](https://code.claude.com/docs/en/agent-sdk/claude-code-features) · [Agent Skills](https://code.claude.com/docs/en/agent-sdk/skills) · [Subagents](https://code.claude.com/docs/en/agent-sdk/subagents) · [Agent Teams](https://code.claude.com/docs/en/agent-teams)
 
 ### Five distinct concepts in Claude Code
 
 It is not a linear hierarchy of complexity: they are tools with distinct purposes that can be combined.
 
-`Prompt` -> `Skill` -> `Subagent` -> `Agent (session)` -> `Agent Teams`
+`Prompt` / `Skill` / `Subagent` / `Agent (session)` / `Agent Teams`
 
 - **Prompt**: Message to the agent with instructions, context, and/or tools. It is the base unit of any interaction.
 - **Skill**: Directory with a `SKILL.md` file encapsulating reusable knowledge. Claude loads it automatically or via `/slash-command`.
@@ -108,9 +108,10 @@ Subagents are Claude instances with their own system prompt, configured tools, p
 
 > *"A Claude Code session is a complete agent: it reasons, acts, observes the result, and repeats until the goal is completed."*
 
-When you launch Claude Code interactively or with `claude --agent name`, you start an agent with full access to tools, autonomous reasoning loop, and capability to delegate to subagents. The Agent SDK allows building agents programmatically with the same capabilities.
+When you launch Claude Code interactively or with `claude --agent name`, you start an agent with full access to tools, autonomous reasoning loop, and capability to delegate to subagents. Here we explicitly refer to Claude agents configured in `.claude/agents/` acting as the main session, rather than complex external autonomous agents (like openclaw or similar).
 
-> **According to official documentation:** With `claude --agent subagent-name`, the main session adopts the system prompt, tools, and model of that subagent. With `CLAUDE.md`, project context is injected. The agentic loop includes tools like Bash, Read, Write, Edit, WebSearch, and the `Agent` tool to delegate to subagents.
+> **According to official documentation:** With `claude --agent subagent-name`, the main session adopts the system prompt, tools, and model of that file from `/agents`. With `CLAUDE.md`, project context is injected. The agentic loop includes native tools (Bash, Read, Write, Edit, WebSearch) and can delegate to subagents.  
+> *Additional note:* Both the runtime session and the SDK fully support **[Hooks](https://code.claude.com/docs/en/agent-sdk/hooks)**, configured in `.claude/settings.json`, to intercept key actions (such as conditionally tracking or blocking destructive Bash commands).
 
 **When it's the right approach:**
 - Complex multi-step goal with chained decisions
@@ -145,14 +146,18 @@ Key difference with subagents: teammates are entirely independent sessions that 
 
 ## Comparative Table
 
-| Dimension | Prompt | Skill | Subagent | Agent (session) | Agent Teams |
-| --------- | ------ | ----- | -------- | --------------- | ----------- |
-| **What is it?** | Input to agent | `SKILL.md` directory | Delegated Claude instance | Full Claude Code session | Multiple coordinated sessions |
-| **Where it lives**| Call or session | `.claude/skills/` | `.claude/agents/` | Active session | Sessions in `~/.claude/teams/` |
-| **Activation** | Manual/headless | Auto or slash-command | Invoked by agent | Claude Code launch | Lead creates team |
-| **Own context** | No | Partial (progressive) | Yes, isolated | Yes, complete | Yes, one per teammate |
-| **Cross-comm.** | No | No | Only reports to parent | Only delegates downward | Direct between teammates |
-| **Nested agents** | No | With `context: fork` | No | Yes | Only the lead |
+| Dimension | Prompt | Skill | Subagent | Agent | Multi-Agent Team |
+| --------- | ------ | ----- | -------- | ----- | ---------------- |
+| **Autonomy** | None | None | Partial | High | Very high |
+| **Tool access** | No | No | Yes | Yes | Yes (multiple) |
+| **Cross-turn memory** | No | No | No | Limited | Limited |
+| **Parallelism** | No | No | Yes (as part.) | No | Yes (native) |
+| **Iteration / loop** | No | No | Limited | Yes | Yes |
+| **Setup complexity** | Minimal | Low | Medium | Med-High | High |
+| **Cost per task** | Very low | Low | Medium | Med-High | High |
+| **Reproducibility** | Variable | High | Variable | Variable | Variable |
+| **Requires supervision**| Low | Low | Medium | Med-High | High |
+| **Ideal use case** | Single query | Repeatable task | Pipeline subtask | Multistep goal | Complex project |
 
 ## Decision Tree
 
@@ -174,3 +179,11 @@ Key difference with subagents: teammates are entirely independent sessions that 
 - **Subagents vs Agent Teams:** Use subagents for focused workers reporting back. Use Agent Teams for complex collaboration.
 - **Start simple:** For quick questions, use `/btw` instead of a subagent.
 - **Agent Teams:** 3-5 teammates is the sweet spot.
+
+## Recommended Courses (Anthropic Academy)
+
+To fully master these advanced agentic tools, Anthropic's official academy provides the following specialized resources mapped to these concepts at **[anthropic.skilljar.com](https://anthropic.skilljar.com/)**:
+
+- **Claude Code 101:** Understand the foundational exploratory agent loop (Explore -> Plan -> Code -> Commit), default terminal workflows, and `CLAUDE.md` orchestration.
+- **Introduction to Agent Skills:** Hands-on training on how to build, configure, and share effective "Skills." Teaches you how to encapsulate code/Markdown instructions to enforce code styling and architectural conventions.
+- **Introduction to Subagents:** Learn precisely when and how to delegate tasks to fully isolated agents, preventing context bloat in your main sessions and improving parallel reasoning outputs.
