@@ -17,6 +17,8 @@ Use this skill when you need to create a new blog post or draft for the AstroPap
 2. **Required Frontmatter:**
    - Every post MUST have a YAML frontmatter block at the top with at least `title`, `description`, `pubDatetime` (in ISO 8601 format like `2026-02-28T00:00:00Z`), and `lang` (`en` or `es`).
    - The title should ideally be prefixed with `[EN]` or `[ES]` depending on the language.
+   - **CRITICAL:** ALWAYS set `pubDatetime` to **1 hour BEFORE the current UTC time** (unless explicitly told otherwise) to ensure the post is instantly visible.
+   - **CRITICAL:** To prevent URL collisions, ALWAYS append the language code to the slug (e.g., `slug: my-post-en` and `slug: my-post-es`).
    - Include a language-specific tag (`en` or `es`) in the `tags` array.
 
 ## Sample Frontmatter
@@ -25,8 +27,8 @@ Use this skill when you need to create a new blog post or draft for the AstroPap
 ---
 title: "[EN] The title of the post" # Or [ES] for Spanish
 author: Daniel Artola
-pubDatetime: 2026-02-28T10:00:00Z
-slug: your-custom-slug-here # optional
+pubDatetime: 2026-02-28T10:00:00Z # Ensure this is 1 hour in the past
+slug: your-custom-slug-en # Append -en or -es
 featured: false # set true to pin on homepage
 draft: false # set TRUE to make this a draft!
 tags:
