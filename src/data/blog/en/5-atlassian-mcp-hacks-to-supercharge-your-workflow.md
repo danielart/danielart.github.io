@@ -21,7 +21,8 @@ After some weeks testing, configuring, failing, and enjoying the process, I brin
 ## Table of contents
 
 ## The Case Study: Node.js to Kotlin Migration
-During a recent migration of a microservice from Node.js to Kotlin, I put this to the test. Basically, the AI should help not only to do a plan for migration, but also we needed ideas for a safe rollout, a list of all the endpoints, business rules, external dependencies, and adapt the plan for the team size, etc. I created a single workspace in my IDE containing the legacy Node.js project, the new Kotlin boilerplate, and another small service we were absorbing to provide all the context I thought relevant for once I start prompting in the IDE. 
+
+During a recent migration of a microservice from Node.js to Kotlin, I put this to the test. Basically, the AI should help not only to do a plan for migration, but also we needed ideas for a safe rollout, a list of all the endpoints, business rules, external dependencies, and adapt the plan for the team size, etc. I created a single workspace in my IDE containing the legacy Node.js project, the new Kotlin boilerplate, and another small service we were absorbing to provide all the context I thought relevant for once I start prompting in the IDE.
 
 By giving the agent access to this full context, along with a link to our "Backend Guidelines" page in Confluence, I could kickstart the documentation process. A migration is a big topic, with several steps:
 
@@ -32,6 +33,7 @@ By giving the agent access to this full context, along with a link to our "Backe
 5. Code fast small features or tech debt -> Implementing a Jira ticket
 
 ## 1. Documentation on Autopilot: From Code to Confluence
+
 **TL;DR:** Use the AI to analyze projects (or specific pull requests) to generate or update technical documentation in Confluence, provide it with the best context, ask it to improve the prompt; this will help to have your docs sync with your code with minimal effort.
 
 Generating and updating documentation is a task many of us postpone or sometimes defer to the bottom of the backlog. With an integrated AI agent, you can delegate a significant portion of this work.
@@ -59,6 +61,7 @@ Then add them to a Google Doc or similar, it will be easier to answer. Then just
 ‼️ I prefer to be specific with the destination link. Vague instructions can sometimes lead the AI to edit the wrong page. Double-check the target, I edited wrong documentation because there were two pages with the same title in different folders!
 
 ## 2. Intelligent Task Creation, Right From the Codebase
+
 **TL;DR:** Define high-level constraints (time, team size) to have the AI decompose epics into manageable tasks. When you spot bad code, select it and instantly create a detailed tech debt ticket in Jira.
 
 Whether you're breaking down a massive epic or flagging unexpected tech debt, you can create perfectly detailed Jira tickets without ever leaving your code.
@@ -80,6 +83,7 @@ Create a tech debt ticket in Jira to refactor this. Explain that it has high com
 Using the `@` symbol to reference specific files is always better if you want to tag several files, try always to provide the best context for best results. It gives the AI precise, unambiguous context, leading to faster and more accurate results. You're not making it search; you're telling it exactly where to look.
 
 ## 3. Weaving Confluence Knowledge into Your Code
+
 **TL;DR:** Provide the AI with links to relevant Confluence pages (e.g., coding guidelines, business logic) to use as context when generating or refactoring code.
 
 How many times have you had to dig through Confluence to find that one specific business rule or coding standard? Now, you can bring that knowledge directly to the agent that writes your code.
@@ -100,6 +104,7 @@ Explain to me how you took the info provided and how you adapted it and consider
 This is currently the best way to provide external knowledge through Atlassian MCP. While Atlassian Intelligence is moving towards a future where the AI can automatically index and understand your entire Confluence space, the "link and verify" method is the best practice at the moment.
 
 ## 4. The IDE as Your Jira Cockpit
+
 **TL;DR:** Use natural language commands in your IDE to add comments to tickets, change their status, or clarify descriptions, drastically reducing the need to switch to the Jira web UI.
 
 Small, repetitive Jira actions add up, pulling you out of your coding mindset. You can execute most of these tasks with a single command from your editor. The actions that save me the most time are:
@@ -109,19 +114,22 @@ Small, repetitive Jira actions add up, pulling you out of your coding mindset. Y
 - **Clarifying Ticket Descriptions:** Sometimes a ticket's description is too vague. After discovering the necessary technical details, I'll ask the agent to update it.
 
 ‼️ However, be mindful of when editing a description is appropriate.
-- **Good Practice (Clarification):** Adding technical notes, like "The new field must be encrypted in the database using AES-256." 
+
+- **Good Practice (Clarification):** Adding technical notes, like "The new field must be encrypted in the database using AES-256."
 - **Bad Practice (Scope Creep):** Changing the core requirement. That should be a new ticket.
 
 ![Jira ticket created with generic description](../../../assets/images/blog/atlassian-mcp-1.png)
-*Jira ticket created with generic description, generated in a bundle with several tasks*
+_Jira ticket created with generic description, generated in a bundle with several tasks_
 
 ![A different task, but this with detailed description after asking to improve it with code, links and relevant info](../../../assets/images/blog/atlassian-mcp-2.png)
-*A different task, but this with detailed description after asking to improve it with code, links and relevant info*
+_A different task, but this with detailed description after asking to improve it with code, links and relevant info_
 
 ## 5. From Jira Ticket to Code, and Beyond with Automation
+
 **TL;DR:** For simple and well-scoped Jira tickets, you can ask the AI to generate the code just by providing the ticket link.
 
 For well-defined, simple tasks, you can go from a Jira ticket link to functional code in minutes. This works best for tasks like:
+
 - Adding a new optional field to an API endpoint.
 - Changing UI label text for clarity or rewording.
 - Adding missing translations.
@@ -142,14 +150,17 @@ Document the endpoints of the [Legacy Service Name] Node.js project for migratio
 This is the next frontier: a truly automated, intelligent development environment.
 
 ## 6. Setting Up Your AI Cockpit: MCP Atlassian Integration
+
 **TL;DR:** Install the specific Atlassian MCP agent/plugin in your preferred editor (Cursor, IntelliJ, VS Code) and authenticate with your Atlassian workspace.
 
 Since Cursor is built with AI capabilities from the start, the integration is often seamless. The Cursor agent uses Gemini 2.5 Pro as its underlying model for the deep reasoning and code generation tasks described.
+
 1. Open Settings: Navigate to Settings (usually Cmd+, or Ctrl+,).
 2. Find Integrations: Look for "MCP".
 3. Connect Atlassian: Select the Atlassian integration option (Jira/Confluence) and follow the prompts. This connects the internal `atlassian-mcp-server` to your agent, granting it read access to your permitted documentation and ticketing.
 
 ## Conclusion
+
 Integrating Atlassian's AI tools into your IDE isn't about replacing the developer. It's about augmenting our abilities by removing friction, having the developer focus on development, and avoid the satellite tasks that are repetitive. By handling the overhead of documentation, task management, and context gathering, it allows us to dedicate our most valuable resource—our focused brainpower—to what we do best: building bold and ingenious software.
 
 AI created, Human-enhanced.

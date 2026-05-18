@@ -15,10 +15,16 @@ const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
 
-const enPosts = sortedPosts.filter(({ data }) => data.lang === "en").slice(0, 5);
-const esPosts = sortedPosts.filter(({ data }) => data.lang === "es").slice(0, 5);
+const enPosts = sortedPosts
+  .filter(({ data }) => data.lang === "en")
+  .slice(0, 5);
+const esPosts = sortedPosts
+  .filter(({ data }) => data.lang === "es")
+  .slice(0, 5);
 const recentPosts = [...enPosts, ...esPosts].sort(
-  (a, b) => new Date(b.data.pubDatetime).getTime() - new Date(a.data.pubDatetime).getTime()
+  (a, b) =>
+    new Date(b.data.pubDatetime).getTime() -
+    new Date(a.data.pubDatetime).getTime()
 );
 ---
 
@@ -30,25 +36,29 @@ const recentPosts = [...enPosts, ...esPosts].sort(
         <h1 class="inline-block text-4xl font-bold sm:text-5xl">
           Daniel Artola Dominguez
         </h1>
-        
-      <style>
-        .libutton {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding: 7px;
-          text-align: center;
-          outline: none;
-          text-decoration: none !important;
-          color: #ffffff !important;
-          width: 200px;
-          height: 32px;
-          border-radius: 16px;
-          background-color: #0A66C2;
-          font-family: "SF Pro Text", Helvetica, sans-serif;
-        }
-      </style>
-<a class="libutton" href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=danielartoladominguez" target="_blank">Follow on LinkedIn</a>
+
+        <style>
+          .libutton {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 7px;
+            text-align: center;
+            outline: none;
+            text-decoration: none !important;
+            color: #ffffff !important;
+            width: 200px;
+            height: 32px;
+            border-radius: 16px;
+            background-color: #0a66c2;
+            font-family: "SF Pro Text", Helvetica, sans-serif;
+          }
+        </style>
+        <a
+          class="libutton"
+          href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=danielartoladominguez"
+          target="_blank">Follow on LinkedIn</a
+        >
       </div>
       <p class="mb-4 text-xl font-medium text-accent">
         Engineering Lead at ManoMano | AI & Open Source
@@ -135,7 +145,7 @@ const recentPosts = [...enPosts, ...esPosts].sort(
         <h2 class="text-2xl font-semibold tracking-wide">Latest Writings</h2>
         <div class="language-switcher flex gap-2">
           <button
-            class="lang-btn rounded border px-3 py-1 hover:border-accent active:bg-accent border-accent text-accent"
+            class="lang-btn rounded border border-accent px-3 py-1 text-accent hover:border-accent active:bg-accent"
             data-lang="en">EN</button
           >
           <button
@@ -146,13 +156,14 @@ const recentPosts = [...enPosts, ...esPosts].sort(
       </div>
     </section>
 
-
     {
       recentPosts.length > 0 && (
         <section id="recent-posts" class="pt-12 pb-6">
           <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
           <ul>
-            {recentPosts.map((data) => <Card variant="h3" {...data} />)}
+            {recentPosts.map(data => (
+              <Card variant="h3" {...data} />
+            ))}
           </ul>
         </section>
       )
@@ -160,7 +171,8 @@ const recentPosts = [...enPosts, ...esPosts].sort(
 
     <script is:inline>
       function setupLangSwitcher() {
-        const indexLayout = document.querySelector("#main-content")?.dataset?.layout;
+        const indexLayout =
+          document.querySelector("#main-content")?.dataset?.layout;
         if (indexLayout !== "index") return;
 
         const buttons = document.querySelectorAll(".lang-btn");
@@ -168,8 +180,10 @@ const recentPosts = [...enPosts, ...esPosts].sort(
 
         // Initial setup
         const activeBtn = document.querySelector(".lang-btn.border-accent");
-        const currentLang = activeBtn ? activeBtn.getAttribute("data-lang") : "en";
-        
+        const currentLang = activeBtn
+          ? activeBtn.getAttribute("data-lang")
+          : "en";
+
         posts.forEach(post => {
           if (post.getAttribute("data-language") === currentLang) {
             post.style.display = "block";

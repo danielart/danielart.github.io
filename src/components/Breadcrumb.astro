@@ -11,7 +11,11 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
 if (breadcrumbList[0] === "posts") {
   const isLang = breadcrumbList[1] === "en" || breadcrumbList[1] === "es";
   if (isLang) {
-    breadcrumbList.splice(0, 3, `Posts ${breadcrumbList[1].toUpperCase()} (page ${breadcrumbList[2] || 1})`);
+    breadcrumbList.splice(
+      0,
+      3,
+      `Posts ${breadcrumbList[1].toUpperCase()} (page ${breadcrumbList[2] || 1})`
+    );
   } else {
     breadcrumbList.splice(0, 2, `Posts (page ${breadcrumbList[1] || 1})`);
   }

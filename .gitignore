@@ -24,5 +24,8 @@ pnpm-debug.log*
 .idea/
 
 # pagefind
-
 public/pagefind
+
+# playwright
+playwright-report/
+test-results/
