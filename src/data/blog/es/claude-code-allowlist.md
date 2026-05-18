@@ -2,7 +2,7 @@
 title: "[ES] Deja que Claude Code escriba su propia allowlist"
 author: Daniel Artola
 pubDatetime: 2026-05-17T00:00:00Z
-slug: claude-code-allowlist
+slug: claude-code-allowlist-es
 featured: false
 draft: false
 tags:
