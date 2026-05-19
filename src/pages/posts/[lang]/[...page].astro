@@ -17,6 +17,8 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 
   const enPosts = sortedPosts.filter(({ data }) => data.lang === "en");
   const esPosts = sortedPosts.filter(({ data }) => data.lang === "es");
+  const jaPosts = sortedPosts.filter(({ data }) => data.lang === "ja");
+  const ptPosts = sortedPosts.filter(({ data }) => data.lang === "pt");
 
   return [
     ...paginate(enPosts, {
@@ -27,6 +29,14 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
       params: { lang: "es" },
       pageSize: SITE.postPerPage,
     }),
+    ...paginate(jaPosts, {
+      params: { lang: "ja" },
+      pageSize: SITE.postPerPage,
+    }),
+    ...paginate(ptPosts, {
+      params: { lang: "pt" },
+      pageSize: SITE.postPerPage,
+    }),
   ];
 }
 
@@ -35,7 +45,7 @@ const { lang } = params;
 const { page } = Astro.props;
 
 // Ensure lang type matches props
-const currentLang = lang as "en" | "es";
+const currentLang = lang as "en" | "es" | "ja" | "pt";
 ---
 
 <Layout title={`Posts (${lang.toUpperCase()}) | ${SITE.title}`}>

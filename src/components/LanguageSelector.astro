@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  currentLang?: "en" | "es";
+  currentLang?: "en" | "es" | "ja" | "pt";
 }
 
 const { currentLang = "en" } = Astro.props;
@@ -22,5 +22,21 @@ const { currentLang = "en" } = Astro.props;
     }`}
   >
     ES
+  </a>
+  <a
+    href="/posts/ja/"
+    class={`lang-btn rounded border border-border px-3 py-1 hover:border-accent ${
+      currentLang === "ja" ? "border-accent text-accent" : ""
+    }`}
+  >
+    JA
+  </a>
+  <a
+    href="/posts/pt/"
+    class={`lang-btn rounded border border-border px-3 py-1 hover:border-accent ${
+      currentLang === "pt" ? "border-accent text-accent" : ""
+    }`}
+  >
+    PT
   </a>
 </div>

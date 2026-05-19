@@ -9,7 +9,7 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
 // if breadcrumb is Home > Posts > 1 <etc>
 // replace Posts with Posts (page number)
 if (breadcrumbList[0] === "posts") {
-  const isLang = breadcrumbList[1] === "en" || breadcrumbList[1] === "es";
+  const isLang = ["en", "es", "ja", "pt"].includes(breadcrumbList[1]);
   if (isLang) {
     breadcrumbList.splice(
       0,

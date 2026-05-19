@@ -21,7 +21,13 @@ const enPosts = sortedPosts
 const esPosts = sortedPosts
   .filter(({ data }) => data.lang === "es")
   .slice(0, 5);
-const recentPosts = [...enPosts, ...esPosts].sort(
+const jaPosts = sortedPosts
+  .filter(({ data }) => data.lang === "ja")
+  .slice(0, 5);
+const ptPosts = sortedPosts
+  .filter(({ data }) => data.lang === "pt")
+  .slice(0, 5);
+const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
   (a, b) =>
     new Date(b.data.pubDatetime).getTime() -
     new Date(a.data.pubDatetime).getTime()
@@ -151,6 +157,14 @@ const recentPosts = [...enPosts, ...esPosts].sort(
           <button
             class="lang-btn rounded border border-border px-3 py-1 hover:border-accent"
             data-lang="es">ES</button
+          >
+          <button
+            class="lang-btn rounded border border-border px-3 py-1 hover:border-accent"
+            data-lang="ja">JA</button
+          >
+          <button
+            class="lang-btn rounded border border-border px-3 py-1 hover:border-accent"
+            data-lang="pt">PT</button
           >
         </div>
       </div>

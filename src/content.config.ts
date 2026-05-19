@@ -17,7 +17,7 @@ const blog = defineCollection({
       tags: z.array(z.string()).default(["others"]),
       ogImage: image().or(z.string()).optional(),
       description: z.string(),
-      lang: z.enum(["en", "es"]).default("en"),
+      lang: z.enum(["en", "es", "ja", "pt"]).default("en"),
       canonicalURL: z.string().optional(),
       hideEditPost: z.boolean().optional(),
       timezone: z.string().optional(),
