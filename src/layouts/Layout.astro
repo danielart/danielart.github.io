@@ -3,6 +3,7 @@ import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
+import CookieConsent from "@/components/CookieConsent.astro";
 import "@/styles/global.css";
 
 type Props = {
@@ -15,6 +16,8 @@ type Props = {
   pubDatetime?: Date;
   modDatetime?: Date | null;
   scrollSmooth?: boolean;
+  lang?: string;
+  alternateLanguages?: Array<{ lang: string; url: string }>;
 };
 
 const {
@@ -27,6 +30,8 @@ const {
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
+  lang = SITE.lang ?? "en",
+  alternateLanguages,
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.url);
@@ -49,11 +54,7 @@ const structuredData = {
 ---
 
 <!doctype html>
-<html
-  dir={SITE.dir}
-  lang=`${SITE.lang ?? "en"}`
-  class={`${scrollSmooth && "scroll-smooth"}`}
->
+<html dir={SITE.dir} lang={lang} class={`${scrollSmooth && "scroll-smooth"}`}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -61,11 +62,22 @@ const structuredData = {
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <!-- Resource Preconnects for Latin / Japanese latency optimizations -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    {
+      alternateLanguages &&
+        alternateLanguages.map(({ lang: altLang, url }) => (
+          <link rel="alternate" hreflang={altLang} href={url} />
+        ))
+    }
+
+
 
     <!-- Load Font -->
     <Font
@@ -123,8 +135,8 @@ const structuredData = {
     <link
       rel="alternate"
       type="application/rss+xml"
-      title={SITE.title}
-      href={new URL("rss.xml", Astro.site)}
+      title={`${SITE.title} (${lang.toUpperCase()})`}
+      href={new URL(`rss-${lang}.xml`, Astro.site)}
     />
 
     <meta name="theme-color" content="" />
@@ -173,38 +185,67 @@ const structuredData = {
       })();
     </script>
 
-    {
-      /* Google Tag Manager - Only load in production to protect user privacy in dev */
-    }
+    {/* Privacy-Compliant Google Tag Manager Loader */}
     {
       import.meta.env.PROD && (
         <script
           is:inline
-          set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});const f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-T2HZPQD3');`}
+          set:html={`
+            window.loadGTM = function() {
+              if (window.gtmLoaded) return;
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});const f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-T2HZPQD3');
+              window.gtmLoaded = true;
+            };
+
+            // Check if consent is already accepted
+            if (localStorage.getItem("cookie-consent") === "accepted") {
+              window.loadGTM();
+            }
+
+            // Listen for changes
+            window.addEventListener("cookie-consent-updated", function(e) {
+              if (e.detail && e.detail.consent === "accepted") {
+                window.loadGTM();
+              }
+            });
+          `}
         />
       )
     }
   </head>
   <body>
     {
-      /* Google Tag Manager (noscript) - Only load in production to protect user privacy in dev */
+      /* Google Tag Manager (noscript) - Only load in production to protect user privacy in dev if consent accepted */
     }
     {
       import.meta.env.PROD && (
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-T2HZPQD3"
-            height="0"
-            width="0"
-            style="display:none;visibility:hidden"
+        <>
+          <noscript id="gtm-noscript">
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-T2HZPQD3"
+              height="0"
+              width="0"
+              style="display:none;visibility:hidden"
+            />
+          </noscript>
+          <script
+            is:inline
+            set:html={`
+              // Hide noscript iframe if consent not accepted
+              if (localStorage.getItem("cookie-consent") !== "accepted") {
+                const noscript = document.getElementById("gtm-noscript");
+                if (noscript) noscript.remove();
+              }
+            `}
           />
-        </noscript>
+        </>
       )
     }
+    <CookieConsent lang={lang as "en" | "es" | "ja" | "pt"} />
     <slot />
 
     <!-- Load full theme logic -->

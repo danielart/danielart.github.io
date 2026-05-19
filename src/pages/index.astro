@@ -8,6 +8,11 @@ import LinkButton from "@/components/LinkButton.astro";
 import Card from "@/components/Card.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import IconGitHub from "@/assets/icons/IconGitHub.svg";
+import IconBrain from "@/assets/icons/IconBrain.svg";
+import IconRobot from "@/assets/icons/IconRobot.svg";
+import IconLayerGroup from "@/assets/icons/IconLayerGroup.svg";
+import IconPaperPlane from "@/assets/icons/IconPaperPlane.svg";
 
 import { SOCIALS } from "@/constants";
 
@@ -192,38 +197,50 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
         const buttons = document.querySelectorAll(".lang-btn");
         const posts = document.querySelectorAll("li[data-language]");
 
-        // Initial setup
-        const activeBtn = document.querySelector(".lang-btn.border-accent");
-        const currentLang = activeBtn
-          ? activeBtn.getAttribute("data-lang")
-          : "en";
-
-        posts.forEach(post => {
-          if (post.getAttribute("data-language") === currentLang) {
-            post.style.display = "block";
-          } else {
-            post.style.display = "none";
+        // Determine user language preference
+        let preferredLang = localStorage.getItem("preferred-lang");
+        if (!preferredLang) {
+          const userLangs = navigator.languages || [navigator.language];
+          for (const lang of userLangs) {
+            const short = lang.split("-")[0].toLowerCase();
+            if (["en", "es", "ja", "pt"].includes(short)) {
+              preferredLang = short;
+              break;
+            }
           }
-        });
+          if (!preferredLang) preferredLang = "en";
+        }
+
+        // Helper function to switch language
+        function switchLanguage(lang) {
+          buttons.forEach(btn => {
+            const btnLang = btn.getAttribute("data-lang");
+            if (btnLang === lang) {
+              btn.classList.add("border-accent", "text-accent");
+              btn.classList.remove("border-border");
+            } else {
+              btn.classList.remove("border-accent", "text-accent");
+              btn.classList.add("border-border");
+            }
+          });
+
+          posts.forEach(post => {
+            if (post.getAttribute("data-language") === lang) {
+              post.style.display = "block";
+            } else {
+              post.style.display = "none";
+            }
+          });
+        }
+
+        // Apply active language preference
+        switchLanguage(preferredLang);
 
         buttons.forEach(btn => {
           btn.addEventListener("click", () => {
             const lang = btn.getAttribute("data-lang");
-
-            // Update buttons state
-            buttons.forEach(b =>
-              b.classList.remove("border-accent", "text-accent")
-            );
-            btn.classList.add("border-accent", "text-accent");
-
-            // Filter posts
-            posts.forEach(post => {
-              if (post.getAttribute("data-language") === lang) {
-                post.style.display = "block";
-              } else {
-                post.style.display = "none";
-              }
-            });
+            localStorage.setItem("preferred-lang", lang);
+            switchLanguage(lang);
           });
         });
       }
@@ -257,10 +274,10 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
             href="https://github.com/danielart/danielart.github.io"
             target="_blank"
           >
-            <i class="fab fa-github mr-1"></i> View Source Code
+            <IconGitHub class="mr-1 inline-block" /> View Source Code
           </LinkButton>
           <LinkButton href="https://github.com/danielart" target="_blank">
-            <i class="fab fa-github mr-1"></i> My GitHub
+            <IconGitHub class="mr-1 inline-block" /> My GitHub
           </LinkButton>
         </div>
       </div>
@@ -275,7 +292,7 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
           <div class="space-y-6">
             <div class="flex gap-4">
               <div class="mt-1 text-2xl text-accent">
-                <i class="fas fa-brain"></i>
+                <IconBrain />
               </div>
               <div>
                 <h3 class="text-lg font-bold">AI Advisor & Consultant</h3>
@@ -286,7 +303,7 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
             </div>
             <div class="flex gap-4">
               <div class="mt-1 text-2xl text-accent">
-                <i class="fas fa-robot"></i>
+                <IconRobot />
               </div>
               <div>
                 <h3 class="text-lg font-bold">Custom AI Agents & Automation</h3>
@@ -311,13 +328,13 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
               target="_blank"
               class="w-full py-4 text-center text-lg hover:bg-accent/10"
             >
-              Subscribe to my Substack <i class="fas fa-layer-group ml-2"></i>
+              Subscribe to my Substack <IconLayerGroup class="ml-2 inline-block" />
             </LinkButton>
             <LinkButton
               href="mailto:danielartoladominguez@gmail.com"
               class="w-full py-4 text-center text-lg!"
             >
-              Say Hello <i class="fas fa-paper-plane ml-2"></i>
+              Say Hello <IconPaperPlane class="ml-2 inline-block" />
             </LinkButton>
           </div>
           <div class="mt-8 flex items-center gap-4">

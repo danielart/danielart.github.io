@@ -17,7 +17,7 @@ description: How I use various Model Context Protocols (MCP) like Datadog, Ampli
 
 ## Introduction
 
-As a lead, there are several tasks where I've managed to drastically reduce the time invested. 
+As a lead, there are several tasks where I've managed to drastically reduce the time invested.
 
 Analyzing monitors, optimizing alerts, investigating incidents, creating reports/notebooks, creating diagrams, finding and solving inconsistencies... many of these thanks to the use of a few key MCPs. Here I'll tell you how.
 

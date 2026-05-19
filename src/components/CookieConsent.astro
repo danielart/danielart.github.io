@@ -1,0 +1,163 @@
+---
+export interface Props {
+  lang?: "en" | "es" | "ja" | "pt";
+}
+
+const { lang = "en" } = Astro.props;
+
+// Localized strings
+const translations = {
+  en: {
+    message:
+      "We use analytical cookies to understand how you interact with our site and improve your reading experience.",
+    accept: "Accept",
+    decline: "Decline",
+    privacy: "Privacy Policy",
+  },
+  es: {
+    message:
+      "Utilizamos cookies analíticas para entender cómo interactúas con nuestro sitio y mejorar tu experiencia de lectura.",
+    accept: "Aceptar",
+    decline: "Rechazar",
+    privacy: "Política de privacidad",
+  },
+  pt: {
+    message:
+      "Utilizamos cookies analíticas para entender como você interage com o nosso site e melhorar sua experiência de leitura.",
+    accept: "Aceitar",
+    decline: "Recusar",
+    privacy: "Política de privacidade",
+  },
+  ja: {
+    message:
+      "サイトの利用状況を把握し、読書体験を向上させるために分析用クッキーを使用しています。",
+    accept: "同意する",
+    decline: "拒否する",
+    privacy: "プライバシーポリシー",
+  },
+};
+
+const t = translations[lang] || translations.en;
+---
+
+<div
+  id="cookie-consent-banner"
+  class="pointer-events-none fixed right-4 bottom-4 left-4 z-50 mx-auto max-w-md translate-y-12 rounded-xl border border-border/40 bg-background/70 p-5 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-500 ease-out sm:right-6 sm:bottom-6 sm:left-auto sm:max-w-sm"
+>
+  <div class="flex flex-col gap-4">
+    <div class="flex items-start gap-3">
+      <div
+        class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-accent"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path>
+          <path d="M8.5 8.5v.01"></path>
+          <path d="M16 15.5v.01"></path>
+          <path d="M12 12v.01"></path>
+          <path d="M11 17v.01"></path>
+          <path d="M7 14v.01"></path>
+        </svg>
+      </div>
+      <div class="space-y-1.5">
+        <h3 class="text-sm leading-none font-semibold text-accent">
+          Cookie Consent
+        </h3>
+        <p class="text-xs leading-relaxed text-foreground/80">
+          {t.message}
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="flex items-center justify-between gap-3 border-t border-border/20 pt-3"
+    >
+      <a
+        href="/about/#about"
+        class="text-xxs text-foreground/50 underline decoration-dashed transition-colors hover:text-accent"
+      >
+        {t.privacy}
+      </a>
+      <div class="flex items-center gap-2">
+        <button
+          id="cookie-decline-btn"
+          class="rounded-lg border border-border/40 px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-foreground/5 active:bg-foreground/10"
+        >
+          {t.decline}
+        </button>
+        <button
+          id="cookie-accept-btn"
+          class="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-background shadow-sm transition-colors hover:bg-accent/90 active:bg-accent/80"
+        >
+          {t.accept}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .text-xxs {
+    font-size: 0.65rem;
+  }
+  #cookie-consent-banner.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+
+<script is:inline data-astro-rerun>
+  function initCookieConsent() {
+    const banner = document.getElementById("cookie-consent-banner");
+    const acceptBtn = document.getElementById("cookie-accept-btn");
+    const declineBtn = document.getElementById("cookie-decline-btn");
+
+    if (!banner || !acceptBtn || !declineBtn) return;
+
+    // Check if user has already made a choice
+    const consent = localStorage.getItem("cookie-consent");
+    if (!consent) {
+      // Delay showing the banner slightly for smoother entrance effect
+      setTimeout(() => {
+        banner.classList.add("show");
+      }, 1000);
+    }
+
+    // Accept action
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("cookie-consent", "accepted");
+      banner.classList.remove("show");
+
+      // Dispatch custom event to notify GTM Loader
+      const event = new CustomEvent("cookie-consent-updated", {
+        detail: { consent: "accepted" },
+      });
+      window.dispatchEvent(event);
+    });
+
+    // Decline action
+    declineBtn.addEventListener("click", () => {
+      localStorage.setItem("cookie-consent", "declined");
+      banner.classList.remove("show");
+
+      const event = new CustomEvent("cookie-consent-updated", {
+        detail: { consent: "declined" },
+      });
+      window.dispatchEvent(event);
+    });
+  }
+
+  // Setup on page swap (for View Transitions) and initial load
+  document.addEventListener("astro:page-load", initCookieConsent);
+  initCookieConsent();
+</script>

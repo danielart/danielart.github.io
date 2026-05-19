@@ -71,7 +71,7 @@ npm install -g @anthropic-ai/claude-code
 2. Dentro da sessão, digite: `/advisor`
 3. Ele mostra uma pequena lista de modelos. Escolha o Opus.
 
-Você verá algo como *"Advisor configured. Opus will be consulted for complex decisions and task completion checks."* (Advisor configurado. O Opus será consultado para decisões complexas e checagens de conclusão de tarefas). E é isso. Sem parâmetros de amostragem, sem system prompts customizados, nada.
+Você verá algo como _"Advisor configured. Opus will be consulted for complex decisions and task completion checks."_ (Advisor configurado. O Opus será consultado para decisões complexas e checagens de conclusão de tarefas). E é isso. Sem parâmetros de amostragem, sem system prompts customizados, nada.
 
 **O que você precisa entender é que não é você quem chama o advisor.** Não existe o comando "consultar o advisor". O Sonnet decide por conta própria quando precisa de uma segunda opinião, insere silenciosamente a chamada no meio de sua resposta, e o conselho é incorporado ao contexto como se sempre estivesse lá. Na primeira vez que você ver isso acontecer, você vai procurar por uma caixa de diálogo de confirmação que não existe.
 
@@ -125,7 +125,7 @@ messages.append({"role": "user", "content": "Agora adicione um limite de 10 in-f
 
 ## 💡 Configuração `keep: "all"` (o detalhe de cache que passa despercebido)
 
-Citando a documentação literalmente: *clear_thinking com um valor keep diferente de "all" desloca o transcript (histórico) citado do advisor a cada turno, causando falhas (misses) no cache do lado do advisor*.
+Citando a documentação literalmente: _clear_thinking com um valor keep diferente de "all" desloca o transcript (histórico) citado do advisor a cada turno, causando falhas (misses) no cache do lado do advisor_.
 
 Por que isso importa? O advisor gera blocos de raciocínio estratégico. Por padrão, quando você tem o pensamento estendido (extended thinking) ativado, a API aplica `clear_thinking` com `keep: {type: "thinking_turns", value: 1}` — ou seja, ela apara (corta) os blocos mais antigos a cada turno. Isso desloca o histórico que o advisor vê e quebra o prompt caching do lado do advisor.
 
@@ -162,9 +162,19 @@ A divisão real está em `usage.iterations[]`:
     "input_tokens": 412,
     "output_tokens": 531,
     "iterations": [
-      {"type": "message", "input_tokens": 412, "output_tokens": 89},
-      {"type": "advisor_message", "model": "claude-opus-4-7", "input_tokens": 823, "output_tokens": 1612},
-      {"type": "message", "input_tokens": 1348, "cache_read_input_tokens": 412, "output_tokens": 442}
+      { "type": "message", "input_tokens": 412, "output_tokens": 89 },
+      {
+        "type": "advisor_message",
+        "model": "claude-opus-4-7",
+        "input_tokens": 823,
+        "output_tokens": 1612
+      },
+      {
+        "type": "message",
+        "input_tokens": 1348,
+        "cache_read_input_tokens": 412,
+        "output_tokens": 442
+      }
     ]
   }
 }
