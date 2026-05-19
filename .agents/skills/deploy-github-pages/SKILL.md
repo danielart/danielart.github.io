@@ -5,7 +5,7 @@ description: Instructions to easily trigger a GitHub Pages deploy for the Astro 
 
 # Deploy GitHub Pages
 
-This project is configured to automatically build and deploy to GitHub Pages whenever changes are pushed to the `main` branch.
+This project is configured to automatically build and deploy to GitHub Pages whenever changes are pushed to the `master` branch.
 
 ## How to trigger a deploy
 
@@ -23,10 +23,10 @@ To execute a deployment, you simply need to commit and push your changes to GitH
    git commit -m "chore: deploy new content"
    ```
 
-3. Push to `main`:
+3. Push to `master`:
 
    ```bash
-   git push origin main
+   git push origin master
    ```
 
 Once pushed, go to the repository's **Actions** tab on GitHub to monitor the deployment progress. The site will be updated in a minute or two.
