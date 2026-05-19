@@ -56,13 +56,13 @@ Claude Codeをマニュアルモードで使用しているなら、この感覚
 
 実行を見るのが最もわかりやすいです。以下は、内部名をフィルタリングした後の、Kubernetes上のMCPゲートウェイを持つ実際のプロジェクトでの結果です：
 
-| # | パターン | 回数 | メモ |
-|---|---|---|---|
-| 1 | `Bash(kubectl port-forward -n <ns> svc/<svc> 8000:8000 *)` | 4 | ゲートウェイへのローカルトンネル |
-| 2 | `Bash(npx tsc --noEmit *)` | 4 | TypeScript の型チェック |
-| 3 | `Bash(curl -s http://localhost:8000/*)` | 3 | ローカルのヘルスチェックのGET |
-| 4 | `Bash(lsof -ti:*)` | 2 | ポートの占有確認 |
-| 5 | `Bash(dotnet --version *)` | 2 | SDK のバージョン |
+| #   | パターン                                                   | 回数 | メモ                             |
+| --- | ---------------------------------------------------------- | ---- | -------------------------------- |
+| 1   | `Bash(kubectl port-forward -n <ns> svc/<svc> 8000:8000 *)` | 4    | ゲートウェイへのローカルトンネル |
+| 2   | `Bash(npx tsc --noEmit *)`                                 | 4    | TypeScript の型チェック          |
+| 3   | `Bash(curl -s http://localhost:8000/*)`                    | 3    | ローカルのヘルスチェックのGET    |
+| 4   | `Bash(lsof -ti:*)`                                         | 2    | ポートの占有確認                 |
+| 5   | `Bash(dotnet --version *)`                                 | 2    | SDK のバージョン                 |
 
 これら5つの候補のうち、**許可リストに登録されるのは2つだけです**。他の3つがなぜ外れるのかを理解する価値があります。それぞれの理由がスキルのルールを示しているからです：
 
@@ -93,12 +93,12 @@ Claude Codeをマニュアルモードで使用しているなら、この感覚
 
 構文はシンプルですが、覚えておく価値のある落とし穴があります：
 
-| パターン | 使用される場合 |
-|---|---|
-| `Bash(foo)` | 特定の呼び出しの完全一致 |
-| `Bash(foo *)` | プレフィックス＋スペース：`foo`、`foo bar`、`foo --opt` に一致 |
-| `Bash(foo*)` | スペースなし：注意。`Bash(ls*)` は `lsof` もキャプチャします |
-| `mcp__server__tool` | MCPの完全なツール名、ワイルドカードなし |
+| パターン            | 使用される場合                                                 |
+| ------------------- | -------------------------------------------------------------- |
+| `Bash(foo)`         | 特定の呼び出しの完全一致                                       |
+| `Bash(foo *)`       | プレフィックス＋スペース：`foo`、`foo bar`、`foo --opt` に一致 |
+| `Bash(foo*)`        | スペースなし：注意。`Bash(ls*)` は `lsof` もキャプチャします   |
+| `mcp__server__tool` | MCPの完全なツール名、ワイルドカードなし                        |
 
 `foo *` と `foo*` の違いは、許可リスト全体を台無しにすることがあります。スペースは重要です。
 
@@ -145,6 +145,7 @@ Claude Codeをマニュアルモードで使用しているなら、この感覚
 ---
 
 **参考文献**
+
 - 元の記事（Wmedia）： https://wmedia.es/en/tips/claude-code-fewer-permission-prompts
 - 公式ドキュメント： https://code.claude.com/docs/en/permissions
 - 自動モード（93％の承認に関するコンテキスト）： https://www.anthropic.com/engineering/claude-code-auto-mode

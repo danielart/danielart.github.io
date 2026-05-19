@@ -37,19 +37,19 @@ const {
 
 const { Content } = await render(post);
 
-
 const translations = posts.filter(p => {
   if (p.data.lang === post.data.lang || p.data.draft) return false;
-  
+
   // 1. Check if they share the exact same publication datetime (very robust link)
-  const sameTime = new Date(p.data.pubDatetime).getTime() === new Date(pubDatetime).getTime();
+  const sameTime =
+    new Date(p.data.pubDatetime).getTime() === new Date(pubDatetime).getTime();
   if (sameTime) return true;
-  
+
   // 2. Check if filenames match (ignoring parent folder prefix)
   const getFilename = (path?: string) => path?.split("/").pop();
   const sameFilename = getFilename(p.filePath) === getFilename(post.filePath);
   if (sameFilename) return true;
-  
+
   return false;
 });
 
@@ -131,31 +131,34 @@ const nextPost =
       >
       <EditPost {hideEditPost} {post} class="max-sm:hidden" />
       {
-        translations.length > 0 && translations.map((translation) => (
-          <>
-            <span aria-hidden="true" class="max-sm:hidden text-foreground/30">|</span>
-            <a
-              href={getPath(translation.id, translation.filePath)}
-              class="inline-flex items-center gap-1.5 rounded-full bg-accent/10 hover:bg-accent/20 px-3 py-1 text-xs font-semibold text-accent border border-accent/20 hover:border-accent/40 transition-all duration-300 ml-1"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="size-3.5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+        translations.length > 0 &&
+          translations.map(translation => (
+            <>
+              <span aria-hidden="true" class="text-foreground/30 max-sm:hidden">
+                |
+              </span>
+              <a
+                href={getPath(translation.id, translation.filePath)}
+                class="ml-1 inline-flex items-center gap-1.5 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent transition-all duration-300 hover:border-accent/40 hover:bg-accent/20"
               >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                <path d="M2 12h20" />
-              </svg>
-              <span>{getLangLabel(translation.data.lang)}</span>
-            </a>
-          </>
-        ))
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  <path d="M2 12h20" />
+                </svg>
+                <span>{getLangLabel(translation.data.lang)}</span>
+              </a>
+            </>
+          ))
       }
     </div>
     <article

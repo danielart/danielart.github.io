@@ -56,13 +56,13 @@ The result is a table with candidates, an explanation of what it added and what 
 
 The clearest way is to see an execution. Here is the result in a real project with an MCP gateway in Kubernetes, after filtering internal names:
 
-| # | Pattern | Times | Notes |
-|---|---|---|---|
-| 1 | `Bash(kubectl port-forward -n <ns> svc/<svc> 8000:8000 *)` | 4 | local tunnel to gateway |
-| 2 | `Bash(npx tsc --noEmit *)` | 4 | TypeScript typecheck |
-| 3 | `Bash(curl -s http://localhost:8000/*)` | 3 | GET local health checks |
-| 4 | `Bash(lsof -ti:*)` | 2 | port occupation |
-| 5 | `Bash(dotnet --version *)` | 2 | SDK version |
+| #   | Pattern                                                    | Times | Notes                   |
+| --- | ---------------------------------------------------------- | ----- | ----------------------- |
+| 1   | `Bash(kubectl port-forward -n <ns> svc/<svc> 8000:8000 *)` | 4     | local tunnel to gateway |
+| 2   | `Bash(npx tsc --noEmit *)`                                 | 4     | TypeScript typecheck    |
+| 3   | `Bash(curl -s http://localhost:8000/*)`                    | 3     | GET local health checks |
+| 4   | `Bash(lsof -ti:*)`                                         | 2     | port occupation         |
+| 5   | `Bash(dotnet --version *)`                                 | 2     | SDK version             |
 
 Of these five candidates, **only two end up in the allowlist**. It's worth understanding why the other three fall through, because each reason illustrates a rule of the skill:
 
@@ -70,7 +70,7 @@ Of these five candidates, **only two end up in the allowlist**. It's worth under
 - **`lsof -ti:*` (2 times).** Falls through for two reasons: `lsof` is already in the auto-allowed list, and it doesn't reach the 3 occurrences threshold.
 - **`dotnet --version` (2 times).** Read-only, risk-free, but below the threshold. The skill prefers false negatives to inflating the allowlist with noise.
 
-> **💡 Tip:** You can ask Claude directly (e.g., *"which permissions did you skip in this last execution and why?"*) to better understand its decision process if you notice a frequent command wasn't added to the allowlist.
+> **💡 Tip:** You can ask Claude directly (e.g., _"which permissions did you skip in this last execution and why?"_) to better understand its decision process if you notice a frequent command wasn't added to the allowlist.
 
 Two lines remain that enter `.claude/settings.json`:
 
@@ -93,12 +93,12 @@ The rest of the file is preserved intact. Conservative, transparent, without sur
 
 The syntax is simple but has a trap worth memorizing:
 
-| Pattern | When it's used |
-|---|---|
-| `Bash(foo)` | Exact match of a specific invocation |
-| `Bash(foo *)` | Prefix + space: matches `foo`, `foo bar`, `foo --opt` |
-| `Bash(foo*)` | No space: careful, `Bash(ls*)` also captures `lsof` |
-| `mcp__server__tool` | Full MCP tool name, no wildcards |
+| Pattern             | When it's used                                        |
+| ------------------- | ----------------------------------------------------- |
+| `Bash(foo)`         | Exact match of a specific invocation                  |
+| `Bash(foo *)`       | Prefix + space: matches `foo`, `foo bar`, `foo --opt` |
+| `Bash(foo*)`        | No space: careful, `Bash(ls*)` also captures `lsof`   |
+| `mcp__server__tool` | Full MCP tool name, no wildcards                      |
 
 The difference between `foo *` and `foo*` has claimed entire allowlists. The space matters.
 
@@ -145,6 +145,7 @@ If you use Claude Code in manual mode and haven't run it yet, do it today. Five 
 ---
 
 **References**
+
 - Original post (Wmedia): https://wmedia.es/en/tips/claude-code-fewer-permission-prompts
 - Official documentation: https://code.claude.com/docs/en/permissions
 - Auto mode (context about 93% approval): https://www.anthropic.com/engineering/claude-code-auto-mode

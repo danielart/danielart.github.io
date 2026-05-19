@@ -71,7 +71,7 @@ npm install -g @anthropic-ai/claude-code
 2. Dentro de la sesión escribe: `/advisor`
 3. Te muestra una lista corta de modelos. Elige Opus.
 
-Verás algo tipo *"Advisor configured. Opus will be consulted for complex decisions and task completion checks."* Y ya. Ni sampling parameters, ni system prompts custom, ni nada.
+Verás algo tipo _"Advisor configured. Opus will be consulted for complex decisions and task completion checks."_ Y ya. Ni sampling parameters, ni system prompts custom, ni nada.
 
 **Lo que tienes que entender es que tú no llamas al advisor.** No hay comando "consulta al advisor". Sonnet decide solo cuándo necesita una segunda opinión, mete la llamada en silencio en mitad de su respuesta, y el consejo se incorpora al contexto como si siempre hubiera estado ahí. La primera vez que lo veas vas a buscar un diálogo de confirmación que no existe.
 
@@ -125,7 +125,7 @@ messages.append({"role": "user", "content": "Ahora añade un límite de 10 in-fl
 
 ## 💡 Configuración `keep: "all"` (el detalle de caching que se escapa)
 
-Cito doc textualmente: *clear_thinking with a keep value other than "all" shifts the advisor's quoted transcript each turn, causing advisor-side cache misses*.
+Cito doc textualmente: _clear_thinking with a keep value other than "all" shifts the advisor's quoted transcript each turn, causing advisor-side cache misses_.
 
 ¿Por qué importa? El advisor genera bloques de razonamiento estratégicos. Por defecto, cuando tienes extended thinking activado, la API aplica `clear_thinking` con `keep: {type: "thinking_turns", value: 1}` — es decir, recorta los bloques antiguos en cada turno. Eso desplaza el transcript que ve el advisor y rompe el prompt caching del lado advisor.
 
@@ -162,9 +162,19 @@ Lo real está en `usage.iterations[]`:
     "input_tokens": 412,
     "output_tokens": 531,
     "iterations": [
-      {"type": "message", "input_tokens": 412, "output_tokens": 89},
-      {"type": "advisor_message", "model": "claude-opus-4-7", "input_tokens": 823, "output_tokens": 1612},
-      {"type": "message", "input_tokens": 1348, "cache_read_input_tokens": 412, "output_tokens": 442}
+      { "type": "message", "input_tokens": 412, "output_tokens": 89 },
+      {
+        "type": "advisor_message",
+        "model": "claude-opus-4-7",
+        "input_tokens": 823,
+        "output_tokens": 1612
+      },
+      {
+        "type": "message",
+        "input_tokens": 1348,
+        "cache_read_input_tokens": 412,
+        "output_tokens": 442
+      }
     ]
   }
 }
