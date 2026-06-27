@@ -5,26 +5,25 @@
 
 :root,
 html[data-theme="light"] {
-  --background: #ffffff;
-  --foreground: #6d0587;
-  --accent: #dc6bad;
-  --muted: #eda2f2;
-  --border: #be89be;
+  --background: #faf8f5;
+  --foreground: #1c1917;
+  --accent: #e05c36;
+  --muted: #f1ede6;
+  --border: #e6e0d5;
 }
 
 html[data-theme="dark"] {
-  --background: #0b040e;
-  --foreground: #fce8fc;
-  --accent: #e86ab4;
-  --muted: #2a1133;
-  --border: #4d235e;
+  --background: #0c0b0a;
+  --foreground: #f4f3f0;
+  --accent: #e26d4a;
+  --muted: #1c1a18;
+  --border: #2c2926;
 }
 
 @theme inline {
   --font-app:
-    var(--font-google-sans-code), ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace,
-    "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo;
+    "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
@@ -68,6 +67,15 @@ html[data-theme="dark"] {
 
 @utility app-layout {
   @apply mx-auto w-full max-w-app px-4;
+}
+
+@utility wide-layout {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+}
+
+@utility border-hairline {
+  border-width: 1px;
+  border-color: var(--border);
 }
 
 .active-nav {

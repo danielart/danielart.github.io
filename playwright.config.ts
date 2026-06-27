@@ -37,5 +37,8 @@ export default defineConfig({
     command: "pnpm dev",
     url: "http://localhost:4321",
     reuseExistingServer: !process.env.CI,
+    env: {
+      ASTRO_DEV_BACKGROUND: "0",
+    },
   },
 });

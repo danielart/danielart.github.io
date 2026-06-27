@@ -29,6 +29,23 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 const params = Astro.params;
 const { tag } = params;
 const { page, tagName } = Astro.props;
+
+// Curated descriptions for prominent tags
+const TAG_DESCRIPTIONS: Record<string, string> = {
+  ai: "Exploring Artificial Intelligence, Large Language Models, and the future of autonomous agentic workflows.",
+  mcp: "Practical guides, integrations, and productivity hacks using the Model Context Protocol (MCP).",
+  productivity:
+    "Strategies, tools, and developer workflows to optimize focus and code faster.",
+  en: "Articles and technical guides written in English.",
+  es: "Artículos y guías técnicas escritos en Español.",
+  pt: "Artigos e guias técnicos escritos em Português.",
+  ja: "日本語で書かれた記事と技術ガイド。",
+};
+
+const tagDescription =
+  tag && tag in TAG_DESCRIPTIONS
+    ? TAG_DESCRIPTIONS[tag]
+    : `All the articles with the tag "${tagName}".`;
 ---
 
 <Layout title={`Tag: ${tagName} | ${SITE.title}`}>
@@ -36,7 +53,7 @@ const { page, tagName } = Astro.props;
   <Main
     pageTitle={[`Tag:`, `${tagName}`]}
     titleTransition={tag}
-    pageDesc={`All the articles with the tag "${tagName}".`}
+    pageDesc={tagDescription}
   >
     <h1 slot="title" transition:name={tag}>{`Tag:${tag}`}</h1>
     <ul>

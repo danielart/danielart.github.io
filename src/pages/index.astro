@@ -11,7 +11,6 @@ import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import IconGitHub from "@/assets/icons/IconGitHub.svg";
 import IconBrain from "@/assets/icons/IconBrain.svg";
 import IconRobot from "@/assets/icons/IconRobot.svg";
-import IconLayerGroup from "@/assets/icons/IconLayerGroup.svg";
 import IconPaperPlane from "@/assets/icons/IconPaperPlane.svg";
 
 import { SOCIALS } from "@/constants";
@@ -40,86 +39,148 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
 ---
 
 <Layout>
-  <Header />
-  <main id="main-content" data-layout="index" class="app-layout">
-    <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
-      <div class="my-4 flex flex-col gap-4 sm:my-8 sm:flex-row sm:items-center">
-        <h1 class="inline-block text-4xl font-bold sm:text-5xl">
-          Daniel Artola Dominguez
-        </h1>
+  <Header wide={true} />
 
-        <style>
-          .libutton {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 7px;
-            text-align: center;
-            outline: none;
-            text-decoration: none !important;
-            color: #ffffff !important;
-            width: 200px;
-            height: 32px;
-            border-radius: 16px;
-            background-color: #0a66c2;
-            font-family: "SF Pro Text", Helvetica, sans-serif;
-          }
-        </style>
-        <a
-          class="libutton"
-          href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=danielartoladominguez"
-          target="_blank">Follow on LinkedIn</a
+  <main id="main-content" data-layout="index" class="wide-layout">
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="relative -mx-5 overflow-hidden border-b border-border/30 px-5 py-16 sm:-mx-8 sm:px-8 sm:py-24 md:py-32"
+    >
+      <!-- Interactive Dot Grid Canvas -->
+      <div
+        class="pointer-events-none absolute inset-0 -z-10"
+        aria-hidden="true"
+      >
+        <canvas
+          id="hero-dot-grid"
+          class="block h-full w-full will-change-transform"></canvas>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"
         >
+        </div>
       </div>
-      <p class="mb-4 text-xl font-medium text-accent">
-        Engineering Lead at ManoMano | AI & Open Source
-      </p>
 
-      <p>
-        I am an <strong>Engineering Lead at ManoMano</strong> based in Barcelona.
-        I specialize in building intelligent <strong>multi-agent systems</strong
-        > and contributing to the next generation of web frameworks.
-      </p>
-      <p class="mt-2">
-        Beyond the code, I'm a React lover, a bass player in a rock band, and a
-        father. I am passionate about blending robust software engineering with
-        the chaotic potential of AI.
-      </p>
-      {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex max-sm:flex-col sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Connect:</div>
-            <Socials />
-          </div>
-        )
-      }
+      <div class="relative z-10 max-w-4xl">
+        <h1
+          class="parallax-title text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] font-bold tracking-tight text-foreground will-change-transform"
+        >
+          Daniel Artola Dominguez.
+        </h1>
+        <p
+          class="parallax-subtitle mt-8 text-[clamp(1.25rem,2vw,1.75rem)] leading-relaxed font-medium text-accent will-change-transform"
+        >
+          Engineering Lead at ManoMano | AI & Open Source
+        </p>
+
+        <p
+          class="mt-6 max-w-[65ch] text-base leading-relaxed text-foreground/80 sm:text-lg"
+        >
+          I specialize in building intelligent <strong
+            >multi-agent systems</strong
+          > and contributing to the next generation of web frameworks.
+        </p>
+        <p
+          class="mt-4 max-w-[65ch] text-base leading-relaxed text-foreground/80 sm:text-lg"
+        >
+          Beyond the code, I'm a React lover, a bass player in a rock band, and
+          a father. I am passionate about blending robust software engineering
+          with the chaotic potential of AI.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-5">
+          <a
+            href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=danielartoladominguez"
+            target="_blank"
+            class="inline-flex items-center justify-center rounded-full border border-accent px-5 py-2 text-sm font-medium text-accent transition-all duration-300 hover:bg-accent hover:text-background"
+          >
+            Follow on LinkedIn
+          </a>
+          {
+            SOCIALS.length > 0 && (
+              <div class="ml-2 flex items-center gap-4">
+                <span class="font-mono text-xs tracking-wider uppercase opacity-60">
+                  Connect:
+                </span>
+                <Socials />
+              </div>
+            )
+          }
+        </div>
+      </div>
     </section>
 
-    <section id="open-source" class="border-b border-border pt-12 pb-6">
-      <h2 class="text-2xl font-semibold tracking-wide">
-        Open Source & Innovation
-      </h2>
-      <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+    <!-- Focusing On Section -->
+    <section class="border-b border-border/30 py-16 sm:py-20">
+      <div
+        class="grid grid-cols-1 items-start gap-6 md:grid-cols-[180px_1fr] md:gap-12"
+      >
+        <div>
+          <span
+            class="inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.14em] text-foreground/50 uppercase"
+          >
+            <span class="inline-block h-px w-6 bg-current"></span>
+            Focusing on
+          </span>
+        </div>
+        <div
+          class="max-w-[42ch] text-[clamp(1.5rem,3vw,2.25rem)] leading-snug font-medium tracking-tight text-foreground"
+        >
+          Building the future of the professional Web with <a
+            href="https://github.com/brisa-build"
+            target="_blank"
+            rel="noopener"
+            class="text-accent underline decoration-accent/30 decoration-2 transition-all duration-300 hover:decoration-accent"
+            >Brisa Framework</a
+          > and exploring agentic AI.
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Source Section -->
+    <section id="open-source" class="border-b border-border/30 py-16">
+      <div class="mb-8 flex items-center gap-2.5">
+        <span
+          class="font-mono text-[11px] tracking-[0.14em] text-foreground/50 uppercase"
+        >
+          Open Source & Innovation
+        </span>
+      </div>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
         <a
           href="https://github.com/brisa-build"
           target="_blank"
           rel="noopener"
-          class="block rounded-lg border border-border p-6 transition-colors hover:border-accent"
+          class="group block rounded-xl border border-border/30 bg-muted/20 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-muted/40"
         >
-          <h3 class="mb-2 text-xl font-bold text-accent">⚡ Brisa Framework</h3>
-          <p class="mb-4 text-sm opacity-80">Core Contributor | brisa.build</p>
-          <p>
+          <h3
+            class="mb-2 flex items-center justify-between text-xl font-semibold text-accent"
+          >
+            <span>⚡ Brisa Framework</span>
+            <span
+              class="text-sm opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
+              >→</span
+            >
+          </h3>
+          <p class="mb-4 font-mono text-xs opacity-60">
+            Core Contributor | brisa.build
+          </p>
+          <p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
             The Web Platform Framework. I contribute to this next-gen full-stack
             framework that delivers <strong>0KB client-side JavaScript</strong> by
             default.
           </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="rounded bg-border px-2 py-1 text-xs">TypeScript</span>
-            <span class="rounded bg-border px-2 py-1 text-xs"
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span
+              class="rounded bg-muted/60 px-2.5 py-1 font-mono text-xs text-foreground/80"
+              >TypeScript</span
+            >
+            <span
+              class="rounded bg-muted/60 px-2.5 py-1 font-mono text-xs text-foreground/80"
               >Web Components</span
             >
-            <span class="rounded bg-border px-2 py-1 text-xs"
+            <span
+              class="rounded bg-muted/60 px-2.5 py-1 font-mono text-xs text-foreground/80"
               >Server Actions</span
             >
           </div>
@@ -129,46 +190,68 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
           href="https://github.com/teafuljs/teaful"
           target="_blank"
           rel="noopener"
-          class="block rounded-lg border border-border p-6 transition-colors hover:border-accent"
+          class="group block rounded-xl border border-border/30 bg-muted/20 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-muted/40"
         >
-          <h3 class="mb-2 text-xl font-bold text-accent">🍵 Teaful</h3>
-          <p class="mb-4 text-sm opacity-80">
+          <h3
+            class="mb-2 flex items-center justify-between text-xl font-semibold text-accent"
+          >
+            <span>🍵 Teaful</span>
+            <span
+              class="text-sm opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
+              >→</span
+            >
+          </h3>
+          <p class="mb-4 font-mono text-xs opacity-60">
             Co-Creator / Maintainer | 700+ Stars
           </p>
-          <p>
+          <p class="text-sm leading-relaxed text-foreground/80 sm:text-base">
             Tiny (less than 1KB), easy, and powerful React state management
             library. Designed to eliminate boilerplate and avoid unnecessary
             re-renders.
           </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="rounded bg-border px-2 py-1 text-xs">React</span>
-            <span class="rounded bg-border px-2 py-1 text-xs"
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span
+              class="rounded bg-muted/60 px-2.5 py-1 font-mono text-xs text-foreground/80"
+              >React</span
+            >
+            <span
+              class="rounded bg-muted/60 px-2.5 py-1 font-mono text-xs text-foreground/80"
               >State Management</span
             >
-            <span class="rounded bg-border px-2 py-1 text-xs">&lt; 1KB</span>
+            <span
+              class="rounded bg-muted/60 px-2.5 py-1 font-mono text-xs text-foreground/80"
+              >&lt; 1KB</span
+            >
           </div>
         </a>
       </div>
     </section>
 
-    <section id="blog-header" class="border-b border-border pt-12 pb-6">
-      <div class="flex flex-wrap items-center justify-between gap-4">
-        <h2 class="text-2xl font-semibold tracking-wide">Latest Writings</h2>
-        <div class="language-switcher flex gap-2">
+    <!-- Latest Writings Section -->
+    <section id="blog-header" class="border-b border-border/30 pt-16 pb-6">
+      <div class="flex flex-wrap items-baseline justify-between gap-4">
+        <span
+          class="inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.14em] text-foreground/50 uppercase"
+        >
+          <span class="inline-block h-px w-6 bg-current"></span>
+          Latest Writings
+        </span>
+
+        <div class="language-switcher flex gap-2 font-mono text-xs">
           <button
-            class="lang-btn rounded border border-accent px-3 py-1 text-accent hover:border-accent active:bg-accent"
+            class="lang-btn rounded-full border border-accent px-3 py-1.5 text-accent transition-all hover:bg-accent/5"
             data-lang="en">EN</button
           >
           <button
-            class="lang-btn rounded border border-border px-3 py-1 hover:border-accent"
+            class="lang-btn rounded-full border border-border/50 px-3 py-1.5 transition-all hover:border-accent/50"
             data-lang="es">ES</button
           >
           <button
-            class="lang-btn rounded border border-border px-3 py-1 hover:border-accent"
+            class="lang-btn rounded-full border border-border/50 px-3 py-1.5 transition-all hover:border-accent/50"
             data-lang="ja">JA</button
           >
           <button
-            class="lang-btn rounded border border-border px-3 py-1 hover:border-accent"
+            class="lang-btn rounded-full border border-border/50 px-3 py-1.5 transition-all hover:border-accent/50"
             data-lang="pt">PT</button
           >
         </div>
@@ -177,17 +260,26 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
 
     {
       recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
-          <ul>
+        <section id="recent-posts" class="border-b border-border/30 pb-16">
+          <ul class="divide-y divide-border/20">
             {recentPosts.map(data => (
               <Card variant="h3" {...data} />
             ))}
           </ul>
+          <div class="mt-8 text-center">
+            <LinkButton
+              href="/posts"
+              class="inline-flex items-center gap-2 rounded-full border border-border/60 px-5 py-2.5 text-sm font-medium transition-all duration-300 hover:border-accent hover:text-accent"
+            >
+              All Posts
+              <IconArrowRight class="inline-block rtl:-rotate-180" />
+            </LinkButton>
+          </div>
         </section>
       )
     }
 
+    <!-- Language Selector Client JS -->
     <script is:inline>
       function setupLangSwitcher() {
         const indexLayout =
@@ -217,10 +309,10 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
             const btnLang = btn.getAttribute("data-lang");
             if (btnLang === lang) {
               btn.classList.add("border-accent", "text-accent");
-              btn.classList.remove("border-border");
+              btn.classList.remove("border-border/50");
             } else {
               btn.classList.remove("border-accent", "text-accent");
-              btn.classList.add("border-border");
+              btn.classList.add("border-border/50");
             }
           });
 
@@ -249,106 +341,227 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
       setupLangSwitcher();
     </script>
 
-    <div class="my-8 text-center">
-      <LinkButton href="/posts/">
-        All Posts
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
-    </div>
-
-    <section
-      id="github-invitation"
-      class="mt-12 border-t border-border pt-12 pb-6"
-    >
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="mb-4 text-2xl font-semibold tracking-wide">
+    <!-- Open Source Invitation Section -->
+    <section id="github-invitation" class="border-b border-border/30 py-16">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-2xl font-medium tracking-tight text-foreground">
           Explore the Code
         </h2>
-        <p class="mb-8">
+        <p class="mt-4 leading-relaxed text-foreground/80">
           This portfolio is entirely open source! I believe in transparency and
           sharing knowledge. Feel free to explore the architecture, styling, and
           AI integrations that power this site.
         </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <LinkButton
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a
             href="https://github.com/danielart/danielart.github.io"
             target="_blank"
+            class="inline-flex items-center gap-2 rounded-full border border-border/50 px-5 py-2.5 text-sm font-medium transition-all duration-300 hover:border-accent hover:text-accent"
           >
-            <IconGitHub class="mr-1 inline-block" /> View Source Code
-          </LinkButton>
-          <LinkButton href="https://github.com/danielart" target="_blank">
-            <IconGitHub class="mr-1 inline-block" /> My GitHub
-          </LinkButton>
+            <IconGitHub class="h-4 w-4 fill-current" /> View Source Code
+          </a>
+          <a
+            href="https://github.com/danielart"
+            target="_blank"
+            class="inline-flex items-center gap-2 rounded-full border border-border/50 px-5 py-2.5 text-sm font-medium transition-all duration-300 hover:border-accent hover:text-accent"
+          >
+            <IconGitHub class="h-4 w-4 fill-current" /> My GitHub
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="mt-12 border-t border-border pt-12 pb-12">
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+    <!-- Contact & Let's Connect Section -->
+    <section id="contact" class="py-16">
+      <div class="grid grid-cols-1 gap-16 md:grid-cols-2">
+        <!-- How I can help -->
         <div>
-          <h2 class="mb-6 text-2xl font-semibold tracking-wide">
-            How I can help you
-          </h2>
-          <div class="space-y-6">
+          <span
+            class="mb-6 inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.14em] text-foreground/50 uppercase"
+          >
+            <span class="inline-block h-px w-6 bg-current"></span>
+            How I can help
+          </span>
+          <div class="mt-4 space-y-8">
             <div class="flex gap-4">
               <div class="mt-1 text-2xl text-accent">
-                <IconBrain />
+                <IconBrain class="h-6 w-6" />
               </div>
               <div>
-                <h3 class="text-lg font-bold">AI Advisor & Consultant</h3>
-                <p class="text-sm opacity-80">
-                  Strategy, architecture, and integrating AI into workflows.
+                <h3 class="text-lg font-semibold text-foreground">
+                  AI Advisor & Consultant
+                </h3>
+                <p
+                  class="mt-1 text-sm leading-relaxed text-foreground/75 sm:text-base"
+                >
+                  Strategy, architecture, and integrating AI workflows into your
+                  engineering organizations.
                 </p>
               </div>
             </div>
             <div class="flex gap-4">
               <div class="mt-1 text-2xl text-accent">
-                <IconRobot />
+                <IconRobot class="h-6 w-6" />
               </div>
               <div>
-                <h3 class="text-lg font-bold">Custom AI Agents & Automation</h3>
-                <p class="text-sm opacity-80">
-                  Building specialized agents and orchestrating systems (Mastra,
-                  n8n).
+                <h3 class="text-lg font-semibold text-foreground">
+                  Custom AI Agents & Automation
+                </h3>
+                <p
+                  class="mt-1 text-sm leading-relaxed text-foreground/75 sm:text-base"
+                >
+                  Building specialized autonomous agents and orchestrating
+                  systems using Mastra or n8n.
                 </p>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Let's connect -->
         <div>
-          <h2 class="mb-6 text-2xl font-semibold tracking-wide">
+          <span
+            class="mb-6 inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.14em] text-foreground/50 uppercase"
+          >
+            <span class="inline-block h-px w-6 bg-current"></span>
             Let's connect
-          </h2>
-          <p class="mb-6 opacity-80">
-            Interested in Brisa, AI agents, or modern web architecture?
+          </span>
+          <p class="mt-4 mb-6 leading-relaxed text-foreground/80">
+            Interested in Brisa, AI agents, or modern web architecture? Let's
+            discuss your next project.
           </p>
-          <div class="mb-6 flex flex-col gap-4">
-            <LinkButton
-              href="https://danielartola.substack.com/subscribe?params=%5Bobject%20Object%5D"
-              target="_blank"
-              class="w-full py-4 text-center text-lg hover:bg-accent/10"
+
+          <!-- Substack newsletter box (wmedia style) -->
+          <form
+            action="https://danielartola.substack.com/subscribe"
+            method="GET"
+            target="_blank"
+            class="mt-6"
+          >
+            <div
+              class="flex items-center border-b border-foreground/60 pb-3 transition-colors hover:border-accent"
             >
-              Subscribe to my Substack <IconLayerGroup class="ml-2 inline-block" />
-            </LinkButton>
-            <LinkButton
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Enter your email for Substack"
+                class="flex-1 border-0 bg-transparent p-0 text-base text-foreground placeholder-foreground/40 outline-none"
+              />
+              <button
+                type="submit"
+                class="pl-2 text-sm font-medium text-foreground transition-colors hover:text-accent"
+              >
+                Subscribe →
+              </button>
+            </div>
+          </form>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a
               href="mailto:danielartoladominguez@gmail.com"
-              class="w-full py-4 text-center text-lg!"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
             >
-              Say Hello <IconPaperPlane class="ml-2 inline-block" />
-            </LinkButton>
+              Say Hello <IconPaperPlane class="h-4 w-4 fill-current" />
+            </a>
           </div>
-          <div class="mt-8 flex items-center gap-4">
-            <div class="h-3 w-3 animate-pulse rounded-full bg-green-500"></div>
-            <span class="text-sm opacity-80"
-              >Available for freelance projects</span
-            >
+
+          <div class="mt-8 flex items-center gap-3">
+            <div class="h-2.5 w-2.5 animate-pulse rounded-full bg-red-500">
+            </div>
+            <span class="font-mono text-xs tracking-wide opacity-75">
+              Closed for more projects at the moment
+            </span>
           </div>
         </div>
       </div>
     </section>
   </main>
-  <Footer />
+
+  <Footer wide={true} />
 </Layout>
+
+<script>
+  import { DotGrid } from "@/scripts/dotgrid";
+
+  function initHeroEffects() {
+    const canvas = document.querySelector(
+      "#hero-dot-grid"
+    ) as HTMLCanvasElement;
+    if (!canvas) return;
+
+    // Check prefers-reduced-motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const isDark =
+      document.documentElement.getAttribute("data-theme") === "dark";
+    const dotGrid = new DotGrid(canvas, { theme: isDark ? "dark" : "light" });
+
+    // Listen to theme mutations to update grid theme dynamically
+    const observer = new MutationObserver(() => {
+      const currentTheme =
+        document.documentElement.getAttribute("data-theme") === "dark"
+          ? "dark"
+          : "light";
+      dotGrid.setTheme(currentTheme);
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme", "class"],
+    });
+
+    // Scroll parallax effect (High-performance 3D Translation)
+    const parallaxTitle = document.querySelector(
+      ".parallax-title"
+    ) as HTMLElement;
+    const parallaxSubtitle = document.querySelector(
+      ".parallax-subtitle"
+    ) as HTMLElement;
+
+    let scrollY = window.scrollY;
+    let ticking = false;
+
+    function updateParallax() {
+      // Shift canvas slower than the scroll rate
+      if (canvas) {
+        canvas.style.transform = `translate3d(0, ${scrollY * 0.15}px, 0)`;
+      }
+      // Shift title slightly slower/different
+      if (parallaxTitle) {
+        parallaxTitle.style.transform = `translate3d(0, ${scrollY * 0.05}px, 0)`;
+      }
+      if (parallaxSubtitle) {
+        parallaxSubtitle.style.transform = `translate3d(0, ${scrollY * 0.03}px, 0)`;
+      }
+      ticking = false;
+    }
+
+    function onScroll() {
+      scrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    // Cleanup event listeners on page change/destroy (for Astro View Transitions)
+    document.addEventListener(
+      "astro:before-swap",
+      () => {
+        dotGrid.destroy();
+        window.removeEventListener("scroll", onScroll);
+        observer.disconnect();
+      },
+      { once: true }
+    );
+  }
+
+  // Run on first load and view transition swaps
+  initHeroEffects();
+  document.addEventListener("astro:page-load", initHeroEffects);
+</script>
 
 <script>
   document.addEventListener("astro:page-load", () => {
@@ -359,21 +572,3 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
     }
   });
 </script>
-
-<style>
-  .libutton {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 7px;
-    text-align: center;
-    outline: none;
-    text-decoration: none !important;
-    color: #ffffff !important;
-    width: 200px;
-    height: 32px;
-    border-radius: 16px;
-    background-color: #0a66c2;
-    font-family: "SF Pro Text", Helvetica, sans-serif;
-  }
-</style>

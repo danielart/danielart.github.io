@@ -77,12 +77,14 @@ const structuredData = {
         ))
     }
 
-
-
     <!-- Load Font -->
     <Font
       cssVariable="--font-google-sans-code"
       preload={[{ subset: "latin", weight: 400, style: "normal" }]}
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
     />
 
     <!-- General Meta Tags -->
@@ -191,6 +193,7 @@ const structuredData = {
         <script
           is:inline
           set:html={`
+            window.dataLayer = window.dataLayer || [];
             window.loadGTM = function() {
               if (window.gtmLoaded) return;
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -210,6 +213,17 @@ const structuredData = {
             window.addEventListener("cookie-consent-updated", function(e) {
               if (e.detail && e.detail.consent === "accepted") {
                 window.loadGTM();
+              }
+            });
+
+            // Listen for Astro View Transition events to track pageviews client-side
+            document.addEventListener("astro:after-swap", function() {
+              if (window.gtmLoaded && window.dataLayer) {
+                window.dataLayer.push({
+                  event: "virtual_page_view",
+                  page_path: window.location.pathname,
+                  page_title: document.title
+                });
               }
             });
           `}

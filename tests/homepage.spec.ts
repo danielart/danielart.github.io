@@ -9,13 +9,13 @@ test("homepage has correct title", async ({ page }) => {
 
 test("navigation links are present", async ({ page }) => {
   await page.goto("/");
-  const postsLink = page.getByRole("link", { name: "Posts", exact: true });
+  const postsLink = page.getByRole("link", { name: "Posts", exact: true }).first();
   await expect(postsLink).toBeVisible();
 
-  const tagsLink = page.getByRole("link", { name: "Tags", exact: true });
+  const tagsLink = page.getByRole("link", { name: "Tags", exact: true }).first();
   await expect(tagsLink).toBeVisible();
 
-  const aboutLink = page.getByRole("link", { name: "About", exact: true });
+  const aboutLink = page.getByRole("link", { name: "About", exact: true }).first();
   await expect(aboutLink).toBeVisible();
 });
 

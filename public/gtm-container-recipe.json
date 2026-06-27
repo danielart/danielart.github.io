@@ -1,0 +1,645 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-05-19 22:45:00",
+  "containerVersion": {
+    "path": "accounts/100000/containers/200000/versions/0",
+    "accountId": "100000",
+    "containerId": "200000",
+    "containerVersionId": "0",
+    "container": {
+      "path": "accounts/100000/containers/200000",
+      "accountId": "100000",
+      "containerId": "200000",
+      "publicId": "GTM-T2HZPQD3",
+      "name": "Daniel Artola Blog Container",
+      "usageContext": ["WEB"]
+    },
+    "tag": [
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "tagId": "1",
+        "name": "Google Tag - GA4 Config",
+        "type": "gaawc",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "measurementId",
+            "value": "{{GA4 Measurement ID}}"
+          }
+        ],
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "tagId": "2",
+        "name": "GA4 Event - Virtual Page View",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "page_view"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "page_path"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{DLV - Virtual Page Path}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "page_title"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{DLV - Virtual Page Title}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["11"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "tagId": "3",
+        "name": "GA4 Event - Scroll Depth",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "scroll"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "percent_scrolled"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{Scroll Depth Threshold}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["12"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "tagId": "4",
+        "name": "GA4 Event - Outbound Click",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "click"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "link_url"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{Click URL}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "link_text"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{Click Text}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "outbound"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "true"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["13"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "tagId": "5",
+        "name": "GA4 Event - Substack Click",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "subscribe_click"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "link_url"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{Click URL}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["14"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "tagId": "6",
+        "name": "GA4 Event - Theme Toggle",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "theme_toggle"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "click_text"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{Click Text}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["15"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "tagId": "7",
+        "name": "GA4 Event - Language Switcher",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "language_change"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "link_url"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{Click URL}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "target_language"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{Click Text}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": ["16"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "triggerId": "11",
+        "name": "Custom - Virtual Page View",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "virtual_page_view"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "triggerId": "12",
+        "name": "Scroll - standard intervals",
+        "type": "SCROLL_DEPTH",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "verticalThresholdUnits",
+            "value": "PERCENT"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "verticalThresholds",
+            "value": "25,50,75,90"
+          }
+        ]
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "triggerId": "13",
+        "name": "Click - Outbound Links",
+        "type": "LINK_CLICK",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "waitForTags",
+            "value": "true"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "checkValidation",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "waitForTagsTimeout",
+            "value": "2000"
+          }
+        ],
+        "filter": [
+          {
+            "type": "CONTAINS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{Click URL}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "danielart.github.io"
+              },
+              {
+                "type": "BOOLEAN",
+                "key": "negate",
+                "value": "true"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "triggerId": "14",
+        "name": "Click - Substack Outbound",
+        "type": "LINK_CLICK",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "waitForTags",
+            "value": "true"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "checkValidation",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "waitForTagsTimeout",
+            "value": "2000"
+          }
+        ],
+        "filter": [
+          {
+            "type": "CONTAINS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{Click URL}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "substack.com"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "triggerId": "15",
+        "name": "Click - Theme Toggle",
+        "type": "CLICK",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "waitForTags",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "checkValidation",
+            "value": "false"
+          }
+        ],
+        "filter": [
+          {
+            "type": "CONTAINS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{Click ID}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "theme-btn"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "triggerId": "16",
+        "name": "Click - Language Switcher",
+        "type": "LINK_CLICK",
+        "filter": [
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{Click URL}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "\\/(en|es|ja|pt)(\\/|$)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "variableId": "1",
+        "name": "GA4 Measurement ID",
+        "type": "c",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "value",
+            "value": "G-XXXXXXXXXX"
+          }
+        ]
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "variableId": "2",
+        "name": "DLV - Virtual Page Path",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "page_path"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "variableId": "3",
+        "name": "DLV - Virtual Page Title",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "page_title"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": 2
+          }
+        ]
+      }
+    ],
+    "builtInVariable": [
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "type": "PAGE_URL",
+        "name": "Page URL",
+        "value": "true"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "type": "PAGE_PATH",
+        "name": "Page Path",
+        "value": "true"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "type": "CLICK_URL",
+        "name": "Click URL",
+        "value": "true"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "type": "CLICK_TEXT",
+        "name": "Click Text",
+        "value": "true"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "type": "CLICK_ID",
+        "name": "Click ID",
+        "value": "true"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "type": "SCROLL_DEPTH_THRESHOLD",
+        "name": "Scroll Depth Threshold",
+        "value": "true"
+      },
+      {
+        "accountId": "100000",
+        "containerId": "200000",
+        "type": "SCROLL_DEPTH_UNITS",
+        "name": "Scroll Depth Units",
+        "value": "true"
+      }
+    ]
+  }
+}

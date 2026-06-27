@@ -1,32 +1,54 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import Socials from "./Socials.astro";
 
 const currentYear = new Date().getFullYear();
 
 type Props = {
   noMarginTop?: boolean;
+  wide?: boolean;
 } & HTMLAttributes<"footer">;
 
-const { noMarginTop = false, class: className, ...attrs } = Astro.props;
+const {
+  noMarginTop = false,
+  wide = false,
+  class: className,
+  ...attrs
+} = Astro.props;
 ---
 
-<footer
-  class:list={["app-layout", { "mt-auto": !noMarginTop }, className]}
-  {...attrs}
->
+<footer class:list={[{ "mt-auto": !noMarginTop }, className]} {...attrs}>
   <div
     class:list={[
-      "py-6 sm:py-4",
-      "border-t border-border",
-      "flex flex-col items-center justify-between sm:flex-row-reverse",
+      "flex flex-col items-center justify-between gap-4 border-t border-border/40 py-8 sm:flex-row sm:py-6",
+      wide ? "wide-layout" : "app-layout",
     ]}
   >
-    <Socials />
-    <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
-      <span>Copyright &#169; {currentYear}</span>
-      <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
-      <span>All rights reserved.</span>
+    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+      <a
+        href="/posts"
+        class="text-sm opacity-80 transition-all hover:text-accent hover:opacity-100"
+        >Posts</a
+      >
+      <a
+        href="/tags"
+        class="text-sm opacity-80 transition-all hover:text-accent hover:opacity-100"
+        >Tags</a
+      >
+      <a
+        href="/about"
+        class="text-sm opacity-80 transition-all hover:text-accent hover:opacity-100"
+        >About</a
+      >
+      <a
+        href="/#contact"
+        class="text-sm opacity-80 transition-all hover:text-accent hover:opacity-100"
+        >Contact</a
+      >
+    </div>
+    <div
+      class="flex flex-col items-center gap-4 font-mono text-xs tracking-wider opacity-60 sm:flex-row"
+    >
+      <span>© {currentYear} — Daniel Artola</span>
     </div>
   </div>
 </footer>
