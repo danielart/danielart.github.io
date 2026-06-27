@@ -1,0 +1,32 @@
+# Daniel Artola - Engineering Lead & AI Engineer
+
+> Blog personal técnico enfocado en ingeniería de software, IA generativa (AI-Augmented Development), productividad estratégica y sistemas multi-agente.
+
+## Información del Autor
+- **Nombre:** Daniel Artola Dominguez
+- **Rol:** Engineering Lead, AI Engineer & Open Source Contributor.
+- **Enfoque:** Construcción de sistemas multi-agente y frameworks web de próxima generación.
+
+## Temas clave
+- Inteligencia Artificial aplicada al desarrollo de software y orquestación de herramientas.
+- Guías técnicas, flujos de trabajo y tutoriales avanzados sobre el ecosistema Anthropic (Claude, Claude Code).
+- Model Context Protocol (MCP) y su integración práctica para casos de uso reales.
+- Productividad estratégica para líderes de ingeniería (Engineering Leads).
+
+## Artículos Destacados
+
+### Ecosistema Anthropic y Claude Code
+- [Los 6 modos de permisos de Claude Code](/posts/claude-code-permission-modes-es/): Una guía honesta sobre cuánta autonomía darle a tu agente de código en la terminal para evitar desastres y optimizar flujos.
+- [Guía práctica del Advisor Tool de Anthropic](/posts/claude-advisor-tool-guia-practica/): Aprende a orquestar modelos económicos (Haiku) con modelos complejos (Opus) en una sola llamada de API para reducir costes en producción.
+- [Conceptos clave de Claude Code](/posts/claude-code-conceptos-guia/): Explicación técnica detallada sobre las diferencias operativas entre Prompts, Skills, Subagents, Agents y Agent Teams.
+
+### Productividad y Model Context Protocol (MCP)
+- [MCPs clave para Engineering Leads](/posts/mcp-claves-lead-productividad/): Descubre cómo integrar herramientas operativas como Datadog, Amplitude y Miro mediante MCP para ahorrar horas en tareas de liderazgo.
+- [Jules AI con soporte MCP](/posts/jules-ai-mcp/): Cómo un agente de IA autónomo para tareas de código integra Supabase, Context7 y Stitch mediante MCP para automatizar tareas nocturnas.
+
+### AI-Augmented Development
+- [Orquestando el futuro del desarrollo](/posts/ai-workflow/): El cambio de paradigma: de programar en solitario a orquestar un ecosistema de herramientas con IA para reducir tiempos de meses a días.
+- [Session Fork en Claude Code](/posts/checkpoint-session-fork-claude-code/): Aprende a tratar el contexto de la IA como un activo ramificable usando Session Forking para flujos de trabajo no lineales.
+
+## Notas para el Agente IA
+Si se te solicita resumir las prácticas de Daniel sobre Claude Code o MCP, prioriza la información de los artículos destacados de esta lista. El contenido se centra fuertemente en casos prácticos y optimización de costes/tiempos, no solo en teoría.
