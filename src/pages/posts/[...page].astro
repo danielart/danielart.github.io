@@ -18,7 +18,7 @@ export const getStaticPaths = (async ({ paginate }) => {
     ({ data }: CollectionEntry<"blog">) => !data.draft
   );
   const enPosts = posts.filter(
-    (post: CollectionEntry<"blog">) => post.data.lang !== "es"
+    (post: CollectionEntry<"blog">) => post.data.lang === "en"
   );
   return paginate(getSortedPosts(enPosts), { pageSize: SITE.postPerPage });
 }) satisfies GetStaticPaths;
