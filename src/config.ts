@@ -3,7 +3,7 @@ export const SITE = {
   author: "Daniel Artola Dominguez",
   profile: "https://danielart.github.io",
   desc: "Engineering Lead, AI Engineer & Open Source Contributor. Building intelligent multi-agent systems and contributing to next-generation web frameworks.",
-  title: "Daniel Artola",
+  title: "Daniel Artola - AI Engineer & Open Source Contributor",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
