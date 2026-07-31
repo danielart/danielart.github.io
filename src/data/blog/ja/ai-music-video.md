@@ -239,4 +239,8 @@ AIはすべての作業を自動化してくれる魔法ではありません。
 
 手持ちのツールと工夫を組み合わせることで、諦めかけていたアイデアを形にすることができます。
 
-記事の最後で、完成したLos Chicos del Sótano × Paraleia「Todas aquellas luces」のミュージックビデオをご覧ください！
+記事の最後で、完成したLos Chicos del Sótano × Paraleia「Todas aquellas luces」のミュージックビデオをご覧ください：
+
+[![YouTubeでミュージックビデオ「Todas aquellas luces」を見る](https://img.youtube.com/vi/WobAAo_nGBc/hqdefault.jpg)](https://www.youtube.com/watch?v=WobAAo_nGBc)
+
+👉 [YouTubeでミュージックビデオを見る](https://www.youtube.com/watch?v=WobAAo_nGBc)

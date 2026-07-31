@@ -328,4 +328,8 @@ No siempre tendremos el tiempo, el presupuesto, el equipo o las condiciones idea
 
 A veces terminar un proyecto consiste precisamente en eso: aceptar las limitaciones, buscar una alternativa suficientemente buena y utilizar con ingenio las herramientas que ya tenemos.
 
-Al final del artículo puedes ver el resultado en el videoclip de “Todas aquellas luces”, de Los Chicos del Sótano, en colaboración con Paraleia.
+Al final del artículo puedes ver el resultado en el videoclip de “Todas aquellas luces”, de Los Chicos del Sótano, en colaboración con Paraleia:
+
+[![Ver el videoclip de “Todas aquellas luces” en YouTube](https://img.youtube.com/vi/WobAAo_nGBc/hqdefault.jpg)](https://www.youtube.com/watch?v=WobAAo_nGBc)
+
+👉 [Ver videoclip en YouTube](https://www.youtube.com/watch?v=WobAAo_nGBc)

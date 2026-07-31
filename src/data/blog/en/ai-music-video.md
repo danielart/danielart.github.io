@@ -327,4 +327,8 @@ We won't always have the time, budget, crew, or perfect conditions for what we e
 
 Sometimes finishing a project is about accepting constraints, finding a good-enough solution, and combining the tools at hand with a little ingenuity.
 
-At the end of this post, you can watch the final music video for “Todas aquellas luces” by Los Chicos del Sótano featuring Paraleia!
+At the end of this post, you can watch the final music video for “Todas aquellas luces” by Los Chicos del Sótano featuring Paraleia:
+
+[![Watch the music video "Todas aquellas luces" on YouTube](https://img.youtube.com/vi/WobAAo_nGBc/hqdefault.jpg)](https://www.youtube.com/watch?v=WobAAo_nGBc)
+
+👉 [Watch the music video on YouTube](https://www.youtube.com/watch?v=WobAAo_nGBc)

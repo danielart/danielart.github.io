@@ -173,4 +173,8 @@ A IA não fez o videoclipe por nós, mas eliminou bloqueios que poderiam ter dei
 
 Finalizar um projeto é aceitar as limitações e usar as ferramentas disponíveis com inteligência e criatividade.
 
-Ao final deste post, você pode conferir o resultado no videoclipe de “Todas aquellas luces”, de Los Chicos del Sótano em colaboração com Paraleia!
+Ao final deste post, você pode conferir o resultado no videoclipe de “Todas aquelas luces”, de Los Chicos del Sótano em colaboração com Paraleia:
+
+[![Assistir ao videoclipe "Todas aquelas luces" no YouTube](https://img.youtube.com/vi/WobAAo_nGBc/hqdefault.jpg)](https://www.youtube.com/watch?v=WobAAo_nGBc)
+
+👉 [Assistir ao videoclipe no YouTube](https://www.youtube.com/watch?v=WobAAo_nGBc)
