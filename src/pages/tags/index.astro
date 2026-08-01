@@ -5,32 +5,101 @@ import Layout from "@/layouts/Layout.astro";
 import Tag from "@/components/Tag.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import NeuralTagGraph from "@/components/NeuralTagGraph.astro";
 import getUniqueTags from "@/utils/getUniqueTags";
+import postFilter from "@/utils/postFilter";
+import { slugifyStr } from "@/utils/slugify";
 import { SITE } from "@/config";
 
 const posts = await getCollection("blog");
 
-let tags = getUniqueTags(posts);
+// Use English posts as the single reference language to avoid 4x duplicate counts across translations
+const REF_LANG = "en";
+const refPosts = posts.filter(
+  p => postFilter(p) && (p.data.lang === REF_LANG || p.id.startsWith(`${REF_LANG}/`))
+);
 
-// Define featured tags (slugs) to highlight at the top
-const FEATURED_TAG_SLUGS = ["ai", "mcp", "productivity"];
-const featuredTags = tags.filter(t => FEATURED_TAG_SLUGS.includes(t.tag));
+const allTags = getUniqueTags(posts, REF_LANG);
+
+const LANG_SLUGS = ["en", "es", "ja", "pt"];
+const AI_TAG_SLUGS = [
+  "ai",
+  "mcp",
+  "claude-code",
+  "antigravity",
+  "jules",
+  "stitch",
+  "gemini",
+];
+
+// Helper to filter connections for a tag subset based on the reference language posts
+function getConnectionsForTags(tagList: typeof allTags) {
+  const tagSlugs = new Set(tagList.map(t => t.tag));
+  const map = new Map<string, number>();
+
+  refPosts.forEach(post => {
+    const postSlugs = post.data.tags
+      .map(t => slugifyStr(t))
+      .filter(s => tagSlugs.has(s));
+
+    for (let i = 0; i < postSlugs.length; i++) {
+      for (let j = i + 1; j < postSlugs.length; j++) {
+        const pairKey = [postSlugs[i], postSlugs[j]].sort().join("::");
+        map.set(pairKey, (map.get(pairKey) || 0) + 1);
+      }
+    }
+  });
+
+  return Array.from(map.entries()).map(([pairKey, weight]) => {
+    const [source, target] = pairKey.split("::");
+    return { source, target, weight };
+  });
+}
+
+// 1. AI Tags & Connections
+const aiTags = allTags.filter(
+  t => AI_TAG_SLUGS.includes(t.tag) || t.tag.includes("ai")
+);
+const aiConnections = getConnectionsForTags(aiTags);
+
+// 2. Language Tags
+const languageTags = getUniqueTags(posts).filter(t =>
+  LANG_SLUGS.includes(t.tag)
+);
+
+// 3. Topic Tags (excluding languages)
+const topicTags = allTags.filter(t => !LANG_SLUGS.includes(t.tag));
+
+// 4. Featured Topics (top 6 by count)
+const featuredTopics = [...topicTags]
+  .sort((a, b) => b.count - a.count)
+  .slice(0, 6);
+const featuredConnections = getConnectionsForTags(featuredTopics);
 ---
 
-<Layout title={`Tags | ${SITE.title}`}>
+<Layout title={`Topics & Synapses | ${SITE.title}`}>
   <Header />
   <Main
     pageTitle="Tags"
-    pageDesc="Explore articles by topics, tags, and technologies."
+    pageDesc={`Explore articles across ${topicTags.length} topics and ${refPosts.length} published guides.`}
   >
+    <!-- Section 1: Artificial Intelligence & Agents (Neural Graph) -->
     {
-      featuredTags.length > 0 && (
-        <section class="mb-10">
-          <h2 class="text-skin-accent mb-4 text-xl font-semibold">
-            Featured Topics
+      aiTags.length > 0 && (
+        <section class="mb-14">
+          <h2 class="mb-4 text-xl font-bold tracking-tight text-accent">
+            Artificial Intelligence & Agents
           </h2>
-          <ul class="border-skin-line flex flex-wrap gap-6 border-b border-dashed pb-8">
-            {featuredTags.map(({ tag, tagName, count }) => (
+          <NeuralTagGraph
+            id="ai-hub"
+            title="AI & Agent Neural Network"
+            subtitle="Hover nodes or tags to trace synapses"
+            tags={aiTags}
+            connections={aiConnections}
+            heightClass="h-[280px] sm:h-[340px]"
+          />
+          <ul class="flex flex-wrap gap-3 border-b border-dashed border-border/50 pb-8">
+            {aiTags.map(({ tag, tagName, count }) => (
               <Tag {tag} {tagName} {count} size="lg" />
             ))}
           </ul>
@@ -38,11 +107,57 @@ const featuredTags = tags.filter(t => FEATURED_TAG_SLUGS.includes(t.tag));
       )
     }
 
+    <!-- Section 2: Featured Topics (Neural Graph) -->
+    {
+      featuredTopics.length > 0 && (
+        <section class="mb-14">
+          <div class="mb-4 flex items-center justify-between">
+            <h2 class="text-xl font-bold tracking-tight text-foreground/90">
+              Featured Topics
+            </h2>
+            <span class="font-mono text-xs opacity-60">Most active subjects</span>
+          </div>
+          <NeuralTagGraph
+            id="featured-topics"
+            title="Featured Topics Synapses"
+            subtitle="Core development domains"
+            tags={featuredTopics}
+            connections={featuredConnections}
+            heightClass="h-[260px] sm:h-[320px]"
+          />
+          <ul class="flex flex-wrap gap-3 border-b border-dashed border-border/50 pb-8">
+            {featuredTopics.map(({ tag, tagName, count }) => (
+              <Tag {tag} {tagName} {count} size="lg" />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <!-- Section 3: Languages (Tag Badges Only) -->
+    {
+      languageTags.length > 0 && (
+        <section class="mb-10">
+          <h2 class="mb-4 text-xl font-bold tracking-tight text-foreground/90">
+            Languages
+          </h2>
+          <ul class="flex flex-wrap gap-3 border-b border-dashed border-border/50 pb-8">
+            {languageTags.map(({ tag, tagName, count }) => (
+              <Tag {tag} {tagName} {count} size="sm" />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <!-- Section 4: All Topics (Tag Badges Only) -->
     <section class="mt-8">
-      <h2 class="mb-4 text-xl font-semibold">All Tags</h2>
-      <ul class="flex flex-wrap gap-4">
+      <h2 class="mb-4 text-xl font-bold tracking-tight text-foreground/90">
+        All Topics ({topicTags.length})
+      </h2>
+      <ul class="flex flex-wrap gap-2.5">
         {
-          tags.map(({ tag, tagName, count }) => (
+          topicTags.map(({ tag, tagName, count }) => (
             <Tag {tag} {tagName} {count} size="sm" />
           ))
         }

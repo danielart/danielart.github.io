@@ -36,6 +36,18 @@ const TAG_DESCRIPTIONS: Record<string, string> = {
   mcp: "Practical guides, integrations, and productivity hacks using the Model Context Protocol (MCP).",
   productivity:
     "Strategies, tools, and developer workflows to optimize focus and code faster.",
+  "claude-code":
+    "Deep dives into Anthropic's Claude Code CLI tool, features, configurations, and permission modes.",
+  antigravity:
+    "Architectural insights, custom skills, and advanced workflows using Google's Antigravity platform.",
+  jules: "Integrating and automating software development with Google Jules AI agent.",
+  stitch: "Designing and building UI applications rapidly with Google Stitch.",
+  workflow:
+    "Streamlining developer experience, multi-agent orchestrations, and speed optimizations.",
+  youtube:
+    "AI video generation, multi-agent content creation, and YouTube automation.",
+  atlassian:
+    "Hacks, MCP connectors, and integrations for Jira, Confluence, and Atlassian tools.",
   en: "Articles and technical guides written in English.",
   es: "Artículos y guías técnicas escritos en Español.",
   pt: "Artigos e guias técnicos escritos em Português.",
@@ -45,18 +57,18 @@ const TAG_DESCRIPTIONS: Record<string, string> = {
 const tagDescription =
   tag && tag in TAG_DESCRIPTIONS
     ? TAG_DESCRIPTIONS[tag]
-    : `All the articles with the tag "${tagName}".`;
+    : `All articles tagged with #${tagName} (${page.total} article${page.total === 1 ? "" : "s"}).`;
 ---
 
-<Layout title={`Tag: ${tagName} | ${SITE.title}`}>
+<Layout title={`Tag: #${tagName} | ${SITE.title}`}>
   <Header />
   <Main
     pageTitle={[`Tag:`, `${tagName}`]}
     titleTransition={tag}
     pageDesc={tagDescription}
   >
-    <h1 slot="title" transition:name={tag}>{`Tag:${tag}`}</h1>
-    <ul>
+    <h1 slot="title" transition:name={tag}>{`Tag: ${tagName}`}</h1>
+    <ul class="space-y-4">
       {page.data.map(data => <Card {...data} />)}
     </ul>
   </Main>

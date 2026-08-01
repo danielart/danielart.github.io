@@ -8,8 +8,14 @@ export interface Tag {
   count: number;
 }
 
-const getUniqueTags = (posts: CollectionEntry<"blog">[]) => {
-  const filteredPosts = posts.filter(postFilter);
+const getUniqueTags = (posts: CollectionEntry<"blog">[], lang?: string) => {
+  const filteredPosts = posts.filter(post => {
+    if (!postFilter(post)) return false;
+    if (lang) {
+      return post.data.lang === lang || post.id.startsWith(`${lang}/`);
+    }
+    return true;
+  });
 
   // Calculate counts for each slugified tag
   const tagCountMap: Record<string, number> = {};

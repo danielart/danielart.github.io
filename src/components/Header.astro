@@ -92,17 +92,6 @@ const isActive = (path: string) => {
         </li>
         <li>
           <a
-            href="/tags"
-            class:list={[
-              { "active-nav": isActive("/tags") },
-              "transition-colors",
-            ]}
-          >
-            Tags
-          </a>
-        </li>
-        <li>
-          <a
             href="/about"
             class:list={[
               { "active-nav": isActive("/about") },
@@ -125,6 +114,17 @@ const isActive = (path: string) => {
         </li>
         <li>
           <a href="/#contact" class="transition-colors">Contact</a>
+        </li>
+        <li>
+          <a
+            href="/tags"
+            class:list={[
+              { "active-nav": isActive("/tags") },
+              "transition-colors",
+            ]}
+          >
+            Tags
+          </a>
         </li>
         {
           SITE.showArchives && (

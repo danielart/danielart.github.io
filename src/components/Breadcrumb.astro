@@ -32,35 +32,96 @@ if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
 }
 ---
 
-<nav class="app-layout mt-8 mb-1" aria-label="breadcrumb">
-  <ul
-    class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"
-  >
-    <li>
-      <a href="/" class="opacity-80">Home</a>
-      <span aria-hidden="true" class="opacity-80">&raquo;</span>
+<nav class="app-layout mt-8 mb-8 sm:mb-10 font-mono overflow-x-auto no-scrollbar" aria-label="breadcrumb">
+  <ol class="inline-flex max-w-full items-center gap-2.5 text-xs sm:text-sm font-medium py-1">
+    <!-- Home Circuit Node -->
+    <li class="group/circuit flex items-center gap-2.5">
+      <a
+        href="/"
+        class="relative group/node inline-flex items-center gap-2.5 rounded-full border border-border/60 bg-muted/50 px-4 py-2 text-foreground/80 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:border-accent hover:text-accent hover:shadow-[0_0_20px_rgba(224,92,54,0.3)]"
+      >
+        <!-- Expanding Radial Ripple Ring on Hover -->
+        <span class="absolute inset-0 -z-10 rounded-full border border-accent/60 opacity-0 transition-all duration-500 ease-out group-hover/node:scale-140 group-hover/node:opacity-100 pointer-events-none" aria-hidden="true"></span>
+        <span class="absolute -inset-1 -z-20 rounded-full bg-accent/20 opacity-0 blur-sm transition-opacity duration-300 group-hover/node:opacity-100 pointer-events-none" aria-hidden="true"></span>
+
+        <!-- Node Pulse Core -->
+        <span class="relative flex size-2.5 items-center justify-center">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-0 group-hover/node:opacity-75"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-accent/70 transition-transform duration-300 group-hover/node:scale-125 group-hover/node:bg-accent"></span>
+        </span>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="size-4 stroke-current transition-transform duration-300 group-hover/node:scale-110 group-hover/node:-rotate-12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="tracking-wider uppercase text-[11px] sm:text-xs font-semibold">Home</span>
+      </a>
+
+      <!-- Connected Circuit Line & Flow Particle -->
+      <div class="flex items-center gap-1 text-foreground/30 transition-colors duration-300 group-hover/circuit:text-accent" aria-hidden="true">
+        <span class="h-0.5 w-3 bg-current transition-all duration-300 group-hover/circuit:w-5 group-hover/circuit:bg-accent"></span>
+        <span class="size-1.5 rounded-full bg-current transition-all duration-300 group-hover/circuit:scale-150 group-hover/circuit:bg-accent group-hover/circuit:shadow-[0_0_8px_var(--accent)]"></span>
+        <span class="h-0.5 w-3 bg-current transition-all duration-300 group-hover/circuit:w-5 group-hover/circuit:bg-accent"></span>
+      </div>
     </li>
+
     {
-      breadcrumbList.map((breadcrumb, index) =>
-        index + 1 === breadcrumbList.length ? (
+      breadcrumbList.map((breadcrumb, index) => {
+        const isLast = index + 1 === breadcrumbList.length;
+        return isLast ? (
           <li>
             <span
-              class:list={["capitalize opacity-75", { lowercase: index > 0 }]}
+              class:list={[
+                "relative inline-flex items-center gap-2.5 rounded-full border border-accent/60 bg-accent/15 px-4.5 py-2 font-bold text-accent uppercase tracking-wider text-[11px] sm:text-xs shadow-[0_0_15px_rgba(224,92,54,0.3)]",
+                { lowercase: index > 0 }
+              ]}
               aria-current="page"
             >
-              {/* make the last part lowercase in Home > Tags > some-tag */}
+              <!-- Active Node Core -->
+              <span class="relative flex size-2.5 items-center justify-center">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+                <span class="relative inline-flex size-2 rounded-full bg-accent"></span>
+              </span>
               {decodeURIComponent(breadcrumb)}
             </span>
           </li>
         ) : (
-          <li>
-            <a href={`/${breadcrumb}/`} class="capitalize opacity-70">
-              {breadcrumb}
+          <li class="group/circuit flex items-center gap-2.5">
+            <a
+              href={`/${breadcrumb}/`}
+              class="relative group/node inline-flex items-center gap-2.5 rounded-full border border-border/60 bg-muted/50 px-4 py-2 text-foreground/80 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:border-accent hover:text-accent hover:shadow-[0_0_20px_rgba(224,92,54,0.3)] capitalize text-[11px] sm:text-xs tracking-wider"
+            >
+              <!-- Expanding Radial Ripple Ring on Hover -->
+              <span class="absolute inset-0 -z-10 rounded-full border border-accent/60 opacity-0 transition-all duration-500 ease-out group-hover/node:scale-140 group-hover/node:opacity-100 pointer-events-none" aria-hidden="true"></span>
+              <span class="absolute -inset-1 -z-20 rounded-full bg-accent/20 opacity-0 blur-sm transition-opacity duration-300 group-hover/node:opacity-100 pointer-events-none" aria-hidden="true"></span>
+
+              <!-- Node Pulse Core -->
+              <span class="relative flex size-2.5 items-center justify-center">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-0 group-hover/node:opacity-75"></span>
+                <span class="relative inline-flex size-2 rounded-full bg-accent/70 transition-transform duration-300 group-hover/node:scale-125 group-hover/node:bg-accent"></span>
+              </span>
+
+              <span>{breadcrumb}</span>
             </a>
-            <span aria-hidden="true">&raquo;</span>
+
+            <!-- Connected Circuit Line & Flow Particle -->
+            <div class="flex items-center gap-1 text-foreground/30 transition-colors duration-300 group-hover/circuit:text-accent" aria-hidden="true">
+              <span class="h-0.5 w-3 bg-current transition-all duration-300 group-hover/circuit:w-5 group-hover/circuit:bg-accent"></span>
+              <span class="size-1.5 rounded-full bg-current transition-all duration-300 group-hover/circuit:scale-150 group-hover/circuit:bg-accent group-hover/circuit:shadow-[0_0_8px_var(--accent)]"></span>
+              <span class="h-0.5 w-3 bg-current transition-all duration-300 group-hover/circuit:w-5 group-hover/circuit:bg-accent"></span>
+            </div>
           </li>
-        )
-      )
+        );
+      })
     }
-  </ul>
+  </ol>
 </nav>
