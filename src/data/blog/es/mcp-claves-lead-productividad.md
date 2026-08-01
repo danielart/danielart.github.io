@@ -23,7 +23,7 @@ Analizar monitores, optimizar alertas, investigar incidentes, crear reportes/not
 
 Sí, más allá de la polémica de si usar MCP o no. No dejan de ser una herramienta, no debería haber problema si lo usas para casos concretos y con conocimiento, igual que todo con la IA. Vaya, igual que no usas una motosierra para limar una astilla y encima sin leerte las instrucciones.
 
-Hay varios MCP que uso a menudo: Atlassian, Context7, Playwright… pero te explico una lista de otros que, aunque no use a menudo, sí que me ayudan bastante para situaciones concretas.
+Hay varios MCP que uso a menudo: [**Atlassian**](/posts/es/5-atlassian-mcp-hacks-to-supercharge-your-workflow), Context7, Playwright… pero te explico una lista de otros que, aunque no use a menudo, sí que me ayudan bastante para situaciones concretas.
 
 ## Mis MCP para casos concretos
 
@@ -59,3 +59,9 @@ Enlaces Oficiales a los MCP Mencionados:
 - [MCP Amplitude](https://amplitude.com/docs/amplitude-ai/amplitude-mcp)
 - [MCP Excalidraw](https://github.com/excalidraw/excalidraw-mcp)
 - [MCP Miro](https://developers.miro.com/docs/miro-mcp)
+
+## Lecturas recomendadas
+
+- ⚙️ [5 trucos de Atlassian MCP](/posts/es/5-atlassian-mcp-hacks-to-supercharge-your-workflow): Profundiza en cómo integrar Jira y Confluence en tu IDE.
+- 🌙 [Google Jules AI Agent con MCP](/posts/es/jules-ai-mcp): Desarrollo asíncrono nocturno conectando Supabase y Context7.
+- 🚀 [Agentes de IA para Desarrollo](/posts/es/ai-workflow): Estrategia global de orquestación de herramientas de IA.

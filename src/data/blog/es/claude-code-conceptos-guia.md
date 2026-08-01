@@ -194,3 +194,12 @@ Para dominar estas herramientas de desarrollo agentico, la academia oficial de A
 - **Claude Code 101:** Base teórica sobre el bucle agentico exploratorio (Explore -> Plan -> Code -> Commit), workflows automáticos y configuraciones de `CLAUDE.md`.
 - **Introduction to Agent Skills:** Cómo crear, configurar y compartir "Skills" efectivas. Te enseña a encapsular tus comandos Markdown para reducir repetición y mantener consistencia a través de proyectos.
 - **Introduction to Subagents:** Aprende a delegar tareas y abstraer la complejidad utilizando agentes aislados. Mantiene el contexto de tu conversación principal ágil y enfocado.
+
+## Lecturas recomendadas
+
+Si quieres profundizar en la gestión de sesiones, permisos y optimización de costes en Claude Code:
+
+- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes): Descubre los 6 niveles de autonomía y cómo evitar borrados accidentales.
+- ⚡ [Allowlist en Claude Code: /fewer-permission-prompts](/posts/es/claude-code-allowlist): Automatiza la aprobación de comandos seguros para eliminar la fatiga de autorización.
+- 🌿 [Session Forking en Claude Code](/posts/es/checkpoint-session-fork-claude-code): Aprende a ramificar el contexto de la IA y crear checkpoints sin gastar tokens extra.
+- 💡 [Claude Code Advisor Tool](/posts/es/claude-advisor-tool-guia-practica): Combina la velocidad de Haiku con el razonamiento de Opus para optimizar costes.

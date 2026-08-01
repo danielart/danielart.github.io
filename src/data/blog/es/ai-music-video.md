@@ -338,3 +338,9 @@ Al final del artículo puedes ver el resultado en el videoclip de “Todas aquel
 [![Ver el videoclip de “Todas aquellas luces” en YouTube](https://img.youtube.com/vi/WobAAo_nGBc/hqdefault.jpg)](https://www.youtube.com/watch?v=WobAAo_nGBc)
 
 👉 [Ver videoclip en YouTube](https://www.youtube.com/watch?v=WobAAo_nGBc)
+
+## Lecturas recomendadas
+
+- 📈 [Agentes de IA para Automatización de YouTube](/posts/es/youtube-ai-agent): Descubre cómo automatizamos la estrategia de contenidos de Los Chicos del Sótano multiplicando las visitas x10.
+- ⚡ [Sistema de Changelogs con IA](/posts/es/ai-changelog-gem): Creación de Gemas personalizadas en Gemini para estructurar workflows.
+- 🚀 [Agentes de IA para Desarrollo](/posts/es/ai-workflow): Mi ecosistema agéntico para acelerar proyectos creativos y técnicos.

@@ -337,3 +337,9 @@ At the end of this post, you can watch the final music video for “Todas aquell
 [![Watch the music video "Todas aquellas luces" on YouTube](https://img.youtube.com/vi/WobAAo_nGBc/hqdefault.jpg)](https://www.youtube.com/watch?v=WobAAo_nGBc)
 
 👉 [Watch the music video on YouTube](https://www.youtube.com/watch?v=WobAAo_nGBc)
+
+## Recommended Reading
+
+- 📈 [AI Agents for YouTube Automation](/posts/en/youtube-ai-agent): How we automated content strategy for Los Chicos del Sótano multiplying views x10.
+- ⚡ [AI Changelog System](/posts/en/ai-changelog-gem): Building custom Gemini Gems for structured workflows.
+- 🚀 [AI Coding Agents](/posts/en/ai-workflow): My agentic ecosystem to accelerate creative and technical projects.

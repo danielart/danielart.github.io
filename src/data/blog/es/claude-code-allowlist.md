@@ -149,3 +149,9 @@ Si usas Claude Code en modo manual y no la has corrido todavía, hazlo hoy. Cinc
 - Post original (Wmedia): https://wmedia.es/en/tips/claude-code-fewer-permission-prompts
 - Documentación oficial: https://code.claude.com/docs/en/permissions
 - Auto mode (contexto sobre el 93% de aprobación): https://www.anthropic.com/engineering/claude-code-auto-mode
+
+## Lecturas recomendadas
+
+- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes): Conoce en profundidad los 6 niveles de autonomía de Claude Code.
+- 🏗️ [Arquitectura de Claude Code: Guía técnica de conceptos](/posts/es/claude-code-conceptos-guia): Explora la guía de Prompts, Skills y Subagents.
+- 🌿 [Session Forking en Claude Code](/posts/es/checkpoint-session-fork-claude-code): Aprende a ramificar sesiones de trabajo.

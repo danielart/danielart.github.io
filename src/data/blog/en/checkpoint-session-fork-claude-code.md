@@ -82,3 +82,9 @@ For this workflow to be production-grade, Claude Code uses two safeguards:
 ## Conclusion
 
 We are moving from "prompting" to **Context Engineering**. For a Tech Lead, the ability to branch reasoning means prototyping complex changes or parallelizing tasks with the same clean context in minutes instead of hours, keeping the main session clean and focused. This has saved me from a couple of headaches and dozens of .md files piling up.
+
+## Recommended Reading
+
+- 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide): Deep dive into Prompts, Skills, Subagents, and agent sessions.
+- 🛡️ [Claude Code Permission Modes](/posts/en/claude-code-permission-modes): Discover when to grant elevated autonomy to Claude during session forks.
+- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist): Maintain frictionless command execution across your session branches.

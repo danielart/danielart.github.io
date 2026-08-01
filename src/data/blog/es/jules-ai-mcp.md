@@ -18,7 +18,7 @@ ogImage: ../../../assets/images/blog/jules-mcp.png
 
 El agente de IA que trabaja por las noches para mi (Jules) ahora soporta MCP, increíble.
 
-Jules es un agente de IA autónomo que te ayuda con tareas de código en tus proyectos. Hablé de él en un post anterior (enlace abajo), lo uso para dejarle tareas sencillas durante la noche y revisar por la mañana.
+Jules es un agente de IA autónomo que te ayuda con tareas de código en tus proyectos. Hablé de él en mi post sobre [**Agentes de IA para Desarrollo**](/posts/es/ai-workflow), donde muestro cómo lo uso para dejarle tareas sencillas durante la noche y revisar por la mañana.
 
 Pero esto se acaba de poner interesante. Desde hace unos días, integra el uso de MCP, conectándose con algunos que uso casi a diario en Antigravity como Supabase, Context7 de Upstash o Stitch.
 
@@ -34,8 +34,14 @@ Ahora es capaz de asumir tareas más complejas. Seguramente en breve implementar
 
 Vamos esos enlaces:
 
-- [Creación de apps con AI](https://lnkd.in/efK2AS2N)
+- [Agentes de IA para Desarrollo: Mi flujo de trabajo completo](/posts/es/ai-workflow)
 - [Jules MCP](https://lnkd.in/ewiU9YGw)
 - [Jules cuotas](https://lnkd.in/eAPatCfk)
 - [Supabase MCP](https://lnkd.in/eFhHC6XW)
 - [Context7 MCP](https://lnkd.in/eu7h4nh3)
+
+## Lecturas recomendadas
+
+- 🚀 [Agentes de IA para Desarrollo](/posts/es/ai-workflow): Mi ecosistema de orquestación diaria con Gemini, Stitch, Antigravity y Jules.
+- 🛠️ [Flujos MCP para Engineering Leads](/posts/es/mcp-claves-lead-productividad): Cómo uso Datadog, Amplitude y Excalidraw para ahorrar tiempo.
+- ⚙️ [5 trucos de Atlassian MCP](/posts/es/5-atlassian-mcp-hacks-to-supercharge-your-workflow): Automatiza la documentación en Confluence y Jira.

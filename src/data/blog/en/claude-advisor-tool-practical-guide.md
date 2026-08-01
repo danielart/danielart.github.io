@@ -248,3 +248,9 @@ In a market where reasoning is becoming an expensive luxury, **orchestration is 
 - **Do not use it** for single-turn, mechanical tasks, or through proxies like Bedrock/Vertex today.
 
 🚀 If you use AI to code and you are still throwing prompts without measuring tokens, in the next post I will go into detail on prompt caching, batch API and the real economics of an agent in production. Follow me so you don't miss it.
+
+## Recommended Reading
+
+- 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide): Understand the relationship between Prompts, Subagents, and Agent Teams.
+- 🛡️ [Claude Code Permission Modes](/posts/en/claude-code-permission-modes): Combine Advisor intelligence with appropriate autonomy levels.
+- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist): Optimize command flow for your executor.

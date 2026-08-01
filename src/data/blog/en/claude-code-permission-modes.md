@@ -450,3 +450,9 @@ Knowing which one to use when is not a minor technical detail. It's the differen
 - [Sandboxing — Claude Code Docs](https://code.claude.com/docs/en/sandboxing)
 
 _This post is based on and verified against the official Claude Code documentation at `code.claude.com/docs` as of May 2026. If the modes change (and they will), always check the official source before making security decisions._
+
+## Recommended Reading
+
+- 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide): Understand the differences between Prompts, Skills, Subagents, and Agent Teams.
+- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist): Step-by-step guide to automating safe command approvals.
+- 🌿 [Session Forking in Claude Code](/posts/en/checkpoint-session-fork-claude-code): Experiment with permission modes without losing context or ruining your session.

@@ -132,3 +132,9 @@ Integrar herramientas de IA en el IDE no se trata de reemplazar al programador. 
 
 Creado por IA, Mejorado por humanos.
 Daniel Artola.
+
+## Lecturas recomendadas
+
+- 🛠️ [Flujos MCP para Engineering Leads](/posts/es/mcp-claves-lead-productividad): Amplía tu suite de MCPs con Datadog, Amplitude, Miro y Excalidraw.
+- 🌙 [Google Jules AI Agent con MCP](/posts/es/jules-ai-mcp): Automatización nocturna combinando MCPs de desarrollo y base de datos.
+- 🚀 [Agentes de IA para Desarrollo](/posts/es/ai-workflow): Estrategia de orquestación de herramientas de IA en el día a día.

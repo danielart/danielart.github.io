@@ -135,3 +135,9 @@ Esta gema está muy enfocada en el mundo del **desarrollo de software y tecnolog
 3. Modificar las instrucciones de la gema para que se adapten a tu dominio.
 
 El patrón es el mismo: **datos limpios → gema personalizada → información sin ruido**.
+
+## Lecturas recomendadas
+
+- 📈 [Agentes de IA para Automatización de YouTube](/posts/es/youtube-ai-agent): Otro caso práctico usando Gemas personalizadas en Gemini.
+- 🚀 [Agentes de IA para Desarrollo](/posts/es/ai-workflow): Cómo orquestar Gemini como sparring estratégico en tu flujo diario.
+- 🎬 [Producción de Vídeo con IA](/posts/es/ai-music-video-es): Aplicación práctica de IA para resolver cuellos de botella creativos.

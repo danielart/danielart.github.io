@@ -149,3 +149,9 @@ If you use Claude Code in manual mode and haven't run it yet, do it today. Five 
 - Original post (Wmedia): https://wmedia.es/en/tips/claude-code-fewer-permission-prompts
 - Official documentation: https://code.claude.com/docs/en/permissions
 - Auto mode (context about 93% approval): https://www.anthropic.com/engineering/claude-code-auto-mode
+
+## Recommended Reading
+
+- 🛡️ [Claude Code Permission Modes](/posts/en/claude-code-permission-modes): Comprehensive guide to the 6 autonomy levels.
+- 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide): Explore Prompts, Skills, Subagents, and Agent Teams.
+- 🌿 [Session Forking in Claude Code](/posts/en/checkpoint-session-fork-claude-code): Learn how to branch AI sessions safely.

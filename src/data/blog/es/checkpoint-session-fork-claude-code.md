@@ -82,3 +82,9 @@ Para que este flujo de trabajo sea de grado de producción, Claude Code utiliza 
 ## Conclusión
 
 Estamos pasando del "prompting" a la **Ingeniería de Contexto**. Para un Tech Lead, la capacidad de ramificar el razonamiento significa prototipar cambios complejos o paralelizar tareas con un mismo contexto sin distorsión en minutos en lugar de horas, manteniendo la sesión principal limpia y enfocada. Me he ahorrado un par de disgustillos con esto y docenas de archivos .md que se me acumulan.
+
+## Lecturas recomendadas
+
+- 🏗️ [Arquitectura de Claude Code: Guía técnica de conceptos](/posts/es/claude-code-conceptos-guia): Profundiza en Prompts, Skills, Subagents y sesiones de agente.
+- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes): Descubre cuándo otorgar más autonomía a Claude durante un fork.
+- ⚡ [Allowlist en Claude Code: /fewer-permission-prompts](/posts/es/claude-code-allowlist): Mantén la fluidez de comandos en tus ramas de sesión.

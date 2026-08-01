@@ -171,3 +171,9 @@ Integrating Atlassian's AI tools into your IDE isn't about replacing the develop
 
 AI created, Human-enhanced.
 Daniel Artola.
+
+## Recommended Reading
+
+- 🛠️ [Key MCP Flows for Engineering Leads](/posts/en/key-mcps-lead-productivity): Expand your MCP suite with Datadog, Amplitude, Miro, and Excalidraw.
+- 🌙 [Google Jules AI Agent with MCP](/posts/en/jules-ai-mcp): Nighttime automation combining dev and database MCPs.
+- 🚀 [AI Coding Agents](/posts/en/ai-workflow): Daily orchestration strategy for AI tools.
