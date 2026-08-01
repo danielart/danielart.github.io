@@ -46,15 +46,19 @@ import IconArrowNarrowUp from "@/assets/icons/IconArrowNarrowUp.svg";
 
     // Attach click event handler for back-to-top button
     backToTopBtn.addEventListener("click", () => {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      const lenisInstance = window.__lenisInstance;
+      if (lenisInstance) {
+        lenisInstance.scrollTo(0, { duration: 1.2 });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     });
 
     // Handle button visibility according to scroll position
     let lastVisible = null;
     function handleScroll() {
       const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
-      const scrollTop = rootElement.scrollTop;
+      const scrollTop = rootElement.scrollTop || window.scrollY;
       const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
 
       progressIndicator.style.setProperty(
@@ -74,15 +78,19 @@ import IconArrowNarrowUp from "@/assets/icons/IconArrowNarrowUp.svg";
     }
 
     let ticking = false;
-    document.addEventListener("scroll", () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
+    document.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
   }
   backToTop();
 </script>

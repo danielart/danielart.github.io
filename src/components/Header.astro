@@ -111,6 +111,17 @@ const isActive = (path: string) => {
           </a>
         </li>
         <li>
+          <a
+            href="/certifications"
+            class:list={[
+              { "active-nav": isActive("/certifications") },
+              "transition-colors",
+            ]}
+          >
+            Certifications
+          </a>
+        </li>
+        <li>
           <a href="/#contact" class="transition-colors">Contact</a>
         </li>
         {
