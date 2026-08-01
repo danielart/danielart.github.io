@@ -293,7 +293,7 @@ The goal wouldn't be recreating the entire plot frame by frame, but evoking feel
 
 The character sheet ensures the protagonists don't morph between posts, while prompt templates keep the art style unified while swapping locations or actions.
 
-*(Note: Before publishing or using AI content commercially, always review licensing rights, tool terms of service, and guidelines regarding trademarked elements or likenesses.)*
+_(Note: Before publishing or using AI content commercially, always review licensing rights, tool terms of service, and guidelines regarding trademarked elements or likenesses.)_
 
 ## What I would do differently next time
 

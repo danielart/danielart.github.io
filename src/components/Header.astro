@@ -45,16 +45,18 @@ const isActive = (path: string) => {
       wide ? "wide-layout" : "app-layout",
     ]}
   >
-    <div class="flex w-full items-center justify-between sm:w-auto overflow-hidden">
+    <div
+      class="flex w-full items-center justify-between overflow-hidden sm:w-auto"
+    >
       <a
         href="/"
-        class="py-1 text-lg sm:text-xl font-bold tracking-tight transition-colors hover:text-accent sm:whitespace-nowrap truncate"
+        class="truncate py-1 text-lg font-bold tracking-tight transition-colors hover:text-accent sm:text-xl sm:whitespace-nowrap"
       >
         {SITE.title}
       </a>
       <button
         id="menu-btn"
-        class="focus-outline rounded p-2 transition-colors hover:bg-muted/50 sm:hidden shrink-0 ml-4"
+        class="focus-outline ml-4 shrink-0 rounded p-2 transition-colors hover:bg-muted/50 sm:hidden"
         aria-label="Open Menu"
         aria-expanded="false"
         aria-controls="menu-items"
