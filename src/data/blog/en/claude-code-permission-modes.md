@@ -1,5 +1,5 @@
 ---
-title: "[EN] The 6 permission modes of Claude Code: the difference between a clean commit and an accidental rm -rf"
+title: "Claude Code Permission Modes: Prevent Accidental Data Loss with Safe Autonomy"
 author: Daniel Artola
 pubDatetime: 2026-05-19T15:35:00Z
 slug: claude-code-permission-modes-en

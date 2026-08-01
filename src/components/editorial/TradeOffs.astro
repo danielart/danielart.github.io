@@ -1,0 +1,17 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Trade-offs & Considerations" } = Astro.props;
+---
+
+<div class="my-6 rounded-xl border border-amber-500/30 bg-amber-500/5 p-5">
+  <div class="mb-2 flex items-center gap-2 font-bold text-amber-500">
+    <span>⚖️</span>
+    <span>{title}</span>
+  </div>
+  <div class="text-sm leading-relaxed text-foreground/90">
+    <slot />
+  </div>
+</div>

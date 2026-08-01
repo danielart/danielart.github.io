@@ -41,7 +41,7 @@ export const GET: APIRoute = async ({ params }) => {
     site: SITE.website,
     items: langPosts.map(({ data, id, filePath }) => ({
       link: getPath(id, filePath),
-      title: data.title,
+      title: data.title.replace(/^\[(EN|ES|JA|PT)\]\s*/i, ""),
       description: data.description,
       pubDate: new Date(data.modDatetime ?? data.pubDatetime),
     })),

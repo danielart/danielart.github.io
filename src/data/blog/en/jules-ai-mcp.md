@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-15T00:00:00Z
-title: "[EN] Jules: The AI agent that works at night now supports MCP"
+title: "Google Jules AI Agent: Asynchronous Coding at Night with MCP Tools"
 featured: false
 draft: false
 tags:

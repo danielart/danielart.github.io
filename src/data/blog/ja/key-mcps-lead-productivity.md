@@ -1,5 +1,5 @@
 ---
-title: "[JA] 重要なMCPを使用してリードとしてのタスク時間を削減する"
+title: "Engineering Lead向けMCPワークフロー: 日常の管理タスクを自動化する方法"
 author: Daniel Artola
 pubDatetime: 2026-03-24T21:00:00Z
 slug: key-mcps-lead-productivity-ja

@@ -1,5 +1,5 @@
 ---
-title: "[ES] 5 trucos de Atlassian MCP para potenciar tu flujo de trabajo"
+title: "Integración de Atlassian MCP: 5 trucos para potenciar tu flujo de trabajo técnico"
 author: Daniel Artola
 pubDatetime: 2025-10-16T00:00:00+02:00
 slug: 5-trucos-atlassian-mcp-para-potenciar-tu-flujo-de-trabajo
@@ -9,8 +9,14 @@ tags:
   - productividad
   - ai
   - mcp
-  - es
 lang: es
+translationKey: 5-atlassian-mcp-hacks
+pillar: engineering-management
+articleType: guide
+audience:
+  - engineering-manager
+  - tech-lead
+  - developer
 description: Odio tener que cambiar una y otra vez entre el IDE, la tarea en Jira para revisar detalles, y Confluence u otros documentos para asegurarme de que tengo toda la información...
 ---
 

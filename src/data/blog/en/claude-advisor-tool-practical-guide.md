@@ -1,5 +1,5 @@
 ---
-title: "[EN] How to pay Haiku's price for Opus's brain: practical guide to the Advisor Tool"
+title: "Claude Code Advisor Tool: How I Pay Haiku Prices for Opus-Level Decisions"
 author: Daniel Artola
 pubDatetime: 2026-04-25T16:46:20Z
 slug: claude-advisor-tool-practical-guide

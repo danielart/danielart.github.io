@@ -30,8 +30,7 @@ const {
         <span
           class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"
         ></span>
-        <span class="relative inline-flex size-3 rounded-full bg-accent"
-        ></span>
+        <span class="relative inline-flex size-3 rounded-full bg-accent"></span>
       </span>
       <h3
         class="font-mono text-xs font-bold tracking-widest text-accent uppercase sm:text-sm"
@@ -39,7 +38,7 @@ const {
         {title}
       </h3>
     </div>
-    <div class="flex items-center gap-3 text-xs font-mono opacity-60">
+    <div class="flex items-center gap-3 font-mono text-xs opacity-60">
       <span>{tags.length} Nodes</span>
       <span>{connections.length} Synapses</span>
       {subtitle && <span class="hidden sm:inline">{subtitle}</span>}
@@ -50,13 +49,15 @@ const {
   <div class="relative w-full overflow-hidden rounded-xl bg-muted/20">
     <canvas
       id={`neural-canvas-${id}`}
-      class:list={[heightClass, "w-full touch-none cursor-pointer"]}
-    ></canvas>
+      class:list={[heightClass, "w-full cursor-pointer touch-none"]}></canvas>
   </div>
 </div>
 
-<script is:inline define:vars={{ graphId: id, graphTags: tags, graphConnections: connections }}>
-  (function() {
+<script
+  is:inline
+  define:vars={{ graphId: id, graphTags: tags, graphConnections: connections }}
+>
+  (function () {
     function initGraphInstance() {
       const canvasId = `neural-canvas-${graphId}`;
       const canvas = document.getElementById(canvasId);
@@ -74,7 +75,11 @@ const {
 
       function resizeCanvas() {
         const rect = canvas.getBoundingClientRect();
-        const w = rect.width || canvas.clientWidth || canvas.parentElement?.clientWidth || 300;
+        const w =
+          rect.width ||
+          canvas.clientWidth ||
+          canvas.parentElement?.clientWidth ||
+          300;
         const h = rect.height || canvas.clientHeight || 280;
 
         if (w === 0 || h === 0) return false;
@@ -107,16 +112,19 @@ const {
         const centerX = width / 2;
         const centerY = height / 2;
         const radiusX = Math.max(60, Math.min(width, height) * 0.35);
-        const radiusY = Math.max(50, Math.min(width, height) * 0.30);
+        const radiusY = Math.max(50, Math.min(width, height) * 0.3);
 
         nodesMap.clear();
 
         nodes = graphTags.map((t, idx) => {
-          const nodeRadius = Math.max(12, Math.min(18, 12 + (t.count / maxCount) * 6));
+          const nodeRadius = Math.max(
+            12,
+            Math.min(18, 12 + (t.count / maxCount) * 6)
+          );
 
           // Multi-ring arrangement to prevent overlap
           const ring = idx % 2 === 0 ? 0.95 : 0.55;
-          const angle = (idx / graphTags.length) * Math.PI * 2 + (idx * 0.4);
+          const angle = (idx / graphTags.length) * Math.PI * 2 + idx * 0.4;
 
           const initialX = centerX + Math.cos(angle) * (radiusX * ring);
           const initialY = centerY + Math.sin(angle) * (radiusY * ring);
@@ -159,13 +167,14 @@ const {
 
       setupNodes();
 
-      let mouse = { x: -1000, y: -1000, active: false };
+      const mouse = { x: -1000, y: -1000, active: false };
       let hoveredNode = null;
       let frameCount = 0;
 
       function getAccentColor(alpha = 1) {
         const style = getComputedStyle(document.documentElement);
-        const accent = style.getPropertyValue("--color-accent") || "hsl(217, 91%, 60%)";
+        const accent =
+          style.getPropertyValue("--color-accent") || "hsl(217, 91%, 60%)";
         if (accent.startsWith("hsl")) {
           return accent.replace(")", `, ${alpha})`).replace("hsl(", "hsla(");
         }
@@ -180,7 +189,9 @@ const {
       function getPillBgColor(isHovered) {
         const isDark = document.documentElement.classList.contains("dark");
         if (isHovered) {
-          return isDark ? "rgba(15, 23, 42, 0.95)" : "rgba(255, 255, 255, 0.98)";
+          return isDark
+            ? "rgba(15, 23, 42, 0.95)"
+            : "rgba(255, 255, 255, 0.98)";
         }
         return isDark ? "rgba(30, 41, 59, 0.92)" : "rgba(241, 245, 249, 0.94)";
       }
@@ -254,9 +265,11 @@ const {
           const padY = height * 0.12;
 
           if (node.x < padX) node.vx += (padX - node.x) * 0.08;
-          if (node.x > width - padX) node.vx -= (node.x - (width - padX)) * 0.08;
+          if (node.x > width - padX)
+            node.vx -= (node.x - (width - padX)) * 0.08;
           if (node.y < padY) node.vy += (padY - node.y) * 0.08;
-          if (node.y > height - padY) node.vy -= (node.y - (height - padY)) * 0.08;
+          if (node.y > height - padY)
+            node.vy -= (node.y - (height - padY)) * 0.08;
         }
 
         // Pulse updates
@@ -264,7 +277,10 @@ const {
         if (frameCount % 30 === 0 && edges.length > 0) {
           const randEdge = edges[Math.floor(Math.random() * edges.length)];
           if (randEdge) {
-            randEdge.pulses.push({ progress: 0, speed: 0.015 + Math.random() * 0.015 });
+            randEdge.pulses.push({
+              progress: 0,
+              speed: 0.015 + Math.random() * 0.015,
+            });
           }
         }
 
@@ -325,12 +341,16 @@ const {
 
           // Electrical pulses
           edge.pulses.forEach(p => {
-            const px = edge.source.x + (edge.target.x - edge.source.x) * p.progress;
-            const py = edge.source.y + (edge.target.y - edge.source.y) * p.progress;
+            const px =
+              edge.source.x + (edge.target.x - edge.source.x) * p.progress;
+            const py =
+              edge.source.y + (edge.target.y - edge.source.y) * p.progress;
 
             ctx.beginPath();
             ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-            ctx.fillStyle = isDimmed ? "rgba(150, 150, 150, 0.15)" : getAccentColor(0.9);
+            ctx.fillStyle = isDimmed
+              ? "rgba(150, 150, 150, 0.15)"
+              : getAccentColor(0.9);
             ctx.shadowColor = getAccentColor(1);
             ctx.shadowBlur = 5;
             ctx.fill();
@@ -396,15 +416,12 @@ const {
                 5
               );
             } else {
-              ctx.rect(
-                pillX,
-                pillY,
-                textWidth + pillPaddingX * 2,
-                pillHeight
-              );
+              ctx.rect(pillX, pillY, textWidth + pillPaddingX * 2, pillHeight);
             }
             ctx.fillStyle = getPillBgColor(isFocused);
-            ctx.strokeStyle = isFocused ? getAccentColor(0.9) : "rgba(150, 150, 150, 0.3)";
+            ctx.strokeStyle = isFocused
+              ? getAccentColor(0.9)
+              : "rgba(150, 150, 150, 0.3)";
             ctx.lineWidth = 1;
             ctx.fill();
             ctx.stroke();
@@ -459,7 +476,10 @@ const {
 
         let isOver = false;
         for (const node of nodes) {
-          if (Math.hypot(mouse.x - node.x, mouse.y - node.y) <= node.radius + 10) {
+          if (
+            Math.hypot(mouse.x - node.x, mouse.y - node.y) <=
+            node.radius + 10
+          ) {
             isOver = true;
             break;
           }

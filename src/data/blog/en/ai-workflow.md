@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-15T00:00:00Z
-title: "[EN] Orchestrating the Future: How AI has reduced my development times from months to days"
+title: "AI Coding Agents: How I Reduced Development Time from Months to Days"
 featured: false
 draft: false
 tags:

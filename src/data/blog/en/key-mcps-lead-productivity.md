@@ -1,5 +1,5 @@
 ---
-title: "[EN] Reducing time on Lead tasks with key MCPs"
+title: "MCP Workflows for Engineering Leads: How to Automate Daily Management Tasks"
 author: Daniel Artola
 pubDatetime: 2026-03-24T21:00:00Z
 slug: key-mcps-lead-productivity

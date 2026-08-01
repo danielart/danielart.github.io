@@ -21,6 +21,24 @@ const blog = defineCollection({
       canonicalURL: z.string().optional(),
       hideEditPost: z.boolean().optional(),
       timezone: z.string().optional(),
+      translationKey: z.string().optional(),
+      pillar: z
+        .enum([
+          "agent-ready-repositories",
+          "safe-autonomy",
+          "engineering-management",
+          "real-experiments",
+        ])
+        .optional(),
+      articleType: z
+        .enum(["guide", "case-study", "experiment", "opinion", "reference"])
+        .optional(),
+      audience: z
+        .array(
+          z.enum(["developer", "engineering-manager", "tech-lead", "general"])
+        )
+        .optional(),
+      testedWith: z.array(z.string()).optional(),
     }),
 });
 

@@ -1,5 +1,5 @@
 ---
-title: "[JA] テクニカルガイド: Claude Code のコンセプト"
+title: "Claude Codeのアーキテクチャ: コアコンセプトとワークフロー技術ガイド"
 author: Daniel Artola
 pubDatetime: 2026-04-09T10:20:14Z
 slug: claude-code-concepts-guide-ja

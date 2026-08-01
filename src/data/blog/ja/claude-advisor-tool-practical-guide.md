@@ -1,5 +1,5 @@
 ---
-title: "[JA] Opusの頭脳をHaikuの価格で使う方法：Advisor Tool 実践ガイド"
+title: "Claude Code Advisor Tool: Opusの頭脳をHaikuの価格で使う実践ガイド"
 author: Daniel Artola
 pubDatetime: 2026-04-25T16:46:20Z
 slug: claude-advisor-tool-practical-guide-ja

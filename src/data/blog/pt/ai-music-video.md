@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-07-31T20:00:00Z
-title: "[PT] Como usei IA para concluir um videoclipe sem muito tempo ou orçamento"
+title: "Produção de Vídeo com IA: Como concluí um videoclipe sem tempo ou orçamento"
 featured: false
 draft: false
 tags:
@@ -9,8 +9,13 @@ tags:
   - video
   - editing
   - gemini
-  - pt
 lang: pt
+translationKey: ai-music-video
+pillar: real-experiments
+articleType: experiment
+audience:
+  - general
+  - developer
 description: Aprendizados sobre coerência visual, referências reais, edição e como superar as falhas da IA para finalizar um videoclipe sem bloqueios.
 ogImage: ../../../assets/images/blog/ai-music-video-character-sheet.png
 slug: ai-music-video-pt

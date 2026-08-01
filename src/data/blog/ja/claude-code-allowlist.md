@@ -1,5 +1,5 @@
 ---
-title: "[JA] Claude Codeに独自の許可リスト（allowlist）を作成させましょう"
+title: "Claude Code Allowlist: コマンド権限を安全に自動化する方法"
 author: Daniel Artola
 pubDatetime: 2026-05-17T00:00:00Z
 slug: claude-code-allowlist-ja

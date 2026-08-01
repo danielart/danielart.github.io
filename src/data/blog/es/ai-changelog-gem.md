@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-19T00:00:00Z
-title: "[ES] Deja de leer newsletters de IA: crea tu propio sistema de changelogs"
+title: "Sistema de Changelogs con IA: Automatiza resúmenes y deja de leer newsletters"
 featured: false
 draft: false
 tags:
@@ -9,8 +9,12 @@ tags:
   - productivity
   - gemini
   - automation
-  - es
 lang: es
+translationKey: ai-changelog-gem
+pillar: real-experiments
+articleType: experiment
+audience:
+  - developer
 description: La IA avanza tan rápido que mantenerse al día es imposible. Descubre cómo una Gema personalizada con Google Sheets automatizado te da solo los cambios que importan.
 ogImage: ../../../assets/images/blog/ai-changelog-gem.png
 ---

@@ -1,0 +1,104 @@
+---
+interface Props {
+  title?: string;
+  context?: string;
+  prompt?: string;
+  expected?: string;
+  actual?: string;
+  failure?: string;
+  iteration?: string;
+}
+
+const {
+  title = "Prompt & Reproduction Example",
+  context,
+  prompt,
+  expected,
+  actual,
+  failure,
+  iteration,
+} = Astro.props;
+---
+
+<div class="my-6 space-y-4 rounded-xl border border-border/50 bg-muted/20 p-5">
+  <div class="flex items-center gap-2 font-mono text-sm font-bold text-accent">
+    <span>🤖</span>
+    <span>{title}</span>
+  </div>
+
+  {
+    context && (
+      <div class="space-y-1 text-xs">
+        <span class="font-mono font-semibold text-foreground/60 uppercase">
+          Context Provided:
+        </span>
+        <p class="rounded bg-muted/50 p-2.5 font-mono text-foreground/80">
+          {context}
+        </p>
+      </div>
+    )
+  }
+
+  {
+    prompt && (
+      <div class="space-y-1 text-xs">
+        <span class="font-mono font-semibold text-accent uppercase">
+          Prompt Used:
+        </span>
+        <pre class="rounded border border-accent/20 bg-accent/5 p-3 font-mono whitespace-pre-wrap text-foreground">
+          {prompt}
+        </pre>
+      </div>
+    )
+  }
+
+  {
+    expected && (
+      <div class="space-y-1 text-xs">
+        <span class="font-mono font-semibold text-emerald-500 uppercase">
+          Expected Result:
+        </span>
+        <p class="rounded bg-emerald-500/10 p-2.5 text-foreground/90">
+          {expected}
+        </p>
+      </div>
+    )
+  }
+
+  {
+    actual && (
+      <div class="space-y-1 text-xs">
+        <span class="font-mono font-semibold text-blue-400 uppercase">
+          Actual Result:
+        </span>
+        <p class="rounded bg-blue-500/10 p-2.5 text-foreground/90">{actual}</p>
+      </div>
+    )
+  }
+
+  {
+    failure && (
+      <div class="space-y-1 text-xs">
+        <span class="font-mono font-semibold text-rose-500 uppercase">
+          Failure Encountered:
+        </span>
+        <p class="rounded bg-rose-500/10 p-2.5 text-foreground/90">{failure}</p>
+      </div>
+    )
+  }
+
+  {
+    iteration && (
+      <div class="space-y-1 text-xs">
+        <span class="font-mono font-semibold text-amber-500 uppercase">
+          Correction / Iteration:
+        </span>
+        <p class="rounded bg-amber-500/10 p-2.5 text-foreground/90">
+          {iteration}
+        </p>
+      </div>
+    )
+  }
+
+  <slot />
+</div>

@@ -1,0 +1,17 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "What Failed & Root Cause" } = Astro.props;
+---
+
+<div class="my-6 rounded-xl border border-rose-500/30 bg-rose-500/5 p-5">
+  <div class="mb-2 flex items-center gap-2 font-bold text-rose-500">
+    <span>⚠️</span>
+    <span>{title}</span>
+  </div>
+  <div class="text-sm leading-relaxed text-foreground/90">
+    <slot />
+  </div>
+</div>

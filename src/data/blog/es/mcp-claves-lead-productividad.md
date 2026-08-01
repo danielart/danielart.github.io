@@ -1,5 +1,5 @@
 ---
-title: "[ES] Reduciendo el tiempo en tareas de lead con MCPs clave"
+title: "Flujos MCP para Engineering Leads: Cómo automatizar tareas de gestión diaria"
 author: Daniel Artola
 pubDatetime: 2026-03-24T21:00:00Z
 slug: mcp-claves-lead-productividad

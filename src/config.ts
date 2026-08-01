@@ -1,13 +1,16 @@
 export const SITE = {
   website: "https://danielart.github.io/",
   author: "Daniel Artola Dominguez",
+  brandName: "Daniel Artola",
   profile: "https://danielart.github.io",
   desc: "Engineering Lead, AI Engineer & Open Source Contributor. Building intelligent multi-agent systems and contributing to next-generation web frameworks.",
-  title: "Daniel Artola - AI Engineer & Open Source Contributor",
+  siteName: "Daniel Artola",
+  siteTitle: "Daniel Artola — AI Engineering and Developer Tools",
+  title: "Daniel Artola — AI Engineering and Developer Tools",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
-  postPerPage: 4,
+  postPerPage: 8,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: true,
   showBackButton: true, // show back button in post detail

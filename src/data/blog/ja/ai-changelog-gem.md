@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-19T00:00:00Z
-title: "[JA] AIニュースレターを読むのをやめて、独自の更新履歴システムを構築しましょう"
+title: "AI更新履歴システム: 自動フィード要約を構築してニュースレター脱却"
 featured: false
 draft: false
 tags:
@@ -9,8 +9,12 @@ tags:
   - productivity
   - gemini
   - automation
-  - ja
 lang: ja
+translationKey: ai-changelog-gem
+pillar: real-experiments
+articleType: experiment
+audience:
+  - developer
 description: AIの進歩は非常に速いため、すべてに遅れずについていくのは不可能です。自動化されたGoogleスプレッドシートとカスタマイズされたGemini Gemを使用して、本当に重要な変更だけを取得する方法をご紹介します。
 ogImage: ../../../assets/images/blog/ai-changelog-gem.png
 ---

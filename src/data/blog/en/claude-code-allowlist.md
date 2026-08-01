@@ -1,5 +1,5 @@
 ---
-title: "[EN] Let Claude Code write its own allowlist"
+title: "Claude Code Allowlist: How to Automate Command Permissions Safely"
 author: Daniel Artola
 pubDatetime: 2026-05-17T00:00:00Z
 slug: claude-code-allowlist-en

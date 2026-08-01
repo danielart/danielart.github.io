@@ -14,22 +14,23 @@ import IconRobot from "@/assets/icons/IconRobot.svg";
 
 import { SOCIALS } from "@/constants";
 
-const posts = await getCollection("blog");
+const posts = await getCollection("blog", ({ data }) => !data.draft);
 
 const sortedPosts = getSortedPosts(posts);
 
 const enPosts = sortedPosts
   .filter(({ data }) => data.lang === "en")
-  .slice(0, 5);
+  .slice(0, 8);
 const esPosts = sortedPosts
   .filter(({ data }) => data.lang === "es")
-  .slice(0, 5);
+  .slice(0, 8);
 const jaPosts = sortedPosts
   .filter(({ data }) => data.lang === "ja")
-  .slice(0, 5);
+  .slice(0, 8);
 const ptPosts = sortedPosts
   .filter(({ data }) => data.lang === "pt")
-  .slice(0, 5);
+  .slice(0, 8);
+
 const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
   (a, b) =>
     new Date(b.data.pubDatetime).getTime() -
@@ -37,7 +38,7 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
 );
 ---
 
-<Layout>
+<Layout pageType="website">
   <Header wide={true} />
 
   <main id="main-content" data-layout="index" class="wide-layout">
@@ -366,8 +367,28 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
     </section>
 
     <!-- Contact & Let's Connect Section -->
-    <section id="contact" class="py-16">
-      <div class="grid grid-cols-1 gap-16 md:grid-cols-2">
+    <section id="contact" class="border-t border-border/30 py-16">
+      <div class="mb-12">
+        <span
+          class="inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.14em] text-accent uppercase"
+        >
+          <span class="inline-block h-px w-6 bg-accent"></span>
+          Contact
+        </span>
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+        >
+          Get in Touch
+        </h2>
+        <p
+          class="mt-3 max-w-2xl text-base leading-relaxed text-foreground/75 sm:text-lg"
+        >
+          Whether you need advice on AI architecture, custom autonomous agents,
+          or want to discuss open-source collaborations.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
         <!-- How I can help -->
         <div>
           <span
@@ -450,7 +471,6 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
               </button>
             </div>
           </form>
-
 
           <div class="mt-8 flex items-center gap-3">
             <div class="h-2.5 w-2.5 animate-pulse rounded-full bg-red-500">

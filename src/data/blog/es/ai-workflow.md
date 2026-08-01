@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-15T00:00:00Z
-title: "[ES] Orquestando el futuro: Cómo la IA ha reducido mis tiempos de desarrollo de meses a días"
+title: "Agentes de IA para Desarrollo: Cómo reduje tiempos de desarrollo de meses a días"
 featured: false
 draft: false
 tags:

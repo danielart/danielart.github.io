@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-07-31T20:00:00Z
-title: "[EN] How I Used AI to Complete a Music Video Without Much Time or Resources"
+title: "AI Video Production: How I Created a Music Video with AI Tools on Zero Budget"
 featured: false
 draft: false
 tags:
@@ -9,8 +9,13 @@ tags:
   - video
   - editing
   - gemini
-  - en
 lang: en
+translationKey: ai-music-video
+pillar: real-experiments
+articleType: experiment
+audience:
+  - general
+  - developer
 description: What I learned about visual consistency, real-world references, video editing, and overcoming AI flaws to finish a music video without getting blocked.
 ogImage: ../../../assets/images/blog/ai-music-video-character-sheet.png
 slug: ai-music-video-en

@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-07-31T20:00:00Z
-title: "[JA] 時間も予算もない中で生成AIを活用してミュージックビデオを完成させた方法"
+title: "生成AI動画制作: 予算・時間ゼロでミュージックビデオを完成させた方法"
 featured: false
 draft: false
 tags:
@@ -9,8 +9,13 @@ tags:
   - video
   - editing
   - gemini
-  - ja
 lang: ja
+translationKey: ai-music-video
+pillar: real-experiments
+articleType: experiment
+audience:
+  - general
+  - developer
 description: 視覚的な一貫性、現実の参考画像、動画編集、そしてAIの失敗を乗り越えてプロジェクトを完成させるための学び。
 ogImage: ../../../assets/images/blog/ai-music-video-character-sheet.png
 slug: ai-music-video-ja

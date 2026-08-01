@@ -1,5 +1,5 @@
 ---
-title: "[EN] Technical Guide: Claude Code Concepts"
+title: "Claude Code Architecture: Technical Guide to Core Concepts and Workflows"
 author: Daniel Artola
 pubDatetime: 2026-04-09T10:20:14Z
 slug: claude-code-concepts-guide

@@ -1,5 +1,5 @@
 ---
-title: "[EN] 5 Atlassian MCP Hacks to supercharge your workflow"
+title: "Atlassian MCP Integration: 5 Hacks to Supercharge Your Engineering Workflow"
 author: Daniel Artola
 pubDatetime: 2025-10-16T00:00:00+02:00
 slug: 5-atlassian-mcp-hacks-to-supercharge-your-workflow
@@ -9,8 +9,14 @@ tags:
   - productivity
   - ai
   - mcp
-  - en
 lang: en
+translationKey: 5-atlassian-mcp-hacks
+pillar: engineering-management
+articleType: guide
+audience:
+  - engineering-manager
+  - tech-lead
+  - developer
 description: I hate to be switching over and over between the IDE, the task in Jira to review details, Confluence, or other docs to ensure I have the details...
 ---
 

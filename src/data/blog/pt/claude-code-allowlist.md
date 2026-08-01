@@ -1,5 +1,5 @@
 ---
-title: "[PT] Deixe o Claude Code escrever sua própria allowlist"
+title: "Allowlist no Claude Code: Como automatizar permissões de comandos com segurança"
 author: Daniel Artola
 pubDatetime: 2026-05-17T00:00:00Z
 slug: claude-code-allowlist-pt

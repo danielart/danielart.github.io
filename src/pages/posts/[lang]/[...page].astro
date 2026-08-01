@@ -48,7 +48,11 @@ const { page } = Astro.props;
 const currentLang = lang as "en" | "es" | "ja" | "pt";
 ---
 
-<Layout title={`Posts (${lang.toUpperCase()}) | ${SITE.title}`}>
+<Layout
+  title={`Posts (${lang.toUpperCase()}) | ${SITE.siteName}`}
+  pageType="collection"
+  lang={currentLang}
+>
   <Header />
   <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
     <LanguageSelector currentLang={currentLang} />

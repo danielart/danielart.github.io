@@ -1,0 +1,19 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Key Takeaway" } = Astro.props;
+---
+
+<div
+  class="my-6 rounded-xl border border-accent/30 bg-accent/10 p-5 backdrop-blur-sm"
+>
+  <div class="mb-2 flex items-center gap-2 font-bold text-accent">
+    <span>💡</span>
+    <span>{title}</span>
+  </div>
+  <div class="text-sm leading-relaxed text-foreground/90 sm:text-base">
+    <slot />
+  </div>
+</div>

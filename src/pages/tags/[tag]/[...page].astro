@@ -40,7 +40,8 @@ const TAG_DESCRIPTIONS: Record<string, string> = {
     "Deep dives into Anthropic's Claude Code CLI tool, features, configurations, and permission modes.",
   antigravity:
     "Architectural insights, custom skills, and advanced workflows using Google's Antigravity platform.",
-  jules: "Integrating and automating software development with Google Jules AI agent.",
+  jules:
+    "Integrating and automating software development with Google Jules AI agent.",
   stitch: "Designing and building UI applications rapidly with Google Stitch.",
   workflow:
     "Streamlining developer experience, multi-agent orchestrations, and speed optimizations.",
@@ -60,7 +61,7 @@ const tagDescription =
     : `All articles tagged with #${tagName} (${page.total} article${page.total === 1 ? "" : "s"}).`;
 ---
 
-<Layout title={`Tag: #${tagName} | ${SITE.title}`}>
+<Layout title={`Tag: #${tagName} | ${SITE.siteName}`}>
   <Header />
   <Main
     pageTitle={[`Tag:`, `${tagName}`]}

@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-15T00:00:00Z
-title: "[ES] Jules: El agente de IA que trabaja por las noches ahora soporta MCP"
+title: "Google Jules AI Agent: Desarrollo asíncrono nocturno con herramientas MCP"
 featured: false
 draft: false
 tags:

@@ -16,7 +16,9 @@ const posts = await getCollection("blog");
 // Use English posts as the single reference language to avoid 4x duplicate counts across translations
 const REF_LANG = "en";
 const refPosts = posts.filter(
-  p => postFilter(p) && (p.data.lang === REF_LANG || p.id.startsWith(`${REF_LANG}/`))
+  p =>
+    postFilter(p) &&
+    (p.data.lang === REF_LANG || p.id.startsWith(`${REF_LANG}/`))
 );
 
 const allTags = getUniqueTags(posts, REF_LANG);
@@ -77,7 +79,7 @@ const featuredTopics = [...topicTags]
 const featuredConnections = getConnectionsForTags(featuredTopics);
 ---
 
-<Layout title={`Topics & Synapses | ${SITE.title}`}>
+<Layout title={`Topics & Synapses | ${SITE.siteName}`}>
   <Header />
   <Main
     pageTitle="Tags"
@@ -115,7 +117,9 @@ const featuredConnections = getConnectionsForTags(featuredTopics);
             <h2 class="text-xl font-bold tracking-tight text-foreground/90">
               Featured Topics
             </h2>
-            <span class="font-mono text-xs opacity-60">Most active subjects</span>
+            <span class="font-mono text-xs opacity-60">
+              Most active subjects
+            </span>
           </div>
           <NeuralTagGraph
             id="featured-topics"

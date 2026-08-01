@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-03-01T22:34:00Z
-title: "[EN] Create a Checkpoint Once the Plan is Ready: Session Forking in Claude Code"
+title: "Claude Code Session Forking: Create Checkpoints Before Implementation"
 featured: false
 draft: false
 tags:

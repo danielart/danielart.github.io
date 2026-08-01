@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-15T00:00:00Z
-title: "[JA] 忙殺される労働者からオーケストラの指揮者へ：AIエージェントがYouTubeの視聴回数を10倍にした方法"
+title: "YouTube自動化AIエージェント: 視聴回数を10倍に増やした方法"
 featured: false
 draft: false
 tags:

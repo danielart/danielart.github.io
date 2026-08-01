@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-19T00:00:00Z
-title: "[EN] Stop Reading AI Newsletters: Build Your Own Changelog System"
+title: "AI Changelog System: Build Automated Feed Summaries and Stop Reading Newsletters"
 featured: false
 draft: false
 tags:
@@ -9,8 +9,12 @@ tags:
   - productivity
   - gemini
   - automation
-  - en
 lang: en
+translationKey: ai-changelog-gem
+pillar: real-experiments
+articleType: experiment
+audience:
+  - developer
 description: AI moves so fast that keeping up is impossible. Discover how a custom Gemini Gem with an automated Google Sheet gives you just the changes that matter.
 ogImage: ../../../assets/images/blog/ai-changelog-gem.png
 ---

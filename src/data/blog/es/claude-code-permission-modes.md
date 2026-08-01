@@ -1,5 +1,5 @@
 ---
-title: "[ES] Los 6 modos de permisos de Claude Code: la diferencia entre un commit limpio y un rm -rf accidental"
+title: "Modos de Permiso en Claude Code: Evita borrados accidentales con autonomía segura"
 author: Daniel Artola
 pubDatetime: 2026-05-19T15:35:00Z
 slug: claude-code-permission-modes-es

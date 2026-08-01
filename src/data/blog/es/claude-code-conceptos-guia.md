@@ -1,5 +1,5 @@
 ---
-title: "[ES] Guía Técnica Comparativa: Conceptos de Claude Code"
+title: "Arquitectura de Claude Code: Guía técnica de conceptos y flujos de trabajo"
 author: Daniel Artola
 pubDatetime: 2026-04-09T10:20:14Z
 slug: claude-code-conceptos-guia

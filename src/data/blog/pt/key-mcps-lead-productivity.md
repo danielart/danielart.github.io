@@ -1,5 +1,5 @@
 ---
-title: "[PT] Reduzindo o tempo em tarefas de Lead com MCPs chave"
+title: "Fluxos MCP para Engineering Leads: Como automatizar tarefas de gestão diária"
 author: Daniel Artola
 pubDatetime: 2026-03-24T21:00:00Z
 slug: key-mcps-lead-productivity-pt
