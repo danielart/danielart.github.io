@@ -1,58 +1,83 @@
 import type { CollectionEntry } from "astro:content";
 
-function getFilename(filePath?: string): string | undefined {
-  return filePath?.split("/").pop();
-}
+const LANGUAGE_ORDER = ["en", "es", "ja", "pt"] as const;
+
+type BlogPost = CollectionEntry<"blog">;
+
+export type AlternateLanguageLink = {
+  lang: BlogPost["data"]["lang"] | "x-default";
+  url: string;
+};
+
+type PostUrlBuilder = (post: BlogPost) => string;
 
 /**
- * Checks if two blog posts are translations of the same idea/concept.
+ * Checks if two blog posts belong to the same translation concept.
+ * `translationKey` is the only cross-post identity; dates and filenames are
+ * deliberately ignored because independent articles can share either value.
  */
-export function areTranslations(
-  a: CollectionEntry<"blog">,
-  b: CollectionEntry<"blog">
-): boolean {
+export function areTranslations(a: BlogPost, b: BlogPost): boolean {
   if (a.id === b.id) return true;
 
-  // 1. Explicit translationKey check
-  if (a.data.translationKey && b.data.translationKey) {
-    return a.data.translationKey === b.data.translationKey;
-  }
-  if (a.data.translationKey && !b.data.translationKey) {
-    const bFilename = getFilename(b.filePath)?.replace(/\.md$/, "");
-    if (a.data.translationKey === bFilename) return true;
-  }
-  if (!a.data.translationKey && b.data.translationKey) {
-    const aFilename = getFilename(a.filePath)?.replace(/\.md$/, "");
-    if (b.data.translationKey === aFilename) return true;
-  }
+  return Boolean(
+    a.data.translationKey &&
+    b.data.translationKey &&
+    a.data.translationKey === b.data.translationKey
+  );
+}
 
-  // 2. Fallback: Check pubDatetime match
-  const sameTime =
-    new Date(a.data.pubDatetime).getTime() ===
-    new Date(b.data.pubDatetime).getTime();
-  if (sameTime) return true;
+function assertUniqueLanguages(posts: BlogPost[]): void {
+  const postsByLanguage = new Map<string, BlogPost>();
 
-  // 3. Fallback: Check base filename match
-  const aFilename = getFilename(a.filePath);
-  const bFilename = getFilename(b.filePath);
-  if (aFilename && bFilename && aFilename === bFilename) return true;
+  for (const post of posts) {
+    const existingPost = postsByLanguage.get(post.data.lang);
+    if (existingPost) {
+      throw new Error(
+        `Duplicate ${post.data.lang} translation for translationKey "${post.data.translationKey}": "${existingPost.id}" and "${post.id}"`
+      );
+    }
+    postsByLanguage.set(post.data.lang, post);
+  }
+}
 
-  return false;
+function sortByLanguage(posts: BlogPost[]): BlogPost[] {
+  return posts.toSorted(
+    (a, b) =>
+      LANGUAGE_ORDER.indexOf(a.data.lang) - LANGUAGE_ORDER.indexOf(b.data.lang)
+  );
 }
 
 /**
- * Returns all translated versions of a target post (excluding the target post itself and drafts).
+ * Returns every published post in a translation concept, including `post`.
+ * The result is deterministic and contains at most one post per language.
+ */
+export function getTranslationGroup(
+  post: BlogPost,
+  allPosts: BlogPost[]
+): BlogPost[] {
+  const group = [
+    post,
+    ...allPosts.filter(
+      candidate =>
+        candidate.id !== post.id &&
+        !candidate.data.draft &&
+        areTranslations(post, candidate)
+    ),
+  ];
+
+  assertUniqueLanguages(group);
+  return sortByLanguage(group);
+}
+
+/**
+ * Returns all published translated versions of a post, excluding the post.
  */
 export function getPostTranslations(
-  post: CollectionEntry<"blog">,
-  allPosts: CollectionEntry<"blog">[]
-): CollectionEntry<"blog">[] {
-  return allPosts.filter(
-    p =>
-      p.id !== post.id &&
-      !p.data.draft &&
-      p.data.lang !== post.data.lang &&
-      areTranslations(post, p)
+  post: BlogPost,
+  allPosts: BlogPost[]
+): BlogPost[] {
+  return getTranslationGroup(post, allPosts).filter(
+    candidate => candidate.id !== post.id
   );
 }
 
@@ -60,51 +85,72 @@ export function getPostTranslations(
  * Finds a translation of `post` for a specific target language.
  */
 export function getTranslationForLang(
-  post: CollectionEntry<"blog">,
-  allPosts: CollectionEntry<"blog">[],
+  post: BlogPost,
+  allPosts: BlogPost[],
   targetLang: string
-): CollectionEntry<"blog"> | undefined {
-  if (post.data.lang === targetLang) return post;
-  return allPosts.find(
-    p => !p.data.draft && p.data.lang === targetLang && areTranslations(post, p)
+): BlogPost | undefined {
+  return getTranslationGroup(post, allPosts).find(
+    candidate => candidate.data.lang === targetLang
   );
 }
 
 /**
- * Filters out any posts that are translations of `targetPost` (including `targetPost` itself).
+ * Builds the same reciprocal hreflang set for every post in a concept.
+ */
+export function getAlternateLanguageLinks(
+  post: BlogPost,
+  allPosts: BlogPost[],
+  toUrl: PostUrlBuilder
+): AlternateLanguageLink[] {
+  const group = getTranslationGroup(post, allPosts);
+  const defaultPost =
+    group.find(candidate => candidate.data.lang === "en") ?? post;
+
+  return [
+    { lang: "x-default", url: toUrl(defaultPost) },
+    ...group.map(candidate => ({
+      lang: candidate.data.lang,
+      url: toUrl(candidate),
+    })),
+  ];
+}
+
+/**
+ * Filters out any posts that are translations of `targetPost` (including
+ * `targetPost` itself).
  */
 export function filterOutTranslations(
-  candidates: CollectionEntry<"blog">[],
-  targetPost: CollectionEntry<"blog">
-): CollectionEntry<"blog">[] {
+  candidates: BlogPost[],
+  targetPost: BlogPost
+): BlogPost[] {
   return candidates.filter(
     candidate => !areTranslations(candidate, targetPost)
   );
 }
 
 /**
- * Groups posts by translation concept and picks one representative version per idea.
- * Prefers `preferredLang` version when available.
+ * Groups posts exclusively by translationKey and picks one representative per
+ * concept, preferring `preferredLang` when it exists.
  */
 export function getRepresentativePosts(
-  posts: CollectionEntry<"blog">[],
+  posts: BlogPost[],
   preferredLang = "en"
-): CollectionEntry<"blog">[] {
-  const groups: CollectionEntry<"blog">[][] = [];
+): BlogPost[] {
+  const groups = new Map<string, BlogPost[]>();
 
   for (const post of posts) {
-    let existingGroup = groups.find(group =>
-      group.some(item => areTranslations(item, post))
-    );
-    if (!existingGroup) {
-      existingGroup = [];
-      groups.push(existingGroup);
+    const translationKey = post.data.translationKey?.trim();
+    if (!translationKey) {
+      throw new Error(`Post "${post.id}" is missing translationKey`);
     }
-    existingGroup.push(post);
+
+    const group = groups.get(translationKey) ?? [];
+    group.push(post);
+    groups.set(translationKey, group);
   }
 
-  return groups.map(group => {
-    const preferred = group.find(p => p.data.lang === preferredLang);
-    return preferred ?? group[0];
+  return [...groups.values()].map(group => {
+    assertUniqueLanguages(group);
+    return group.find(post => post.data.lang === preferredLang) ?? group[0];
   });
 }

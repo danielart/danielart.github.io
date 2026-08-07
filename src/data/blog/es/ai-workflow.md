@@ -13,6 +13,7 @@ tags:
   - mcp
   - es
 lang: es
+translationKey: ai-workflow
 description: Cómo orquestar un ecosistema de herramientas con IA para acelerar el desarrollo de aplicaciones de meses a días.
 ogImage: ../../../assets/images/blog/post-ai-augmented-development.png
 ---

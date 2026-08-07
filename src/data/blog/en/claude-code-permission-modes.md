@@ -10,6 +10,7 @@ tags:
   - claude
   - en
 lang: en
+translationKey: claude-code-permission-modes
 description: An honest guide—with its nuances, risks, and costs—on how much autonomy you should give your coding agent.
 ---
 

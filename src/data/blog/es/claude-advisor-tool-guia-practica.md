@@ -11,6 +11,7 @@ tags:
   - api
   - es
 lang: es
+translationKey: claude-advisor-tool-practical-guide
 description: "La IA va a seguir subiendo precios. Ajusta tu forma de trabajar ahora que aún estás a tiempo. Guía completa sobre cómo configurar el Advisor Tool de Anthropic por API y Claude Code."
 ---
 

@@ -12,7 +12,10 @@ import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
 import { getPath } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
-import { getPostTranslations } from "@/utils/translations";
+import {
+  getAlternateLanguageLinks,
+  getPostTranslations,
+} from "@/utils/translations";
 import { getRelatedPosts } from "@/utils/getRelatedPosts";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
@@ -72,29 +75,12 @@ const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
 
-const englishVersion =
-  post.data.lang === "en" ? post : translations.find(p => p.data.lang === "en");
-const defaultUrl = englishVersion
-  ? new URL(
-      getPath(englishVersion.id, englishVersion.filePath),
-      Astro.url.origin
-    ).href
-  : new URL(getPath(post.id, post.filePath), Astro.url.origin).href;
-
-const alternateLanguages = [
-  {
-    lang: "x-default",
-    url: defaultUrl,
-  },
-  {
-    lang: post.data.lang,
-    url: new URL(getPath(post.id, post.filePath), Astro.url.origin).href,
-  },
-  ...translations.map(p => ({
-    lang: p.data.lang,
-    url: new URL(getPath(p.id, p.filePath), Astro.url.origin).href,
-  })),
-];
+const alternateLanguages = getAlternateLanguageLinks(
+  post,
+  posts,
+  candidate =>
+    new URL(getPath(candidate.id, candidate.filePath), Astro.url.origin).href
+);
 
 const layoutProps = {
   title: `${cleanTitle} | ${SITE.siteName ?? SITE.brandName ?? "Daniel Artola"}`,

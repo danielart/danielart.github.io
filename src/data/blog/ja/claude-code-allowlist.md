@@ -10,6 +10,7 @@ tags:
   - claude
   - ja
 lang: ja
+translationKey: claude-code-allowlist
 description: 毎日100回の承認を求められる問題と、Claude Codeの /fewer-permission-prompts スキルがそれをいかに透明性高く解決するか。
 ---
 

@@ -11,6 +11,7 @@ tags:
   - youtube
   - es
 lang: es
+translationKey: youtube-ai-agent
 description: Cómo un agente de IA multiplicó las visualizaciones de YouTube en un proyecto musical real. De operario agobiado a director de orquesta.
 ogImage: ../../../assets/images/blog/youtube-stats-1-hq.png
 ---

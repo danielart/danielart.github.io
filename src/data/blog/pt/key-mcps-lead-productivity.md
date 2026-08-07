@@ -12,6 +12,7 @@ tags:
   - lead
   - pt
 lang: pt
+translationKey: key-mcps-lead-productivity
 description: Como eu uso vários Model Context Protocols (MCP) como Datadog, Amplitude, Excalidraw e Miro para economizar tempo em minhas tarefas como Lead.
 ---
 

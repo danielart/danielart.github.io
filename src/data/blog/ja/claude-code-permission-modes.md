@@ -10,6 +10,7 @@ tags:
   - claude
   - ja
 lang: ja
+translationKey: claude-code-permission-modes
 description: コーディングエージェントにどの程度の自律性を与えるべきかについての、ニュアンス、リスク、コストを含む率直なガイドです。
 ---
 

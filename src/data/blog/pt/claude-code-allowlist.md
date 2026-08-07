@@ -10,6 +10,7 @@ tags:
   - claude
   - pt
 lang: pt
+translationKey: claude-code-allowlist
 description: O problema de 100 aprovações diárias e como a skill /fewer-permission-prompts do Claude Code resolve isso de forma transparente.
 ---
 

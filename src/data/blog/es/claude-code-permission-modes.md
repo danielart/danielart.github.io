@@ -10,6 +10,7 @@ tags:
   - claude
   - es
 lang: es
+translationKey: claude-code-permission-modes
 description: Una guía honesta —con sus matices, riesgos y costes— sobre cuánta autonomía deberías darle a tu agente de código.
 ---
 

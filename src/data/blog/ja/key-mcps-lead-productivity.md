@@ -12,6 +12,7 @@ tags:
   - lead
   - ja
 lang: ja
+translationKey: key-mcps-lead-productivity
 description: Datadog、Amplitude、Excalidraw、Miroなどのさまざまなモデルコンテキストプロトコル（MCP）を使用して、リードとしてのタスクの時間を節約する方法。
 ---
 

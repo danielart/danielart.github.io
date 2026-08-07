@@ -11,6 +11,7 @@ tags:
   - guide
   - pt
 lang: pt
+translationKey: claude-code-concepts-guide
 description: Um guia técnico baseado na documentação oficial da Anthropic sobre os cinco conceitos distintos no Claude Code.
 ---
 

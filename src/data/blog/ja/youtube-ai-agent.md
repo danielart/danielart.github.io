@@ -11,6 +11,7 @@ tags:
   - youtube
   - ja
 lang: ja
+translationKey: youtube-ai-agent
 description: AIエージェントが実際の音楽プロジェクトでYouTubeの視聴回数を増やした方法。忙殺される労働者からオーケストラの指揮者へ。
 ogImage: ../../../assets/images/blog/youtube-stats-1-hq.png
 ---

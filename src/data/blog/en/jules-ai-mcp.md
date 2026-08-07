@@ -12,6 +12,7 @@ tags:
   - stitch
   - en
 lang: en
+translationKey: jules-ai-mcp
 description: Jules, the autonomous AI agent for code tasks, now integrates MCP with Supabase, Context7, and Stitch.
 ogImage: ../../../assets/images/blog/jules-mcp.png
 ---
