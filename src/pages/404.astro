@@ -6,7 +6,10 @@ import LinkButton from "@/components/LinkButton.astro";
 import { SITE } from "@/config";
 ---
 
-<Layout title={`404 Not Found | ${SITE.siteName}`}>
+<Layout
+  title={`404 Not Found | ${SITE.siteName}`}
+  canonicalURL={`${SITE.website}404.html`}
+>
   <Header />
 
   <main

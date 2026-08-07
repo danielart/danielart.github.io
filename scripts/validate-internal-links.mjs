@@ -86,12 +86,14 @@ function validateSource(sourceName, sourceUrl, hrefs) {
 }
 
 if (!existsSync(distDirectory) || !statSync(distDirectory).isDirectory()) {
-  console.error("Missing dist directory. Run the build before validating links.");
+  process.stderr.write(
+    "Missing dist directory. Run the build before validating links.\n"
+  );
   process.exit(1);
 }
 
 if (!existsSync(llmsPath)) {
-  console.error("Missing public/llms.txt.");
+  process.stderr.write("Missing public/llms.txt.\n");
   process.exit(1);
 }
 
@@ -111,11 +113,11 @@ const brokenLinks = [
 ];
 
 if (brokenLinks.length > 0) {
-  console.error(`Found ${brokenLinks.length} broken internal link(s):`);
+  process.stderr.write(`Found ${brokenLinks.length} broken internal link(s):\n`);
   for (const { sourceName, href, destination } of brokenLinks) {
-    console.error(`- ${sourceName}: ${href} -> ${destination}`);
+    process.stderr.write(`- ${sourceName}: ${href} -> ${destination}\n`);
   }
   process.exit(1);
 }
 
-console.log("Internal link validation passed.");
+process.stdout.write("Internal link validation passed.\n");
