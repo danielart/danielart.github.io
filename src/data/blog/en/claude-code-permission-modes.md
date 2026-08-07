@@ -455,5 +455,5 @@ _This post is based on and verified against the official Claude Code documentati
 ## Recommended Reading
 
 - 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide): Understand the differences between Prompts, Skills, Subagents, and Agent Teams.
-- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist): Step-by-step guide to automating safe command approvals.
+- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist-en): Step-by-step guide to automating safe command approvals.
 - 🌿 [Session Forking in Claude Code](/posts/en/checkpoint-session-fork-claude-code): Experiment with permission modes without losing context or ruining your session.

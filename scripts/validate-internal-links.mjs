@@ -60,7 +60,10 @@ function destinationExists(url) {
 }
 
 function collectHtmlHrefs(filePath) {
-  const content = readFileSync(filePath, "utf8");
+  const content = readFileSync(filePath, "utf8").replace(
+    /<script\b[^>]*>[\s\S]*?<\/script>/gi,
+    ""
+  );
   return [...content.matchAll(hrefPattern)].map(match =>
     (match[1] ?? match[2] ?? match[3]).replaceAll("&amp;", "&")
   );

@@ -45,4 +45,4 @@ Vamos esos enlaces:
 
 - 🚀 [Agentes de IA para Desarrollo](/posts/es/ai-workflow): Mi ecosistema de orquestación diaria con Gemini, Stitch, Antigravity y Jules.
 - 🛠️ [Flujos MCP para Engineering Leads](/posts/es/mcp-claves-lead-productividad): Cómo uso Datadog, Amplitude y Excalidraw para ahorrar tiempo.
-- ⚙️ [5 trucos de Atlassian MCP](/posts/es/5-atlassian-mcp-hacks-to-supercharge-your-workflow): Automatiza la documentación en Confluence y Jira.
+- ⚙️ [5 trucos de Atlassian MCP](/posts/es/5-trucos-atlassian-mcp-para-potenciar-tu-flujo-de-trabajo): Automatiza la documentación en Confluence y Jira.

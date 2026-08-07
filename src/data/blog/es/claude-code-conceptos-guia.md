@@ -200,7 +200,7 @@ Para dominar estas herramientas de desarrollo agentico, la academia oficial de A
 
 Si quieres profundizar en la gestión de sesiones, permisos y optimización de costes en Claude Code:
 
-- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes): Descubre los 6 niveles de autonomía y cómo evitar borrados accidentales.
-- ⚡ [Allowlist en Claude Code: /fewer-permission-prompts](/posts/es/claude-code-allowlist): Automatiza la aprobación de comandos seguros para eliminar la fatiga de autorización.
+- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes-es): Descubre los 6 niveles de autonomía y cómo evitar borrados accidentales.
+- ⚡ [Allowlist en Claude Code: /fewer-permission-prompts](/posts/es/claude-code-allowlist-es): Automatiza la aprobación de comandos seguros para eliminar la fatiga de autorización.
 - 🌿 [Session Forking en Claude Code](/posts/es/checkpoint-session-fork-claude-code): Aprende a ramificar el contexto de la IA y crear checkpoints sin gastar tokens extra.
 - 💡 [Claude Code Advisor Tool](/posts/es/claude-advisor-tool-guia-practica): Combina la velocidad de Haiku con el razonamiento de Opus para optimizar costes.

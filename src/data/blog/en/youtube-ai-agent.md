@@ -37,13 +37,13 @@ I've gone from overwhelmed worker to orchestra conductor, without going through 
 
 👇 If you have a band or manage a community and want the Gem's instructions, tell me in the comments of the [original post](https://www.linkedin.com/posts/activity-7420224000468930560-dZvF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAyGEyEBSxx7QKU1cYLp8wTYjaf-v0rmmww) and I'll send them to you.
 
-And if you're bored, here are my band's tracks, **Los Chicos del Sótano** (check out how we [produced our latest music video with AI](/posts/en/ai-music-video)):
+And if you're bored, here are my band's tracks, **Los Chicos del Sótano** (check out how we [produced our latest music video with AI](/posts/en/ai-music-video-en)):
 
 - [Spotify](https://lnkd.in/edzmQZjw)
 - [YouTube](https://lnkd.in/eSHWz3re)
 
 ## Recommended Reading
 
-- 🎬 [AI Music Video Production](/posts/en/ai-music-video): How we completed the music video for "Todas aquellas luces" by Los Chicos del Sótano.
+- 🎬 [AI Music Video Production](/posts/en/ai-music-video-en): How we completed the music video for "Todas aquellas luces" by Los Chicos del Sótano.
 - ⚡ [AI Changelog System](/posts/en/ai-changelog-gem): Automated workflow using custom Gems and Google Sheets.
 - 🚀 [AI Coding Agents](/posts/en/ai-workflow): How to orchestrate Gemini as a strategic sparring partner.

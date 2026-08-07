@@ -253,5 +253,5 @@ En un mercado donde el razonamiento se está volviendo un lujo caro, **la orques
 ## Lecturas recomendadas
 
 - 🏗️ [Arquitectura de Claude Code: Guía técnica de conceptos](/posts/es/claude-code-conceptos-guia): Entiende la relación entre Prompts, Subagents y Agent Teams.
-- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes): Combina la inteligencia del Advisor con los niveles de autonomía adecuados.
-- ⚡ [Allowlist en Claude Code: /fewer-permission-prompts](/posts/es/claude-code-allowlist): Optimiza el flujo de comandos de tu ejecutor.
+- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes-es): Combina la inteligencia del Advisor con los niveles de autonomía adecuados.
+- ⚡ [Allowlist en Claude Code: /fewer-permission-prompts](/posts/es/claude-code-allowlist-es): Optimiza el flujo de comandos de tu ejecutor.

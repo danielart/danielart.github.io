@@ -153,6 +153,6 @@ If you use Claude Code in manual mode and haven't run it yet, do it today. Five 
 
 ## Recommended Reading
 
-- 🛡️ [Claude Code Permission Modes](/posts/en/claude-code-permission-modes): Comprehensive guide to the 6 autonomy levels.
+- 🛡️ [Claude Code Permission Modes](/posts/en/claude-code-permission-modes-en): Comprehensive guide to the 6 autonomy levels.
 - 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide): Explore Prompts, Skills, Subagents, and Agent Teams.
 - 🌿 [Session Forking in Claude Code](/posts/en/checkpoint-session-fork-claude-code): Learn how to branch AI sessions safely.

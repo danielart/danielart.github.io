@@ -70,7 +70,7 @@ En `default`, Claude leerá los archivos relevantes, te propondrá los cambios, 
 
 El riesgo aquí no es de seguridad: es de **fatiga de aprobación**. En una tarea con 40 ediciones repartidas en 12 archivos, vas a estar pulsando `Enter` cuarenta veces. Esto tiene tres efectos secundarios no triviales:
 
-1. **Aprobación automática inconsciente**. Tras la décima edición casi idéntica, tu cerebro entra en piloto automático y empiezas a aprobar sin leer. Es exactamente el momento en que Claude introduce un cambio que sí necesitabas revisar. _(Nota: Si quieres eliminar esta fatiga sin otorgar permisos ciegos, consulta la guía sobre [Allowlist y /fewer-permission-prompts](/posts/es/claude-code-allowlist))._
+1. **Aprobación automática inconsciente**. Tras la décima edición casi idéntica, tu cerebro entra en piloto automático y empiezas a aprobar sin leer. Es exactamente el momento en que Claude introduce un cambio que sí necesitabas revisar. _(Nota: Si quieres eliminar esta fatiga sin otorgar permisos ciegos, consulta la guía sobre [Allowlist y /fewer-permission-prompts](/posts/es/claude-code-allowlist-es))._
 2. **Pérdida de contexto del agente**. Cada prompt de permiso interrumpe el flujo de Claude. En tareas largas, esto se traduce en más tokens consumidos y, a veces, en que Claude olvida el plan original a mitad de camino.
 3. **Frustración real**. Si llevas tres horas aprobando ediciones, tu juicio sobre cuándo intervenir empeora.
 

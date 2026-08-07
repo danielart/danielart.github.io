@@ -153,6 +153,6 @@ Si usas Claude Code en modo manual y no la has corrido todavía, hazlo hoy. Cinc
 
 ## Lecturas recomendadas
 
-- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes): Conoce en profundidad los 6 niveles de autonomía de Claude Code.
+- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes-es): Conoce en profundidad los 6 niveles de autonomía de Claude Code.
 - 🏗️ [Arquitectura de Claude Code: Guía técnica de conceptos](/posts/es/claude-code-conceptos-guia): Explora la guía de Prompts, Skills y Subagents.
 - 🌿 [Session Forking en Claude Code](/posts/es/checkpoint-session-fork-claude-code): Aprende a ramificar sesiones de trabajo.
