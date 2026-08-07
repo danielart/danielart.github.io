@@ -10,6 +10,7 @@ import Pagination from "@/components/Pagination.astro";
 import getUniqueTags from "@/utils/getUniqueTags";
 import getPostsByTag from "@/utils/getPostsByTag";
 import { SITE } from "@/config";
+import { TAG_DESCRIPTIONS } from "@/utils/seo";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = await getCollection("blog");
@@ -30,38 +31,18 @@ const params = Astro.params;
 const { tag } = params;
 const { page, tagName } = Astro.props;
 
-// Curated descriptions for prominent tags
-const TAG_DESCRIPTIONS: Record<string, string> = {
-  ai: "Exploring Artificial Intelligence, Large Language Models, and the future of autonomous agentic workflows.",
-  mcp: "Practical guides, integrations, and productivity hacks using the Model Context Protocol (MCP).",
-  productivity:
-    "Strategies, tools, and developer workflows to optimize focus and code faster.",
-  "claude-code":
-    "Deep dives into Anthropic's Claude Code CLI tool, features, configurations, and permission modes.",
-  antigravity:
-    "Architectural insights, custom skills, and advanced workflows using Google's Antigravity platform.",
-  jules:
-    "Integrating and automating software development with Google Jules AI agent.",
-  stitch: "Designing and building UI applications rapidly with Google Stitch.",
-  workflow:
-    "Streamlining developer experience, multi-agent orchestrations, and speed optimizations.",
-  youtube:
-    "AI video generation, multi-agent content creation, and YouTube automation.",
-  atlassian:
-    "Hacks, MCP connectors, and integrations for Jira, Confluence, and Atlassian tools.",
-  en: "Articles and technical guides written in English.",
-  es: "Artículos y guías técnicas escritos en Español.",
-  pt: "Artigos e guias técnicos escritos em Português.",
-  ja: "日本語で書かれた記事と技術ガイド。",
-};
-
 const tagDescription =
   tag && tag in TAG_DESCRIPTIONS
     ? TAG_DESCRIPTIONS[tag]
     : `All articles tagged with #${tagName} (${page.total} article${page.total === 1 ? "" : "s"}).`;
 ---
 
-<Layout title={`Tag: #${tagName} | ${SITE.siteName}`}>
+<Layout
+  title={`Tag: #${tagName} | ${SITE.siteName}`}
+  headline={`Tag: ${tagName}`}
+  description={tagDescription}
+  pageType="collection"
+>
   <Header />
   <Main
     pageTitle={[`Tag:`, `${tagName}`]}

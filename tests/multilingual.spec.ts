@@ -32,7 +32,7 @@ test("translated posts expose reciprocal and unique hreflang links", async ({
   const languages = linkSets[0].map(link => link.lang);
   expect(new Set(languages).size).toBe(languages.length);
   expect(linkSets[0].find(link => link.lang === "x-default")?.url).toMatch(
-    /\/posts\/en\/claude-advisor-tool-practical-guide$/
+    /\/posts\/en\/claude-advisor-tool-practical-guide\/$/
   );
 });
 

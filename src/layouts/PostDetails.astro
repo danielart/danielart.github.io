@@ -30,7 +30,6 @@ const { post, posts } = Astro.props;
 
 const {
   title,
-  author,
   description,
   ogImage: initOgImage,
   canonicalURL,
@@ -79,12 +78,21 @@ const alternateLanguages = getAlternateLanguageLinks(
   post,
   posts,
   candidate =>
-    new URL(getPath(candidate.id, candidate.filePath), Astro.url.origin).href
+    new URL(`${getPath(candidate.id, candidate.filePath)}/`, Astro.url.origin)
+      .href
 );
+
+const bylineLabels: Record<string, string> = {
+  en: "By",
+  es: "Por",
+  ja: "執筆",
+  pt: "Por",
+};
 
 const layoutProps = {
   title: `${cleanTitle} | ${SITE.siteName ?? SITE.brandName ?? "Daniel Artola"}`,
-  author,
+  headline: cleanTitle,
+  author: SITE.author,
   description,
   pubDatetime,
   modDatetime,
@@ -133,6 +141,13 @@ const nextPost = currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null;
       {cleanTitle}
     </h1>
     <div class="my-2 flex flex-wrap items-center gap-2">
+      <span>
+        {bylineLabels[post.data.lang] ?? "By"}
+        <a href="/about/" rel="author" class="text-accent hover:underline">
+          {SITE.author}
+        </a>
+      </span>
+      <span aria-hidden="true" class="text-foreground/30">|</span>
       <Datetime
         {pubDatetime}
         {modDatetime}

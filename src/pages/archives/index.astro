@@ -8,6 +8,7 @@ import Card from "@/components/Card.astro";
 import getPostsByGroupCondition from "@/utils/getPostsByGroupCondition";
 import { getRepresentativePosts } from "@/utils/translations";
 import { SITE } from "@/config";
+import { PAGE_DESCRIPTIONS } from "@/utils/seo";
 
 // Redirect to 404 page if `showArchives` config is false
 if (!SITE.showArchives) {
@@ -16,6 +17,7 @@ if (!SITE.showArchives) {
 
 const rawPosts = await getCollection("blog", ({ data }) => !data.draft);
 const posts = getRepresentativePosts(rawPosts, "en");
+const description = PAGE_DESCRIPTIONS.archives;
 
 const months = [
   "January",
@@ -33,9 +35,14 @@ const months = [
 ];
 ---
 
-<Layout title={`Archives | ${SITE.siteName}`} pageType="collection">
+<Layout
+  title={`Archives | ${SITE.siteName}`}
+  headline="Archives"
+  {description}
+  pageType="collection"
+>
   <Header />
-  <Main pageTitle="Archives" pageDesc="All the articles I've archived.">
+  <Main pageTitle="Archives" pageDesc={description}>
     {
       Object.entries(
         getPostsByGroupCondition(posts, post =>

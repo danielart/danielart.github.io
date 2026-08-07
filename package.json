@@ -12,6 +12,7 @@
     "format": "prettier --write .",
     "lint": "eslint .",
     "validate:links": "node scripts/validate-internal-links.mjs",
+    "validate:seo": "node scripts/validate-seo-output.mjs",
     "test": "vitest run && playwright test",
     "test:unit": "vitest",
     "test:e2e": "playwright test"

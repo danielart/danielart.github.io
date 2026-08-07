@@ -4,6 +4,7 @@ import { getPath } from "@/utils/getPath";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { getRepresentativePosts } from "@/utils/translations";
 import { SITE } from "@/config";
+import { COLLECTION_DESCRIPTIONS } from "@/utils/seo";
 
 export async function GET() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -12,7 +13,7 @@ export async function GET() {
 
   return rss({
     title: SITE.title,
-    description: SITE.desc,
+    description: COLLECTION_DESCRIPTIONS.en,
     site: SITE.website,
     items: conceptPosts.map(({ data, id, filePath }) => ({
       link: getPath(id, filePath),

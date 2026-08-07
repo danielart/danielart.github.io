@@ -10,6 +10,12 @@ import Pagination from "@/components/Pagination.astro";
 import LanguageSelector from "@/components/LanguageSelector.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { SITE } from "@/config";
+import {
+  getCollectionAlternateLanguages,
+  getCollectionCanonicalUrl,
+  getCollectionDescription,
+  SITE_LANGUAGES,
+} from "@/utils/seo";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -46,15 +52,35 @@ const { page } = Astro.props;
 
 // Ensure lang type matches props
 const currentLang = lang as "en" | "es" | "ja" | "pt";
+const allPublishedPosts = await getCollection(
+  "blog",
+  ({ data }) => !data.draft
+);
+const availableLanguages = SITE_LANGUAGES.filter(candidateLang => {
+  const postCount = allPublishedPosts.filter(
+    post => post.data.lang === candidateLang
+  ).length;
+  return postCount > (page.currentPage - 1) * SITE.postPerPage;
+});
+const description = getCollectionDescription(currentLang, page.currentPage);
+const canonicalURL = getCollectionCanonicalUrl(currentLang, page.currentPage);
+const alternateLanguages = getCollectionAlternateLanguages(
+  page.currentPage,
+  availableLanguages
+);
 ---
 
 <Layout
   title={`Posts (${lang.toUpperCase()}) | ${SITE.siteName}`}
+  headline="Posts"
+  {description}
+  {canonicalURL}
+  {alternateLanguages}
   pageType="collection"
   lang={currentLang}
 >
   <Header />
-  <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
+  <Main pageTitle="Posts" pageDesc={description}>
     <LanguageSelector currentLang={currentLang} />
     <ul>
       {page.data.map(data => <Card {...data} />)}

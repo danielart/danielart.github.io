@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import { getPath } from "@/utils/getPath";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { SITE } from "@/config";
+import { COLLECTION_DESCRIPTIONS, type SiteLanguage } from "@/utils/seo";
 
 export async function getStaticPaths() {
   return [
@@ -34,10 +35,11 @@ export const GET: APIRoute = async ({ params }) => {
   };
 
   const feedTitle = `${SITE.title} (${langNames[lang as keyof typeof langNames] || lang.toUpperCase()})`;
+  const feedDescription = COLLECTION_DESCRIPTIONS[lang as SiteLanguage];
 
   return rss({
     title: feedTitle,
-    description: SITE.desc,
+    description: feedDescription,
     site: SITE.website,
     items: langPosts.map(({ data, id, filePath }) => ({
       link: getPath(id, filePath),

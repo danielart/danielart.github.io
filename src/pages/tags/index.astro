@@ -10,6 +10,7 @@ import getUniqueTags from "@/utils/getUniqueTags";
 import postFilter from "@/utils/postFilter";
 import { slugifyStr } from "@/utils/slugify";
 import { SITE } from "@/config";
+import { PAGE_DESCRIPTIONS } from "@/utils/seo";
 
 const posts = await getCollection("blog");
 
@@ -79,12 +80,14 @@ const featuredTopics = [...topicTags]
 const featuredConnections = getConnectionsForTags(featuredTopics);
 ---
 
-<Layout title={`Topics & Synapses | ${SITE.siteName}`}>
+<Layout
+  title={`Topics & Synapses | ${SITE.siteName}`}
+  headline="Tags"
+  description={PAGE_DESCRIPTIONS.tags}
+  pageType="collection"
+>
   <Header />
-  <Main
-    pageTitle="Tags"
-    pageDesc={`Explore articles across ${topicTags.length} topics and ${refPosts.length} published guides.`}
-  >
+  <Main pageTitle="Tags" pageDesc={PAGE_DESCRIPTIONS.tags}>
     <!-- Section 1: Artificial Intelligence & Agents (Neural Graph) -->
     {
       aiTags.length > 0 && (

@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/AboutLayout.astro
 title: "About"
+description: "About Daniel Artola, an Engineering Lead working on AI agents, developer tooling, open-source software, and reliable engineering workflows."
 ---
 
 I am an **Engineering Lead** based in Barcelona with roughly two decades of experience building and evolving software systems.

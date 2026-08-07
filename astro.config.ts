@@ -18,7 +18,17 @@ export default defineConfig({
   base: "/",
   integrations: [
     sitemap({
-      filter: page => SITE.showArchives || !page.endsWith("/archives"),
+      filter: page => {
+        const pathname = new URL(page).pathname;
+        const isDuplicateEnglishCollection = /^\/posts\/en(?:\/\d+)?\/?$/.test(
+          pathname
+        );
+        const isArchives = /^\/archives\/?$/.test(pathname);
+
+        return (
+          !isDuplicateEnglishCollection && (SITE.showArchives || !isArchives)
+        );
+      },
     }),
   ],
   markdown: {

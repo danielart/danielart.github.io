@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/AboutLayout.astro
 title: "Certifications"
+description: "Daniel Artola’s professional certifications and training in software architecture, engineering leadership, AI, security, and JavaScript."
 ---
 
 ### Architecture & Leadership

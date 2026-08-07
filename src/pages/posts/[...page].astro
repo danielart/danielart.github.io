@@ -11,6 +11,12 @@ import Pagination from "@/components/Pagination.astro";
 import LanguageSelector from "@/components/LanguageSelector.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { SITE } from "@/config";
+import {
+  getCollectionAlternateLanguages,
+  getCollectionCanonicalUrl,
+  getCollectionDescription,
+  SITE_LANGUAGES,
+} from "@/utils/seo";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getCollection(
@@ -24,11 +30,35 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
+const allPublishedPosts = await getCollection(
+  "blog",
+  ({ data }: CollectionEntry<"blog">) => !data.draft
+);
+const availableLanguages = SITE_LANGUAGES.filter(lang => {
+  const postCount = allPublishedPosts.filter(
+    post => post.data.lang === lang
+  ).length;
+  return postCount > (page.currentPage - 1) * SITE.postPerPage;
+});
+const description = getCollectionDescription("en", page.currentPage);
+const canonicalURL = getCollectionCanonicalUrl("en", page.currentPage);
+const alternateLanguages = getCollectionAlternateLanguages(
+  page.currentPage,
+  availableLanguages
+);
 ---
 
-<Layout title={`Posts | ${SITE.siteName}`} pageType="collection">
+<Layout
+  title={`Posts | ${SITE.siteName}`}
+  headline="Posts"
+  {description}
+  {canonicalURL}
+  {alternateLanguages}
+  pageType="collection"
+  lang="en"
+>
   <Header />
-  <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
+  <Main pageTitle="Posts" pageDesc={description}>
     <LanguageSelector currentLang="en" />
     <ul>
       {page.data.map(data => <Card {...data} />)}
