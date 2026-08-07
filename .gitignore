@@ -29,3 +29,6 @@ public/pagefind
 # playwright
 playwright-report/
 test-results/
+
+# Jules AI agent memory
+.jules/
