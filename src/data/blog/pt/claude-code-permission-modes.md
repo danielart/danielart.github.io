@@ -8,9 +8,14 @@ draft: false
 tags:
   - ai
   - claude
-  - pt
 lang: pt
 translationKey: claude-code-permission-modes
+pillar: safe-autonomy
+articleType: guide
+audience:
+  - developer
+  - tech-lead
+  - engineering-manager
 description: Um guia honesto — com suas nuances, riscos e custos — sobre quanta autonomia você deve dar ao seu agente de programação.
 ---
 

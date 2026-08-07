@@ -8,9 +8,13 @@ draft: false
 tags:
   - ai
   - claude
-  - en
 lang: en
 translationKey: claude-code-allowlist
+pillar: safe-autonomy
+articleType: guide
+audience:
+  - developer
+  - tech-lead
 description: The problem of 100 daily approvals and how Claude Code's /fewer-permission-prompts skill solves it transparently.
 ---
 

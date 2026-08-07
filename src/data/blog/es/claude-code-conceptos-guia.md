@@ -9,9 +9,13 @@ tags:
   - ai
   - claude
   - guia
-  - es
 lang: es
 translationKey: claude-code-concepts-guide
+pillar: agent-ready-repositories
+articleType: reference
+audience:
+  - developer
+  - tech-lead
 description: Una guía técnica basada en la documentación oficial de Anthropic sobre los cinco conceptos distintos en Claude Code.
 ---
 

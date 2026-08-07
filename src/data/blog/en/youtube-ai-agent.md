@@ -9,9 +9,13 @@ tags:
   - marketing
   - automation
   - youtube
-  - en
 lang: en
 translationKey: youtube-ai-agent
+pillar: real-experiments
+articleType: case-study
+audience:
+  - general
+  - developer
 description: How an AI agent multiplied YouTube views in a real musical project. From overwhelmed worker to orchestra conductor.
 ogImage: ../../../assets/images/blog/youtube-stats-1-hq.png
 ---

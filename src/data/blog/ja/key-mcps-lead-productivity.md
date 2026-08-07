@@ -10,9 +10,14 @@ tags:
   - productivity
   - ai
   - lead
-  - ja
 lang: ja
 translationKey: key-mcps-lead-productivity
+pillar: engineering-management
+articleType: guide
+audience:
+  - engineering-manager
+  - tech-lead
+  - developer
 description: Datadog、Amplitude、Excalidraw、Miroなどのさまざまなモデルコンテキストプロトコル（MCP）を使用して、リードとしてのタスクの時間を節約する方法。
 ---
 

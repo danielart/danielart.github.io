@@ -9,9 +9,13 @@ tags:
   - ai
   - claude
   - guide
-  - ja
 lang: ja
 translationKey: claude-code-concepts-guide
+pillar: agent-ready-repositories
+articleType: reference
+audience:
+  - developer
+  - tech-lead
 description: Anthropicの公式ドキュメントに基づく、Claude Codeの5つの異なる概念に関するテクニカルガイド。
 ---
 

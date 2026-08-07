@@ -9,9 +9,13 @@ tags:
   - productivity
   - claude
   - workflow
-  - es
 lang: es
 translationKey: checkpoint-session-fork-claude-code
+pillar: safe-autonomy
+articleType: guide
+audience:
+  - developer
+  - tech-lead
 description: Aprende a tratar el contexto de la IA como un activo ramificable usando Session Fork en Claude Code para flujos de trabajo no lineales.
 ogImage: ../../../assets/images/blog/claude-code-forking.png
 ---

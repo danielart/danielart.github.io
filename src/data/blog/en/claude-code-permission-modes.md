@@ -8,9 +8,14 @@ draft: false
 tags:
   - ai
   - claude
-  - en
 lang: en
 translationKey: claude-code-permission-modes
+pillar: safe-autonomy
+articleType: guide
+audience:
+  - developer
+  - tech-lead
+  - engineering-manager
 description: An honest guide—with its nuances, risks, and costs—on how much autonomy you should give your coding agent.
 ---
 

@@ -9,9 +9,13 @@ tags:
   - ai
   - claude
   - api
-  - pt
 lang: pt
 translationKey: claude-advisor-tool-practical-guide
+pillar: agent-ready-repositories
+articleType: guide
+audience:
+  - developer
+  - tech-lead
 description: "Os preços da IA continuarão subindo. Ajuste seu fluxo de trabalho enquanto ainda há tempo. Um guia completo sobre como configurar a Advisor Tool da Anthropic via API e ativá-la no Claude Code."
 ---
 

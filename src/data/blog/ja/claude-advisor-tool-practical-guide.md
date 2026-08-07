@@ -9,9 +9,13 @@ tags:
   - ai
   - claude
   - api
-  - ja
 lang: ja
 translationKey: claude-advisor-tool-practical-guide
+pillar: agent-ready-repositories
+articleType: guide
+audience:
+  - developer
+  - tech-lead
 description: "AIの価格は上昇し続けるでしょう。まだ時間があるうちにワークフローを調整してください。APIを介してAnthropicのAdvisor Toolを構成し、Claude Codeでアクティブ化する方法の完全なガイドです。"
 ---
 

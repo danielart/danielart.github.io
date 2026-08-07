@@ -10,9 +10,14 @@ tags:
   - productivity
   - ai
   - lead
-  - en
 lang: en
 translationKey: key-mcps-lead-productivity
+pillar: engineering-management
+articleType: guide
+audience:
+  - engineering-manager
+  - tech-lead
+  - developer
 description: How I use various Model Context Protocols (MCP) like Datadog, Amplitude, Excalidraw, and Miro to save time on my tasks as a Lead.
 ---
 

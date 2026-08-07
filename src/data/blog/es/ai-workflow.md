@@ -11,9 +11,14 @@ tags:
   - antigravity
   - stitch
   - mcp
-  - es
 lang: es
 translationKey: ai-workflow
+pillar: engineering-management
+articleType: case-study
+audience:
+  - developer
+  - tech-lead
+  - engineering-manager
 description: Cómo orquestar un ecosistema de herramientas con IA para acelerar el desarrollo de aplicaciones de meses a días.
 ogImage: ../../../assets/images/blog/post-ai-augmented-development.png
 ---

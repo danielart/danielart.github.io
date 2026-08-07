@@ -9,9 +9,13 @@ tags:
   - productivity
   - claude
   - workflow
-  - en
 lang: en
 translationKey: checkpoint-session-fork-claude-code
+pillar: safe-autonomy
+articleType: guide
+audience:
+  - developer
+  - tech-lead
 description: Learn how to treat AI context as a branchable asset using Session Forking in Claude Code for non-linear workflows.
 ogImage: ../../../assets/images/blog/claude-code-forking.png
 ---
