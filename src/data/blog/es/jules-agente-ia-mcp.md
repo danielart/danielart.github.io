@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-15T00:00:00Z
-title: "Google Jules AI Agent: Desarrollo asíncrono nocturno con herramientas MCP"
+title: "Google Jules AI Agent: Programación asíncrona con MCP"
 featured: false
 draft: false
 tags:

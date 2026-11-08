@@ -1,5 +1,5 @@
 ---
-title: "Claude Code Advisor Tool: How I Pay Haiku Prices for Opus-Level Decisions"
+title: "Claude Code Advisor: Opus-Level Reasoning at Haiku Prices"
 author: Daniel Artola
 pubDatetime: 2026-04-25T16:46:20Z
 featured: true

@@ -1,5 +1,5 @@
 ---
-title: "Claude Code Architecture: Technical Guide to Core Concepts and Workflows"
+title: "Claude Code Architecture: Core Concepts and Workflows"
 author: Daniel Artola
 pubDatetime: 2026-04-09T10:20:14Z
 featured: true

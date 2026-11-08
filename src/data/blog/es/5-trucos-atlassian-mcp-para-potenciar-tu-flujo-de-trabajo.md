@@ -1,5 +1,5 @@
 ---
-title: "Integración de Atlassian MCP: 5 trucos para potenciar tu flujo de trabajo técnico"
+title: "Atlassian MCP: 5 trucos para potenciar tu flujo de trabajo"
 author: Daniel Artola
 pubDatetime: 2025-10-16T00:00:00+02:00
 featured: false

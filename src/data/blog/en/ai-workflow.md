@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-15T00:00:00Z
-title: "AI Coding Agents: How I Reduced Development Time from Months to Days"
+title: "AI Coding Agents: Slashing Development from Months to Days"
 featured: false
 draft: false
 tags:

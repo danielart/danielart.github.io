@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-03-01T22:34:00Z
-title: "Session Forking en Claude Code: Crea checkpoints antes de implementar"
+title: "Session Forking en Claude Code: Checkpoints de código seguros"
 featured: false
 draft: false
 tags:

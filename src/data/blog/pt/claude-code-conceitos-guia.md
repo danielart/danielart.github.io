@@ -1,5 +1,5 @@
 ---
-title: "Arquitetura do Claude Code: Guia técnico de conceitos e fluxos de trabalho"
+title: "Arquitetura do Claude Code: Conceitos e fluxos de trabalho"
 author: Daniel Artola
 pubDatetime: 2026-04-09T10:20:14Z
 featured: true

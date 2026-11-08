@@ -1,5 +1,5 @@
 ---
-title: "Modos de Permissão no Claude Code: Evite perdas acidentais com autonomia segura"
+title: "Modos de Permissão no Claude Code: Autonomia sem perdas de dados"
 author: Daniel Artola
 pubDatetime: 2026-05-19T15:35:00Z
 featured: false

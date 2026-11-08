@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-15T00:00:00Z
-title: "Agentes de IA para Desarrollo: Cómo reduje tiempos de desarrollo de meses a días"
+title: "Agentes de IA: Cómo reduje el desarrollo de meses a días"
 featured: false
 draft: false
 tags:

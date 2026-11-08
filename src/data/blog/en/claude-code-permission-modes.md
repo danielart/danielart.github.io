@@ -1,5 +1,5 @@
 ---
-title: "Claude Code Permission Modes: Prevent Accidental Data Loss with Safe Autonomy"
+title: "Claude Code Permission Modes: Safe Autonomy Without Data Loss"
 author: Daniel Artola
 pubDatetime: 2026-05-19T15:35:00Z
 featured: false

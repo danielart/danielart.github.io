@@ -1,5 +1,5 @@
 ---
-title: "Flujos MCP para Engineering Leads: Cómo automatizar tareas de gestión diaria"
+title: "Flujos MCP para Engineering Leads: Automatiza tu gestión"
 author: Daniel Artola
 pubDatetime: 2026-03-24T21:00:00Z
 featured: false

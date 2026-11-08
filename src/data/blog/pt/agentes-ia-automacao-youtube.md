@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-15T00:00:00Z
-title: "Agentes de IA para Automação no YouTube: Como multipliquei minhas visualizações por 10"
+title: "Agentes de IA para YouTube: Multiplique visualizações por 10"
 featured: false
 draft: false
 tags:

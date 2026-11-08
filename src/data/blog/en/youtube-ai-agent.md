@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-15T00:00:00Z
-title: "AI Agents for YouTube Automation: How I Multiplied Views by 10"
+title: "AI Agents for YouTube: How I 10x'd Views with Automation"
 featured: false
 draft: false
 tags:

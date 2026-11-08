@@ -1,5 +1,5 @@
 ---
-title: "Fluxos MCP para Engineering Leads: Como automatizar tarefas de gestão diária"
+title: "Fluxos MCP para Engineering Leads: Automatize tarefas diárias"
 author: Daniel Artola
 pubDatetime: 2026-03-24T21:00:00Z
 featured: false

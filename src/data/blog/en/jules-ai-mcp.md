@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-15T00:00:00Z
-title: "Google Jules AI Agent: Asynchronous Coding at Night with MCP Tools"
+title: "Google Jules AI Agent: Async Night Coding with MCP Tools"
 featured: false
 draft: false
 tags:

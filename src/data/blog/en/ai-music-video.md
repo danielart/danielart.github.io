@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-07-31T20:00:00Z
-title: "AI Video Production: How I Created a Music Video with AI Tools on Zero Budget"
+title: "AI Music Video Production: Complete Workflow on Zero Budget"
 featured: false
 draft: false
 tags:

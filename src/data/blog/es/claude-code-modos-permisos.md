@@ -1,5 +1,5 @@
 ---
-title: "Modos de Permiso en Claude Code: Evita borrados accidentales con autonomía segura"
+title: "Modos de Permiso en Claude Code: Autonomía segura sin riesgos"
 author: Daniel Artola
 pubDatetime: 2026-05-19T15:35:00Z
 featured: false

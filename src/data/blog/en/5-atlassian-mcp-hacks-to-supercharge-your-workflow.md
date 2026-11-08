@@ -1,5 +1,5 @@
 ---
-title: "Atlassian MCP Integration: 5 Hacks to Supercharge Your Engineering Workflow"
+title: "Atlassian MCP: 5 Hacks to Supercharge Engineering Workflows"
 author: Daniel Artola
 pubDatetime: 2025-10-16T00:00:00+02:00
 featured: false

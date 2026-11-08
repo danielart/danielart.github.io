@@ -1,5 +1,5 @@
 ---
-title: "Claude Code Advisor Tool: Paga precio de Haiku por el cerebro de Opus"
+title: "Claude Code Advisor: Cerebro de Opus a precio de Haiku"
 author: Daniel Artola
 pubDatetime: 2026-04-25T16:46:20Z
 featured: true

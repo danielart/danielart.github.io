@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-19T00:00:00Z
-title: "AI Changelog System: Build Automated Feed Summaries and Stop Reading Newsletters"
+title: "AI Changelog System: Automated Summaries Without Newsletters"
 featured: false
 draft: false
 tags:

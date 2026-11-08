@@ -1,5 +1,5 @@
 ---
-title: "Allowlist en Claude Code: Cómo automatizar permisos de comandos de forma segura"
+title: "Allowlist en Claude Code: Automatiza permisos con seguridad"
 author: Daniel Artola
 pubDatetime: 2026-05-17T00:00:00Z
 featured: false

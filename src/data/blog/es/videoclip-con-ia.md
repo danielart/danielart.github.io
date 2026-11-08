@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-07-31T20:00:00Z
-title: "Producción de Vídeo con IA: Cómo completé un videoclip sin apenas tiempo ni presupuesto"
+title: "Videoclip con IA: Cómo lo produje sin tiempo ni presupuesto"
 featured: false
 draft: false
 tags:

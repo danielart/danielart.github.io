@@ -1,5 +1,5 @@
 ---
-title: "Arquitectura de Claude Code: Guía técnica de conceptos y flujos de trabajo"
+title: "Arquitectura de Claude Code: Conceptos y flujos clave"
 author: Daniel Artola
 pubDatetime: 2026-04-09T10:20:14Z
 featured: true

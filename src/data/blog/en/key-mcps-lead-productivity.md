@@ -1,5 +1,5 @@
 ---
-title: "MCP Workflows for Engineering Leads: How to Automate Daily Management Tasks"
+title: "MCP Workflows for Engineering Leads: Automate Daily Tasks"
 author: Daniel Artola
 pubDatetime: 2026-03-24T21:00:00Z
 featured: false

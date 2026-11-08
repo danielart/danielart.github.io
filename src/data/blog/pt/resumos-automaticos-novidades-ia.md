@@ -1,7 +1,7 @@
 ---
 author: Daniel Artola Dominguez
 pubDatetime: 2026-02-19T00:00:00Z
-title: "Sistema de Changelog com IA: Crie resumos automáticos e pare de ler newsletters"
+title: "Sistema de Changelog com IA: Crie resumos e esqueça newsletters"
 featured: false
 draft: false
 tags:

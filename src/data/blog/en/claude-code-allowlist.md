@@ -1,5 +1,5 @@
 ---
-title: "Claude Code Allowlist: How to Automate Command Permissions Safely"
+title: "Claude Code Allowlist: Automate Permissions Safely"
 author: Daniel Artola
 pubDatetime: 2026-05-17T00:00:00Z
 featured: false
