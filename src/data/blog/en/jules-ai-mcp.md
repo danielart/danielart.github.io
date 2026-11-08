@@ -51,4 +51,4 @@ Here are those links:
 
 - 🚀 [AI Coding Agents](/posts/en/ai-workflow/): My daily orchestration ecosystem with Gemini, Stitch, Antigravity, and Jules.
 - 🛠️ [Key MCP Flows for Engineering Leads](/posts/en/key-mcps-lead-productivity/): How I use Datadog, Amplitude, and Excalidraw to save time.
-- ⚙️ [5 Atlassian MCP Hacks to Supercharge Your Workflow](/posts/en/5-atlassian-mcp-hacks-to-supercharge-your-workflow/): Automate Confluence and Jira documentation.
+- ⚙️ [5 Atlassian MCP Hacks to Supercharge Your Workflow](/posts/en/5-atlassian-mcp-hacks-workflow/): Automate Confluence and Jira documentation.

@@ -28,7 +28,7 @@ Analizar monitores, optimizar alertas, investigar incidentes, crear reportes/not
 
 Sí, más allá de la polémica de si usar MCP o no. No dejan de ser una herramienta, no debería haber problema si lo usas para casos concretos y con conocimiento, igual que todo con la IA. Vaya, igual que no usas una motosierra para limar una astilla y encima sin leerte las instrucciones.
 
-Hay varios MCP que uso a menudo: [**Atlassian**](/posts/es/5-trucos-atlassian-mcp-para-potenciar-tu-flujo-de-trabajo/), Context7, Playwright… pero te explico una lista de otros que, aunque no use a menudo, sí que me ayudan bastante para situaciones concretas.
+Hay varios MCP que uso a menudo: [**Atlassian**](/posts/es/5-trucos-atlassian-mcp-flujo-trabajo/), Context7, Playwright… pero te explico una lista de otros que, aunque no use a menudo, sí que me ayudan bastante para situaciones concretas.
 
 ## Mis MCP para casos concretos
 
@@ -67,6 +67,6 @@ Enlaces Oficiales a los MCP Mencionados:
 
 ## Lecturas recomendadas
 
-- ⚙️ [5 trucos de Atlassian MCP](/posts/es/5-trucos-atlassian-mcp-para-potenciar-tu-flujo-de-trabajo/): Profundiza en cómo integrar Jira y Confluence en tu IDE.
+- ⚙️ [5 trucos de Atlassian MCP](/posts/es/5-trucos-atlassian-mcp-flujo-trabajo/): Profundiza en cómo integrar Jira y Confluence en tu IDE.
 - 🌙 [Google Jules AI Agent con MCP](/posts/es/jules-agente-ia-mcp/): Desarrollo asíncrono nocturno conectando Supabase y Context7.
 - 🚀 [Agentes de IA para Desarrollo](/posts/es/agentes-ia-desarrollo-meses-a-dias/): Estrategia global de orquestación de herramientas de IA.

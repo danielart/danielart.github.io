@@ -56,4 +56,4 @@ Venga esos enlaces:
 
 - 🌙 [Google Jules AI Agent con MCP](/posts/es/jules-agente-ia-mcp/): Descubre cómo Jules realiza desarrollo asíncrono nocturno conectado a Supabase y Stitch.
 - 🛠️ [Flujos MCP para Engineering Leads](/posts/es/mcp-claves-lead-productividad/): Cómo optimizar Datadog, Amplitude y Atlassian mediante MCPs.
-- ⚙️ [5 trucos de Atlassian MCP](/posts/es/5-trucos-atlassian-mcp-para-potenciar-tu-flujo-de-trabajo/): Automatiza la documentación y las tareas en Jira/Confluence desde el IDE.
+- ⚙️ [5 trucos de Atlassian MCP](/posts/es/5-trucos-atlassian-mcp-flujo-trabajo/): Automatiza la documentación y las tareas en Jira/Confluence desde el IDE.
