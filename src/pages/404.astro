@@ -48,22 +48,6 @@ const posts = getSortedPosts(await getCollection("blog"))
           このページは見つかりませんでした。猫がキーボードの上を歩いたのか、それとも、もうここにはないページをお探しなのかも…。でも、こちらの記事でお目当てのものが見つかるかもしれません！
         </p>
       </div>
-      <div
-        id="error-language-control"
-        class="mt-4 flex flex-wrap items-center gap-3 text-sm"
-        hidden
-      >
-        <label for="error-language">Language / Idioma</label>
-        <select
-          id="error-language"
-          class="rounded border border-border bg-background px-3 py-2 text-foreground"
-        >
-          <option value="en" lang="en">English</option>
-          <option value="es" lang="es">Español</option>
-          <option value="pt" lang="pt">Português</option>
-          <option value="ja" lang="ja">日本語</option>
-        </select>
-      </div>
       <nav
         aria-label="Find your way"
         class="mt-8 flex flex-wrap gap-6 underline underline-offset-4"
@@ -92,10 +76,6 @@ const posts = getSortedPosts(await getCollection("blog"))
 
 <script>
   function init404Language() {
-    const selector =
-      document.querySelector<HTMLSelectElement>("#error-language");
-    const control = document.getElementById("error-language-control");
-    if (!selector || !control) return;
     const messages =
       document.querySelectorAll<HTMLElement>("[data-404-message]");
     const supported = Array.from(messages, message => message.lang);
@@ -114,22 +94,9 @@ const posts = getSortedPosts(await getCollection("blog"))
         savedLanguage,
         ...navigator.languages.map(lang => lang.split("-")[0]),
       ].find(lang => lang && supported.includes(lang)) ?? "en";
-    function showLanguage(lang: string) {
-      messages.forEach(message => {
-        message.hidden = message.lang !== lang;
-      });
-    }
-    selector.value = language;
-    showLanguage(language);
-    control.hidden = false;
-    selector.onchange = () => {
-      showLanguage(selector.value);
-      try {
-        localStorage.setItem("preferred-lang", selector.value);
-      } catch {
-        // Changing the displayed translation does not require storage.
-      }
-    };
+    messages.forEach(message => {
+      message.hidden = message.lang !== language;
+    });
   }
   document.addEventListener("astro:page-load", init404Language);
   init404Language();

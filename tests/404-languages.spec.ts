@@ -1,27 +1,29 @@
 import { expect, test } from "@playwright/test";
 
-test("404 language selector shows one translation and remembers the choice", async ({
-  page,
-}, testInfo) => {
-  await page.setViewportSize({ width: 320, height: 900 });
-  await page.goto("/404.html");
-  const selector = page.getByLabel("Language / Idioma");
-  await expect(selector).toBeVisible();
+test("404 has no language selector and uses the browser language", async ({
+  browser,
+}) => {
   for (const lang of ["es", "en", "pt", "ja"]) {
-    await selector.selectOption(lang);
+    const context = await browser.newContext({ locale: lang });
+    const page = await context.newPage();
+    await page.goto("/404.html");
+    await expect(
+      page.locator("#main-content").getByRole("combobox")
+    ).toHaveCount(0);
     const messages = page.locator("[data-404-message]:visible");
     await expect(messages).toHaveCount(1);
     await expect(messages).toHaveAttribute("lang", lang);
+    await context.close();
   }
-  await page.screenshot({
-    path: testInfo.outputPath("404-ja-mobile.png"),
-    fullPage: true,
-  });
-  await page.reload();
-  await expect(selector).toHaveValue("ja");
+});
+
+test("404 respects the language selected on the homepage", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "ES", exact: true }).click();
+  await page.goto("/404.html");
   await expect(page.locator("[data-404-message]:visible")).toHaveAttribute(
     "lang",
-    "ja"
+    "es"
   );
 });
 
