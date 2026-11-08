@@ -15,7 +15,7 @@ articleType: guide
 audience:
   - developer
   - tech-lead
-description: "AI prices will keep rising. Adjust your workflow while there's still time. A complete guide on how to configure Anthropic's Advisor Tool via API and activate it in Claude Code."
+description: "Learn how to configure Anthropic's Advisor Tool via API and activate it in Claude Code to get Opus-level reasoning at Haiku speeds and prices."
 ---
 
 A week ago I briefly mentioned Anthropic's **Advisor Tool**. Today I'm sharing the complete guide: how to configure it via API, how to activate it in **Claude Code** with a single command, which model pairs are valid, and the billing details you should check **before** leaving it running in production.

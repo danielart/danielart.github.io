@@ -15,7 +15,7 @@ articleType: guide
 audience:
   - developer
   - tech-lead
-description: "Os preços da IA continuarão subindo. Ajuste seu fluxo de trabalho enquanto ainda há tempo. Um guia completo sobre como configurar a Advisor Tool da Anthropic via API e ativá-la no Claude Code."
+description: "Guia completo para configurar a Advisor Tool da Anthropic via API e Claude Code: obtenha o raciocínio do Opus com a velocidade e o preço do Haiku."
 ---
 
 Há uma semana mencionei brevemente a **Advisor Tool** (Ferramenta Consultora) da Anthropic. Hoje estou compartilhando o guia completo: como configurá-la via API, como ativá-la no **Claude Code** com um único comando, quais pares de modelos são válidos e os detalhes de faturamento que você deve verificar **antes** de deixá-la rodando em produção.

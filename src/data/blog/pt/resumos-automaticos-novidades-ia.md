@@ -15,7 +15,7 @@ pillar: real-experiments
 articleType: experiment
 audience:
   - developer
-description: A IA avança tão rápido que é impossível acompanhar tudo. Descubra como um Gem do Gemini com uma planilha do Google automatizada pode te entregar apenas as mudanças que realmente importam.
+description: "A IA avança rápido: descubra como um Gem do Gemini com Google Sheets automatizado filtra as novidades e entrega apenas as mudanças que importam."
 ogImage: ../../../assets/images/blog/ai-changelog-gem.png
 ---
 

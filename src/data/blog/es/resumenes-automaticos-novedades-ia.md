@@ -15,7 +15,7 @@ pillar: real-experiments
 articleType: experiment
 audience:
   - developer
-description: La IA avanza tan rápido que mantenerse al día es imposible. Descubre cómo una Gema personalizada con Google Sheets automatizado te da solo los cambios que importan.
+description: "La IA avanza rápido: descubre cómo una Gema de Gemini con Google Sheets automatizado filtra las novedades y te entrega solo los cambios que importan."
 ogImage: ../../../assets/images/blog/ai-changelog-gem.png
 ---
 

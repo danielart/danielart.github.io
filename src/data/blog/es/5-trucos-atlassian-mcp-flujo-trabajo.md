@@ -16,7 +16,7 @@ audience:
   - engineering-manager
   - tech-lead
   - developer
-description: Odio tener que cambiar una y otra vez entre el IDE, la tarea en Jira para revisar detalles, y Confluence u otros documentos para asegurarme de que tengo toda la información...
+description: "Elimina el salto continuo entre IDE, Jira y Confluence. Descubre 5 trucos con Atlassian MCP para conectar tu flujo técnico sin perder el foco."
 ---
 
 Odio tener que cambiar una y otra vez entre el IDE, la tarea en Jira para revisar detalles, y Confluence u otros documentos para asegurarme de que tengo toda la información o porque a veces encuentro documentos obsoletos, así que tenía curiosidad por saber cómo podría ahorrar tiempo en eso a través de la IA. Cada vez que saltamos de escribir código a actualizar un ticket o revisar un requisito, perdemos el foco y el impulso.
