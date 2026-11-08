@@ -2,7 +2,6 @@
 title: "Claude Code Permission Modes: Prevent Accidental Data Loss with Safe Autonomy"
 author: Daniel Artola
 pubDatetime: 2026-05-19T15:35:00Z
-slug: claude-code-permission-modes-en
 featured: false
 draft: false
 tags:
@@ -459,6 +458,6 @@ _This post is based on and verified against the official Claude Code documentati
 
 ## Recommended Reading
 
-- 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide): Understand the differences between Prompts, Skills, Subagents, and Agent Teams.
-- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist-en): Step-by-step guide to automating safe command approvals.
-- 🌿 [Session Forking in Claude Code](/posts/en/checkpoint-session-fork-claude-code): Experiment with permission modes without losing context or ruining your session.
+- 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide/): Understand the differences between Prompts, Skills, Subagents, and Agent Teams.
+- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist/): Step-by-step guide to automating safe command approvals.
+- 🌿 [Session Forking in Claude Code](/posts/en/checkpoint-session-fork-claude-code/): Experiment with permission modes without losing context or ruining your session.

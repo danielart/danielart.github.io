@@ -90,6 +90,6 @@ We are moving from "prompting" to **Context Engineering**. For a Tech Lead, the 
 
 ## Recommended Reading
 
-- 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide): Deep dive into Prompts, Skills, Subagents, and agent sessions.
-- 🛡️ [Claude Code Permission Modes](/posts/en/claude-code-permission-modes-en): Discover when to grant elevated autonomy to Claude during session forks.
-- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist-en): Maintain frictionless command execution across your session branches.
+- 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide/): Deep dive into Prompts, Skills, Subagents, and agent sessions.
+- 🛡️ [Claude Code Permission Modes](/posts/en/claude-code-permission-modes/): Discover when to grant elevated autonomy to Claude during session forks.
+- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist/): Maintain frictionless command execution across your session branches.

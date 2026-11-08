@@ -2,7 +2,6 @@
 title: "Atlassian MCP Integration: 5 Hacks to Supercharge Your Engineering Workflow"
 author: Daniel Artola
 pubDatetime: 2025-10-16T00:00:00+02:00
-slug: 5-atlassian-mcp-hacks-to-supercharge-your-workflow
 featured: false
 draft: false
 tags:
@@ -174,6 +173,6 @@ Daniel Artola.
 
 ## Recommended Reading
 
-- 🛠️ [Key MCP Flows for Engineering Leads](/posts/en/key-mcps-lead-productivity): Expand your MCP suite with Datadog, Amplitude, Miro, and Excalidraw.
-- 🌙 [Google Jules AI Agent with MCP](/posts/en/jules-ai-mcp): Nighttime automation combining dev and database MCPs.
-- 🚀 [AI Coding Agents](/posts/en/ai-workflow): Daily orchestration strategy for AI tools.
+- 🛠️ [Key MCP Flows for Engineering Leads](/posts/en/key-mcps-lead-productivity/): Expand your MCP suite with Datadog, Amplitude, Miro, and Excalidraw.
+- 🌙 [Google Jules AI Agent with MCP](/posts/en/jules-ai-mcp/): Nighttime automation combining dev and database MCPs.
+- 🚀 [AI Coding Agents](/posts/en/ai-workflow/): Daily orchestration strategy for AI tools.

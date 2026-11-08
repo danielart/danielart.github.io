@@ -31,9 +31,9 @@ Ya no programo solo; ahora orquesto un ecosistema de herramientas con IA en para
 
 Primero, hablo con **Gemini** para discutir la idea. Le pido que me cuestionen, que me haga pensar, que busque referentes y que analice fortalezas y debilidades. Es mi "sparring" estratégico.
 
-Después, abro **Google Stitch** para el diseño. Mientras, uso **Antigravity** para definir el roadmap con la IA, instalar el boilerplate y empezar a picar código con su agente. Antes de acostarme, le paso las tareas claras a [**Google Jules**](/posts/es/jules-ai-mcp) (o le envío desde Stitch las pantallas a implementar) y él se encarga de crear las MRs durante la noche.
+Después, abro **Google Stitch** para el diseño. Mientras, uso **Antigravity** para definir el roadmap con la IA, instalar el boilerplate y empezar a picar código con su agente. Antes de acostarme, le paso las tareas claras a [**Google Jules**](/posts/es/jules-agente-ia-mcp/) (o le envío desde Stitch las pantallas a implementar) y él se encarga de crear las MRs durante la noche.
 
-Además, gracias a los [**MCPs**](/posts/es/mcp-claves-lead-productividad) (Stitch, Context7, Firebase, Playwright, Github...), workflows, tasks y skills... los despliegues a producción, builds y traducciones han pasado de ser un dolor de cabeza a un simple trámite guiado. Se acabó el sufrir configurando mil cosas siguiendo tutoriales infinitos.
+Además, gracias a los [**MCPs**](/posts/es/mcp-claves-lead-productividad/) (Stitch, Context7, Firebase, Playwright, Github...), workflows, tasks y skills... los despliegues a producción, builds y traducciones han pasado de ser un dolor de cabeza a un simple trámite guiado. Se acabó el sufrir configurando mil cosas siguiendo tutoriales infinitos.
 
 ## ¿Qué ha cambiado para mí?
 
@@ -54,6 +54,6 @@ Venga esos enlaces:
 
 ## Lecturas recomendadas
 
-- 🌙 [Google Jules AI Agent con MCP](/posts/es/jules-ai-mcp): Descubre cómo Jules realiza desarrollo asíncrono nocturno conectado a Supabase y Stitch.
-- 🛠️ [Flujos MCP para Engineering Leads](/posts/es/mcp-claves-lead-productividad): Cómo optimizar Datadog, Amplitude y Atlassian mediante MCPs.
-- ⚙️ [5 trucos de Atlassian MCP](/posts/es/5-trucos-atlassian-mcp-para-potenciar-tu-flujo-de-trabajo): Automatiza la documentación y las tareas en Jira/Confluence desde el IDE.
+- 🌙 [Google Jules AI Agent con MCP](/posts/es/jules-agente-ia-mcp/): Descubre cómo Jules realiza desarrollo asíncrono nocturno conectado a Supabase y Stitch.
+- 🛠️ [Flujos MCP para Engineering Leads](/posts/es/mcp-claves-lead-productividad/): Cómo optimizar Datadog, Amplitude y Atlassian mediante MCPs.
+- ⚙️ [5 trucos de Atlassian MCP](/posts/es/5-trucos-atlassian-mcp-para-potenciar-tu-flujo-de-trabajo/): Automatiza la documentación y las tareas en Jira/Confluence desde el IDE.

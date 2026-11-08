@@ -2,7 +2,6 @@
 title: "Allowlist en Claude Code: Cómo automatizar permisos de comandos de forma segura"
 author: Daniel Artola
 pubDatetime: 2026-05-17T00:00:00Z
-slug: claude-code-allowlist-es
 featured: false
 draft: false
 tags:
@@ -157,6 +156,6 @@ Si usas Claude Code en modo manual y no la has corrido todavía, hazlo hoy. Cinc
 
 ## Lecturas recomendadas
 
-- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes-es): Conoce en profundidad los 6 niveles de autonomía de Claude Code.
-- 🏗️ [Arquitectura de Claude Code: Guía técnica de conceptos](/posts/es/claude-code-conceptos-guia): Explora la guía de Prompts, Skills y Subagents.
-- 🌿 [Session Forking en Claude Code](/posts/es/checkpoint-session-fork-claude-code): Aprende a ramificar sesiones de trabajo.
+- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-modos-permisos/): Conoce en profundidad los 6 niveles de autonomía de Claude Code.
+- 🏗️ [Arquitectura de Claude Code: Guía técnica de conceptos](/posts/es/claude-code-conceptos-guia/): Explora la guía de Prompts, Skills y Subagents.
+- 🌿 [Session Forking en Claude Code](/posts/es/claude-code-bifurcacion-sesiones-puntos-control/): Aprende a ramificar sesiones de trabajo.

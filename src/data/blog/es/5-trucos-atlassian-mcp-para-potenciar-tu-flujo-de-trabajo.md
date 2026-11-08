@@ -2,7 +2,6 @@
 title: "Integración de Atlassian MCP: 5 trucos para potenciar tu flujo de trabajo técnico"
 author: Daniel Artola
 pubDatetime: 2025-10-16T00:00:00+02:00
-slug: 5-trucos-atlassian-mcp-para-potenciar-tu-flujo-de-trabajo
 featured: false
 draft: false
 tags:
@@ -135,6 +134,6 @@ Daniel Artola.
 
 ## Lecturas recomendadas
 
-- 🛠️ [Flujos MCP para Engineering Leads](/posts/es/mcp-claves-lead-productividad): Amplía tu suite de MCPs con Datadog, Amplitude, Miro y Excalidraw.
-- 🌙 [Google Jules AI Agent con MCP](/posts/es/jules-ai-mcp): Automatización nocturna combinando MCPs de desarrollo y base de datos.
-- 🚀 [Agentes de IA para Desarrollo](/posts/es/ai-workflow): Estrategia de orquestación de herramientas de IA en el día a día.
+- 🛠️ [Flujos MCP para Engineering Leads](/posts/es/mcp-claves-lead-productividad/): Amplía tu suite de MCPs con Datadog, Amplitude, Miro y Excalidraw.
+- 🌙 [Google Jules AI Agent con MCP](/posts/es/jules-agente-ia-mcp/): Automatización nocturna combinando MCPs de desarrollo y base de datos.
+- 🚀 [Agentes de IA para Desarrollo](/posts/es/agentes-ia-desarrollo-meses-a-dias/): Estrategia de orquestación de herramientas de IA en el día a día.

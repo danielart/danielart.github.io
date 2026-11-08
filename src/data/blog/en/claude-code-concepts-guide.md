@@ -2,7 +2,6 @@
 title: "Claude Code Architecture: Technical Guide to Core Concepts and Workflows"
 author: Daniel Artola
 pubDatetime: 2026-04-09T10:20:14Z
-slug: claude-code-concepts-guide
 featured: true
 draft: false
 tags:
@@ -204,7 +203,7 @@ To fully master these advanced agentic tools, Anthropic's official academy provi
 
 If you want to dig deeper into session management, permissions, and cost optimization in Claude Code:
 
-- 🛡️ [Claude Code Permission Modes](/posts/en/claude-code-permission-modes-en): Discover the 6 autonomy levels and avoid accidental deletions.
-- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist-en): Automate safe command approvals to stop permission fatigue.
-- 🌿 [Session Forking in Claude Code](/posts/en/checkpoint-session-fork-claude-code): Learn to branch AI context and create checkpoints without wasting tokens.
-- 💡 [Claude Code Advisor Tool Practical Guide](/posts/en/claude-advisor-tool-practical-guide): Combine Haiku's speed with Opus reasoning to optimize costs.
+- 🛡️ [Claude Code Permission Modes](/posts/en/claude-code-permission-modes/): Discover the 6 autonomy levels and avoid accidental deletions.
+- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist/): Automate safe command approvals to stop permission fatigue.
+- 🌿 [Session Forking in Claude Code](/posts/en/checkpoint-session-fork-claude-code/): Learn to branch AI context and create checkpoints without wasting tokens.
+- 💡 [Claude Code Advisor Tool Practical Guide](/posts/en/claude-advisor-tool-practical-guide/): Combine Haiku's speed with Opus reasoning to optimize costs.

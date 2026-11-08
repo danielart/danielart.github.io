@@ -17,8 +17,8 @@ test("translated posts expose reciprocal and unique hreflang links", async ({
   page,
 }) => {
   const paths = [
-    "/posts/en/claude-advisor-tool-practical-guide",
-    "/posts/es/claude-advisor-tool-guia-practica",
+    "/posts/en/claude-advisor-tool-practical-guide/",
+    "/posts/es/claude-advisor-tool-guia-practica/",
   ];
   const linkSets: AlternateLink[][] = [];
 

@@ -2,7 +2,6 @@
 title: "Claude Code Allowlist: コマンド権限を安全に自動化する方法"
 author: Daniel Artola
 pubDatetime: 2026-05-17T00:00:00Z
-slug: claude-code-allowlist-ja
 featured: false
 draft: false
 tags:

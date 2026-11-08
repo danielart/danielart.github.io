@@ -18,7 +18,6 @@ audience:
   - developer
 description: What I learned about visual consistency, real-world references, video editing, and overcoming AI flaws to finish a music video without getting blocked.
 ogImage: ../../../assets/images/blog/ai-music-video-character-sheet.png
-slug: ai-music-video-en
 ---
 
 This is what I learned about visual consistency, real references, editing, and how to navigate AI mistakes without letting them derail the project.
@@ -340,6 +339,6 @@ At the end of this post, you can watch the final music video for “Todas aquell
 
 ## Recommended Reading
 
-- 📈 [AI Agents for YouTube Automation](/posts/en/youtube-ai-agent): How we automated content strategy for Los Chicos del Sótano multiplying views x10.
-- ⚡ [AI Changelog System](/posts/en/ai-changelog-gem): Building custom Gemini Gems for structured workflows.
-- 🚀 [AI Coding Agents](/posts/en/ai-workflow): My agentic ecosystem to accelerate creative and technical projects.
+- 📈 [AI Agents for YouTube Automation](/posts/en/youtube-ai-agent/): How we automated content strategy for Los Chicos del Sótano multiplying views x10.
+- ⚡ [AI Changelog System](/posts/en/ai-changelog-gem/): Building custom Gemini Gems for structured workflows.
+- 🚀 [AI Coding Agents](/posts/en/ai-workflow/): My agentic ecosystem to accelerate creative and technical projects.

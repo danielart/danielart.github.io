@@ -7,6 +7,9 @@ const distRoot = join(projectRoot, "dist");
 const siteOrigin = "https://danielart.github.io";
 const personId = `${siteOrigin}/about/#person`;
 const failures = [];
+const postRedirects = JSON.parse(
+  readFileSync(join(projectRoot, "src/post-redirects.json"), "utf8")
+);
 
 if (!existsSync(distRoot)) {
   process.stderr.write("Missing dist/. Run pnpm build before validate:seo.\n");
@@ -43,7 +46,8 @@ function getPageUrl(filePath) {
   const relativePath = relative(distRoot, filePath).split(sep).join("/");
   if (relativePath === "index.html") return `${siteOrigin}/`;
   if (relativePath.endsWith("/index.html")) {
-    return `${siteOrigin}/${relativePath.replace(/index\.html$/, "")}`;
+    return new URL(relativePath.replace(/index\.html$/, ""), `${siteOrigin}/`)
+      .href;
   }
   return `${siteOrigin}/${relativePath}`;
 }
@@ -60,14 +64,38 @@ function fail(message) {
 }
 
 const pages = new Map();
+const articleLinks = [];
 
 for (const filePath of walk(distRoot).filter(file => file.endsWith(".html"))) {
   const html = readFileSync(filePath, "utf8");
   const pageUrl = getPageUrl(filePath);
-  const canonical = capture(
-    html,
-    /<link rel="canonical" href="([^"]+)"/
-  );
+  // Search engine ownership proofs are plain files, not editorial pages.
+  if (/^google[\da-f]+\.html$/.test(relative(distRoot, filePath))) continue;
+  const redirectTarget =
+    postRedirects[decodeURIComponent(new URL(pageUrl).pathname)];
+  if (redirectTarget) {
+    const targetUrl = new URL(redirectTarget, siteOrigin).href;
+    if (
+      !html.includes('http-equiv="refresh"') ||
+      !html.includes('content="0;url=')
+    ) {
+      fail(`${pageUrl}: missing immediate static redirect`);
+    }
+    const canonical = capture(html, /<link rel="canonical" href="([^"]+)"/);
+    if (canonical !== targetUrl)
+      fail(`${pageUrl}: incorrect redirect canonical`);
+    continue;
+  }
+  for (const match of html.matchAll(/\bhref="([^"]+)"/g)) {
+    const url = new URL(decodeHtml(match[1]), pageUrl);
+    if (
+      url.origin === siteOrigin &&
+      /^\/posts\/(en|es|ja|pt)\/[^/]+\/?$/.test(url.pathname)
+    ) {
+      articleLinks.push({ source: pageUrl, url });
+    }
+  }
+  const canonical = capture(html, /<link rel="canonical" href="([^"]+)"/);
   const lang = capture(html, /<html[^>]* lang="([^"]+)"/);
   const description = capture(
     html,
@@ -119,7 +147,9 @@ for (const filePath of walk(distRoot).filter(file => file.endsWith(".html"))) {
       fail(`${pageUrl}: BlogPosting author does not reference shared Person`);
     }
     if (article.publisher?.["@id"] !== personId) {
-      fail(`${pageUrl}: BlogPosting publisher does not reference shared Person`);
+      fail(
+        `${pageUrl}: BlogPosting publisher does not reference shared Person`
+      );
     }
     if (!html.includes('rel="author"')) {
       fail(`${pageUrl}: structured author has no visible byline`);
@@ -187,12 +217,61 @@ const sitemap = readFileSync(join(distRoot, "sitemap-0.xml"), "utf8");
 if (!sitemap.includes(`<loc>${siteOrigin}/posts/</loc>`)) {
   fail("sitemap: missing canonical English collection /posts/");
 }
-if (/<loc>https:\/\/danielart\.github\.io\/posts\/en(?:\/\d+)?\/<\/loc>/.test(sitemap)) {
+if (
+  /<loc>https:\/\/danielart\.github\.io\/posts\/en(?:\/\d+)?\/<\/loc>/.test(
+    sitemap
+  )
+) {
   fail("sitemap: contains a duplicate English collection URL");
 }
 
+for (const { source, url } of articleLinks) {
+  const pathname = decodeURIComponent(url.pathname);
+  if (
+    Object.hasOwn(
+      postRedirects,
+      pathname.endsWith("/") ? pathname : `${pathname}/`
+    )
+  ) {
+    fail(`${source}: link points to a historic URL: ${pathname}`);
+  }
+  if (
+    !pathname.endsWith("/") &&
+    pages.get(`${url.origin}${url.pathname}/`)?.article
+  ) {
+    fail(`${source}: article link is missing its trailing slash: ${pathname}`);
+  }
+}
+
+// Every historic URL must survive, and only canonical destinations belong in the sitemap.
+const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
+  match => match[1]
+);
+for (const [source, target] of Object.entries(postRedirects)) {
+  const sourceFile = join(distRoot, source, "index.html");
+  if (!existsSync(sourceFile))
+    fail(`${source}: missing historic redirect page`);
+  const targetUrl = new URL(target, siteOrigin).href;
+  if (!pages.has(targetUrl))
+    fail(`${source}: redirect target does not exist: ${target}`);
+  if (
+    sitemapUrls.some(
+      url => decodeURIComponent(new URL(url).pathname) === source
+    )
+  ) {
+    fail(`${source}: redirect must not appear in sitemap`);
+  }
+}
+for (const [url, page] of pages) {
+  if (page.article && !sitemapUrls.some(entry => new URL(entry).href === url)) {
+    fail(`${url}: article missing from sitemap`);
+  }
+}
+
 if (failures.length) {
-  process.stderr.write(`SEO production validation failed:\n- ${failures.join("\n- ")}\n`);
+  process.stderr.write(
+    `SEO production validation failed:\n- ${failures.join("\n- ")}\n`
+  );
   process.exit(1);
 }
 

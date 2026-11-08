@@ -138,6 +138,6 @@ The pattern is always the same: **clean data → custom gem → noise-free infor
 
 ## Recommended Reading
 
-- 📈 [AI Agents for YouTube Automation](/posts/en/youtube-ai-agent): Another real-world case study leveraging custom Gemini Gems.
-- 🚀 [AI Coding Agents](/posts/en/ai-workflow): How to orchestrate Gemini as a strategic sparring partner.
-- 🎬 [AI Music Video Production](/posts/en/ai-music-video-en): Practical application of AI to solve creative bottlenecks.
+- 📈 [AI Agents for YouTube Automation](/posts/en/youtube-ai-agent/): Another real-world case study leveraging custom Gemini Gems.
+- 🚀 [AI Coding Agents](/posts/en/ai-workflow/): How to orchestrate Gemini as a strategic sparring partner.
+- 🎬 [AI Music Video Production](/posts/en/ai-music-video/): Practical application of AI to solve creative bottlenecks.

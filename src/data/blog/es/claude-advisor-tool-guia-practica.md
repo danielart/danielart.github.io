@@ -2,7 +2,6 @@
 title: "Claude Code Advisor Tool: Paga precio de Haiku por el cerebro de Opus"
 author: Daniel Artola
 pubDatetime: 2026-04-25T16:46:20Z
-slug: claude-advisor-tool-guia-practica
 featured: true
 draft: false
 tags:
@@ -256,6 +255,6 @@ En un mercado donde el razonamiento se está volviendo un lujo caro, **la orques
 
 ## Lecturas recomendadas
 
-- 🏗️ [Arquitectura de Claude Code: Guía técnica de conceptos](/posts/es/claude-code-conceptos-guia): Entiende la relación entre Prompts, Subagents y Agent Teams.
-- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes-es): Combina la inteligencia del Advisor con los niveles de autonomía adecuados.
-- ⚡ [Allowlist en Claude Code: /fewer-permission-prompts](/posts/es/claude-code-allowlist-es): Optimiza el flujo de comandos de tu ejecutor.
+- 🏗️ [Arquitectura de Claude Code: Guía técnica de conceptos](/posts/es/claude-code-conceptos-guia/): Entiende la relación entre Prompts, Subagents y Agent Teams.
+- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-modos-permisos/): Combina la inteligencia del Advisor con los niveles de autonomía adecuados.
+- ⚡ [Allowlist en Claude Code: /fewer-permission-prompts](/posts/es/claude-code-lista-permisos-comandos/): Optimiza el flujo de comandos de tu ejecutor.

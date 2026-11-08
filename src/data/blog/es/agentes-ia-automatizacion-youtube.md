@@ -41,13 +41,13 @@ He pasado de operario agobiado a director de orquesta, sin pasar por cursillos d
 
 👇 Si tienes una banda o gestionas una comunidad y quieres las instrucciones de la Gema, dímelo en comentarios del [post original](https://www.linkedin.com/posts/activity-7420224000468930560-dZvF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAyGEyEBSxx7QKU1cYLp8wTYjaf-v0rmmww) y te las paso.
 
-Y si te aburres te dejo los temas de mi banda, **Los Chicos del Sótano** (mira cómo [producimos su último videoclip con IA](/posts/es/ai-music-video-es)):
+Y si te aburres te dejo los temas de mi banda, **Los Chicos del Sótano** (mira cómo [producimos su último videoclip con IA](/posts/es/videoclip-con-ia/)):
 
 - [Spotify](https://lnkd.in/edzmQZjw)
 - [YouTube](https://lnkd.in/eSHWz3re)
 
 ## Lecturas recomendadas
 
-- 🎬 [Producción de Vídeo con IA](/posts/es/ai-music-video-es): Cómo completamos el videoclip de "Todas aquellas luces" de Los Chicos del Sótano.
-- ⚡ [Sistema de Changelogs con IA](/posts/es/ai-changelog-gem): Automatización con Gemas personalizadas y Google Sheets.
-- 🚀 [Agentes de IA para Desarrollo](/posts/es/ai-workflow): Cómo orquestar Gemini como sparring estratégico.
+- 🎬 [Producción de Vídeo con IA](/posts/es/videoclip-con-ia/): Cómo completamos el videoclip de "Todas aquellas luces" de Los Chicos del Sótano.
+- ⚡ [Sistema de Changelogs con IA](/posts/es/resumenes-automaticos-novedades-ia/): Automatización con Gemas personalizadas y Google Sheets.
+- 🚀 [Agentes de IA para Desarrollo](/posts/es/agentes-ia-desarrollo-meses-a-dias/): Cómo orquestar Gemini como sparring estratégico.

@@ -66,7 +66,7 @@ if (typeof initOgImage === "string") {
 
 // Use dynamic OG image if enabled and no remote|local ogImage
 if (!ogImageUrl && SITE.dynamicOgImage) {
-  ogImageUrl = `${getPath(post.id, post.filePath)}/index.png`;
+  ogImageUrl = `${getPath(post.id, post.filePath)}index.png`;
 }
 
 // Resolve OG image URL (or fallback to SITE.ogImage / default `og.png`)
@@ -78,8 +78,7 @@ const alternateLanguages = getAlternateLanguageLinks(
   post,
   posts,
   candidate =>
-    new URL(`${getPath(candidate.id, candidate.filePath)}/`, Astro.url.origin)
-      .href
+    new URL(getPath(candidate.id, candidate.filePath), Astro.url.origin).href
 );
 
 const bylineLabels: Record<string, string> = {

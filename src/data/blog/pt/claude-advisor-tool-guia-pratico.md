@@ -2,7 +2,6 @@
 title: "Claude Code Advisor Tool: Como pagar preço de Haiku pelo cérebro do Opus"
 author: Daniel Artola
 pubDatetime: 2026-04-25T16:46:20Z
-slug: claude-advisor-tool-practical-guide-pt
 featured: true
 draft: false
 tags:

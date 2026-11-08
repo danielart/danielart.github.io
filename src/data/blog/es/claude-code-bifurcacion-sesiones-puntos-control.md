@@ -90,6 +90,6 @@ Estamos pasando del "prompting" a la **Ingeniería de Contexto**. Para un Tech L
 
 ## Lecturas recomendadas
 
-- 🏗️ [Arquitectura de Claude Code: Guía técnica de conceptos](/posts/es/claude-code-conceptos-guia): Profundiza en Prompts, Skills, Subagents y sesiones de agente.
-- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-permission-modes-es): Descubre cuándo otorgar más autonomía a Claude durante un fork.
-- ⚡ [Allowlist en Claude Code: /fewer-permission-prompts](/posts/es/claude-code-allowlist-es): Mantén la fluidez de comandos en tus ramas de sesión.
+- 🏗️ [Arquitectura de Claude Code: Guía técnica de conceptos](/posts/es/claude-code-conceptos-guia/): Profundiza en Prompts, Skills, Subagents y sesiones de agente.
+- 🛡️ [Modos de Permiso en Claude Code](/posts/es/claude-code-modos-permisos/): Descubre cuándo otorgar más autonomía a Claude durante un fork.
+- ⚡ [Allowlist en Claude Code: /fewer-permission-prompts](/posts/es/claude-code-lista-permisos-comandos/): Mantén la fluidez de comandos en tus ramas de sesión.

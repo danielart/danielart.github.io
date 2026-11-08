@@ -2,7 +2,6 @@
 title: "Modos de Permiso en Claude Code: Evita borrados accidentales con autonomía segura"
 author: Daniel Artola
 pubDatetime: 2026-05-19T15:35:00Z
-slug: claude-code-permission-modes-es
 featured: false
 draft: false
 tags:
@@ -75,7 +74,7 @@ En `default`, Claude leerá los archivos relevantes, te propondrá los cambios, 
 
 El riesgo aquí no es de seguridad: es de **fatiga de aprobación**. En una tarea con 40 ediciones repartidas en 12 archivos, vas a estar pulsando `Enter` cuarenta veces. Esto tiene tres efectos secundarios no triviales:
 
-1. **Aprobación automática inconsciente**. Tras la décima edición casi idéntica, tu cerebro entra en piloto automático y empiezas a aprobar sin leer. Es exactamente el momento en que Claude introduce un cambio que sí necesitabas revisar. _(Nota: Si quieres eliminar esta fatiga sin otorgar permisos ciegos, consulta la guía sobre [Allowlist y /fewer-permission-prompts](/posts/es/claude-code-allowlist-es))._
+1. **Aprobación automática inconsciente**. Tras la décima edición casi idéntica, tu cerebro entra en piloto automático y empiezas a aprobar sin leer. Es exactamente el momento en que Claude introduce un cambio que sí necesitabas revisar. _(Nota: Si quieres eliminar esta fatiga sin otorgar permisos ciegos, consulta la guía sobre [Allowlist y /fewer-permission-prompts](/posts/es/claude-code-lista-permisos-comandos/))._
 2. **Pérdida de contexto del agente**. Cada prompt de permiso interrumpe el flujo de Claude. En tareas largas, esto se traduce en más tokens consumidos y, a veces, en que Claude olvida el plan original a mitad de camino.
 3. **Frustración real**. Si llevas tres horas aprobando ediciones, tu juicio sobre cuándo intervenir empeora.
 

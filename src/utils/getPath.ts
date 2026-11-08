@@ -27,10 +27,10 @@ export function getPath(
   const blogId = id.split("/");
   const slug = blogId.length > 0 ? blogId.slice(-1) : blogId;
 
-  // If not inside the sub-dir, simply return the file path
-  if (!pathSegments || pathSegments.length < 1) {
-    return [basePath, slug].join("/");
-  }
+  const segments = [...(pathSegments ?? []), ...slug];
 
-  return [basePath, ...pathSegments, slug].join("/");
+  // Page links are canonical directory URLs; route params are bare segments.
+  return includeBase
+    ? `${basePath}/${segments.join("/")}/`
+    : segments.join("/");
 }

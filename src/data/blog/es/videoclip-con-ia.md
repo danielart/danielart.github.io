@@ -18,7 +18,6 @@ audience:
   - developer
 description: Aprendizajes sobre coherencia visual, referencias reales, edición y cómo sortear los fallos de la IA para terminar un videoclip sin bloqueos.
 ogImage: ../../../assets/images/blog/ai-music-video-character-sheet.png
-slug: ai-music-video-es
 ---
 
 Esto aprendí sobre coherencia visual, referencias reales, edición y cómo sortear los fallos sin que sean un muro para dejar el proyecto a medias.
@@ -341,6 +340,6 @@ Al final del artículo puedes ver el resultado en el videoclip de “Todas aquel
 
 ## Lecturas recomendadas
 
-- 📈 [Agentes de IA para Automatización de YouTube](/posts/es/youtube-ai-agent): Descubre cómo automatizamos la estrategia de contenidos de Los Chicos del Sótano multiplicando las visitas x10.
-- ⚡ [Sistema de Changelogs con IA](/posts/es/ai-changelog-gem): Creación de Gemas personalizadas en Gemini para estructurar workflows.
-- 🚀 [Agentes de IA para Desarrollo](/posts/es/ai-workflow): Mi ecosistema agéntico para acelerar proyectos creativos y técnicos.
+- 📈 [Agentes de IA para Automatización de YouTube](/posts/es/agentes-ia-automatizacion-youtube/): Descubre cómo automatizamos la estrategia de contenidos de Los Chicos del Sótano multiplicando las visitas x10.
+- ⚡ [Sistema de Changelogs con IA](/posts/es/resumenes-automaticos-novedades-ia/): Creación de Gemas personalizadas en Gemini para estructurar workflows.
+- 🚀 [Agentes de IA para Desarrollo](/posts/es/agentes-ia-desarrollo-meses-a-dias/): Mi ecosistema agéntico para acelerar proyectos creativos y técnicos.

@@ -18,7 +18,6 @@ audience:
   - developer
 description: Aprendizados sobre coerência visual, referências reais, edição e como superar as falhas da IA para finalizar um videoclipe sem bloqueios.
 ogImage: ../../../assets/images/blog/ai-music-video-character-sheet.png
-slug: ai-music-video-pt
 ---
 
 Isto foi o que aprendi sobre coerência visual, referências reais, edição e como contornar as falhas da IA para não deixar o projeto pela metade.

@@ -30,7 +30,7 @@ async function getHreflangLinks(page: Page) {
 test("BlogPosting uses the shared Person, clean headline, and visible language", async ({
   page,
 }) => {
-  await page.goto("/posts/es/claude-code-permission-modes-es/");
+  await page.goto("/posts/es/claude-code-modos-permisos/");
 
   const graph = await getJsonLdGraph(page);
   const article = graph.find(item => item["@type"] === "BlogPosting");

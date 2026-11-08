@@ -23,7 +23,7 @@ ogImage: ../../../assets/images/blog/jules-mcp.png
 
 The AI agent that works for me at night (Jules) now supports MCP, incredible.
 
-Jules is an autonomous AI agent that helps you with code tasks in your projects. I talked about him in my post on [**AI Coding Agents**](/posts/en/ai-workflow), where I share how I use him to leave simple tasks during the night and review them in the morning.
+Jules is an autonomous AI agent that helps you with code tasks in your projects. I talked about him in my post on [**AI Coding Agents**](/posts/en/ai-workflow/), where I share how I use him to leave simple tasks during the night and review them in the morning.
 
 But this just got interesting. For a few days now, it integrates the use of MCP, connecting with some that I use almost daily in Antigravity such as Supabase, Context7 from Upstash, or Stitch.
 
@@ -41,7 +41,7 @@ Now it is capable of assuming more complex tasks. More MCPs will surely be imple
 
 Here are those links:
 
-- [AI Coding Agents: My Full Workflow](/posts/en/ai-workflow)
+- [AI Coding Agents: My Full Workflow](/posts/en/ai-workflow/)
 - [Jules MCP](https://lnkd.in/ewiU9YGw)
 - [Jules Quotas](https://lnkd.in/eAPatCfk)
 - [Supabase MCP](https://lnkd.in/eFhHC6XW)
@@ -49,6 +49,6 @@ Here are those links:
 
 ## Recommended Reading
 
-- 🚀 [AI Coding Agents](/posts/en/ai-workflow): My daily orchestration ecosystem with Gemini, Stitch, Antigravity, and Jules.
-- 🛠️ [Key MCP Flows for Engineering Leads](/posts/en/key-mcps-lead-productivity): How I use Datadog, Amplitude, and Excalidraw to save time.
-- ⚙️ [5 Atlassian MCP Hacks to Supercharge Your Workflow](/posts/en/5-atlassian-mcp-hacks-to-supercharge-your-workflow): Automate Confluence and Jira documentation.
+- 🚀 [AI Coding Agents](/posts/en/ai-workflow/): My daily orchestration ecosystem with Gemini, Stitch, Antigravity, and Jules.
+- 🛠️ [Key MCP Flows for Engineering Leads](/posts/en/key-mcps-lead-productivity/): How I use Datadog, Amplitude, and Excalidraw to save time.
+- ⚙️ [5 Atlassian MCP Hacks to Supercharge Your Workflow](/posts/en/5-atlassian-mcp-hacks-to-supercharge-your-workflow/): Automate Confluence and Jira documentation.

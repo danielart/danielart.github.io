@@ -11,15 +11,19 @@ import {
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import { SITE } from "./src/config";
+import postRedirects from "./src/post-redirects.json";
 
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
   base: "/",
+  trailingSlash: "always",
+  redirects: postRedirects,
   integrations: [
     sitemap({
       filter: page => {
-        const pathname = new URL(page).pathname;
+        const pathname = decodeURIComponent(new URL(page).pathname);
+        if (Object.hasOwn(postRedirects, pathname)) return false;
         const isDuplicateEnglishCollection = /^\/posts\/en(?:\/\d+)?\/?$/.test(
           pathname
         );

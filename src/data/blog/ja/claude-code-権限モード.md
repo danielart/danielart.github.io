@@ -2,7 +2,6 @@
 title: "Claude Codeの権限モード: 安全な自動化で誤操作を防止する方法"
 author: Daniel Artola
 pubDatetime: 2026-05-19T15:35:00Z
-slug: claude-code-permission-modes-ja
 featured: false
 draft: false
 tags:

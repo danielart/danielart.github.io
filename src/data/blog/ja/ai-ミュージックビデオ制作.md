@@ -18,7 +18,6 @@ audience:
   - developer
 description: 視覚的な一貫性、現実の参考画像、動画編集、そしてAIの失敗を乗り越えてプロジェクトを完成させるための学び。
 ogImage: ../../../assets/images/blog/ai-music-video-character-sheet.png
-slug: ai-music-video-ja
 ---
 
 視覚的な一貫性、現実の参照画像、動画編集、そしてAIの生成エラーを乗り越えてプロジェクトを形にするためのノウハウをまとめました。

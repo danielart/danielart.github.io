@@ -2,7 +2,6 @@
 title: "Claude Code Advisor Tool: How I Pay Haiku Prices for Opus-Level Decisions"
 author: Daniel Artola
 pubDatetime: 2026-04-25T16:46:20Z
-slug: claude-advisor-tool-practical-guide
 featured: true
 draft: false
 tags:
@@ -256,6 +255,6 @@ In a market where reasoning is becoming an expensive luxury, **orchestration is 
 
 ## Recommended Reading
 
-- 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide): Understand the relationship between Prompts, Subagents, and Agent Teams.
-- 🛡️ [Claude Code Permission Modes](/posts/en/claude-code-permission-modes-en): Combine Advisor intelligence with appropriate autonomy levels.
-- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist-en): Optimize command flow for your executor.
+- 🏗️ [Claude Code Architecture & Technical Concepts](/posts/en/claude-code-concepts-guide/): Understand the relationship between Prompts, Subagents, and Agent Teams.
+- 🛡️ [Claude Code Permission Modes](/posts/en/claude-code-permission-modes/): Combine Advisor intelligence with appropriate autonomy levels.
+- ⚡ [Allowlist in Claude Code: /fewer-permission-prompts](/posts/en/claude-code-allowlist/): Optimize command flow for your executor.
