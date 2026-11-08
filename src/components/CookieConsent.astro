@@ -42,7 +42,10 @@ const t = translations[lang] || translations.en;
 
 <div
   id="cookie-consent-banner"
-  class="pointer-events-none fixed right-4 bottom-4 left-4 z-50 mx-auto max-w-md translate-y-12 rounded-xl border border-border/40 bg-background/70 p-5 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-500 ease-out sm:right-6 sm:bottom-6 sm:left-auto sm:max-w-sm"
+  hidden
+  role="region"
+  aria-labelledby="cookie-consent-title"
+  class="fixed right-4 bottom-4 left-4 z-50 mx-auto max-w-md rounded-xl border border-border/40 bg-background/95 p-5 shadow-2xl backdrop-blur-xl transition-all duration-500 ease-out sm:right-6 sm:bottom-6 sm:left-auto sm:max-w-sm"
 >
   <div class="flex flex-col gap-4">
     <div class="flex items-start gap-3">
@@ -50,6 +53,7 @@ const t = translations[lang] || translations.en;
         class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-accent"
       >
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           width="20"
           height="20"
@@ -69,9 +73,20 @@ const t = translations[lang] || translations.en;
         </svg>
       </div>
       <div class="space-y-1.5">
-        <h3 class="text-sm leading-none font-semibold text-accent">
-          Cookie Consent
-        </h3>
+        <h2
+          id="cookie-consent-title"
+          class="text-sm leading-none font-semibold text-foreground"
+        >
+          {
+            lang === "es"
+              ? "Preferencias de cookies"
+              : lang === "pt"
+                ? "Preferências de cookies"
+                : lang === "ja"
+                  ? "クッキー設定"
+                  : "Cookie preferences"
+          }
+        </h2>
         <p class="text-xs leading-relaxed text-foreground/80">
           {t.message}
         </p>
@@ -83,7 +98,7 @@ const t = translations[lang] || translations.en;
     >
       <a
         href="/privacy"
-        class="text-xxs text-foreground/50 underline decoration-dashed transition-colors hover:text-accent"
+        class="text-xs text-foreground/80 underline decoration-dashed transition-colors hover:text-accent"
       >
         {t.privacy}
       </a>
@@ -96,7 +111,7 @@ const t = translations[lang] || translations.en;
         </button>
         <button
           id="cookie-accept-btn"
-          class="rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-background shadow-sm transition-colors hover:bg-accent/90 active:bg-accent/80"
+          class="rounded-lg bg-foreground px-3 py-1.5 text-xs font-semibold text-background shadow-sm transition-colors hover:bg-foreground/90 active:bg-foreground/80"
         >
           {t.accept}
         </button>
@@ -104,60 +119,3 @@ const t = translations[lang] || translations.en;
     </div>
   </div>
 </div>
-
-<style>
-  .text-xxs {
-    font-size: 0.65rem;
-  }
-  #cookie-consent-banner.show {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-</style>
-
-<script is:inline data-astro-rerun>
-  function initCookieConsent() {
-    const banner = document.getElementById("cookie-consent-banner");
-    const acceptBtn = document.getElementById("cookie-accept-btn");
-    const declineBtn = document.getElementById("cookie-decline-btn");
-
-    if (!banner || !acceptBtn || !declineBtn) return;
-
-    // Check if user has already made a choice
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) {
-      // Delay showing the banner slightly for smoother entrance effect
-      setTimeout(() => {
-        banner.classList.add("show");
-      }, 1000);
-    }
-
-    // Accept action
-    acceptBtn.addEventListener("click", () => {
-      localStorage.setItem("cookie-consent", "accepted");
-      banner.classList.remove("show");
-
-      // Dispatch custom event to notify GTM Loader
-      const event = new CustomEvent("cookie-consent-updated", {
-        detail: { consent: "accepted" },
-      });
-      window.dispatchEvent(event);
-    });
-
-    // Decline action
-    declineBtn.addEventListener("click", () => {
-      localStorage.setItem("cookie-consent", "declined");
-      banner.classList.remove("show");
-
-      const event = new CustomEvent("cookie-consent-updated", {
-        detail: { consent: "declined" },
-      });
-      window.dispatchEvent(event);
-    });
-  }
-
-  // Setup on page swap (for View Transitions) and initial load
-  document.addEventListener("astro:page-load", initCookieConsent);
-  initCookieConsent();
-</script>

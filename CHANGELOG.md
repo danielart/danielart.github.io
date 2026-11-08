@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Unreleased — 2026-11-08
+
+### Added
+
+- Recent articles and recovery links on the 404 page.
+- Accessible newsletter validation and permanent privacy and cookie controls.
+
+### Fixed
+
+- Block Tag Manager until consent, including when JavaScript is disabled, and stop analytics on withdrawal.
+- Complete Open Graph type metadata and use the confirmed GA4 ID in the container template.
+
+### Security
+
+- Update Astro, image processing, and compatible dependencies before deployment. See [Astro advisory](https://github.com/advisories/GHSA-26w7-cxv4-gfx2) and [Sharp advisory](https://github.com/advisories/GHSA-wq5f-xc86-pv6w).
+
 ## v5.5.1 (2026-01-08)
 
 ### Fix

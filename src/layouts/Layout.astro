@@ -9,6 +9,7 @@ import "@/styles/global.css";
 
 type Props = {
   title?: string;
+  noindex?: boolean;
   headline?: string;
   author?: string;
   description?: string;
@@ -120,6 +121,8 @@ const structuredData =
       rel="stylesheet"
     />
 
+    {Astro.props.noindex && <meta name="robots" content="noindex, follow" />}
+
     <!-- General Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -141,6 +144,10 @@ const structuredData =
             />
           ))
     }
+    <meta
+      property="og:type"
+      content={inferredPageType === "article" ? "article" : "website"}
+    />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
@@ -237,78 +244,9 @@ const structuredData =
       })();
     </script>
 
-    {/* Privacy-Compliant Google Tag Manager Loader */}
-    {
-      import.meta.env.PROD && (
-        <script
-          is:inline
-          set:html={`
-            window.dataLayer = window.dataLayer || [];
-            window.loadGTM = function() {
-              if (window.gtmLoaded) return;
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});const f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-T2HZPQD3');
-              window.gtmLoaded = true;
-            };
-
-            // Check if consent is already accepted
-            if (localStorage.getItem("cookie-consent") === "accepted") {
-              window.loadGTM();
-            }
-
-            // Listen for changes
-            window.addEventListener("cookie-consent-updated", function(e) {
-              if (e.detail && e.detail.consent === "accepted") {
-                window.loadGTM();
-              }
-            });
-
-            // Listen for Astro View Transition events to track pageviews client-side
-            document.addEventListener("astro:after-swap", function() {
-              if (window.gtmLoaded && window.dataLayer) {
-                window.dataLayer.push({
-                  event: "virtual_page_view",
-                  page_path: window.location.pathname,
-                  page_title: document.title
-                });
-              }
-            });
-          `}
-        />
-      )
-    }
+    <script src="../scripts/consent.ts"></script>
   </head>
   <body>
-    {
-      /* Google Tag Manager (noscript) - Only load in production to protect user privacy in dev if consent accepted */
-    }
-    {
-      import.meta.env.PROD && (
-        <>
-          <noscript id="gtm-noscript">
-            <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-T2HZPQD3"
-              height="0"
-              width="0"
-              style="display:none;visibility:hidden"
-            />
-          </noscript>
-          <script
-            is:inline
-            set:html={`
-              // Hide noscript iframe if consent not accepted
-              if (localStorage.getItem("cookie-consent") !== "accepted") {
-                const noscript = document.getElementById("gtm-noscript");
-                if (noscript) noscript.remove();
-              }
-            `}
-          />
-        </>
-      )
-    }
     <CookieConsent lang={lang as "en" | "es" | "ja" | "pt"} />
     <slot />
 

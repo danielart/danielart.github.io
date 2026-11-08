@@ -448,20 +448,27 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
 
           <!-- Substack newsletter box (wmedia style) -->
           <form
+            id="newsletter-form"
             action="https://danielartola.substack.com/subscribe"
             method="GET"
             target="_blank"
             class="mt-6"
           >
+            <label for="newsletter-email" class="mb-2 block text-sm"
+              >Email address</label
+            >
             <div
               class="flex items-center border-b border-foreground/60 pb-3 transition-colors hover:border-accent"
             >
               <input
+                id="newsletter-email"
+                autocomplete="email"
+                aria-describedby="newsletter-help newsletter-error"
                 type="email"
                 name="email"
                 required
                 placeholder="Enter your email for Substack"
-                class="flex-1 border-0 bg-transparent p-0 text-base text-foreground placeholder-foreground/40 outline-none"
+                class="flex-1 border-0 bg-transparent p-0 text-base text-foreground placeholder-foreground/60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
               />
               <button
                 type="submit"
@@ -470,7 +477,13 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
                 Subscribe →
               </button>
             </div>
+            <p id="newsletter-help" class="mt-2 text-sm text-foreground/80">
+              Continue to Substack in a new tab to confirm your subscription.
+            </p>
+            <p id="newsletter-error" role="alert" class="mt-2 text-sm" hidden>
+            </p>
           </form>
+          <script src="../scripts/newsletter.ts"></script>
 
           <div class="mt-8 flex items-center gap-3">
             <div class="h-2.5 w-2.5 animate-pulse rounded-full bg-red-500">
