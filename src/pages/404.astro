@@ -28,10 +28,42 @@ const posts = getSortedPosts(await getCollection("blog"))
       >
         Page not found
       </h1>
-      <p class="mt-6 max-w-prose text-lg text-foreground/80">
-        This link may be out of date. Find your next read below, or explore the
-        blog.
-      </p>
+      <div class="mt-6 max-w-prose text-lg text-foreground/80">
+        <p data-404-message lang="en">
+          That page doesn’t exist. Either your cat has been walking across the
+          keyboard, or you’re looking for something that’s no longer here… But
+          you might find what you’re looking for in these posts!
+        </p>
+        <p data-404-message lang="es" hidden>
+          Esa página no existe. O tu gato ha estado paseándose por el teclado, o
+          buscas algo que ya no está aquí… ¡Pero quizá encuentres lo que buscas
+          en estos posts!
+        </p>
+        <p data-404-message lang="pt" hidden>
+          Essa página não existe. Ou seu gato andou passeando pelo teclado, ou
+          você está procurando algo que já não está aqui… Mas talvez encontre o
+          que procura nestes posts!
+        </p>
+        <p data-404-message lang="ja" hidden>
+          このページは見つかりませんでした。猫がキーボードの上を歩いたのか、それとも、もうここにはないページをお探しなのかも…。でも、こちらの記事でお目当てのものが見つかるかもしれません！
+        </p>
+      </div>
+      <div
+        id="error-language-control"
+        class="mt-4 flex flex-wrap items-center gap-3 text-sm"
+        hidden
+      >
+        <label for="error-language">Language / Idioma</label>
+        <select
+          id="error-language"
+          class="rounded border border-border bg-background px-3 py-2 text-foreground"
+        >
+          <option value="en" lang="en">English</option>
+          <option value="es" lang="es">Español</option>
+          <option value="pt" lang="pt">Português</option>
+          <option value="ja" lang="ja">日本語</option>
+        </select>
+      </div>
       <nav
         aria-label="Find your way"
         class="mt-8 flex flex-wrap gap-6 underline underline-offset-4"
@@ -57,3 +89,48 @@ const posts = getSortedPosts(await getCollection("blog"))
     outline-offset: 4px;
   }
 </style>
+
+<script>
+  function init404Language() {
+    const selector =
+      document.querySelector<HTMLSelectElement>("#error-language");
+    const control = document.getElementById("error-language-control");
+    if (!selector || !control) return;
+    const messages =
+      document.querySelectorAll<HTMLElement>("[data-404-message]");
+    const supported = Array.from(messages, message => message.lang);
+    const urlLanguage = location.pathname.match(
+      /^\/posts\/(en|es|pt|ja)(?:\/|$)/
+    )?.[1];
+    let savedLanguage: string | null = null;
+    try {
+      savedLanguage = localStorage.getItem("preferred-lang");
+    } catch {
+      // The URL and browser language still work when storage is unavailable.
+    }
+    const language =
+      [
+        urlLanguage,
+        savedLanguage,
+        ...navigator.languages.map(lang => lang.split("-")[0]),
+      ].find(lang => lang && supported.includes(lang)) ?? "en";
+    function showLanguage(lang: string) {
+      messages.forEach(message => {
+        message.hidden = message.lang !== lang;
+      });
+    }
+    selector.value = language;
+    showLanguage(language);
+    control.hidden = false;
+    selector.onchange = () => {
+      showLanguage(selector.value);
+      try {
+        localStorage.setItem("preferred-lang", selector.value);
+      } catch {
+        // Changing the displayed translation does not require storage.
+      }
+    };
+  }
+  document.addEventListener("astro:page-load", init404Language);
+  init404Language();
+</script>

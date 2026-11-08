@@ -311,6 +311,12 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
             }
           });
 
+          document
+            .querySelectorAll("[data-contact-message]")
+            .forEach(message => {
+              message.hidden = message.lang !== lang;
+            });
+
           posts.forEach(post => {
             if (post.getAttribute("data-language") === lang) {
               post.style.display = "block";
@@ -441,10 +447,23 @@ const recentPosts = [...enPosts, ...esPosts, ...jaPosts, ...ptPosts].sort(
             <span class="inline-block h-px w-6 bg-current"></span>
             Let's connect
           </span>
-          <p class="mt-4 mb-6 leading-relaxed text-foreground/80">
-            Interested in Brisa, AI agents, or modern web architecture? Let's
-            discuss your next project.
-          </p>
+          <div class="mt-4 mb-6 leading-relaxed text-foreground/80">
+            <p data-contact-message lang="en">
+              Want to talk through a project, get another perspective, or write
+              a post together? Let’s have a chat!
+            </p>
+            <p data-contact-message lang="es" hidden>
+              ¿Quieres comentar un proyecto, conocer otro punto de vista o
+              escribir un post juntos? ¡Charlemos un rato!
+            </p>
+            <p data-contact-message lang="pt" hidden>
+              Quer conversar sobre um projeto, conhecer outro ponto de vista ou
+              escrever um post juntos? Vamos bater um papo!
+            </p>
+            <p data-contact-message lang="ja" hidden>
+              プロジェクトについて相談したい、別の視点を聞いてみたい、一緒に記事を書いてみたい。そんなときは、気軽にお話ししましょう！
+            </p>
+          </div>
 
           <!-- Substack newsletter box (wmedia style) -->
           <form
