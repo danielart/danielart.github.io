@@ -8,6 +8,10 @@ on:
     branches: [master]
   workflow_dispatch:
 
+concurrency:
+  group: pages-production
+  cancel-in-progress: false
+
 permissions:
   contents: read
   pages: write
@@ -23,6 +27,15 @@ jobs:
         uses: withastro/action@v3
         with:
           node-version: 24
+      - name: Validate discovery output
+        run: |
+          pnpm validate:seo
+          pnpm validate:links
+          node scripts/submit-indexnow.mjs manifest indexnow-current.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-manifest
+          path: indexnow-current.json
 
   deploy:
     needs: build
@@ -34,3 +47,24 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/download-artifact@v4
+        with:
+          name: indexnow-manifest
+      - uses: actions/cache/restore@v4
+        with:
+          path: indexnow-state
+          key: indexnow-production-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: indexnow-production-v1-
+      - name: Notify IndexNow after successful deployment
+        run: |
+          mkdir -p indexnow-state
+          node scripts/submit-indexnow.mjs submit indexnow-current.json indexnow-state/previous.json
+      - uses: actions/cache/save@v4
+        with:
+          path: indexnow-state
+          key: indexnow-production-v1-${{ github.run_id }}-${{ github.run_attempt }}

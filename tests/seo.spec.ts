@@ -17,14 +17,12 @@ async function getCanonical(page: Page): Promise<string | null> {
 }
 
 async function getHreflangLinks(page: Page) {
-  return page
-    .locator('link[rel="alternate"][hreflang]')
-    .evaluateAll(elements =>
-      elements.map(element => ({
-        lang: element.getAttribute("hreflang"),
-        url: (element as HTMLLinkElement).href,
-      }))
-    );
+  return page.locator('link[rel="alternate"][hreflang]').evaluateAll(elements =>
+    elements.map(element => ({
+      lang: element.getAttribute("hreflang"),
+      url: (element as HTMLLinkElement).href,
+    }))
+  );
 }
 
 test("BlogPosting uses the shared Person, clean headline, and visible language", async ({
@@ -76,9 +74,7 @@ test("paginated collection hreflang only references existing equivalents", async
 }) => {
   await page.goto("/posts/en/2/");
 
-  expect(await getCanonical(page)).toBe(
-    "https://danielart.github.io/posts/2/"
-  );
+  expect(await getCanonical(page)).toBe("https://danielart.github.io/posts/2/");
   expect(await getHreflangLinks(page)).toEqual([
     { lang: "x-default", url: "https://danielart.github.io/posts/2/" },
     { lang: "en", url: "https://danielart.github.io/posts/2/" },
@@ -119,4 +115,36 @@ test("localized collection metadata reaches the HTML head and JSON-LD", async ({
   expect(description).toContain("エージェント型エンジニアリング");
   expect(collection?.description).toBe(description);
   expect(await page.locator("html").getAttribute("lang")).toBe("ja");
+});
+
+test("internal search stays crawlable but is excluded from indexing and sitemap", async ({
+  page,
+  request,
+}) => {
+  await page.goto("/search/?q=claude");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+    "content",
+    "noindex, follow"
+  );
+  expect(await getCanonical(page)).toBe("https://danielart.github.io/search/");
+  const sitemap = await request.get("/sitemap-0.xml");
+  expect(await sitemap.text()).not.toContain(
+    "https://danielart.github.io/search/"
+  );
+});
+
+test("the affected article remains readable with JavaScript disabled", async ({
+  browser,
+}) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.goto(
+    "http://127.0.0.1:4321/posts/en/if-you-publish-it-you-own-it/"
+  );
+  await expect(page.locator("h1")).toHaveText("If You Publish It, You Own It");
+  await expect(page.locator("#article")).toContainText(
+    "Never Paste Raw Output"
+  );
+  await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+  await context.close();
 });

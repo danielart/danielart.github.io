@@ -2,6 +2,7 @@
 title: "If You Publish It, You Own It"
 description: "How to share AI-assisted analysis without destroying team trust."
 pubDatetime: 2026-08-06T17:00:00Z
+modDatetime: 2026-11-17T11:23:43Z
 author: Daniel Artola
 draft: false
 lang: en
@@ -40,11 +41,9 @@ Your name on the message means the claim is made by you, not the model. _"The AI
 
 **2. If you can't explain it in your own words, don't publish it yet.**
 
-This is the operational rule. It's a test you can apply to yourself in ten seconds before hitting send, and it filters out 90% of the problems. If you can't rephrase the conclusion without looking at the output, you haven't understood it: you've just transported it.
+This is the operational rule. It's a test you can apply to yourself in ten seconds before hitting send, and it catches a common failure: sharing a conclusion you cannot defend. If you can't rephrase the conclusion without looking at the output, you haven't understood it: you've just transported it.
 
 Everything that follows is a practical consequence of these two.
-
-As Addy Osmani says: _"Explain it or don't ship it"_.
 
 ## Quick AI Reporting Checklist & Downloads
 
@@ -104,9 +103,9 @@ Less obvious benefits: anyone in the channel can open it without accounts or lic
 
 Works great for dashboards, timelines, comparison tables you plan to iterate on, or a report someone will _navigate_ rather than read once. But you need to know the conditions before choosing this path:
 
-- Creating an artifact requires a paid Claude account.
-- Sharing it within the organization means whoever opens it logs in with their corporate account. Only colleagues with licenses can view it. It doesn't work for something the whole channel needs to read.
-- The alternative sharing option is a public link: anyone on the internet can open it without authenticating, and published pages can end up indexed by search engines. **Never** use this for incident data, internal architecture, customer data, or anything non-public.
+- Creating artifacts is available on the Free plan as well as paid plans; some capabilities depend on the plan. See [Anthropic's artifact documentation](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them).
+- Internal and external sharing depend on the artifact type, plan, and organization settings. Check the [sharing documentation](https://support.claude.com/en/articles/9547008-share-artifacts) and test access with an intended recipient before relying on the link.
+- Treat an externally accessible link as a disclosure. **Never** use it for incident data, internal architecture, customer data, or anything non-public without the appropriate authorization and access controls.
 - A link doesn't survive as a record the way a file in the channel does.
 
 **Option C — Slack Canvas or Confluence page.**

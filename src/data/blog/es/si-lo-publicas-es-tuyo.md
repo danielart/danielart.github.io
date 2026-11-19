@@ -2,6 +2,7 @@
 title: "Si lo publicas, es tuyo"
 description: "Cómo compartir análisis hechos con IA sin destrozar la confianza del equipo."
 pubDatetime: 2026-08-06T17:00:00Z
+modDatetime: 2026-11-17T11:23:43Z
 author: Daniel Artola
 draft: false
 lang: es
@@ -40,11 +41,9 @@ Tu nombre en el mensaje significa que la afirmación la haces tú, no el modelo.
 
 **2. Si no lo sabes explicar con tus palabras, todavía no lo publiques.**
 
-Esta es la regla operativa. Es un test que puedes aplicarte en diez segundos antes de darle a enviar, y filtra el 90% de los problemas. Si no puedes reformular la conclusión sin mirar el output, no la has entendido: la has transportado.
+Esta es la regla operativa. Es un test que puedes aplicarte en diez segundos antes de darle a enviar, y detecta un fallo frecuente: compartir una conclusión que no puedes defender. Si no puedes reformular la conclusión sin mirar el output, no la has entendido: la has transportado.
 
 Todo lo que viene después son consecuencias prácticas de estas dos.
-
-Como dice Addy Osmani: _"Explícalo o no lo entregues"_.
 
 ## Checklist rápido & descargas
 
@@ -104,9 +103,9 @@ Ventajas menos obvias: lo puede abrir cualquiera del canal, sin cuenta ni licenc
 
 Funciona muy bien para dashboards, timelines, tablas comparativas que vas a iterar, o un informe que alguien va a _navegar_ en lugar de leer una vez. Pero hay que conocer las condiciones antes de tirar por aquí:
 
-- Crear un artifact requiere cuenta de Claude en plan de pago.
-- Compartirlo dentro de la organización implica que quien lo abre inicia sesión con su cuenta corporativa. Solo pueden verlo colegas con licencia. No sirve para algo que todo el canal tiene que poder leer.
-- La alternativa de compartición es un enlace público: cualquiera en internet lo abre sin identificarse, y las páginas publicadas pueden acabar indexadas por buscadores. **Nunca** para datos de incidentes, arquitectura interna, información de clientes o cualquier cosa que no sea pública.
+- Crear artifacts está disponible en el plan gratuito y en los de pago; algunas funciones dependen del plan. Consulta la [documentación de Anthropic sobre artifacts](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them).
+- Compartir dentro o fuera de la organización depende del tipo de artifact, del plan y de la configuración de la organización. Revisa la [documentación sobre acceso](https://support.claude.com/en/articles/9547008-share-artifacts) y prueba el enlace con un destinatario antes de confiar en él.
+- Trata un enlace accesible desde fuera como una divulgación. **Nunca** lo uses para datos de incidentes, arquitectura interna, información de clientes o contenido no público sin la autorización y los controles de acceso adecuados.
 - Un enlace no sobrevive como registro igual que un fichero en el canal.
 
 **Opción C — canvas de Slack o página de Confluence.**

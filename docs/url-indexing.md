@@ -96,3 +96,24 @@ The SEO validator checks redirect artifacts, canonical destinations, sitemap mem
 - [Astro: static redirects](https://docs.astro.build/en/guides/routing/#redirects)
 - [Bing: sitemaps](https://www.bing.com/webmasters/help/sitemaps-3b5cf6ed)
 - [LY Corporation: Yahoo! JAPAN search technology](https://privacy.lycorp.co.jp/en/utilization/)
+
+## Sitemap freshness and internal search
+
+The Astro sitemap integration discovers the built routes. Its serializer reads each generated page's BlogPosting JSON-LD and uses `dateModified`, falling back to `datePublished`, for `lastmod`. Collection pages omit dates without an editorial source. Update `modDatetime` only after meaningful content changes, never for each build. Newly published articles are included automatically; drafts and scheduled posts that have no generated route are absent.
+
+`/search/` has `noindex, follow` and is excluded from the sitemap. It remains crawlable so engines can read that directive. Published articles and their translations remain indexable and self-canonical. `pnpm validate:seo` now checks this contract, including sitemap dates matching article metadata. CI and deployment validate SEO output before publication.
+
+## IndexNow lifecycle
+
+`scripts/submit-indexnow.mjs manifest OUTPUT` derives URL hashes from built canonical HTML and historic redirect pages. Noindex and duplicate collection pages are excluded. The deploy workflow uploads that manifest, deploys Pages, restores the previous successful notification state, and submits only additions, modifications and removals. The public verification key is a proof file, not an account credential.
+
+The first run (or a lost/evicted Actions cache) establishes a baseline without resubmitting the whole site. Subsequent successful runs compare against it. A failed submission leaves the old state for a later retry; the already-published Pages deployment is not rolled back. A 200/202 response confirms receipt only. Workflow concurrency prevents overlapping deployments from racing the stored baseline. Notification changes do not replace Google sitemaps or Search Console.
+
+To inspect a proposed notification without sending it:
+
+```sh
+node scripts/submit-indexnow.mjs manifest /tmp/indexnow-current.json
+node scripts/submit-indexnow.mjs submit /tmp/indexnow-current.json /tmp/indexnow-previous.json --dry-run
+```
+
+Private Bing and Search Console reports require an authenticated owner session; the existing Chrome sessions were accessible during this implementation. Compare coverage and impressions weekly for four weeks after deployment; investigate persistent failures using Live URL and Bing support. Neither local validation nor IndexNow proves that a page was indexed.

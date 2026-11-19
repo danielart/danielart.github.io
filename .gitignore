@@ -32,3 +32,6 @@ test-results/
 
 # Jules AI agent memory
 .jules/
+# IndexNow deployment state
+indexnow-current.json
+indexnow-state/

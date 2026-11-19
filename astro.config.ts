@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { withArticleLastmod } from "./scripts/sitemap";
 import { defineConfig, envField, fontProviders } from "astro/config";
 import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
@@ -21,9 +23,19 @@ export default defineConfig({
   redirects: postRedirects,
   integrations: [
     sitemap({
+      serialize: item => {
+        const pathname = decodeURIComponent(new URL(item.url).pathname);
+        const file = new URL(`./dist${pathname}index.html`, import.meta.url);
+        return withArticleLastmod(item, readFileSync(file, "utf8"));
+      },
       filter: page => {
         const pathname = decodeURIComponent(new URL(page).pathname);
-        if (Object.hasOwn(postRedirects, pathname)) return false;
+        if (
+          Object.hasOwn(postRedirects, pathname) ||
+          pathname === "/search/" ||
+          pathname === "/404.html"
+        )
+          return false;
         const isDuplicateEnglishCollection = /^\/posts\/en(?:\/\d+)?\/?$/.test(
           pathname
         );

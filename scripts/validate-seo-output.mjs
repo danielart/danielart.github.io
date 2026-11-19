@@ -162,6 +162,8 @@ for (const filePath of walk(distRoot).filter(file => file.endsWith(".html"))) {
     description,
     alternates,
     article: Boolean(article),
+    lastmod: article?.dateModified ?? article?.datePublished,
+    noindex: /<meta name="robots" content="[^"]*noindex/i.test(html),
   });
 }
 
@@ -223,6 +225,28 @@ if (
   )
 ) {
   fail("sitemap: contains a duplicate English collection URL");
+}
+
+const sitemapEntries = [...sitemap.matchAll(/<url>(.*?)<\/url>/gs)].map(
+  match => ({
+    url: decodeHtml(capture(match[1], /<loc>(.*?)<\/loc>/s)),
+    lastmod: capture(match[1], /<lastmod>(.*?)<\/lastmod>/s),
+  })
+);
+for (const entry of sitemapEntries) {
+  const page = pages.get(entry.url);
+  if (!page || page.noindex || page.canonical !== entry.url) {
+    fail(`${entry.url}: sitemap entry is not an indexable canonical page`);
+  }
+  if (page?.article && entry.lastmod !== new Date(page.lastmod).toISOString()) {
+    fail(`${entry.url}: sitemap lastmod differs from article metadata`);
+  }
+}
+if (!pages.get(`${siteOrigin}/search/`)?.noindex)
+  fail("search: missing noindex");
+for (const [url, page] of pages) {
+  if (page.article && page.noindex)
+    fail(`${url}: published article must remain indexable`);
 }
 
 for (const { source, url } of articleLinks) {
