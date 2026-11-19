@@ -79,7 +79,13 @@ test("notification checks the public key and surfaces throttling without retryin
   const payload = createPayload([
     "https://danielart.github.io/posts/en/example/",
   ]);
-  const fetcher = async (url: string) => {
+  const fetcher: typeof fetch = async input => {
+    const url =
+      typeof input === "string"
+        ? input
+        : input instanceof URL
+          ? input.href
+          : input.url;
     requests.push(url);
     if (url === payload.keyLocation) return new Response(payload.key);
     return new Response("throttled", { status: 429 });
