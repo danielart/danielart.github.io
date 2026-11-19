@@ -1,6 +1,6 @@
 # Bing y Google: implementación
 
-Actualizado el 17 de noviembre de 2026. Continúa el plan aprobado en el chat del 8 de noviembre; los antiguos archivos tasks/plan.md y tasks/todo.md no estaban en este checkout.
+Actualizado el 19 de noviembre de 2026. Continúa el plan aprobado en el chat del 8 de noviembre; los antiguos archivos tasks/plan.md y tasks/todo.md no estaban en este checkout.
 
 ## Decisiones y alcance
 
@@ -28,3 +28,11 @@ Se accedió a las sesiones existentes de Chrome. Bing muestra la URL canónica c
 Tras publicar, consultar la URL canónica inglesa, el alias, versión española, /search/, robots y sitemap. Enviar sitemap-index.xml a ambos paneles e inspeccionar el artículo canónico. Comparar semanalmente cuatro semanas rastreo, cobertura e impresiones, sin prometer un plazo de indexación. Si Live URL es correcto y Bing no aporta causa concreta, abrir soporte con las pruebas y fechas.
 
 Fuentes oficiales: [sitemaps de Google](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap), [redirecciones](https://developers.google.com/search/docs/crawling-indexing/301-redirects), [idiomas](https://developers.google.com/search/docs/specialty/international/localized-versions), [Astro sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/), [IndexNow](https://www.indexnow.org/documentation), [artifacts](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them), [compartir artifacts](https://support.claude.com/en/articles/9547008-share-artifacts).
+
+## Resultado de publicación, 19 de noviembre
+
+[GitHub Actions 44523933046](https://github.com/danielart/danielart.github.io/actions/runs/44523933046) completó build, validación SEO/enlaces, deploy y guardado de referencia IndexNow. El primer intento se detuvo antes de publicar por la firma demasiado estrecha de un fetch simulado; se corrigió usando typeof fetch, sin suprimir checks. Commit publicado: f0f51b0, sobre 243ae60.
+
+Verificación pública: 91 URLs en sitemap-0.xml y 45 lastmod de artículos; /search/ excluida y con noindex,follow; artículo inglés actualizado e indexable; clave pública existente correcta. IndexNow aceptó los dos artículos revisados con HTTP 200. Google confirmó el reenvío del sitemap y la solicitud de indexación; Bing muestra el sitemap en Processing y «Indexing requested» para el artículo. No confundir esas confirmaciones con indexación conseguida.
+
+Google no registra acciones manuales ni problemas de seguridad. Su error histórico «No se ha podido obtener» del sitemap permanece visible después del reenvío; comprobar una lectura posterior antes de declararlo resuelto. La revisión de cobertura, canonical elegido y evolución semanal requiere esperar los nuevos rastreos; no existe promesa de inclusión ni de plazo.

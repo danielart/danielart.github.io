@@ -14,10 +14,12 @@
 
 ## Publicación y servicios externos
 
-- [ ] Publicar los cambios revisados y verificar la ejecución de GitHub Actions.
-- [ ] Comprobar en producción search/noindex, sitemap/lastmod, canonical, alias y clave IndexNow.
-- [ ] Verificar recepción real en IndexNow cuando haya cambios frente a la referencia; primera ejecución solo inicializa estado.
-- [ ] Bing Webmaster Tools: Live URL, sitemap, Site Explorer y avisos. Sesión existente accesible; pendiente completar comprobaciones tras publicar.
-- [ ] Search Console: inspección, canonical elegido, cobertura, seguridad y acciones manuales. Sesión existente accesible; pendiente completar comprobaciones tras publicar.
-- [ ] Enviar sitemap a ambos paneles y solicitar indexación del artículo canónico, sin retiradas de las URLs históricas.
+- [x] Publicar los cambios revisados y verificar GitHub Actions: ejecución 44523933046 correcta, commit f0f51b0.
+- [x] Comprobar en producción search/noindex, sitemap/lastmod, canonical, alias y clave IndexNow: 91 URLs y 45 artículos con lastmod.
+- [x] Verificar IndexNow: Actions inicializa y guarda la referencia; envío acotado de los artículos en/es aceptado con HTTP 200 el 19 de noviembre.
+- [x] Bing Webmaster Tools: Live URL permite indexar, sin problemas SEO/GEO observados; sitemap reenviado el 19 de noviembre y solicitud de indexación confirmada.
+- [ ] Seguimiento de Site Explorer y cobertura después del nuevo rastreo.
+- [x] Search Console: prueba en vivo permite indexar; no hay acciones manuales ni problemas de seguridad. Artículo aún desconocido para el índice; canonical elegido no disponible.
+- [ ] Verificar nueva lectura correcta del sitemap de Google: reenvío aceptado, pero el panel todavía conserva «No se ha podido obtener».
+- [x] Enviar sitemap a ambos paneles y solicitar indexación del artículo canónico: ambos confirman la solicitud, sin retiradas de URLs históricas.
 - [ ] Seguimiento semanal durante cuatro semanas y soporte de Bing si persiste sin explicación.
